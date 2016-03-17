@@ -6,9 +6,12 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Validator;
 use Mail;
+use Auth;
+use Session;
 
 class HomeController extends Controller
 {
+    private $lang_avaliable = ['pt-br', 'en'];
 
     /**
      * Página inicial do projeto
@@ -16,6 +19,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        if(Auth::check()){
+            return redirect('/game');
+        }
+
         return view('project.home');
     }
 
@@ -25,7 +32,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function sobre() {
-        return view('project.sobre');
+        return view('project.about');
     }
 
     /**
@@ -34,7 +41,45 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function contato() {
-        return view('project.contato');
+        return view('project.contact');
+    }
+
+    /**
+     * Página de termos de uso
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function termos() {
+        return "Termos de Uso";
+    }
+
+    /**
+     * Página de política de privacidade
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function politica() {
+        return "Política de Privacidade";
+    }
+
+    /**
+     * Muda para inglês o aplicativo
+     *
+     * @param string lang
+     * @return \Illuminate\Http\Response
+     */
+    public function change_language($lang = 'en') {
+        if(in_array($lang, $this->lang_avaliable)){
+            Session::put('language', $lang);
+            
+            if(Auth::check()){
+                // mudar user_settings
+            }
+
+        } else {
+            exit('Essa linguagem não é suportada.');
+        }
+        return redirect('/');
     }
 
     /**

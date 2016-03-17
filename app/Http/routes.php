@@ -18,10 +18,19 @@ Route::group(['middleware' => ['web']], function () {
 	// website-projeto
 	Route::get('/', 'HomeController@index');
 	Route::get('/sobre', 'HomeController@sobre');
+	Route::get('/equipe', 'HomeController@equipe');
 	Route::get('/contato', 'HomeController@contato');
 	Route::post('/contato', 'HomeController@enviar_contato');
+	Route::get('/lang/{lang}', 'HomeController@change_language');
+
+	// implements
+	Route::get('/termos', 'HomeController@termos');
+	Route::get('/politica', 'HomeController@politica');
 
 	// website-game
+	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
+		Route::get('/', 'GameController@index');
+	});
 
 	// social login
 	Route::get('/login/{provider}', 'SocialLoginController@login');

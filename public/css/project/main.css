@@ -4,28 +4,35 @@
  * @author Eduardo Augusto Ramos
  * @version 1.0.0
  */
-html {
-
-}
-
-* {
+html, body, h1, h2, h3, h4, h5, h6, a {
 	font-family: 'Roboto', sans-serif !important;
 }
 
+
 .home-section {
-	padding-top: 100px;
-	background: url('../../img/home-section2.jpg') no-repeat top center /cover;
-	min-height: 400px;
+	padding-top: 200px;
+	background: url('../../img/home-section4.jpg') no-repeat center bottom;
+	min-height: 450px;
 }
 
-.home-section h1, .home-section h3 {
-		color: #fff
+.home-section h1, .home-section p {
+	color: #000
 }
+
+.footer {
+	background: #252525;
+	padding: 50px 0;
+}
+
+.footer a, .footer p {
+	color: #fff;
+}
+
 
 .uk-navbar {
     padding: 15px 0;
     border: none;
-    background: #000;
+    background: #252525;
     position: fixed;
     width: 100%;
 }
