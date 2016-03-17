@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->integer('provider_user_id')->unique()->nullable();
             $table->smallInteger('provider_id')->nullable(); // 1 = facebook, 2 = google
             $table->smallInteger('type')->deafult(1); // (1 = normal / 2 = game master / 3 = admin)
-            $table->smmalInteger('gender'); // 1 = male, 2 = female
+            $table->smallInteger('gender'); // 1 = male, 2 = female
             $table->mediumInteger('level')->default(1);
             $table->integer('xp')->default(0);
             $table->integer('money')->default(0);
@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->boolean('confirmed')->default(false);
             $table->string('confirm_code')->unique()->nullable();
             $table->rememberToken();
-            $table->timestamps('created_at');
+            $table->timestamps();
         });
     }
 
