@@ -40,6 +40,7 @@
          </div>
       </div>
       @yield('content')
+      @yield('footer')
       <script src="{{ URL('/vendor/jquery/jquery-2.2.1.min.js') }}"></script>
       <script src="{{ URL('/vendor/uikit/js/uikit.min.js') }}"></script>
       @yield('javascript')

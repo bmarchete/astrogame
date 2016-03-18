@@ -28,3 +28,19 @@ body {
 	width: 150px;
 	cursor: pointer
 }
+
+#player-bar h2 {
+	color: #fff;
+}
+
+.button-player-bar {
+	position: fixed;
+	bottom: 0;
+}
+
+.button-suggestion {
+	position: fixed;
+	right: -35px;
+	top: 70px;
+	transform: rotate(-90deg);
+}
