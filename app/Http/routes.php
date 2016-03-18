@@ -22,6 +22,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/contato', 'HomeController@contato');
 	Route::post('/contato', 'HomeController@enviar_contato');
 	Route::get('/lang/{lang}', 'HomeController@change_language');
+	Route::post('/bug', 'BugController@store');
 
 	// implements
 	Route::get('/termos', 'HomeController@termos');

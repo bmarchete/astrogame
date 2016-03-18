@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersQuestsTable extends Migration
+class CreateBugsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,11 @@ class CreateUsersQuestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_quests', function (Blueprint $table) {
+        Schema::create('bugs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quest_id')->unsigned();
-            $table->foreign('quest_id')->references('id')->on('quests');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->boolean('completed')->default(false);
+            $table->text('text');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateUsersQuestsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users_quests');
+        Schema::drop('bugs');
     }
 }

@@ -3,6 +3,7 @@
 return [
 	
 	// home
+	'project-name' => 'Cosmos Game',
 	'title' => 'The Cosmos Game', 
 
 	'navbar' => [

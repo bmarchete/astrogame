@@ -10,13 +10,14 @@ Tutorial | Game
 @stop
 
 @section('javascript')
+<script src="{{ URL('/vendor/jquery/ajaxform.min.js') }}"></script>
 <script src="{{ URL('/vendor/uikit/js/components/notify.min.js') }}"></script>
 <script src="{{ URL('/vendor/uikit/js/components/tooltip.min.js') }}"></script>
 <script src="{{ URL('/vendor/buzz/buzz.min.js') }}"></script>
 <script>
 	$(document).ready(function(){
 		UIkit.notify({
-		    message : 'Bem vindo ao Cosmos Game!',
+		    message : 'Bem vindo ao {{ trans('project.project-name') }}!',
 		    status  : 'info',
 		    timeout : 3000,
 		    pos     : 'top-right'
@@ -39,6 +40,21 @@ Tutorial | Game
     		var volume=$(this).val();
     		console.log("Sound effects volume set to: " + volume + "%");
   		});
+
+
+  		$('#bug-report').ajaxForm({
+		       type: "POST",
+		       dataType: 'JSON',
+		       success: function(data) {
+		       	   if (data.status){
+		       	   	    var modal = UIkit.modal("#bug-report-modal");
+		           	    modal.hide();
+		           	    UIkit.notify(data.text, {status:'success'});
+		       	   } else {
+		       	   		UIkit.notify("<i class='uk-icon-close'></i> " + data.text, {status:'danger'});
+		       	   }	
+		       } 
+		   });
 	});
 
 	// music background
