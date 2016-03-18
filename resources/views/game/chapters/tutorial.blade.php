@@ -28,16 +28,23 @@ Tutorial | Game
 		    timeout : 5000,
 		    pos     : 'top-right'
 		});
+
+		$("#volume-music").change(function(){
+    		var volume=$(this).val();
+    		console.log("Music volume set to: " + volume + "%");
+    		music_background.setVolume(volume);
+  		});
+
+		$("#volume-sound").change(function(){
+    		var volume=$(this).val();
+    		console.log("Sound effects volume set to: " + volume + "%");
+  		});
 	});
 
-	// sounds
-	var background = new buzz.sound("sounds/music/bg.mp3", {preload: true, loop: true});
-	background.play().loop();
+	// music background
+	var music_background = new buzz.sound("sounds/music/bg.mp3", {preload: true, loop: true});
+	music_background.play().loop();
 
-	$("#volume-music").click(function(value) {
-		value = $("#volume-music").val();
-		console.log(value);
-	});
 </script>
 @stop
 

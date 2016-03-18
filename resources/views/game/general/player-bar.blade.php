@@ -38,7 +38,7 @@
                 <div class="uk-form-controls">
                     <label class="uk-form-label" for="enable-sound">
                     	<i class="uk-icon-volume-off"></i>
-                    	<input id="volume-sound" type="range" min="0" max="100" value="50"> <i class="uk-icon-volume-up"></i> {{ trans('game.volume-sound') }}
+                    	<input id="volume-sound" type="range" min="0" max="100" value="100"> <i class="uk-icon-volume-up"></i> {{ trans('game.volume-sound') }}
                     </label>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 <div class="uk-form-controls">
                     <label class="uk-form-label" for="enable-music">
                     	<i class="uk-icon-volume-off"></i>
-                    	<input id="volume-music" type="range" min="0" max="100" value="25"> <i class="uk-icon-music"></i> {{ trans('game.volume-music') }}
+                    	<input id="volume-music" type="range" min="0" max="100" value="100"> <i class="uk-icon-music"></i> {{ trans('game.volume-music') }}
                     </label>
                 </div>
             </div>
