@@ -5,13 +5,15 @@
  * @version 1.0.0
  */
 html, body, h1, h2, h3, h4, h5, h6, a {
-	font-family: 'Roboto', sans-serif !important;
+	font-family: 'Roboto', sans-serif;
 }
 
-
+.contact-section {
+    padding-top: 160px
+}
 .home-section {
 	padding-top: 200px;
-	background: url('../../img/home-section4.jpg') no-repeat center bottom;
+	background: url('../../img/home-section4.jpg') no-repeat center bottom /cover;
 	min-height: 450px;
 }
 
@@ -35,6 +37,7 @@ html, body, h1, h2, h3, h4, h5, h6, a {
     background: #252525;
     position: fixed;
     width: 100%;
+    z-index: 99;
 }
 
 .uk-navbar .uk-navbar-content,
@@ -54,6 +57,7 @@ html, body, h1, h2, h3, h4, h5, h6, a {
     font-size: 15px;
     color: #fff;
     transition: 0.4s all ease;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 .uk-navbar .uk-navbar-nav > li { margin-left: 20px }

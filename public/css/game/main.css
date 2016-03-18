@@ -1,0 +1,30 @@
+/*
+ * Cosmos Game - main game style
+ *
+ * @author Eduardo Augusto Ramos
+ * @version 1.0.0
+ */
+html {
+	background: #000;
+}
+body {
+	background: url('../../img/bg.jpg') no-repeat center center /cover;
+	min-height: 900px;
+}
+
+#player-bar {
+	position: fixed;
+	width: 100%;
+	background: #0E0F15;
+	color: #fff;
+	bottom: 0;
+}
+
+#player-bar .uk-close {
+	color: #333;
+}
+
+#player-bar figure {
+	width: 150px;
+	cursor: pointer
+}
