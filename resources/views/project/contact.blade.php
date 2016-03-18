@@ -1,5 +1,7 @@
-@section('title')
-Contato
+@extends('project.general')
+
+@section('title') 
+Contato 
 @stop
 @section('content')
 <div class="uk-container uk-container-center contact-section">
@@ -61,5 +63,3 @@ Contato
    <hr class="uk-grid-divider">
 </div>
 @stop
-@include('project.header')
-@include('project.footer')

@@ -5,9 +5,9 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>@yield('title')</title>
-      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="{{ URL('/vendor/uikit/css/uikit.almost-flat.css') }}">
-      <link rel="stylesheet" href="{{ URL('/css/project/main.css') }}">
+      {!! Minify::stylesheet(['https://fonts.googleapis.com/css?family=Roboto',
+                              '/vendor/uikit/css/uikit.almost-flat.css',
+                              '/css/project/main.css']) !!}
       @yield('style')
    </head>
    <body>
@@ -40,9 +40,9 @@
          </div>
       </div>
       @yield('content')
-      @yield('footer')
-      <script src="{{ URL('/vendor/jquery/jquery-2.2.1.min.js') }}"></script>
-      <script src="{{ URL('/vendor/uikit/js/uikit.min.js') }}"></script>
+      @include('project.footer')
+      {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js',
+                              '/vendor/uikit/js/uikit.min.js']) !!}
       @yield('javascript')
    </body>
 </html>

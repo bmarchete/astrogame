@@ -1,6 +1,5 @@
-@section('title')
-{{ trans('project.title') }}
-@stop
+@extends('project.general')
+@section('title') {{ trans('project.title') }} @stop
 
 @section('javascript')
 
@@ -224,5 +223,3 @@
     </div>
 </div>
 @stop
-@include('project.header')
-@include('project.footer')

@@ -1,19 +1,20 @@
+@extends('game.general.general')
 @section('title')
 Tutorial | Game
 @stop
 
 @section('style')
-<link rel="stylesheet" href="{{ URL('/css/game/main.css') }}">
-<link rel="stylesheet" href="{{ URL('/vendor/uikit/css/components/notify.css') }}">
-<link rel="stylesheet" href="{{ URL('/vendor/uikit/css/components/progress.gradient.css') }}">
-<link rel="stylesheet" href="{{ URL('/vendor/uikit/css/components/tooltip.css') }}">
+{!! Minify::stylesheet(['/css/game/main.css', 
+						'/vendor/uikit/css/components/notify.gradient.css',
+						'/vendor/uikit/css/components/progress.gradient.css', 
+						'/vendor/uikit/css/components/tooltip.css'])->withFullUrl() !!}
 @stop
 
 @section('javascript')
-<script src="{{ URL('/vendor/jquery/ajaxform.min.js') }}"></script>
-<script src="{{ URL('/vendor/uikit/js/components/notify.min.js') }}"></script>
-<script src="{{ URL('/vendor/uikit/js/components/tooltip.min.js') }}"></script>
-<script src="{{ URL('/vendor/buzz/buzz.min.js') }}"></script>
+{!! Minify::javascript(['/vendor/jquery/ajaxform.min.js', 
+						'/vendor/uikit/js/components/notify.min.js',
+						'/vendor/uikit/js/components/tooltip.min.js', 
+						'/vendor/buzz/buzz.min.js'])->withFullUrl() !!}
 <script>
 	$(document).ready(function(){
 		UIkit.notify({
@@ -67,7 +68,3 @@ Tutorial | Game
 @section('content')
 
 @stop
-
-@include('game.general.header')
-@include('game.general.player-bar')
-@include('game.general.footer')
