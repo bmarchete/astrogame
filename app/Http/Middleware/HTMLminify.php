@@ -15,6 +15,10 @@ class HTMLminify
      */
     public function handle($request, Closure $next) 
     {
+        if(env('APP_ENV') == 'local'){
+            return $next($request);
+        }
+
 		$response = $next($request);
         $content = $response->getContent();
 
