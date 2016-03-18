@@ -7,7 +7,7 @@
       <title>@yield('title')</title>
       {!! Minify::stylesheet(['https://fonts.googleapis.com/css?family=Roboto',
                               '/vendor/uikit/css/uikit.almost-flat.css',
-                              '/css/project/main.css']) !!}
+                              '/css/project/main.css'])->withFullUrl() !!}
       @yield('style')
    </head>
    <body>
@@ -42,7 +42,7 @@
       @yield('content')
       @include('project.footer')
       {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js',
-                              '/vendor/uikit/js/uikit.min.js']) !!}
+                              '/vendor/uikit/js/uikit.min.js'])->withFullUrl() !!}
       @yield('javascript')
    </body>
 </html>

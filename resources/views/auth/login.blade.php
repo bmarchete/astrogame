@@ -1,11 +1,12 @@
+@extends('project.general')
 @section('title')
-{{ trans('project.login') }} | Cosmos Game
+{{ trans('project.login') }} | {{ trans('project.project-name') }}
 @stop
 
 @section('content')
 <div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
    <div class="uk-vertical-align-middle" style="width: 250px;">
-      <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="Cosmos Game">
+      <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="{{ trans('project.project-name') }}">
       <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/login') }}">
          {!! csrf_field() !!}
          @if ($errors->has('email') || $errors->has('password'))
@@ -35,5 +36,3 @@
    </div>
 </div>
 @endsection
-@include('project.footer')
-@include('project.header')
