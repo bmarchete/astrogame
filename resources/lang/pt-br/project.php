@@ -2,6 +2,7 @@
 
 return [
 	
+	// home
 	'title' => 'The Cosmos Game', 
 
 	'navbar' => [
@@ -11,7 +12,7 @@ return [
 		'contato' => 'Contato'
 	],
 
-	'home-title' => 'COSMOS GAME',
+	'home-title' => 'GALAXY RUN',
 	'home-description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh lectus, congue sit amet fermentum nec, gravida non diam. Duis tincidunt risus mauris, sit',
 
 	'login' => 'Logar',
@@ -21,6 +22,14 @@ return [
 	'senha' => 'Senha',
 	'submit' => 'Entrar',
 
-	'remember' => 'Lembrar-me'
+	'remember' => 'Lembrar-me',
+
+	// contato
+	'contato-title' => 'Entre em contato conosco',
+	'your-name' => 'Seu nome',
+	'your-email' => 'Seu email',
+	'your-message' => 'Sua mensagem',
+	'enviar' => 'Enviar',
+
 
 ];

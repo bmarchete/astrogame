@@ -1,5 +1,7 @@
 <?php
 
+// lang: en
+
 return [
 	
 	'title' => 'The Cosmos Game', 
@@ -21,6 +23,13 @@ return [
 	'senha' => 'Password',
 	'submit' => 'Entrar',
 
-	'remember' => 'Remember me'
+	'remember' => 'Remember me',
+
+	// contato
+	'contato-title' => 'Entre em contato conosco',
+	'your-name' => 'Your name',
+	'your-email' => 'Your email',
+	'your-message' => 'Your message',
+	'enviar' => 'Submit',
 
 ];

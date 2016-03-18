@@ -11,7 +11,7 @@ use Session;
 
 class HomeController extends Controller
 {
-    private $lang_avaliable = ['pt-br', 'en'];
+    public $lang_avaliable = ['pt-br', 'en'];
 
     /**
      * Página inicial do projeto
@@ -50,7 +50,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function termos() {
-        return "Termos de Uso";
+        return view('project.termos');
     }
 
     /**
@@ -59,7 +59,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function politica() {
-        return "Política de Privacidade";
+        return view('project.politica');
     }
 
     /**

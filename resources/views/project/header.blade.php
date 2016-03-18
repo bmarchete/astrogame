@@ -34,7 +34,7 @@
                <li><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
                <li><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
                <li class="uk-nav-divider"></li>
-               <li><a href="{{ URL('/termos') }}">{{ trans('project.termos') }}</a></li>
+               <li><a href="{{ URL('/termos') }}">Termos de uso {{ trans('project.termos') }}</a></li>
                <li><a href="{{ URL('/politica') }}">{{ trans('project.politica') }}</a></li>
             </ul>
          </div>
