@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<div class="home-section" >
+<div class="home-section">
    <div class="uk-grid" data-uk-grid-margin>
       <div class="uk-width-medium-1-1">
          <div class="uk-vertical-align uk-text-center">

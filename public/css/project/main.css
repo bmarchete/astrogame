@@ -11,6 +11,13 @@ html, body, h1, h2, h3, h4, h5, h6, a {
 .contact-section {
     padding-top: 160px
 }
+
+.login-section {
+    padding-top: 200px;
+    background: url('../../img/home-section3.jpg') no-repeat center top /cover; 
+        min-height: 650px;
+}
+
 .home-section {
 	padding-top: 200px;
 	background: url('../../img/home-section4.jpg') no-repeat center bottom /cover;

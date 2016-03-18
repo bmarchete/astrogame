@@ -1,66 +1,35 @@
-@extends('layouts.app')
-
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {!! csrf_field() !!}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
+   <div class="uk-vertical-align-middle" style="width: 250px;">
+      <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="Cosmos Game">
+      <form class="uk-panel uk-panel-box uk-form" role="form" method="POST" action="{{ url('/login') }}">
+         {!! csrf_field() !!}
+         @if ($errors->has('email') || $errors->has('password'))
+         <div class="uk-alert uk-alert-danger" data-uk-alert>
+            <a href="#" class="uk-alert-close uk-close"></a>
+            <p>{{ $errors->first('email') }}</p>
+         </div>
+         @endif
+         <div class="uk-form-row">
+            <input class="uk-width-1-1 uk-form-large" type="email" name="email" value="{{ old('email') }}" placeholder="{{ trans('project.email') }}" required>
+         </div>
+         <div class="uk-form-row">
+            <input class="uk-width-1-1 uk-form-large" type="password" name="password" placeholder="{{ trans('project.password') }}" required>
+         </div>
+         <div class="uk-form-row uk-text-small">
+            <label class="uk-float-left"><input type="checkbox" name="remember" checked> {{ trans('project.remember')}}</label>
+            <a class="uk-float-right uk-link uk-link-muted" href="{{ url('/password/reset') }}">{{ trans('project.forget-password')}}</a>
+         </div>
+         <div class="uk-form-row">
+            <button type="submit" class="uk-width-1-3 uk-button uk-button-danger uk-button-large">{{ trans('project.submit') }}</button>
+            <a class="uk-width-2-4 uk-button uk-button-primary uk-button-large" href="{{ URL('/login/facebook') }}">Facebook</a>
+         </div>
+         <div class="uk-form-row">
+            <a href="{{ URL('/register') }}" class="uk-button uk-width-1-1 uk-button-success uk-button-large">{{ trans('project.register')}}</a>
+         </div>
+      </form>
+   </div>
 </div>
 @endsection
+@include('project.header')
+@include('project.footer')

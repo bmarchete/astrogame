@@ -23,6 +23,7 @@ return [
 	'submit' => 'Entrar',
 
 	'remember' => 'Lembrar-me',
+	'forget-password' => "Esqueceu a senha?",
 
 	// contato
 	'contato-title' => 'Entre em contato conosco',
@@ -30,6 +31,11 @@ return [
 	'your-email' => 'Seu email',
 	'your-message' => 'Sua mensagem',
 	'enviar' => 'Enviar',
+
+	// login
+	'email' => 'Email',
+	'password' => 'Senha',
+	'register' => 'Criar Conta',
 
 
 ];
