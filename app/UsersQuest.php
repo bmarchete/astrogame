@@ -7,16 +7,6 @@ use Auth;
 
 class UsersQuest extends Model
 {
-    public static function lists_quests_accepted(){
-    	$user_id = Auth::user()->id;
-    	return UsersQuest::select('quest_id')->where('user_id', $user_id)->get();
-    }
-
-    public static function lists_quests_completed(){
-    	$user_id = Auth::user()->id;
-    	return UsersQuest::select('quest_id')->where('completed', true)->where('user_id', $user_id)->get();	
-    }
-
     public static function accept_quest($quest_id){
     	$user_id = Auth::user()->id;
     	$check_quest = UsersQuest::select('quest_id')->where('quest_id', $quest_id)->where('user_id', $user_id)->limit(1)->get()->first();

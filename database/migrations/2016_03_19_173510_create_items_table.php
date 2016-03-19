@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->integer('price')->default(1);
             $table->string('description', 255);
             $table->integer('min_level')->default(1);
+            $table->string('img_url')->nullable();
         });
     }
 

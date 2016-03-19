@@ -1,5 +1,8 @@
 @section('javascript2')
 <script>
+function change_xp(xp){
+    $(".uk-progress-bar").css('width', xp);
+}
     $(document).ready(function(){
         $("#volume-music").change(function(){
             var volume=$(this).val();
@@ -243,6 +246,24 @@
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ \Auth::user()->money }}</li>  
                 </ul>
             </div>
+
+            <div class="uk-width-1-1 uk-width-large-2-4 uk-text-center">
+
+                <div class="uk-panel uk-panel-box uk-panel-box-primary">
+                    <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> Mochila</h3>
+                    <ul class="uk-list bag">
+                        @foreach(\App\UserBag::bag() as $item)
+                        <li>
+                            <span class="uk-badge uk-badge-warning">{{ $item->amount}}</span>
+                            <figure class="uk-thumbnail">
+                                <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
+                            </figure>
+                        </li>   
+                        @endforeach
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
@@ -301,7 +322,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (\App\Quest::avaliable_quests() as $quest)
+                @foreach (\App\Quest::accepted_quests() as $quest)
                 <tr>
                     <td>{{ $quest->title }}</td>
                     <td>{{ $quest->type }}</td>

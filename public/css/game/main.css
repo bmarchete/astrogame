@@ -96,6 +96,19 @@ body {
 	margin-bottom: -70px;
 }
 
+.bag li {
+	display: inline-block;
+}
+
+.bag figure {
+	width: 60px; 
+	background: #EAEAEA
+}
+
+.bag .uk-badge {
+	position: absolute;
+}
+
 #big-bang {
 	font-size: 50px;
 	padding: 30px;
