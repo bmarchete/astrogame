@@ -33,6 +33,25 @@ body {
 	color: #fff;
 }
 
+#player-bar .uk-close {
+	font-size: 26px;
+	width: 30px;
+	line-height: 30px;
+	margin-top: -3px
+}
+
+#player-bar .volume {
+	padding: 6px;
+	font-size: 26px;
+	color: #333;
+}
+
+#player-bar .logout {
+	padding: 6px;
+	font-size: 26px;
+	color: #333;
+}
+
 .button-player-bar {
 	position: fixed;
 	bottom: 0;

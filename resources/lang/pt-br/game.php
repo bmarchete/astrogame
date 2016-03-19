@@ -16,6 +16,13 @@ return [
 	'quests' => 'Missões',
 	'exploration' => 'Exploração',
 	'campaign' => 'Campanha',
+	'events' => 'Eventos',
+	'observatory' => 'Observatório',
+	'shop' => 'Loja',
+
+	'suggestions' => 'Sugestões',
+	'logout' => 'Sair',
+
 
 
 	// bug report
