@@ -36,7 +36,7 @@
     });
 
     // music background
-    var music_background = new buzz.sound("sounds/music/bg.mp3", {preload: true, loop: true});
+    var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: true});
     music_background.play().loop();
 
 </script>
@@ -44,7 +44,7 @@
 <button class="uk-button uk-button-success button-player-bar" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}">Menu do jogador</button>
 <button class="uk-button uk-button-danger button-suggestion" data-uk-modal="{target:'#bug-report-modal'}">{{ trans('game.suggestions')}}</button>
 
-<div id="player-bar">
+<div id="player-bar" class="uk-hidden">
 	<div class="uk-grid uk-container uk-container-center uk-text-center uk-margin-top uk-margin-bottom">
 		<div class="uk-width-5-10 uk-width-large-2-10">
 			<button class="uk-close uk-close-alt" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}"></button>
@@ -60,7 +60,7 @@
 
         <div class="uk-width-1-2 uk-width-large-2-10 uk-margin-top">
             <figure data-uk-modal="{target:'#player-modal'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-                <img src="img/avatar.png" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
+                <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
             </figure>
         </div>
 
@@ -74,10 +74,10 @@
 
 		<div class="uk-width-large-5-10 uk-hidden-small uk-hidden-medium">
     		<div class="uk-button-group">
-    		    <a href="{{ URL('/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
-    		    <a href="{{ URL('/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
+    		    <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
+    		    <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
                 <button data-uk-modal="{target:'#calendar'}" class="uk-button"><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
-                <button class="uk-button uk-button-primary" @if (\Auth::user()->level < 5) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 5) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 5) </span> @endif</button>
+                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" @if (\Auth::user()->level < 0) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 0) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 0) </span> @endif</a>
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
                 <button class="uk-button uk-button-success"><i class="uk-icon-search-plus"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">2</span> </button>
     		</div>
@@ -85,8 +85,8 @@
 
         <div class="uk-hidden-large uk-width-1-1 uk-margin-top">
             <div class="uk-button-group">
-                <a href="{{ URL('/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
-                <a href="{{ URL('/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
+                <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
+                <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
             </div>
         </div>
 
@@ -94,7 +94,7 @@
         <div class="uk-hidden-large uk-width-1-1 uk-margin-top">
             <div class="uk-button-group">
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-success"><i class="uk-icon-shopping-cart"></i> Loja </button>
-                <button class="uk-button uk-button-primary"><i class="uk-icon-search"></i> Observatório</button>    
+                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" @if (\Auth::user()->level < 0) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 0) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 0) </span> @endif</a>
             </div>
         </div>
 
@@ -214,7 +214,7 @@
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-2-4">            
                 <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
-                    <img src="img/avatar.png" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
+                    <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
                 </figure>
             </div>
 

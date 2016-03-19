@@ -14,7 +14,7 @@
                <h1 class="uk-heading-large">{{ trans('project.home-title') }}</h1>
                <p class="uk-text-large uk-hidden-small">{{ trans('project.home-description') }}</p>
                <p>
-                  <a class="uk-button uk-button-primary uk-button-large" href="#login" data-uk-modal="{target:'#login'}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a>
+                  <a class="uk-button uk-button-primary uk-button-large" href="{{ URL('/login') }}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a>
                   <a class="uk-button uk-button-large" href="{{ URL('/register') }}"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a>
                </p>
             </div>

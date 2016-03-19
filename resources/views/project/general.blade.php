@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>@yield('title')</title>
       {!! Minify::stylesheet(['https://fonts.googleapis.com/css?family=Roboto',
-                              '/vendor/uikit/css/uikit.almost-flat.css',
+                              '/vendor/uikit/css/uikit.gradient.css',
                               '/css/project/main.css'])->withFullUrl() !!}
       @yield('style')
    </head>
