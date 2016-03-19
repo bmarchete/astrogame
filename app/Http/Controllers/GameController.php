@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use User;
 use App\UserConfig;
+use App\UsersQuest;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
@@ -27,6 +28,21 @@ class GameController extends Controller
 
     public function observatory() {
     	return view('game.general.observatory');
+    }
+
+    // quests
+    public function quest_accept(Request $request){
+        $quest_id = $request->id;
+        $status = (UsersQuest::accept_quest($quest_id)) ? true : false;
+
+        return response()->json(['accepted' => $status]);
+    }
+
+    public function quest_cancel(Request $request){
+        $quest_id = $request->id;
+        $status = (UsersQuest::cancel_quest($quest_id)) ? true : false;
+
+        return response()->json(['canceled' => $status]);
     }
 
     public function change_volume_music(Request $request){

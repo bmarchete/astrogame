@@ -32,7 +32,16 @@ Route::group(['middleware' => ['web']], function () {
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
 		Route::get('/', 'GameController@index');
 		Route::get('/observatory', 'GameController@observatory');
+		
+		// quests
+		Route::get('/quest_accept/{id}', 'GameController@quest_accept');
+		Route::get('/quest_cancel/{id}', 'GameController@quest_cancel');
+		
+
+		// general
 		Route::get('/music/{volume}', 'GameController@change_volume_music')->where('volume', '[0-9-]+');
+		Route::get('/effects/{volume}', 'GameController@change_volume_effects')->where('volume', '[0-9-]+');
+
 	});
 
 	// social login

@@ -38,10 +38,26 @@
             url = '{{ URL('/lang/')}}/' + lang;
             window.location.href = url;
         });
+
+        $(".accept-quest").click(function(){
+            var quest_id = $(this).val();
+            $(this).prop('disabled', true);
+            $.ajax({
+                 url: '{{ url('/game/quest_accept')}}/' + quest_id,
+                 dataType: "json",
+                 success: function(data){ //Se ocorrer tudo certo
+                    if(data.accepted){
+                        UIkit.notify('Quest aceita!', {status:'success'});
+                    } else {
+                        UIkit.notify('Você já aceitou essa quest!', {status:'warning'})
+                    }
+                 }
+              });
+        });
     });
 
     // music background
-    var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: true});
+    var music_background = new buzz.sound('{{ url('sounds/music/bg2.mp3') }}', {preload: true, loop: true});
     music_background.play().loop();
     music_background.setVolume({{ \App\UserConfig::getConfig('music_volume') }});
 
@@ -70,7 +86,7 @@
             </figure>
         </div>
 
-         <div class="uk-width-1-2 uk-width-large-2-10 uk-text-left">
+         <div class="uk-width-1-2 uk-width-large-2-10 uk-text-left uk-hidden-small">
             <ul class="uk-list">
             <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ \Auth::user()->level }} (aspirante)</li>
             <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ \Auth::user()->money }}</li>  
@@ -85,31 +101,28 @@
                 <button data-uk-modal="{target:'#calendar'}" class="uk-button"><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
                 <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" @if (\Auth::user()->level < 0) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 0) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 0) </span> @endif</a>
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
-                <button class="uk-button uk-button-success"><i class="uk-icon-search-plus"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">2</span> </button>
+                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success"><i class="uk-icon-search-plus"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">2</span> </button>
     		</div>
 		</div>
 
-        <div class="uk-hidden-large uk-width-1-1 uk-margin-top">
-            <div class="uk-button-group">
+        <div class="uk-hidden-large uk-width-1-2 uk-margin-top">
                 <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
                 <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
-            </div>
+        
         </div>
 
-
-        <div class="uk-hidden-large uk-width-1-1 uk-margin-top">
+        <div class="uk-hidden-large uk-width-1-2 uk-text-center uk-margin-top">
             <div class="uk-button-group">
-                <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-success"><i class="uk-icon-shopping-cart"></i> Loja </button>
+                <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
                 <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" @if (\Auth::user()->level < 0) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 0) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 0) </span> @endif</a>
             </div>
         </div>
 
-        <div class="uk-hidden-large uk-width-1-1 uk-margin-top">
+        <div class="uk-hidden-large uk-width-1-1 uk-text-center">   
+        
             <div class="uk-button-group">
-                <button class="uk-button"><i class="uk-icon-calendar"></i> Eventos</button>
-                <button class="uk-button uk-button-danger"><i class="uk-icon-search-plus"></i> Missões <span class="uk-badge uk-badge-warning">2</span> </button>
-            
-                
+                <button data-uk-modal="{target:'#calendar'}" class="uk-button"><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
+                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success"><i class="uk-icon-search-plus"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">2</span> </button>
             </div>
         </div>
 	</div>
@@ -134,7 +147,7 @@
                 <div class="uk-form-controls">
                     <label class="uk-form-label" for="enable-music">
                     	<i class="uk-icon-volume-off"></i>
-                    	<input id="volume-music" type="range" min="0" max="100" value="100"> <i class="uk-icon-music"></i> {{ trans('game.volume-music') }}
+                    	<input id="volume-music" type="range" min="0" max="100" value="{{\App\UserConfig::getConfig('music_volume')}}"> <i class="uk-icon-music"></i> {{ trans('game.volume-music') }}
                     </label>
                 </div>
             </div>
@@ -231,8 +244,78 @@
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ \Auth::user()->money }}</li>  
                 </ul>
             </div>
-            <a href="{{ URL('/lang/en') }}">English</a>
+        </div>
+    </div>
+</div>
 
+<!-- quests modal -->
+<div id="quests" class="uk-modal">
+    <div class="uk-modal-dialog uk-modal-dialog-large">
+        <a href="" class="uk-modal-close uk-close"></a>
+         <div class="uk-modal-header">
+            <h3 class="uk-panel-header">Missões <span class="uk-badge uk-badge-warning">!</span></h3>
+        </div>
+        <div class="uk-overflow-container">
+        <table class="uk-table">
+            <caption>Missões disponíveis</caption>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>Objetivos</th>
+                    <th>Recompensas</th>
+                    <th>Level Min</th>
+                    <th>Level Máx</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (\App\Quest::avaliable_quests() as $quest)
+                <tr>
+                    <td>{{ $quest->title }}</td>
+                    <td>{{ $quest->type }}</td>
+                    <td>{{ $quest->description }}</td>
+                    <td>{{ $quest->objetivos }}</td>
+                    <td>{{ $quest->recompensas }}</td>
+                    <td>{{ $quest->min_level }}</td>
+                    <td>{{ $quest->max_level }}</td>
+                    <td><button class="uk-button uk-button-success accept-quest" value="{{ $quest->id }}">Aceitar</button>
+                </tr>
+                @endforeach
+                
+            </tbody>
+        </table>
+
+        <table class="uk-table">
+            <caption>Missões aceitas</caption>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Tipo</th>
+                    <th>Descricao</th>
+                    <th>Objetivos</th>
+                    <th>Recompensas</th>
+                    <th>Level Min</th>
+                    <th>Level Máx</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (\App\Quest::avaliable_quests() as $quest)
+                <tr>
+                    <td>{{ $quest->title }}</td>
+                    <td>{{ $quest->type }}</td>
+                    <td>{{ $quest->description }}</td>
+                    <td>{{ $quest->objetivos }}</td>
+                    <td>{{ $quest->recompensas }}</td>
+                    <td>{{ $quest->min_level }}</td>
+                    <td>{{ $quest->max_level }}</td>
+                </tr>
+                @endforeach
+                
+            </tbody>
+        </table>
         </div>
     </div>
 </div>
