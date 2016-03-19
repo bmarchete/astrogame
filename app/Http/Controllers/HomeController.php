@@ -131,8 +131,7 @@ class HomeController extends Controller
         } else {
             exit('Essa linguagem não é suportada.');
         }
-        $referer = $request->header('referer'); // redireciona para a página anterior
-        return (!empty($referer)) ? redirect($referer) : redirect('/');
+        return redirect()->back();
     }
 
     /**
