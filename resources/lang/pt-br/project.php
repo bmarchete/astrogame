@@ -3,7 +3,7 @@
 return [
 	
 	// home
-	'project-name' => 'Cosmos Game',
+	'project-name' => 'Galaxy Run',
 	'title' => 'The Cosmos Game', 
 
 	'navbar' => [
@@ -38,5 +38,12 @@ return [
 	'password' => 'Senha',
 	'register' => 'Criar Conta',
 
+
+	// team
+	'team' => 'Equipe',
+	'team-pre-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
+	'team-about' => 'Sobre a equipe',
+	'team-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
+	'team-figcaption' => 'Uma foto nossa',
 
 ];

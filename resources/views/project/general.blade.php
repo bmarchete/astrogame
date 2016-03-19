@@ -16,7 +16,7 @@
             <a class="uk-navbar-brand uk-hidden-small" href="{{ URL('/') }}"><img class="uk-margin uk-margin-remove" src="{{ URL('/img/logo.png') }}" width="190" height="40" title="Cosmos Game" alt="Cosmos Game"></a>
             <ul class="uk-navbar-nav uk-hidden-small uk-align-right">
                <li><a href="{{ URL('/') }}">{{ trans('project.navbar.home') }}</a></li>
-               <li><a href="{{ URL('/jogo') }}">{{ trans('project.navbar.sobre') }}</a></li>
+               <li><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
                <li><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
                <li><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
             </ul>
@@ -30,7 +30,7 @@
                <li class="uk-active">
                   <a href="{{ URL('/') }}"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
                </li>
-               <li><a href="{{ URL('/jogo') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
+               <li><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
                <li><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
                <li><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
                <li class="uk-nav-divider"></li>

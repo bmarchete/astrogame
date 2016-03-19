@@ -36,6 +36,58 @@ class HomeController extends Controller
     }
 
     /**
+     * Página sobre do projeto
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function equipe() {
+        $team = [
+                
+                (object) [
+                 'name' => 'Eduardo Ramos',
+                 'img' => 'img/team/edu.jpg',
+                 'description' => 'Programador, roterista, front-end, designer e mochileiro',
+                 'facebook' => 'https://www.facebook.com/eduardoaugustoramos',
+                 'twitter' => 'https://twitter.com/EduardoRamos__',
+                 'github' => 'http://github.com/Ablon'],
+
+                (object) [
+                 'name' => 'Adriano Faboci',
+                 'img' => 'img/team/adriano.jpg',
+                 'description' => 'Faz tudo e mochileiro',
+                 'facebook' => '',
+                 'twitter' => '',
+                 'github' => ''],
+
+                 (object) [
+                 'name' => 'Brenda Conttessotto',
+                 'img' => 'img/team/bre.jpg',
+                 'description' => 'Faz tudo e mochileira',
+                 'facebook' => '',
+                 'twitter' => '',
+                 'github' => ''],
+
+                 (object) [
+                 'name' => 'Laís Vitória',
+                 'img' => 'img/team/lais.jpg',
+                 'description' => 'Artista, roterista, escritora, designer e mochileira',
+                 'facebook' => '',
+                 'twitter' => '',
+                 'github' => ''],
+
+                 (object) [
+                 'name' => 'Gabriel Ferreira',
+                 'img' => 'img/team/gabriel.jpg',
+                 'description' => 'Faz tudo e mochileiro',
+                 'facebook' => '',
+                 'twitter' => '',
+                 'github' => ''],
+
+                ];
+        return view('project.team', ['team' => $team]);
+    }
+
+    /**
      * Página sobre do contato
      *
      * @return \Illuminate\Http\Response
