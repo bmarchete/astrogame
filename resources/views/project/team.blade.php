@@ -41,9 +41,7 @@
    	<div class="uk-thumbnail uk-overlay-hover ">
       <figure class="uk-overlay">
          <img src="img/home-section4.jpg" alt="">
-         <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle">
-         {{ trans('project.team-figcaption')}}
-         </figcatipon>
+         <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle"> {{ trans('project.team-figcaption')}} </figcatipon>
       </figure>
   </div>
    </div>
