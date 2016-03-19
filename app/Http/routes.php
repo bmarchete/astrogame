@@ -31,6 +31,7 @@ Route::group(['middleware' => ['web']], function () {
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
 		Route::get('/', 'GameController@index');
+		Route::get('/observatory', 'GameController@observatory');
 	});
 
 	// social login
