@@ -25,8 +25,6 @@ class CreateQuestsTable extends Migration
             $table->integer('timer')->nullable();
             $table->integer('min_level')->default(1);
             $table->integer('max_level')->default(1);
-            
-            $table->timestamps();
         });
     }
 
