@@ -9,7 +9,7 @@ html {
 }
 body {
 	background: url('../../img/bg.jpg') no-repeat center center /cover;
-	min-height: 900px;
+	min-height: 600px;
 }
 
 #player-bar {
@@ -18,6 +18,7 @@ body {
 	background: #0E0F15;
 	color: #fff;
 	bottom: 0;
+	z-index: 2;
 }
 
 #player-bar .uk-close {
@@ -62,4 +63,48 @@ body {
 	right: -35px;
 	top: 70px;
 	transform: rotate(-90deg);
+}
+
+.game-section {
+	padding-top: 100px
+}
+
+.game-section .cientist{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 250px
+}
+
+.game-section .cientist-message .uk-tooltip {
+	position: fixed;
+	bottom: 162px;
+	right: 83px;
+	z-index: 1;
+}
+
+.game-section .cientist-message .message-arrow:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: -175px;
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid #fff;
+	margin-bottom: -70px;
+}
+
+#big-bang {
+	font-size: 50px;
+	padding: 30px;
+}
+
+::-webkit-media-controls {
+  display:none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display:none !important;
 }

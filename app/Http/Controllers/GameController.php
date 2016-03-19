@@ -13,22 +13,39 @@ use App\UsersQuest;
 class GameController extends Controller
 {
 
-	/**
+    /**
      * Página inicial do jogo
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
-    	return $this->tutorial();
-    }	
+        return $this->chapter1();
+    }   
 
     public function tutorial() {
-    	return view('game.chapters.tutorial');
+        return view('game.chapters.tutorial');
     }
 
     public function observatory() {
-    	return view('game.general.observatory');
+        return view('game.general.observatory');
     }
+
+    // chapters
+    public function chapter1() { 
+        // min level = 1
+        // max level = null
+        // xp on complete = 1500
+        // skills = ??
+        // personagem = ?? (Carl Sagan)
+        // quizz final (ID 1)
+
+        return view('game.chapters.universe');
+
+
+
+    } // the universe
+    public function chapter2() { } // galaxy clusters
+    public function chapter3() { } // galaxies
 
     // quests
     public function quest_accept(Request $request){

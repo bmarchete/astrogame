@@ -57,7 +57,7 @@
     });
 
     // music background
-    var music_background = new buzz.sound('{{ url('sounds/music/bg2.mp3') }}', {preload: true, loop: true});
+    var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: true});
     music_background.play().loop();
     music_background.setVolume({{ \App\UserConfig::getConfig('music_volume') }});
 
@@ -93,7 +93,6 @@
             </ul>
         </div>
 
-
 		<div class="uk-width-large-5-10 uk-hidden-small uk-hidden-medium">
     		<div class="uk-button-group">
     		    <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
@@ -111,7 +110,7 @@
         
         </div>
 
-        <div class="uk-hidden-large uk-width-1-2 uk-text-center uk-margin-top">
+        <div class="uk-hidden-large uk-width-1-1 uk-text-center uk-margin-top">
             <div class="uk-button-group">
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
                 <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" @if (\Auth::user()->level < 0) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 0) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 0) </span> @endif</a>

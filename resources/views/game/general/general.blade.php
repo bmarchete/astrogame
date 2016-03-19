@@ -10,7 +10,7 @@
                   '/css/game/main.css', 
                   '/vendor/uikit/css/components/notify.gradient.css',
                   '/vendor/uikit/css/components/progress.gradient.css', 
-                  '/vendor/uikit/css/components/tooltip.css'
+                  '/vendor/uikit/css/components/tooltip.gradient.css'
                   ])->withFullUrl() !!}
       @yield('style')
    </head>
