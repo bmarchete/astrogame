@@ -42,10 +42,16 @@ class User extends Authenticatable
      * @param int xp
      * @return void
      */
-    public static function gainXP($xp){
+    public static function gain_xp($xp){
         $user_id = Auth::user()->id; // talvez trocar para (getAuthIdentifier())
         DB::table('users')->where('id', $user_id)->increment('xp');
         Auth::user()->xp += $xp;
         self::checkLevel();
     } // testar
+
+    public static function xp_bar(){
+        // pega o xp e transforma em porcentagem
+        $user_xp = Auth::user()->xp;
+        return 80;
+    }
 }
