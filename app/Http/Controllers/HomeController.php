@@ -120,7 +120,7 @@ class HomeController extends Controller
      * @param string lang
      * @return \Illuminate\Http\Response
      */
-    public function change_language($lang = 'en') {
+    public function change_language(Request $request, $lang = 'en') {
         if(in_array($lang, $this->lang_avaliable)){
             Session::put('language', $lang);
             
@@ -131,7 +131,8 @@ class HomeController extends Controller
         } else {
             exit('Essa linguagem não é suportada.');
         }
-        return redirect('/');
+        $referer = $request->header('referer'); // redireciona para a página anterior
+        return (!empty($referer)) ? redirect($referer) : redirect('/');
     }
 
     /**
