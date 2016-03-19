@@ -163,6 +163,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Devfactory\Minify\MinifyServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -217,6 +218,7 @@ return [
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Socialize' => Laravel\Socialite\Facades\Socialite::class,
         'Minify'    => Devfactory\Minify\Facades\MinifyFacade::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
     ],
 
 ];

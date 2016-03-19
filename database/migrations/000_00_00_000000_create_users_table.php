@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('nickname')->unique();
             $table->string('password', 60);
-            $table->integer('provider_user_id')->unique()->nullable();
+            $table->bigInteger('provider_user_id')->unique()->nullable();
             $table->smallInteger('provider_id')->nullable(); // 1 = facebook, 2 = google
             $table->smallInteger('type')->deafult(1); // (1 = normal / 2 = game master / 3 = admin)
             $table->smallInteger('gender'); // 1 = male, 2 = female

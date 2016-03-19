@@ -9,6 +9,14 @@
       <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="{{ trans('project.project-name') }}">
       <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/login') }}">
          {!! csrf_field() !!}
+
+         @if (session()->has('social_error'))
+         <div class="uk-alert uk-alert-danger" data-uk-alert>
+            <a href="#" class="uk-alert-close uk-close"></a>
+            <p>{{ session('social_error') }}</p>
+         </div>
+         @endif
+
          @if ($errors->has('email') || $errors->has('password'))
          <div class="uk-alert uk-alert-danger" data-uk-alert>
             <a href="#" class="uk-alert-close uk-close"></a>
