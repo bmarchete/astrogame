@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
 		Route::get('/', 'GameController@index');
 		Route::get('/observatory', 'GameController@observatory');
+		Route::get('/music/{volume}', 'GameController@change_volume_music')->where('volume', '[0-9-]+');
 	});
 
 	// social login

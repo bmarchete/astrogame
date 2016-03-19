@@ -8,6 +8,7 @@ use Validator;
 use Mail;
 use Auth;
 use Session;
+use App\UserConfig;
 
 class HomeController extends Controller
 {
@@ -125,7 +126,7 @@ class HomeController extends Controller
             Session::put('language', $lang);
             
             if(Auth::check()){
-                // mudar user_settings
+                UserConfig::setConfig('lang', $lang);
             }
 
         } else {

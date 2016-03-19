@@ -5,6 +5,11 @@
             var volume=$(this).val();
             console.log("Music volume set to: " + volume + "%");
             music_background.setVolume(volume);
+            $.ajax({
+              url: '{{ URL('/game/music') }}/' + volume 
+              // talvez otimizar para não ficar requisitando toda hora para o servidor
+            })
+
         });
 
         $("#volume-sound").change(function(){
@@ -38,6 +43,7 @@
     // music background
     var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: true});
     music_background.play().loop();
+    music_background.setVolume({{ \App\UserConfig::getConfig('music_volume') }});
 
 </script>
 @stop

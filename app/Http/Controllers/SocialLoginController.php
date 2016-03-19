@@ -60,6 +60,7 @@ class SocialLoginController extends Controller
             $this->make_avatar($user->id, $user->avatar);
             
             Auth::login($user_db, true);
+            \App\UserConfig::installConfig();
             return redirect('/game');
 
         }
