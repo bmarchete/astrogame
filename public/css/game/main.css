@@ -109,6 +109,10 @@ body {
 	position: absolute;
 }
 
+.bag li {
+	cursor: pointer
+}
+
 #big-bang {
 	font-size: 50px;
 	padding: 30px;

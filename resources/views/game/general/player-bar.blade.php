@@ -57,7 +57,53 @@ function change_xp(xp){
                  }
               });
         });
+
+        
     });
+
+    function buy_item(item){
+        UIkit.modal.confirm("Você deseja comprar este item?", function(){
+                $.ajax({
+                 url: '{{ url('/game/buy_item')}}/' + item,
+                 dataType: "json",
+                 success: function(data){ //Se ocorrer tudo certo
+                    if(data.status_or_price == false){
+                        UIkit.notify(data.msg, {status:'danger'});
+                    } else {
+                        UIkit.notify(data.msg, {status:'success'});
+
+                        var money_player = parseInt($('.money').html());
+                        var money_final = money_player - data.status_or_price;
+                        $('.money').html(money_final);
+                        $('.money').addClass('uk-animation-scale-down');
+
+
+                        $(data.html).insertBefore(".bag-items li:first").hide().fadeIn(2000);
+                    }
+                 }
+              });
+
+        });
+    }
+
+    function remove_item(item){
+        UIkit.modal.confirm("Você deseja remover este item de sua mochila?", function(){
+                $.ajax({
+                 url: '{{ url('/game/remove_item')}}/' + item,
+                 dataType: "json",
+                 success: function(data){ //Se ocorrer tudo certo
+                    if(data.status == false){
+                        UIkit.notify(data.msg, {status:'danger'});
+                    } else {
+                        $(".item-" + item).hide();
+                        UIkit.notify(data.msg, {status:'warning'});
+                    }
+                 }
+              });
+
+        });
+
+    }
 
     // music background
     var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: true});
@@ -92,7 +138,7 @@ function change_xp(xp){
          <div class="uk-width-1-2 uk-width-large-2-10 uk-text-left uk-hidden-small">
             <ul class="uk-list">
             <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ \Auth::user()->level }} (aspirante)</li>
-            <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ \Auth::user()->money }}</li>  
+            <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG <span class="money">{{ \Auth::user()->money }}</span></li>  
             </ul>
         </div>
 
@@ -207,6 +253,30 @@ function change_xp(xp){
             <h3 class="uk-panel-header">Loja Pan Galáctia</h3>
         </div>
         Vamos as compras?
+
+        <div class="uk-width-1-1">
+            <ul class="uk-list bag">
+        @foreach(\App\Item::shop() as $item)
+        
+            <li>
+                @if ($item->max_stack > 1)
+                <span class="uk-badge uk-badge-danger" data-uk-tooltip title="Máximo que você pode carregar">{{ $item->max_stack }}</span>
+                @endif    
+                    <figure class="uk-thumbnail uk-text-center buy-item" onclick="buy_item({{ $item->id }});">
+                        <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
+                    </figure>
+                    <figcaption>
+                        <span class="price"><i class="uk-icon-money"></i> {{ $item->price }}</span>
+                        
+                    </figcaption>
+            </li>
+
+                 
+        
+        @endforeach
+        </ul>
+        </div>
+
         <ul class="uk-pagination">
             <li><a href="">1</a></li>
             <li class="uk-active"><span>2</span></li>
@@ -248,10 +318,11 @@ function change_xp(xp){
 
                 <div class="uk-panel uk-panel-box uk-panel-box-primary">
                     <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> Mochila</h3>
-                    <ul class="uk-list bag">
+                    <ul class="uk-list bag bag-items">
+                        <li></li>
                         @foreach(\App\UserBag::bag() as $item)
-                        <li>
-                            <span class="uk-badge uk-badge-warning">{{ $item->amount}}</span>
+                        <li onclick="remove_item({{ $item->id }});" class="item-{{ $item->id }}">
+                            <span class="uk-badge uk-badge-success">{{ $item->amount}}</span>
                             <figure class="uk-thumbnail">
                                 <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
                             </figure>

@@ -16,6 +16,7 @@ class ItemsSeeder extends Seeder
 			'price' => 42,
 			'min_level' => 1,
 			'img_url' => 'basic_telescope',
+			'max_stack' => 1,
 		],
 
 
@@ -24,15 +25,17 @@ class ItemsSeeder extends Seeder
 			'description' => 'Usado por bons telescópios',
 			'price' => 52,
 			'min_level' => 2,
-			'img_url' => 'basic_telescope'
+			'img_url' => 'basic_telescope',
+			'max_stack' => 2,
 		],
 
 		[
 			'name' => 'Livro de constelações',
 			'description' => 'Livro antigo',
 			'price' => 30,
-			'min_level' => 2,
-			'img_url' => 'book_1'
+			'min_level' => 1,
+			'img_url' => 'book_1',
+			'max_stack' => 3,
 		],
 	];
 

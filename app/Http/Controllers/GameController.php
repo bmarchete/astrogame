@@ -8,6 +8,8 @@ use App\Http\Requests;
 use User;
 use App\UserConfig;
 use App\UsersQuest;
+use App\UserBag;
+use App\Item;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
@@ -60,6 +62,21 @@ class GameController extends Controller
         $status = (UsersQuest::cancel_quest($quest_id)) ? true : false;
 
         return response()->json(['canceled' => $status]);
+    }
+
+    // items
+    public function buy_item(Request $request){
+        $item_id = $request->id;
+        $item_return = Item::buy_item($item_id);
+
+        return response()->json($item_return);
+    }
+
+    public function remove_item(Request $request){
+        $item_id = $request->id;
+        $item_return = UserBag::remove_item_from_bag($item_id, 1);
+
+        return response()->json(['status' => true, 'msg' => 'Item removido!']);
     }
 
     public function change_volume_music(Request $request){
