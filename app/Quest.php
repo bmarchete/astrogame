@@ -15,6 +15,7 @@ class Quest extends Model
 					              ->from('users_quests')
 					              ->where('user_id', Auth::user()->id);
 					    })
+					->select(['quests.id', 'title', 'type', 'description', 'objetivos', 'recompensas', 'min_level', 'max_level'])
 					->where('min_level', '<=', Auth::user()->level)
 					->limit(10)
 					->get();
