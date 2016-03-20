@@ -3,8 +3,8 @@
 return [
 	
 	// home
-	'project-name' => 'Galaxy Run',
-	'title' => 'The Cosmos Game', 
+	'project-name' => 'Astro Game',
+	'title' => 'Astro Game', 
 
 	'navbar' => [
 		'home' => 'Inicial',
@@ -13,8 +13,29 @@ return [
 		'contato' => 'Contato'
 	],
 
-	'home-title' => 'GALAXY RUN',
+	'home-title' => 'ASTRO GAME',
 	'home-description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh lectus, congue sit amet fermentum nec, gravida non diam. Duis tincidunt risus mauris, sit',
+
+	'home-text' => [
+		'title1' => 'Sample Heading',
+		'text1' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+
+		'title2' => 'Sample Heading',
+		'text2' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+		
+		'title3' => 'Sample Heading',
+		'text3' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+		
+		'title4' => 'Sample Heading',
+		'text4' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+		
+		'title5' => 'Sample Heading',
+		'text5' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+		
+		'title6' => 'Sample Heading',
+		'text6' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+
+	],
 
 	'login' => 'Logar',
 	'cadastrar' => 'Cadastrar',
@@ -42,7 +63,7 @@ return [
 	// team
 	'team' => 'Equipe',
 	'team-pre-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
-	'team-about' => 'Sobre a equipe',
+	'team-about' => 'Desastronautas',
 	'team-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
 	'team-figcaption' => 'Uma foto nossa',
 

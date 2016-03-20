@@ -4,7 +4,8 @@
 
 return [
 	
-	'title' => 'The Cosmos Game', 
+	'project-name' => 'Astro Game',
+	'title' => 'Astro Game',
 
 	'navbar' => [
 		'home' => 'Home',
@@ -13,7 +14,7 @@ return [
 		'contato' => 'Contact'
 	],
 
-	'home-title' => 'COSMOS GAME',
+	'home-title' => 'ASTRO GAME',
 	'home-description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh lectus, congue sit amet fermentum nec, gravida non diam. Duis tincidunt risus mauris, sit',
 
 	'login' => 'Login',
@@ -24,6 +25,7 @@ return [
 	'submit' => 'Entrar',
 
 	'remember' => 'Remember me',
+	'forget-password' => "Forget your password?",
 
 	// contato
 	'contato-title' => 'Entre em contato conosco',
@@ -32,4 +34,15 @@ return [
 	'your-message' => 'Your message',
 	'enviar' => 'Submit',
 
+	// login
+	'email' => 'Email',
+	'password' => 'Password',
+	'register' => 'Create account',
+
+	// team
+	'team' => 'Team',
+	'team-pre-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
+	'team-about' => 'Desastronautas',
+	'team-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
+	'team-figcaption' => 'Uma foto nossa',
 ];

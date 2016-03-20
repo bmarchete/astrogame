@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('nickname')->unique();
+            $table->string('nickname')->nullable();
             $table->string('password', 60);
             $table->bigInteger('provider_user_id')->unique()->nullable();
             $table->smallInteger('provider_id')->nullable(); // 1 = facebook, 2 = google

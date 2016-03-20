@@ -30,8 +30,8 @@
                <i class="uk-icon-cog uk-icon-large uk-text-primary"></i>
             </div>
             <div class="uk-width-5-6">
-               <h2 class="uk-h3">Sample Heading</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+               <h2 class="uk-h3">{{ trans('project.home-text.title1') }}</h2>
+               <p>{{ trans('project.home-text.text1') }}</p>
             </div>
          </div>
       </div>
@@ -41,8 +41,8 @@
                <i class="uk-icon-thumbs-o-up uk-icon-large uk-text-primary"></i>
             </div>
             <div class="uk-width-5-6">
-               <h2 class="uk-h3">Sample Heading</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 class="uk-h3">{{ trans('project.home-text.title2') }}</h2>
+                <p>{{ trans('project.home-text.text2') }}</p>   
             </div>
          </div>
       </div>
@@ -52,8 +52,8 @@
                <i class="uk-icon-cloud-download uk-icon-large uk-text-primary"></i>
             </div>
             <div class="uk-width-5-6">
-               <h2 class="uk-h3">Sample Heading</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 class="uk-h3">{{ trans('project.home-text.title3') }}</h2>
+                <p>{{ trans('project.home-text.text3') }}</p>   
             </div>
          </div>
       </div>
@@ -65,8 +65,8 @@
                <i class="uk-icon-dashboard uk-icon-large uk-text-primary"></i>
             </div>
             <div class="uk-width-5-6">
-               <h2 class="uk-h3">Sample Heading</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 class="uk-h3">{{ trans('project.home-text.title4') }}</h2>
+                <p>{{ trans('project.home-text.text4') }}</p>   
             </div>
          </div>
       </div>
@@ -76,8 +76,8 @@
                <i class="uk-icon-comments uk-icon-large uk-text-primary"></i>
             </div>
             <div class="uk-width-5-6">
-               <h2 class="uk-h3">Sample Heading</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 class="uk-h3">{{ trans('project.home-text.title5') }}</h2>
+                <p>{{ trans('project.home-text.text5') }}</p>   
             </div>
          </div>
       </div>
@@ -87,8 +87,8 @@
                <i class="uk-icon-briefcase uk-icon-large uk-text-primary"></i>
             </div>
             <div class="uk-width-5-6">
-               <h2 class="uk-h3">Sample Heading</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 class="uk-h3">{{ trans('project.home-text.title6') }}</h2>
+                <p>{{ trans('project.home-text.text6') }}</p>   
             </div>
          </div>
       </div>

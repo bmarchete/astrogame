@@ -7,7 +7,7 @@
 <div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
    <div class="uk-vertical-align-middle" style="width: 550px;">
       <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="{{ trans('project.project-name') }}">
-      <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/login') }}">
+      <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/register') }}">
          {!! csrf_field() !!}
          <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="text" name="name" value="{{ old('name') }}" placeholder="Name" required>

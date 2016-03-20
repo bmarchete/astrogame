@@ -9,7 +9,7 @@ class QuestsSeeder extends Seeder
 		[
 			'title' => 'Apollo 11',
 			'type' => 1,
-			'id_reponsable' => 1,
+			'id_responsable' => 1,
 			'description' => 'Desde 1960 a missão apollo...',
 			'objetivos' => '100 de xp',
 			'xp_reward' => 100,

@@ -35,12 +35,18 @@ class UserConfig extends Model
             ->update(['content' => $content]);
     }    
 
-    public static function installConfig(){
+    public static function installConfig($user_id = 0){
+        if($user_id != 0){
+            if(Auth::check()){
+                $user_id = Auth::user()->id;
+            }
+        }
+
     	foreach(self::$default as $key => $content){
     		$config = new UserConfig;
     		$config->key = $key;
     		$config->content = $content;
-    		$config->user_id = Auth::user()->id;
+    		$config->user_id = $user_id;
     		$config->save();
     	}
     }

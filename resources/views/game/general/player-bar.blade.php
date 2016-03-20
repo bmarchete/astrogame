@@ -166,7 +166,7 @@ function change_xp(xp){
             	</div>
             </div>
 
-             <div class="uk-form-row">
+             <div class="uk-form-row uk-hidden-touch">
                 <div class="uk-form-controls">
                     <label class="uk-form-label" for="enable-cursos">
                     	<input type="checkbox" name="cursor"> 
@@ -193,7 +193,7 @@ function change_xp(xp){
                 </div>
             <div class="uk-modal-footer uk-text-right">
                 <button type="submit" class="uk-button uk-button-primary">{{ trans('game.submit') }}</button>
-                <button class="uk-button uk-button-danger">{{ trans('game.cancel') }}</button>
+                <button class="uk-modal-close uk-button uk-button-danger">{{ trans('game.cancel') }}</button>
             </div>
         </div>
     </div>
@@ -245,9 +245,6 @@ function change_xp(xp){
                         <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ \Auth::user()->level }} (aspirante)</li>
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ \Auth::user()->money }}</li>  
                 </ul>
-            </div>
-
-            <div class="uk-width-1-1 uk-width-large-2-4 uk-text-center">
 
                 <div class="uk-panel uk-panel-box uk-panel-box-primary">
                     <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> Mochila</h3>
