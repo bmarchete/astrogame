@@ -8,3 +8,4 @@ Thumbs.db
 .env
 /public/css/builds
 /public/js/builds
+*.wav
