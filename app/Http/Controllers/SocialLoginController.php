@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Socialize;
 use App\User;
+use App\UserConfig;
 use Auth;
 use Image;
 
@@ -60,7 +61,7 @@ class SocialLoginController extends Controller
             $this->make_avatar($user->id, $user->avatar);
             
             Auth::login($user_db, true);
-            \App\UserConfig::installConfig();
+            UserConfig::installConfig($user_db->id);
             return redirect('/game');
 
         }
