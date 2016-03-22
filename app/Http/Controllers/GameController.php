@@ -52,14 +52,18 @@ class GameController extends Controller
     // quests
     public function quest_accept(Request $request){
         $quest_id = $request->id;
-        $status = (UsersQuest::accept_quest($quest_id)) ? true : false;
+        $quest_user = new UsersQuest();
+        $quest_user->quest($quest_id);
+        $status = ($quest_user->accept_quest()) ? true : false;
 
         return response()->json(['accepted' => $status]);
     }
 
     public function quest_cancel(Request $request){
         $quest_id = $request->id;
-        $status = (UsersQuest::cancel_quest($quest_id)) ? true : false;
+        $quest_user = new UsersQuest();
+        $quest_user->quest($quest_id);
+        $status = ($this->cancel_quest()) ? true : false;
 
         return response()->json(['canceled' => $status]);
     }
