@@ -109,8 +109,7 @@ class QuizSeeder extends Seeder
         foreach($this->quizzes as $quizze){
     		if(DB::table('quizzs')->where('pergunta', $quizze['pergunta'])->get() == null){
     			DB::table('quizzs')->insert($quizze);
-    		} else {
-    			echo '[ INFO ] Quizz: ' . $quizze['pergunta'] . " ja existe, ignorado. \n";
+                echo '[ INFO ] Quizz: ' . $quizze['pergunta'] . " adicionado. \n";
     		}
     	}
     }

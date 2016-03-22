@@ -49,8 +49,7 @@ class ItemsSeeder extends Seeder
     	foreach($this->items as $item){
     		if(DB::table('items')->where('name', $item['name'])->get() == null){
     			DB::table('items')->insert($item);
-    		} else {
-    			echo '[ INFO ] Item: ' . $item['name'] . " ja existe, ignorada. \n";
+    			echo '[ INFO ] Item: ' . $item['name'] . " adicionado. \n";
     		}
     	}
     }

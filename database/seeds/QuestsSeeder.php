@@ -29,8 +29,7 @@ class QuestsSeeder extends Seeder
         foreach($this->quests as $quest){
     		if(DB::table('quests')->where('title', $quest['title'])->get() == null){
     			DB::table('quests')->insert($quest);
-    		} else {
-    			echo '[ INFO ] Quest: ' . $quest['title'] . " ja existe, ignorada. \n";
+                echo '[ INFO ] Quest: ' . $quest['title'] . " adicionado, ignorada. \n";
     		}
     	}
     }
