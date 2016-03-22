@@ -56,12 +56,9 @@ class BugController extends Controller
         	return Response::json(['status' => false, 'text' => trans('game.bug-repeat')]);
         }
 
-        $bug_report = new Bug;
-        $bug_report->user_id = $user_id;
-        $bug_report->text = $text;
-        $bug_report->save();
-
-        return Response::json(['status' => true,  'text' => 'Deu bom :)']);
+        $bug_report = Bug::insert(['user_id' => $user_id, 'text' => $text]);
+        
+        return Response::json(['status' => $bug_report,  'text' => 'Deu bom :)']);
     }
 
     /**
