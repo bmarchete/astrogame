@@ -51,6 +51,7 @@ function change_xp(xp){
                  success: function(data){ //Se ocorrer tudo certo
                     if(data.accepted){
                         UIkit.notify('Quest aceita!', {status:'success'});
+                        $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
                     } else {
                         UIkit.notify('Você já aceitou essa quest!', {status:'warning'})
                     }
@@ -71,6 +72,7 @@ function change_xp(xp){
                         UIkit.notify(data.msg, {status:'danger'});
                     } else {
                         UIkit.notify(data.msg, {status:'success'});
+                        coin_effect.play();
 
                         var money_player = parseInt($('.money').html());
                         var money_final = money_player - data.status_or_price;
@@ -96,6 +98,7 @@ function change_xp(xp){
                         UIkit.notify(data.msg, {status:'danger'});
                     } else {
                         $(".item-" + item).hide();
+                        delete_effect.play();
                         UIkit.notify(data.msg, {status:'warning'});
                     }
                  }
@@ -107,6 +110,10 @@ function change_xp(xp){
 
     // music background
     var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: true});
+    var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
+    var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
+
+
     music_background.play().loop();
     music_background.setVolume({{ \App\UserConfig::getConfig('music_volume') }});
 
@@ -360,7 +367,7 @@ function change_xp(xp){
             </thead>
             <tbody>
                 @foreach (\App\Quest::avaliable_quests() as $quest)
-                <tr>
+                <tr class="quest-{{ $quest->id }}">
                     <td>{{ $quest->title }}</td>
                     <td>{{ $quest->type }}</td>
                     <td>{{ $quest->description }}</td>
@@ -389,7 +396,8 @@ function change_xp(xp){
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="aceitas">
+                <tr></tr>
                 @foreach (\App\Quest::accepted_quests() as $quest)
                 <tr>
                     <td>{{ $quest->title }}</td>
