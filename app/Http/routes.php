@@ -21,7 +21,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/equipe', 'HomeController@equipe');
 	Route::get('/contato', 'HomeController@contato');
 	Route::post('/contato', 'HomeController@enviar_contato');
-	Route::get('/lang/{lang}', 'HomeController@change_language');
+	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
 	Route::post('/bug', 'BugController@store');
 
 	// implements
@@ -31,16 +31,17 @@ Route::group(['middleware' => ['web']], function () {
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
 		Route::get('/', 'GameController@index');
+		Route::get('/campaign', 'GameController@index');
+		Route::get('/exploration', 'GameController@exploration');
 		Route::get('/observatory', 'GameController@observatory');
-		
+
 		// quests
-		Route::get('/quest_accept/{id}', 'GameController@quest_accept');
-		Route::get('/quest_cancel/{id}', 'GameController@quest_cancel');
+		Route::get('/quest_accept/{id}', 'GameController@quest_accept')->where('id', '[0-9-]+');
+		Route::get('/quest_cancel/{id}', 'GameController@quest_cancel')->where('id', '[0-9-]+');
 
 		// item
 		Route::get('/buy_item/{id}', 'GameController@buy_item')->where('id', '[0-9-]+');
 		Route::get('/remove_item/{id}', 'GameController@remove_item')->where('id', '[0-9-]+');
-				
 
 		// general
 		Route::get('/music/{volume}', 'GameController@change_volume_music')->where('volume', '[0-9-]+');
