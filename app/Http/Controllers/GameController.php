@@ -42,7 +42,7 @@ class GameController extends Controller
         // quizz final (ID 1)
 
         return view('game.chapters.universe');
-
+        
 
 
     } // the universe
@@ -63,7 +63,7 @@ class GameController extends Controller
         $quest_id = $request->id;
         $quest_user = new UsersQuest();
         $quest_user->quest($quest_id);
-        $status = ($this->cancel_quest()) ? true : false;
+        $status = ($quest_user->cancel_quest()) ? true : false;
 
         return response()->json(['canceled' => $status]);
     }
