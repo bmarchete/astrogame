@@ -10,6 +10,8 @@ html {
 body {
 	background: url('../../img/bg.jpg') no-repeat center center /cover;
 	min-height: 600px;
+	transition: 1s all ease;
+	overflow: hidden;
 }
 
 #player-bar {

@@ -10,54 +10,23 @@
 
 @section('javascript')
 {!! Minify::javascript('/vendor/popcorn/popcorn-complete.min.js')->withFullURL() !!}
+{!! Minify::javascript('/js/chapters/general.js')->withFullURL() !!}
 <script>
-function cientist(message, timer){
-	setTimeout(function(){
-    	$(".cientist-message").hide();
-    	$(".cientist-text").html(message);
-    	$(".cientist-message").show('slow');
-	}, timer);
-}
-
-function fullscreen_video(video){
-	if (video.requestFullscreen) {
-		video.requestFullscreen();
-	} else if (video.mozRequestFullScreen) {
-		video.mozRequestFullScreen();
-	} else if (video.webkitRequestFullscreen) {
-		video.webkitRequestFullscreen();
-	}
-	
-}
-
-function fullscreen_exit(){
-	if (document.exitFullscreen) {
-		document.exitFullscreen();
-	} else if (document.webkitExitFullscreen) {
-		document.webkitExitFullscreen();
-	} else if (document.mozCancelFullScreen) {
-		document.mozCancelFullScreen();
-	} else if (document.msExitFullscreen) {
-		document.msExitFullscreen();
-	}
-}
-
 $(document).ready(function(){
 	$(".cientist-message").show('slow');
+	cientist('{{ trans('chapters.chapter1.fala1') }}');
 
-	cientist('{{ trans('chapters.chapter1.fala1') }}', 100);
-	cientist('{{ trans('chapters.chapter1.fala2') }}', 4000);
-
+	
 	var big_video = Popcorn("#big-bang-video");
+	var star_video = Popcorn("#stars-video");
+
 	var video = document.getElementById("big-bang-video");
+	var star = document.getElementById("stars-video");
 
 	$("#big-bang").click(function(){
-		cientist('{{ trans('chapters.chapter1.fala3') }}', 100);
-		setTimeout(function () { $('.cientist-message').hide('slow'); }, 500);
-
 		$(this).hide();
-		$("#big-bang-video").show('slow');
-		fullscreen_video(video);
+		$("#big-bang-video").show();
+		//fullscreen_video(video);
 
 		big_video.play();
 	});
@@ -67,9 +36,32 @@ $(document).ready(function(){
 		fullscreen_exit();
 
 		$("#big-bang-video").hide();
-		cientist('{{ trans('chapters.chapter1.fala4') }}', 100);
+		cientist('{{ trans('chapters.chapter1.fala2') }}', 100);
+		cientist('{{ trans('chapters.chapter1.fala3') }}', 5000);
+
+		change_background('{{ url('/img/chapter/big-bang-static.jpg') }}', 100);
+
+		cientist("{{ trans('chapters.chapter1.fala4') }}", 10000);
+
+		change_background('{{ url('/img/chapter/stars-static.jpg') }}', 11000);
+		change_background('', 15000);
+
+		cientist("{{ trans('chapters.chapter1.fala5') }}", 20000);
+
+		setTimeout(
+			function() {
+				$("#stars-video").show()
+				star_video.play();
+			}, 21000);
+		
 
 	}, false );
+
+	star.addEventListener("ended", function( e ) {
+		$("stars-video").hide();
+		UIkit.notify({message: 'Parabéns, você acaba de completar o primeiro capítulo', status: 'success'});
+		UIkit.modal(".quiz-1").show();
+	}, false);
 
 
 });
@@ -77,15 +69,20 @@ $(document).ready(function(){
 @stop
 
 @section('content')
+
+<video width="1366" id="stars-video" controls="false" style="display:none" preload>
+	<source src="{{URL('/videos/astro_bp.mp4')}}" type="video/mp4">
+</video>
+
+<video width="1366" id="big-bang-video" style="display:none" controls="false" preload>
+	<source src="{{URL('/videos/big_bang.mp4')}}" type="video/mp4">
+</video>
+ 
 <div class="uk-container uk-container-center game-section">
 	<div class="uk-grid">
 		<div class="uk-width-1-1 uk-text-center">
-			<button class="uk-button-success uk-button-large" id="big-bang">{{ trans('chapters.chapter1.button') }}</button>
+			<button class="uk-button-danger uk-button-large" id="big-bang">{{ trans('chapters.chapter1.button1') }}</button>
 		</div>
-
-		<video width="500" height="300" id="big-bang-video" style="display:none" controls="false" preload>
-			<source src="{{URL('/videos/big_bang.mp4')}}">
-		</video>
 
 		<div class="cientist-message" style="display:none">
 			<div style="visibility: visible; display: block; opacity: 1;" class="uk-tooltip uk-tooltip-top">
@@ -95,4 +92,7 @@ $(document).ready(function(){
 		<img src="{{ URL('/img/char/galileu.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
 	</div>
 </div>
+
+{!! \App\Quizz::makeHTML(1) !!}
+
 @stop
