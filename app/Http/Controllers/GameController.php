@@ -10,10 +10,16 @@ use App\UserConfig;
 use App\UsersQuest;
 use App\UserBag;
 use App\Item;
+use Session;
+use App\Quest;
+use Auth;
+use App\UserProgres;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
 {
+
+    private $view_vars = [];
 
     /**
      * Página inicial do jogo
@@ -25,11 +31,27 @@ class GameController extends Controller
     }   
 
     public function tutorial() {
-        return view('game.chapters.tutorial');
+        return view('game.chapters.tutorial', $this->player_bar());
     }
 
     public function observatory() {
-        return view('game.general.observatory');
+        return view('game.general.observatory', $this->player_bar());
+    }
+
+    public function player_bar() {
+        return [
+            'music_volume' => UserConfig::getConfig('music_volume'),
+            'xp_bar' => \App\User::xp_bar(),
+            'user_name' => Auth::user()->name,
+            'user_level' => Auth::user()->level,
+            'user_money' => Auth::user()->money,
+            'user_xp' => Auth::user()->xp,
+            'lang' => Session::get('language', 'pt-br'),
+            'shop' => Item::shop(),
+            'bag' => UserBag::bag(),
+            'avaliable_quests' => Quest::avaliable_quests(),
+            'accepted_quests' => Quest::accepted_quests()
+        ];
     }
 
     // chapters
@@ -41,13 +63,25 @@ class GameController extends Controller
         // personagem = ?? (Carl Sagan)
         // quizz final (ID 1)
 
-        return view('game.chapters.universe');
+        return view('game.chapters.universe', $this->player_bar());
         
 
 
     } // the universe
     public function chapter2() { } // galaxy clusters
     public function chapter3() { } // galaxies
+
+
+    public function progress_on_chapter(Request $request) {
+        // alguma checagem para não ter espertinhos
+
+        $key = $request->key;
+
+        $chapter_progress = new UserProgres;
+        $chapter_progress->key = '';
+        
+
+    }
 
     // quests
     public function quest_accept(Request $request){

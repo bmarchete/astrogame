@@ -42,6 +42,8 @@ function change_xp(xp){
             window.location.href = url;
         });
 
+
+        // quest accept
         $(".accept-quest").click(function(){
             var quest_id = $(this).val();
             $(this).prop('disabled', true);
@@ -51,7 +53,9 @@ function change_xp(xp){
                  success: function(data){ //Se ocorrer tudo certo
                     if(data.accepted){
                         UIkit.notify('Quest aceita!', {status:'success'});
+                        quest_effect.play();
                         $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
+
                     } else {
                         UIkit.notify('Você já aceitou essa quest!', {status:'warning'})
                     }
@@ -112,10 +116,10 @@ function change_xp(xp){
     var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: true});
     var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
     var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
-
+    var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false})
 
     music_background.play().loop();
-    music_background.setVolume({{ \App\UserConfig::getConfig('music_volume') }});
+    music_background.setVolume({{ $music_volume }});
 
 </script>
 @stop
@@ -132,20 +136,20 @@ function change_xp(xp){
 
 		<div class="uk-width-5-10 uk-width-large-8-10 uk-margin-bottom">
 			<div class="uk-progress uk-progress-success">
-		    	<div class="uk-progress-bar" style="width: {{ App\User::xp_bar() }}%;" data-uk-tooltip title="{{ App\User::xp_bar() }}% ({{ \Auth::user()->xp }} XP)">faltam 12.0000 pts</div>
+		    	<div class="uk-progress-bar" style="width: {{ $xp_bar }}%;" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">faltam 12.0000 pts</div>
 			</div>
 		</div>	
 
         <div class="uk-width-1-2 uk-width-large-2-10 uk-margin-top">
             <figure data-uk-modal="{target:'#player-modal'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-                <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
+                <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ $user_name }}">
             </figure>
         </div>
 
          <div class="uk-width-1-2 uk-width-large-2-10 uk-text-left uk-hidden-small">
             <ul class="uk-list">
-            <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ \Auth::user()->level }} (aspirante)</li>
-            <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG <span class="money">{{ \Auth::user()->money }}</span></li>  
+            <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ $user_level }} (aspirante)</li>
+            <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG <span class="money">{{ $user_money }}</span></li>  
             </ul>
         </div>
 
@@ -154,7 +158,7 @@ function change_xp(xp){
     		    <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
     		    <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
                 <button data-uk-modal="{target:'#calendar'}" class="uk-button"><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
-                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" @if (\Auth::user()->level < 0) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 0) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 0) </span> @endif</a>
+                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary"><i class="uk-icon-search"></i>{{ trans('game.observatory') }}</a>
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
                 <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success"><i class="uk-icon-search-plus"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">2</span> </button>
     		</div>
@@ -169,7 +173,7 @@ function change_xp(xp){
         <div class="uk-hidden-large uk-width-1-1 uk-text-center uk-margin-top">
             <div class="uk-button-group">
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
-                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" @if (\Auth::user()->level < 0) disabled @endif><i class="uk-icon-search"></i> @if (\Auth::user()->level < 0) <span data-uk-tooltip title="Libera no level 6">@endif {{ trans('game.observatory')}} @if (\Auth::user()->level < 0) </span> @endif</a>
+                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary"><i class="uk-icon-search"></i>{{ trans('game.observatory') }}</a>
             </div>
         </div>
 
@@ -202,7 +206,7 @@ function change_xp(xp){
                 <div class="uk-form-controls">
                     <label class="uk-form-label" for="enable-music">
                     	<i class="uk-icon-volume-off"></i>
-                    	<input id="volume-music" type="range" min="0" max="100" value="{{\App\UserConfig::getConfig('music_volume')}}"> <i class="uk-icon-music"></i> {{ trans('game.volume-music') }}
+                    	<input id="volume-music" type="range" min="0" max="100" value="{{ $music_volume }}"> <i class="uk-icon-music"></i> {{ trans('game.volume-music') }}
                     </label>
                 </div>
             </div>
@@ -212,8 +216,8 @@ function change_xp(xp){
             			<div class="uk-form-select" data-uk-form-select>
             			    <span>{{ trans('game.lang') }}: </span>
             			    <select id="lang-select" name="lang">
-            			        <option value="pt-br" @if (\Session::get('language', 'pt-br') == 'pt-br') selected @endif >Português Brasileiro</option>
-            			        <option value="en" @if (\Session::get('language', 'pt-br') == 'en') selected @endif>English</option>
+            			        <option value="pt-br" @if ($lang == 'pt-br') selected @endif >Português Brasileiro</option>
+            			        <option value="en" @if ($lang == 'en') selected @endif>English</option>
             			    </select>
             			</div>
             	</div>
@@ -263,7 +267,7 @@ function change_xp(xp){
 
         <div class="uk-width-1-1">
             <ul class="uk-list bag">
-        @foreach(\App\Item::shop() as $item)
+        @foreach($shop as $item)
         
             <li>
                 @if ($item->max_stack > 1)
@@ -277,9 +281,6 @@ function change_xp(xp){
                         
                     </figcaption>
             </li>
-
-                 
-        
         @endforeach
         </ul>
         </div>
@@ -319,17 +320,17 @@ function change_xp(xp){
             <div class="uk-width-2-4">
                 <ul class="uk-list">
                     <li>
-                        <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ \Auth::user()->level }} (aspirante)</li>
-                    <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ \Auth::user()->money }}</li>  
+                        <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ $user_level }} (aspirante)</li>
+                    <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>  
                 </ul>
 
                 <div class="uk-panel uk-panel-box uk-panel-box-primary">
                     <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> Mochila</h3>
                     <ul class="uk-list bag bag-items">
                         <li></li>
-                        @foreach(\App\UserBag::bag() as $item)
+                        @foreach($bag as $item)
                         <li onclick="remove_item({{ $item->id }});" class="item-{{ $item->id }}">
-                            <span class="uk-badge uk-badge-success">{{ $item->amount}}</span>
+                            <span class="uk-badge uk-badge-success">{{ $item->amount }}</span>
                             <figure class="uk-thumbnail">
                                 <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
                             </figure>
@@ -366,7 +367,7 @@ function change_xp(xp){
                 </tr>
             </thead>
             <tbody>
-                @foreach (\App\Quest::avaliable_quests() as $quest)
+                @foreach ($avaliable_quests as $quest)
                 <tr class="quest-{{ $quest->id }}">
                     <td>{{ $quest->title }}</td>
                     <td>{{ $quest->type }}</td>
@@ -398,7 +399,7 @@ function change_xp(xp){
             </thead>
             <tbody class="aceitas">
                 <tr></tr>
-                @foreach (\App\Quest::accepted_quests() as $quest)
+                @foreach ($accepted_quests as $quest)
                 <tr>
                     <td>{{ $quest->title }}</td>
                     <td>{{ $quest->type }}</td>
@@ -409,7 +410,6 @@ function change_xp(xp){
                     <td>{{ $quest->max_level }}</td>
                 </tr>
                 @endforeach
-                
             </tbody>
         </table>
         </div>
