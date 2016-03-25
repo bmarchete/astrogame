@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\UserConfig;
-
+use DB;
 
 class AuthController extends Controller
 {
@@ -71,6 +71,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
         UserConfig::installConfig($user->id);
+        DB::table('users')->where('id', $user->id)->update(['money' => 5000]);
         return $user;
     }
 }
