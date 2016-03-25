@@ -53,6 +53,10 @@ return [
 	'your-email' => 'Seu email',
 	'your-message' => 'Sua mensagem',
 	'enviar' => 'Enviar',
+	'follow-us' => 'Siga-nos',
+	'name-placeholder' => 'Nome',
+	'email-placeholder' => 'exemplo@exemplo.com',
+	
 
 	// login
 	'email' => 'Email',
@@ -64,7 +68,7 @@ return [
 	'team' => 'Equipe',
 	'team-pre-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
 	'team-about' => 'Desastronautas',
-	'team-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
+	'team-text' => '<p>Nós somos um grupo de alunos do terceiro ano do Ensino Médio Integrado à Informática do Centro Paula Souza Pedro Ferreira Alves. Humanoides, trekkers, fissurados pelos mistérios do cosmos, mochileiros, e nerds aspirantes de tecnologia. </p><p>De acordo com Carl Sagan, a ciência não descobriu somente que o universo encerra uma grande implícita e estática acessível a compreensão humana, mas também somos, em um sentido real e profundo, uma parte deste Cosmo, nascidos dele, nosso destino, irremediavelmente ligado a ele.</p>',
 	'team-figcaption' => 'Uma foto nossa',
 
 ];

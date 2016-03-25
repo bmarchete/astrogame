@@ -19,7 +19,7 @@ return [
 
 	'login' => 'Login',
 	'cadastrar' => 'Register',
-	'termos' => 'User\'s Termos',
+	'termos' => 'User\'s Terms',
 	'politica' => 'Privacy Politics',
 	'senha' => 'Password',
 	'submit' => 'Entrar',
