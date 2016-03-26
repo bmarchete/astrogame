@@ -54,4 +54,43 @@ class User extends Authenticatable
         $user_xp = Auth::user()->xp;
         return 80;
     }
+
+
+    // @return string
+    public static function patente(){
+        // (1-3)  -> Observador 
+        // (3-6)  -> Vigia das estrelas
+        // (6-9)  -> Residente (?)
+        // (9-10) -> Chefe de Laboratorio 
+        // (10-11)-> Ciêntista 
+        // (12)   -> Astronauta - Amador
+        // (13)   -> Astronauta - Pesquisador
+        // (14)   -> Astronauta - Líder de Módulo
+        // (15)   -> Astronauta - Chefe de estação
+        if(auth()->user()->type == 3){
+            return trans('game.patent-gm');
+        }
+
+        $level = auth()->user()->level;
+        
+        if($level < 3){
+            return trans('game.patent1');
+        } else if($level >= 3 && $level < 6){
+            return trans('game.patent2');
+        } else if($level >= 6 && $level < 9){
+            return trans('game.patent3');
+        } else if($level >= 9 && $level < 10){
+            return trans('game.patent4');
+        } else if($level >= 10 && $level <= 11){
+            return trans('game.patent5');
+        } else if($level == 12){
+            return trans('game.patent6');
+        } else if($level == 13){
+            return trans('game.patent7');
+        } else if($level == 14){
+            return trans('game.patent8');
+        } else if($level > 15){
+            return trans('game.patent9');
+        }
+    }
 }

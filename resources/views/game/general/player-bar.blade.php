@@ -142,13 +142,13 @@ function change_xp(xp){
 
         <div class="uk-width-1-2 uk-width-large-2-10 uk-margin-top">
             <figure data-uk-modal="{target:'#player-modal'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-                <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ $user_name }}">
+                <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ $user_name }}">
             </figure>
         </div>
 
          <div class="uk-width-1-2 uk-width-large-2-10 uk-text-left uk-hidden-small">
             <ul class="uk-list">
-            <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ $user_level }} (aspirante)</li>
+            <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ $user_level }} ({{ $patente }})</li>
             <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG <span class="money">{{ $user_money }}</span></li>  
             </ul>
         </div>
@@ -306,23 +306,33 @@ function change_xp(xp){
 <div id="player-modal" class="uk-modal">
     <div class="uk-modal-dialog">
         <a href="" class="uk-modal-close uk-close"></a>
-        <div class="uk-modal-header">
-            <h3 class="uk-panel-header">{{ trans('game.player-profile') }}</h3>
-        </div>
-        <div class="uk-grid" data-uk-grid>
-            <div class="uk-width-2-4">            
-                <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
-                    <img src="{{ url('/img/avatar.png') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
-                </figure>
-            </div>
 
-            <div class="uk-width-2-4">
-                <ul class="uk-list">
-                    <li>
-                        <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} (aspirante)</li>
-                    <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>  
-                </ul>
+        <ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}">
+            <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-user"></i> Perfil</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> Mochila</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> Patentes</a></li>
+        </ul>
+        
+        <ul id="tab-content" class="uk-switcher uk-margin">
+            <li aria-hidden="false" class="uk-active">
+                <div class="uk-grid" data-uk-grid>
+                <div class="uk-width-2-4">            
+                    <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
+                        <img src="{{ url('/img/avatar.png') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ \Auth::user()->name }}">
+                    </figure>
+                </div>
 
+                <div class="uk-width-2-4">
+                    <ul class="uk-list">
+                        <li>
+                            <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
+                        <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>  
+                    </ul>
+                </div>
+                </div>
+            </li>
+
+            <li class="" aria-hidden="true">
                 <div class="uk-panel uk-panel-box uk-panel-box-primary">
                     <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> {{ trans('game.bag') }}</h3>
                     <ul class="uk-list bag bag-items">
@@ -337,9 +347,21 @@ function change_xp(xp){
                         @endforeach
                     </ul>
                 </div>
-
-            </div>
-        </div>
+            </li>
+            <li class="" aria-hidden="true">
+                <dl class="uk-description-list-line">
+                    <dt><div class="uk-badge">(0-3)</div> {{ trans('game.patent1')}}</dt>
+                    <dt><div class="uk-badge">(3-6)</div> {{ trans('game.patent2')}}</dt>
+                    <dt><div class="uk-badge">(6-9)</div> {{ trans('game.patent3')}}</dt>
+                    <dt><div class="uk-badge">(9-10)</div> {{ trans('game.patent4')}}</dt>
+                    <dt><div class="uk-badge">(10-11)</div> {{ trans('game.patent5')}}</dt>
+                    <dt><div class="uk-badge">(12)</div> {{ trans('game.patent6')}}</dt>
+                    <dt><div class="uk-badge">(13)</div> {{ trans('game.patent7')}}</dt>
+                    <dt><div class="uk-badge">(14)</div> {{ trans('game.patent8')}}</dt>
+                    <dt><div class="uk-badge">(15)</div> {{ trans('game.patent9')}}</dt>
+                </dl>
+            </li>
+        </ul>            
     </div>
 </div>
 

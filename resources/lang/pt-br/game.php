@@ -54,4 +54,17 @@ return [
 	'bug-title' => 'Sugestões e Bug Report',
 	'bug-message' => 'Mensagem',
 
+
+	// patentes
+	'patent1' => 'Observador',
+	'patent2' => 'Vigia das estrelas',
+	'patent3' => 'Residente',
+	'patent4' => 'Ciêntista',
+	'patent5' => 'Chefe de Laboratorio',
+	'patent6' => 'Astronauta - Amador',
+	'patent7' => 'Astronauta - Pesquisador',
+	'patent8' => 'Astronauta - Líder de Módulo',
+	'patent9' => 'Astronauta- Chefe de estação',
+	'patent-gm' => 'Desastronauta Master',
+	
 ];

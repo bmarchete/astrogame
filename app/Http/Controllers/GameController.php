@@ -50,7 +50,8 @@ class GameController extends Controller
             'shop' => Item::shop(),
             'bag' => UserBag::bag(),
             'avaliable_quests' => Quest::avaliable_quests(),
-            'accepted_quests' => Quest::accepted_quests()
+            'accepted_quests' => Quest::accepted_quests(),
+            'patente' => \App\User::patente(),
         ];
     }
 
