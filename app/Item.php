@@ -49,4 +49,8 @@ class Item extends Model
     			// checar se já tem esse item, evitar apenas mudança de quantidade
     			'html' => '<li onclick="remove_item('. $item->id .')" class="item-'. $item->id .'"><span class="uk-badge uk-badge-success">1</span><figure class="uk-thumbnail" data-uk-tooltip title="'. $item->name .'"><img src="'. url('/img/items') . '/' . $item->img_url . '.png" alt="" data-uk-tooltip=""></figure></li>'];
     }
+
+    public static function add_item($item_id){
+        // @TODO: Finish HIM
+    }
 }

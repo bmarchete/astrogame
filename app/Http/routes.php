@@ -35,6 +35,9 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/exploration', 'GameController@exploration');
 		Route::get('/observatory', 'GameController@observatory');
 
+		// chapter
+		Route::get('/chapter_complete/{key}', 'GameController@chapter_complete')->where('key', '[a-z-]+');
+
 		// quests
 		Route::get('/quest_accept/{id}', 'GameController@quest_accept')->where('id', '[0-9-]+');
 		Route::get('/quest_cancel/{id}', 'GameController@quest_cancel')->where('id', '[0-9-]+');

@@ -21,25 +21,33 @@ class GameController extends Controller
 
     private $view_vars = [];
 
+    public function __construct() {
+        $this->player_bar();
+        $this->view_vars = array_pop($this->view_vars);
+    }
+
     /**
      * Página inicial do jogo
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return $this->chapter1();
+    public function index() {       
+        $current_chapter = new UserProgres();
+        $name = $current_chapter->current()->name;
+
+        return $this->$name();
     }   
 
     public function tutorial() {
-        return view('game.chapters.tutorial', $this->player_bar());
+        return view('game.chapters.tutorial', $this->view_vars);
     }
 
     public function observatory() {
-        return view('game.general.observatory', $this->player_bar());
+        return view('game.general.observatory', $this->view_vars);
     }
 
     public function player_bar() {
-        return [
+        $this->view_vars[] = [
             'music_volume' => UserConfig::getConfig('music_volume'),
             'xp_bar' => \App\User::xp_bar(),
             'user_name' => Auth::user()->name,
@@ -57,31 +65,22 @@ class GameController extends Controller
 
     // chapters
     public function chapter1() { 
-        // min level = 1
-        // max level = null
-        // xp on complete = 1500
-        // skills = ??
-        // personagem = ?? (Carl Sagan)
-        // quizz final (ID 1)
-
-        return view('game.chapters.universe', $this->player_bar());
-        
-
+        return view('game.chapters.universe', $this->view_vars);
 
     } // the universe
     public function chapter2() { } // galaxy clusters
     public function chapter3() { } // galaxies
 
 
-    public function progress_on_chapter(Request $request) {
+    public function chapter_complete(Request $request) {
         // alguma checagem para não ter espertinhos
-
         $key = $request->key;
 
-        $chapter_progress = new UserProgres;
-        $chapter_progress->key = '';
+        $chapter = new UserProgres;
+        $chapter->key = $key;
+        $complete = $chapter->complete();
         
-
+        return response()->json($complete);
     }
 
     // quests
