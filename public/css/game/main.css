@@ -9,7 +9,7 @@ html {
 }
 body {
 	background: url('../../img/bg.jpg') no-repeat center center /cover;
-	min-height: 600px;
+	min-height: 800px;
 	transition: 1s all ease;
 	overflow: hidden;
 }
@@ -85,13 +85,17 @@ body {
 	bottom: 162px;
 	right: 83px;
 	z-index: 1;
+	max-width: 270px;
+	line-height: 22px;
+	font-size: 16px;
+	color: #fff
 }
 
 .game-section .cientist-message .message-arrow:before {
 	content: "";
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: -175px;
+	margin-right: -105px;
 	width: 0;
 	height: 0;
 	border-left: 15px solid transparent;

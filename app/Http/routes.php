@@ -50,6 +50,12 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/music/{volume}', 'GameController@change_volume_music')->where('volume', '[0-9-]+');
 		Route::get('/effects/{volume}', 'GameController@change_volume_effects')->where('volume', '[0-9-]+');
 
+
+		// chapters
+		Route::get('/welcome', 'GameController@welcome');
+		Route::get('/tutorial', 'GameController@tutorial');
+		Route::get('/chapter1', 'GameController@chapter1');
+		
 	});
 
 	// social login

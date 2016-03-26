@@ -1,40 +1,54 @@
 @extends('game.general.general')
 @section('title')
-Tutorial | Game
+{{ trans('chapters.welcome.title') }} | {{ trans('project.title') }}
 @stop
 
 @section('style')
 @stop
 
 @section('javascript')
+{!! Minify::javascript(['/vendor/popcorn/popcorn-complete.min.js',
+                       '/js/chapters/general.js'])->withFullURL() !!}
 <script>
-
 $(document).ready(function(){
-        UIkit.notify({
-            message : 'Bem vindo ao {{ trans('project.project-name') }}!',
-            status  : 'info',
-            timeout : 3000,
-            pos     : 'top-right'
-        });
+	UIkit.notify({message: '<i class="uk-icon-exclamation"> </i> Você ganhou 100 xp!', status: 'success', pos:'top-right'});
+	UIkit.notify({message: '<i class="uk-icon-exclamation"> </i> Parabéns, você acabou de completar as boas vindas!', status: 'success', pos:'top-right'});
 
-        UIkit.notify({
-            message : 'Você está no modo tutorial agora :)',
-            status  : 'warning',
-            timeout : 5000,
-            pos     : 'top-right'
-        });
+	$("#pular").click(function(){
+		window.location('{{ url('/pular') }}');
+	});
+
+	$("#bora").click(function(){
+		$("#capitulo").hide();
+		$(".cientist").show();
+		$(".cientist-message").show();
+		cientist("Olá, meu nome é Galileu", 100);
+	});
 });
 </script>
 @stop
 
-@section('cosntent')
-<div class="uk-grid" data-uk-grid>
-	<div class="uk-container uk- uk-margin-top">
-		<div class="uk-panel uk-panel-box uk-width-medium-1-2">
-	        <div class="uk-panel-badge uk-badge uk-badge-danger">Hot</div>
-	        <h3 class="uk-panel-title">Title</h3>
-	            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-	    </div>
+@section('content')
+
+<div class="uk-container uk-container-center game-section">
+    <div class="uk-grid">
+        <div class="uk-width-1-1 uk-text-center">
+        <div id="capitulo" class="uk-panel uk-panel-box uk-width-2-3 uk-align-center">
+		    <h2>Capítulo I (Tutorial)</h2>
+		    <p>Aprenda um pouco sobre Astrogame, um guia rápido de onde localizar as funcionalidades, como menu do jogador, missões, loja, mochila e outras funcionalidades do jogo.</p>
+		    <div class="uk-button-group">
+		    	<button id="pular" class="uk-button uk-button-danger uk-button-large"><i class="uk-icon-close"></i> Pular</button>
+		    	<button id="bora" class="uk-button uk-button-success uk-button-large"><i class="uk-icon-check"></i> Bora</button>
+        	</div>
+		</div>
 	</div>
+
+        <div class="cientist-message" style="display:none">
+            <div style="visibility: visible; display: block; opacity: 1;" class="uk-tooltip uk-tooltip-top">
+                <div class="uk-tooltip-inner cientist-text"></div>
+            </div>
+        </div>
+        <img src="{{ URL('/img/char/galileu.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="" style="display:none">
+    </div>
 </div>
 @stop

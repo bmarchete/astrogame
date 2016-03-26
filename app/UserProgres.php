@@ -9,6 +9,13 @@ class UserProgres extends Model
     public $keys = 
     [
     	[
+    		'name' => 'welcome',
+    		'xp_reward' => 2000,
+            'items_reward' => [],
+    		'min_level' => 1,
+    	],
+
+    	[
     		'name' => 'tutorial',
     		'xp_reward' => 100,
     		'items_reward' => [1, 2],
@@ -17,13 +24,6 @@ class UserProgres extends Model
 
     	[
     		'name' => 'chapter1',
-    		'xp_reward' => 100,
-    		'items_reward' => [1, 2],
-    		'min_level' => 1,
-    	],
-
-    	[
-    		'name' => 'chapter2',
     		'xp_reward' => 100,
     		'items_reward' => [1, 2],
     		'min_level' => 2,
