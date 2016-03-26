@@ -39,7 +39,15 @@ class GameController extends Controller
     }   
 
     public function tutorial() {
+        $chapter = new UserProgres;
+        $chapter->key = 'welcome';
+        $complete = $chapter->complete();
+
         return view('game.chapters.tutorial', $this->view_vars);
+    }
+
+    public function welcome() {
+        return view('game.chapters.welcome', $this->view_vars);
     }
 
     public function observatory() {
@@ -47,6 +55,7 @@ class GameController extends Controller
     }
 
     public function player_bar() {
+        \App\User::gain_xp(300);
         $this->view_vars[] = [
             'music_volume' => UserConfig::getConfig('music_volume'),
             'xp_bar' => \App\User::xp_bar(),
@@ -54,6 +63,7 @@ class GameController extends Controller
             'user_level' => Auth::user()->level,
             'user_money' => Auth::user()->money,
             'user_xp' => Auth::user()->xp,
+            'xp_for_next_level' => \App\User::xp_for_next_level(),
             'lang' => Session::get('language', 'pt-br'),
             'shop' => Item::shop(),
             'bag' => UserBag::bag(),

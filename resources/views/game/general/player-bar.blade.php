@@ -135,8 +135,8 @@ function change_xp(xp){
         </div>
 
 		<div class="uk-width-5-10 uk-width-large-8-10 uk-margin-bottom">
-			<div class="uk-progress uk-progress-success">
-		    	<div class="uk-progress-bar" style="width: {{ $xp_bar }}%;" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">faltam 12.0000 pts</div>
+			<div class="uk-progress">
+		    	<div class="uk-progress-bar" style="width: {{ $xp_bar }}%;" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">{{ $user_xp }} / {{ $xp_for_next_level }}</div>
 			</div>
 		</div>	
 

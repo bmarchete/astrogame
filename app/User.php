@@ -4,10 +4,31 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
-use Auth;
+use Log;
 
 class User extends Authenticatable
 {
+
+    public static $level_xp =
+    [
+        // level => xp_for_next_level 
+        1 => 400,
+        2 => 900,
+        3 => 1400,
+        4 => 2100,
+        5 => 2800,
+        6 => 3600,
+        7 => 4500,
+        8 => 5400,
+        9 => 6500,
+        10 => 7600,
+        11 => 8700,
+        12 => 9800,
+        13 => 11000,
+        14 => 12300,
+        15 => 13600          
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,21 +59,28 @@ class User extends Authenticatable
 
     /**
      * Função para aumentar pontos de xp do jogador
-     *
+     *  @TODO: REFACTOR
      * @param int xp
      * @return void
      */
     public static function gain_xp($xp){
-        $user_id = Auth::user()->id; // talvez trocar para (getAuthIdentifier())
-        DB::table('users')->where('id', $user_id)->increment('xp');
-        Auth::user()->xp += $xp;
-        self::checkLevel();
-    } // testar
+        DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);
+        auth()->user()->xp += $xp;   
+        if(auth()->user()->xp > self::xp_for_next_level()){
+            auth()->user()->level += 1;
+            DB::table('users')->where('id', auth()->user()->id)->increment('level');
+            Log::info('Player: ' . auth()->user()->id . " passou para o level " . auth()->user()->level);    
+        }
+    }
 
+    // pega o xp e transforma em porcentagem
     public static function xp_bar(){
-        // pega o xp e transforma em porcentagem
-        $user_xp = Auth::user()->xp;
-        return 80;
+        $porcent = (auth()->user()->xp * 100) / self::xp_for_next_level();
+        return round($porcent);
+    }
+
+    public static function xp_for_next_level() {
+        return self::$level_xp[auth()->user()->level];
     }
 
 
