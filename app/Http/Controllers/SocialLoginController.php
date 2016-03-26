@@ -13,7 +13,7 @@ use Image;
 
 class SocialLoginController extends Controller
 {
-    private $avalible_providers = ['facebook', 'google'];
+    private $avalible_providers = ['facebook'];
 
 	/**
      * Função apenas para acionar a route de login
