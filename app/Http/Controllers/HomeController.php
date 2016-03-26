@@ -12,7 +12,7 @@ use App\UserConfig;
 
 class HomeController extends Controller
 {
-    public $lang_avaliable = ['pt-br', 'en'];
+    public $lang_avaliable = ['pt-br', 'en', 'es', 'fr'];
 
     /**
      * Página inicial do projeto

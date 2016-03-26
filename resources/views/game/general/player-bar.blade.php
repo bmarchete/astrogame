@@ -28,9 +28,9 @@ function change_xp(xp){
                    if (data.status){
                         var modal = UIkit.modal("#bug-report-modal");
                         modal.hide();
-                        UIkit.notify(data.text, {status:'success'});
+                        UIkit.notify(data.text, {status:'success', pos: 'top-right'});
                    } else {
-                        UIkit.notify("<i class='uk-icon-close'></i> " + data.text, {status:'danger'});
+                        UIkit.notify("<i class='uk-icon-close'></i> " + data.text, {status:'danger', pos: 'top-right'});
                    }    
                } 
            });
@@ -50,14 +50,14 @@ function change_xp(xp){
             $.ajax({
                  url: '{{ url('/game/quest_accept')}}/' + quest_id,
                  dataType: "json",
-                 success: function(data){ //Se ocorrer tudo certo
+                 success: function(data){
                     if(data.accepted){
-                        UIkit.notify('Quest aceita!', {status:'success'});
+                        UIkit.notify("<i class=\"uk-icon-exclamation\"> </i> {{ trans('game.quest-accepted') }}", {status:'success', pos: 'top-right'});
                         quest_effect.play();
                         $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
 
                     } else {
-                        UIkit.notify('Você já aceitou essa quest!', {status:'warning'})
+                        UIkit.notify('{{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
                     }
                  }
               });
@@ -67,15 +67,15 @@ function change_xp(xp){
     });
 
     function buy_item(item){
-        UIkit.modal.confirm("Você deseja comprar este item?", function(){
+        UIkit.modal.confirm("{{ trans('game.buy-item') }}", function(){
                 $.ajax({
                  url: '{{ url('/game/buy_item')}}/' + item,
                  dataType: "json",
-                 success: function(data){ //Se ocorrer tudo certo
+                 success: function(data){
                     if(data.status_or_price == false){
-                        UIkit.notify(data.msg, {status:'danger'});
+                        UIkit.notify('<i class="uk-icon-close"> </i> ' + data.msg, {status:'danger', pos: 'top-right'});
                     } else {
-                        UIkit.notify(data.msg, {status:'success'});
+                        UIkit.notify('<i class="uk-icon-check"> </i> ' + data.msg, {status:'success', pos: 'top-right'});
                         coin_effect.play();
 
                         var money_player = parseInt($('.money').html());
@@ -93,17 +93,17 @@ function change_xp(xp){
     }
 
     function remove_item(item){
-        UIkit.modal.confirm("Você deseja remover este item de sua mochila?", function(){
+        UIkit.modal.confirm("{{ trans('game.remove-item') }}", function(){
                 $.ajax({
                  url: '{{ url('/game/remove_item')}}/' + item,
                  dataType: "json",
                  success: function(data){ //Se ocorrer tudo certo
                     if(data.status == false){
-                        UIkit.notify(data.msg, {status:'danger'});
+                        UIkit.notify(data.msg, {status:'danger', pos: 'top-right'});
                     } else {
                         $(".item-" + item).hide();
                         delete_effect.play();
-                        UIkit.notify(data.msg, {status:'warning'});
+                        UIkit.notify(data.msg, {status:'warning', pos: 'top-right'});
                     }
                  }
               });
@@ -123,7 +123,7 @@ function change_xp(xp){
 
 </script>
 @stop
-<button class="uk-button uk-button-success button-player-bar" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}">Menu do jogador</button>
+<button class="uk-button uk-button-success button-player-bar" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}">{{ trans('game.player-bar') }}</button>
 <button class="uk-button uk-button-danger button-suggestion" data-uk-modal="{target:'#bug-report-modal'}">{{ trans('game.suggestions')}}</button>
 
 <div id="player-bar" class="uk-hidden">
@@ -218,6 +218,8 @@ function change_xp(xp){
             			    <select id="lang-select" name="lang">
             			        <option value="pt-br" @if ($lang == 'pt-br') selected @endif >Português Brasileiro</option>
             			        <option value="en" @if ($lang == 'en') selected @endif>English</option>
+                                <option value="es" @if ($lang == 'es') selected @endif>Español</option>
+                                <option value="fr" @if ($lang == 'fr') selected @endif>Français</option>
             			    </select>
             			</div>
             	</div>
@@ -261,28 +263,25 @@ function change_xp(xp){
     <div class="uk-modal-dialog">
         <a href="" class="uk-modal-close uk-close"></a>
         <div class="uk-modal-header">
-            <h3 class="uk-panel-header">Loja Pan Galáctia</h3>
+            <h3 class="uk-panel-header">{{ trans('game.shop-name') }}</h3>
         </div>
-        Vamos as compras?
+        <p>{{ trans('game.shop-slogan') }}</p>
 
         <div class="uk-width-1-1">
             <ul class="uk-list bag">
-        @foreach($shop as $item)
-        
-            <li>
-                @if ($item->max_stack > 1)
-                <span class="uk-badge uk-badge-danger" data-uk-tooltip title="Máximo que você pode carregar">{{ $item->max_stack }}</span>
-                @endif    
-                    <figure class="uk-thumbnail uk-text-center buy-item" onclick="buy_item({{ $item->id }});">
-                        <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
-                    </figure>
-                    <figcaption>
-                        <span class="price"><i class="uk-icon-money"></i> {{ $item->price }}</span>
-                        
-                    </figcaption>
-            </li>
-        @endforeach
-        </ul>
+            @foreach($shop as $item)
+                <li>
+                    @if ($item->max_stack > 1)
+                    <span class="uk-badge uk-badge-danger" title="{{ trans('game.item-max') }}" data-uk-tooltip>{{ $item->max_stack }}</span>
+                    @endif    
+                        <figure class="uk-thumbnail uk-text-center buy-item" onclick="buy_item({{ $item->id }});">
+                            <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" title="{{ $item->name }}" data-uk-tooltip >
+                        <figcaption class="uk-align-center uk-text-center">
+                            <span class="price"><i class="uk-icon-money"></i> {{ $item->price }}</span>
+                        </figcaption>
+                </li>
+                @endforeach
+            </ul>
         </div>
 
         <ul class="uk-pagination">
@@ -308,24 +307,24 @@ function change_xp(xp){
     <div class="uk-modal-dialog">
         <a href="" class="uk-modal-close uk-close"></a>
         <div class="uk-modal-header">
-            <h3 class="uk-panel-header">Perfil do jogador</h3>
+            <h3 class="uk-panel-header">{{ trans('game.player-profile') }}</h3>
         </div>
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-2-4">            
                 <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
-                    <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
+                    <img src="{{ url('/img/avatar.png') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ trans('game.astronaut') }} {{ \Auth::user()->name }}">
                 </figure>
             </div>
 
             <div class="uk-width-2-4">
                 <ul class="uk-list">
                     <li>
-                        <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ $user_level }} (aspirante)</li>
+                        <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} (aspirante)</li>
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>  
                 </ul>
 
                 <div class="uk-panel uk-panel-box uk-panel-box-primary">
-                    <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> Mochila</h3>
+                    <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> {{ trans('game.bag') }}</h3>
                     <ul class="uk-list bag bag-items">
                         <li></li>
                         @foreach($bag as $item)
@@ -349,20 +348,20 @@ function change_xp(xp){
     <div class="uk-modal-dialog uk-modal-dialog-large">
         <a href="" class="uk-modal-close uk-close"></a>
          <div class="uk-modal-header">
-            <h3 class="uk-panel-header">Missões <span class="uk-badge uk-badge-warning">!</span></h3>
+            <h3 class="uk-panel-header">{{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">!</span></h3>
         </div>
         <div class="uk-overflow-container">
         <table class="uk-table">
-            <caption>Missões disponíveis</caption>
+            <caption>{{ trans('game.quest-avaliable') }}</caption>
             <thead>
                 <tr>
-                    <th>Título</th>
-                    <th>Tipo</th>
-                    <th>Descrição</th>
-                    <th>Objetivos</th>
-                    <th>Recompensas</th>
-                    <th>Level Min</th>
-                    <th>Level Máx</th>
+                    <th>{{ trans('game.quest-title') }}</th>
+                    <th>{{ trans('game.quest-type') }}</th>
+                    <th>{{ trans('game.quest-description') }}</th>
+                    <th>{{ trans('game.quest-goal') }}</th>
+                    <th>{{ trans('game.quest-reward') }}</th>
+                    <th>{{ trans('game.quest-level-min') }}</th>
+                    <th>{{ trans('game.quest-level-max') }}</th>
                     <th></th>
                 </tr>
             </thead>
@@ -376,24 +375,23 @@ function change_xp(xp){
                     <td>{{ $quest->recompensas }}</td>
                     <td>{{ $quest->min_level }}</td>
                     <td>{{ $quest->max_level }}</td>
-                    <td><button class="uk-button uk-button-success accept-quest" value="{{ $quest->id }}">Aceitar</button>
+                    <td><button class="uk-button uk-button-success accept-quest" value="{{ $quest->id }}">{{ trans('game.quest-get') }}</button>
                 </tr>
                 @endforeach
-                
             </tbody>
         </table>
 
         <table class="uk-table">
-            <caption>Missões aceitas</caption>
+            <caption>{{ trans('game.quest-accept') }}</caption>
             <thead>
                 <tr>
-                    <th>Título</th>
-                    <th>Tipo</th>
-                    <th>Descricao</th>
-                    <th>Objetivos</th>
-                    <th>Recompensas</th>
-                    <th>Level Min</th>
-                    <th>Level Máx</th>
+                    <th>{{ trans('game.quest-title') }}</th>
+                    <th>{{ trans('game.quest-type') }}</th>
+                    <th>{{ trans('game.quest-description') }}</th>
+                    <th>{{ trans('game.quest-goal') }}</th>
+                    <th>{{ trans('game.quest-reward') }}</th>
+                    <th>{{ trans('game.quest-level-min') }}</th>
+                    <th>{{ trans('game.quest-level-max') }}</th>
                     <th></th>
                 </tr>
             </thead>
