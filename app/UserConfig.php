@@ -15,7 +15,7 @@ class UserConfig extends Model
     	];
 
     public static function getConfig($config_key){
-    	if(!Auth::check()){
+    	if(!auth()->check()){
     		return false;
     	}
     	$user_id = auth()->user()->id;
@@ -24,7 +24,7 @@ class UserConfig extends Model
     }
 
     public static function setConfig($config_key, $content){
-    	if(!Auth::check()){
+    	if(!auth()->check()){
     		return false;
     	}
     	$user_id = auth()->user()->id;
@@ -36,7 +36,7 @@ class UserConfig extends Model
 
     public static function installConfig($user_id = 0){
         if($user_id != 0){
-            if(Auth::check()){
+            if(auth()->check()){
                 $user_id = auth()->user()->id;
             }
         }

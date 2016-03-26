@@ -38,7 +38,7 @@ class SocialLoginController extends Controller
             if($check_user){
                 // array diff para checar se o usuário mudou algo
 
-                Auth::login($check_user);
+                auth()->login($check_user);
                 return redirect('/game');
             }
 
@@ -59,7 +59,7 @@ class SocialLoginController extends Controller
 
             $this->make_avatar($user->id, $user->avatar);
             
-            Auth::login($user_db, true);
+            auth()->login($user_db, true);
             UserConfig::installConfig($user_db->id);
             return redirect('/game');
 

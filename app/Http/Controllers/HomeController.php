@@ -18,7 +18,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        if(Auth::check()){
+        if(auth()->check()){
             return redirect('/game');
         }
 
@@ -123,7 +123,7 @@ class HomeController extends Controller
         if(in_array($lang, $this->lang_avaliable)){
             session()->put('language', $lang);
             
-            if(Auth::check()){
+            if(auth()->check()){
                 UserConfig::setConfig('lang', $lang);
             }
 
