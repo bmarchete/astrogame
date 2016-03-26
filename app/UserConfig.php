@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Auth;
 use DB;
 
 class UserConfig extends Model
@@ -19,7 +18,7 @@ class UserConfig extends Model
     	if(!Auth::check()){
     		return false;
     	}
-    	$user_id = Auth::user()->id;
+    	$user_id = auth()->user()->id;
     	$config = UserConfig::select('content')->where('user_id', $user_id)->where('key', $config_key)->limit(1)->get()->first();
     	return $config->content;
     }
@@ -28,7 +27,7 @@ class UserConfig extends Model
     	if(!Auth::check()){
     		return false;
     	}
-    	$user_id = Auth::user()->id;
+    	$user_id = auth()->user()->id;
     	DB::table('user_configs')
             ->where('user_id', $user_id)
             ->where('key', $config_key)
@@ -38,7 +37,7 @@ class UserConfig extends Model
     public static function installConfig($user_id = 0){
         if($user_id != 0){
             if(Auth::check()){
-                $user_id = Auth::user()->id;
+                $user_id = auth()->user()->id;
             }
         }
 

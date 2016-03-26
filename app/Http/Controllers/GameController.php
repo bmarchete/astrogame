@@ -10,9 +10,7 @@ use App\UserConfig;
 use App\UsersQuest;
 use App\UserBag;
 use App\Item;
-use Session;
 use App\Quest;
-use Auth;
 use App\UserProgres;
 
 // toda a magia vai acontecer aqui :)
@@ -59,12 +57,12 @@ class GameController extends Controller
         $this->view_vars[] = [
             'music_volume' => UserConfig::getConfig('music_volume'),
             'xp_bar' => \App\User::xp_bar(),
-            'user_name' => Auth::user()->name,
-            'user_level' => Auth::user()->level,
-            'user_money' => Auth::user()->money,
-            'user_xp' => Auth::user()->xp,
+            'user_name' => auth()->user()->name,
+            'user_level' => auth()->user()->level,
+            'user_money' => auth()->user()->money,
+            'user_xp' => auth()->user()->xp,
             'xp_for_next_level' => \App\User::xp_for_next_level(),
-            'lang' => Session::get('language', 'pt-br'),
+            'lang' => session()->get('language', 'pt-br'),
             'shop' => Item::shop(),
             'bag' => UserBag::bag(),
             'avaliable_quests' => Quest::avaliable_quests(),

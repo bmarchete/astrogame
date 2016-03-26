@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Auth;
 use DB;
 use App\Quest;
 
@@ -15,7 +14,7 @@ class UsersQuest extends Model
     // primeira função que você deve executar! 
     public function quest($quest_id){
         if(!empty($quest_id)){
-            $this->user_id = Auth::user()->id;
+            $this->user_id = auth()->user()->id;
             $this->quest_id = $quest_id;
         } else {
             die('Você precisa determinar a quest id antes');

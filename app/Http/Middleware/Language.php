@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Session;
 use App;
 
 class Language
@@ -18,7 +17,7 @@ class Language
      */
     public function handle($request, Closure $next)
     {
-        $language = Session::get('language', 'pt-br');
+        $language = session()->get('language', 'pt-br');
         App::setLocale($language);
         return $next($request);
     }

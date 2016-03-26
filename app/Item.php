@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
-use Auth;
 use App\UserBag;
 
 class Item extends Model
@@ -16,7 +15,7 @@ class Item extends Model
     }
 
     public static function buy_item($item_id){
-    	$user = Auth::user();
+    	$user = auth()->user();
     	$item = Item::select('id', 'name', 'price', 'min_level', 'max_stack', 'img_url')->where('id', $item_id)->limit(1)->get()->first();
 
     	if($item->min_level > $user->level){

@@ -6,8 +6,6 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Validator;
 use Mail;
-use Auth;
-use Session;
 use App\UserConfig;
 
 class HomeController extends Controller
@@ -123,7 +121,7 @@ class HomeController extends Controller
      */
     public function change_language(Request $request, $lang = 'en') {
         if(in_array($lang, $this->lang_avaliable)){
-            Session::put('language', $lang);
+            session()->put('language', $lang);
             
             if(Auth::check()){
                 UserConfig::setConfig('lang', $lang);

@@ -8,7 +8,6 @@ use App\Http\Requests;
 use Socialize;
 use App\User;
 use App\UserConfig;
-use Auth;
 use Image;
 
 class SocialLoginController extends Controller
