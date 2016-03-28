@@ -9,3 +9,7 @@ Thumbs.db
 /public/css/builds
 /public/js/builds
 *.wav
+/public/css/fonts
+/public/users/
+*.mp4
+*.m4v
