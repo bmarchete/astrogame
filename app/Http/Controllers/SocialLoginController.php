@@ -57,12 +57,15 @@ class SocialLoginController extends Controller
             $user_db->password = bcrypt('temp' . rand() . 'temp');
             $user_db->save();
 
-            $this->make_avatar($user->id, $user->avatar);
+            $this->make_avatar($user_db->id, $user->avatar);
             
             auth()->login($user_db, true);
             UserConfig::installConfig($user_db->id);
             return redirect('/game');
 
+        } else if($provider == 'google'){
+            $user = Socialize::with('google')->user();
+            return response()->json($user);
         }
     }
 
@@ -70,7 +73,12 @@ class SocialLoginController extends Controller
     // @BUGGED
     public function make_avatar($user_id, $avatar_url) {
         $path = 'users/avatar/' . md5($user_id) . '.jpg';
-        //$test = Image::make($avatar_url)->fit(200, 200)->save($path);
+        
+        try{
+            Image::make($avatar_url)->fit(500, 500)->save($path);
+        } catch (\Intervention\Image\Exception\NotReadableException $e) {
+            Image::make(url('/img/avatar.png'))->fit(500, 500)->save($path);
+        }
     }
 
 	/**
