@@ -126,6 +126,14 @@ body {
 	padding: 30px;
 }
 
+.insignas li {
+	display: inline-block;
+}
+
+.insignas .uk-thumbnail {
+	overflow: hidden
+}
+
 ::-webkit-media-controls {
   display:none !important;
 }

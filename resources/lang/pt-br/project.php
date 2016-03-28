@@ -63,6 +63,14 @@ return [
 	'password' => 'Senha',
 	'register' => 'Criar Conta',
 
+	// cadastro
+	'name' => 'Nome',
+	'email-register' => 'Email (exemplo@exemplo.com)',
+	'login-register' => 'Já tenho uma conta',
+	'facebook' => 'Logar com facebook',
+	'confirm-password' => 'Repetir a senha',
+
+
 
 	// team
 	'team' => 'Equipe',

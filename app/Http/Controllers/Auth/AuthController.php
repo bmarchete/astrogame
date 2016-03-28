@@ -51,7 +51,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name' => 'required|min:2|max:60',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -73,5 +73,17 @@ class AuthController extends Controller
         UserConfig::installConfig($user->id);
         DB::table('users')->where('id', $user->id)->update(['money' => 5000]);
         return $user;
+    }
+
+    public function showRegistrationForm(){
+        return view('auth.register', ['page' => 'register']);
+    }
+
+    public function showLoginForm(){
+        return view('auth.login', ['page' => 'login']);
+    }
+
+    public function showResetForm() {
+        return view('auth.passwords.email', ['page' => 'reset']);
     }
 }

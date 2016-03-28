@@ -113,7 +113,7 @@ function change_xp(xp){
     }
 
     // music background
-    var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: true});
+    var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: true});
     var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
     var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
     var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false})
@@ -142,7 +142,7 @@ function change_xp(xp){
 
         <div class="uk-width-1-2 uk-width-large-2-10 uk-margin-top">
             <figure data-uk-modal="{target:'#player-modal'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-                <img src="{{ url('/img/avatar.png') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ $user_name }}">
+                <img src="{{ url('users/avatar/' . md5(auth()->user()->id) . '.jpg') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ $user_name }}">
             </figure>
         </div>
 
@@ -160,7 +160,7 @@ function change_xp(xp){
                 <button data-uk-modal="{target:'#calendar'}" class="uk-button"><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
                 <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary"><i class="uk-icon-search"></i>{{ trans('game.observatory') }}</a>
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
-                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success"><i class="uk-icon-search-plus"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">2</span> </button>
+                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success"><i class="uk-icon-exclamation"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">{{ count($avaliable_quests) }}</span> </button>
     		</div>
 		</div>
 
@@ -311,6 +311,7 @@ function change_xp(xp){
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-user"></i> Perfil</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> Mochila</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> Patentes</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> Insignas</a></li>
         </ul>
         
         <ul id="tab-content" class="uk-switcher uk-margin">
@@ -318,16 +319,16 @@ function change_xp(xp){
                 <div class="uk-grid" data-uk-grid>
                 <div class="uk-width-2-4">            
                     <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
-                        <img src="{{ url('/img/avatar.png') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ auth()->user()->name }}">
+                        <img src="{{ url('users/avatar/' . md5(auth()->user()->id) . '.jpg') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ auth()->user()->name }}">
                     </figure>
                 </div>
 
                 <div class="uk-width-2-4">
                     <ul class="uk-list">
-                        <li>
-                            <i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
+                        <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
                         <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>  
                     </ul>
+                    <a href="{{ url('/game/player')}}/{{ auth()->user()->id }}">Ver meu perfil público</a>
                 </div>
                 </div>
             </li>
@@ -360,6 +361,17 @@ function change_xp(xp){
                     <dt><div class="uk-badge">(14)</div> {{ trans('game.patent8')}}</dt>
                     <dt><div class="uk-badge">(15)</div> {{ trans('game.patent9')}}</dt>
                 </dl>
+            </li>
+            <li class="" aria-hidden="true">
+                <ul class="uk-list insignas">
+                    @foreach($user_insignas as $insigna)
+                    <li>
+                        <figure class="uk-thumbnail uk-border-circle" style="width: 100px">
+                            <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
+                        </figure>
+                    </li>
+                    @endforeach
+                </ul>
             </li>
         </ul>            
     </div>

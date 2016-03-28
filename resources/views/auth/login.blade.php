@@ -34,8 +34,10 @@
             <a class="uk-float-right uk-link uk-link-muted" href="{{ url('/password/reset') }}">{{ trans('project.forget-password')}}</a>
          </div>
          <div class="uk-form-row">
-            <button type="submit" class="uk-width-1-3 uk-button uk-button-danger uk-button-large">{{ trans('project.submit') }}</button>
-            <a class="uk-width-2-4 uk-button uk-button-primary uk-button-large" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
+            <div class="uk-button-group">
+               <button type="submit" class="uk-button uk-button-danger uk-button-large"><i class="uk-icon-sign-in"></i> {{ trans('project.submit') }}</button>
+               <a class="uk-button uk-button-primary uk-button-large" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
+            </div>
          </div>
          <div class="uk-form-row">
             <a href="{{ URL('/register') }}" class="uk-button uk-width-1-1 uk-button-success uk-button-large"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>

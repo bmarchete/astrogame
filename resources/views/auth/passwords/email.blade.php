@@ -1,47 +1,33 @@
-@extends('layouts.app')
-
-<!-- Main Content -->
+@extends('project.general')
+@section('title')
+Reset Password | {{ trans('project.project-name') }}
+@stop
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
-                        {!! csrf_field() !!}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i>Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
+   <div class="uk-vertical-align-middle" style="width: 300px;">
+      <img class="uk-margin-bottom" width="280" height="120" src="{{ url('img/logo.png') }}" alt="{{ trans('project.project-name') }}">
+      <form class="uk-panel uk-panel-box uk-form" role="form" method="POST" action="{{ url('/password/email') }}">
+         {!! csrf_field() !!}
+         @if (session('status'))
+         <div class="uk-alert uk-alert-success" data-uk-alert>
+            <a href="#" class="uk-alert-close uk-close"></a>
+            <p>{{ session('status') }}</p>
+         </div>
+         @endif
+         @if ($errors->has('email'))
+         <div class="uk-alert uk-alert-danger" data-uk-alert>
+            <a href="#" class="uk-alert-close uk-close"></a>
+            <strong>{{ $errors->first('email') }}</strong>
+         </div>
+         @endif
+         <div class="uk-form-row">
+            <input type="email" class="uk-width-1-1 uk-form-large" name="email" value="{{ old('email') }}" placeholder="Seu email" required>
+         </div>
+         <div class="uk-form-row">
+               <button type="submit" class="uk-button uk-width-1-1 uk-button-primary uk-button-large">
+               <i class="uk-icon-envelope"></i> Send Password Reset Link </button>
+         </div>
+      </form>
+   </div>
 </div>
 @endsection

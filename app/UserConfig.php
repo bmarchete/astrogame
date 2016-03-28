@@ -8,11 +8,12 @@ use DB;
 class UserConfig extends Model
 {
 	public $timestamps = false;
+
 	public static $default = [
-    	'music_volume' => 100,
+    	'music_volume' => 80,
     	'effects_volume' => 100,
     	'lang' => 'pt-br',
-    	];
+    ];
 
     public static function getConfig($config_key){
     	if(!auth()->check()){
@@ -27,11 +28,10 @@ class UserConfig extends Model
     	if(!auth()->check()){
     		return false;
     	}
-    	$user_id = auth()->user()->id;
-    	DB::table('user_configs')
-            ->where('user_id', $user_id)
-            ->where('key', $config_key)
-            ->update(['content' => $content]);
+    	DB::table('user_configs')->where('user_id', auth()->user()->id)
+                                 ->where('key', $config_key)
+                                 ->limit(1)
+                                 ->update(['content' => $content]);
     }    
 
     public static function installConfig($user_id = 0){

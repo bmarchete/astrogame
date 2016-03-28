@@ -10,13 +10,14 @@
    <div class="uk-grid" data-uk-grid-margin>
       <div class="uk-width-medium-1-1">
          <div class="uk-vertical-align uk-text-center">
-            <div class="uk-vertical-align-middle uk-width-1-2">
+            <div class="uk-vertical-align-middle uk-width-1-1 uk-width-large-1-2">
                <h1 class="uk-heading-large">{{ trans('project.home-title') }}</h1>
-               <p class="uk-text-large uk-hidden-small">{{ trans('project.home-description') }}</p>
-               <p>
-                  <a class="uk-button uk-button-primary uk-button-large" href="{{ URL('/login') }}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a>
+               <p class="uk-text-large">{{ trans('project.home-description') }}</p>
+               <div class="uk-button-group">
+                  <a class="uk-button uk-button-success uk-button-large" href="{{ URL('/login') }}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a>
+                  <a class="uk-button uk-button-primary uk-button-large uk-hidden-small" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
                   <a class="uk-button uk-button-large" href="{{ URL('/register') }}"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a>
-               </p>
+               </div>
             </div>
          </div>
       </div>
@@ -99,9 +100,9 @@
          <img width="660" height="400" src="img/home-section3.jpg" alt="">
       </div>
       <div class="uk-width-medium-1-2">
-         <h1>Heading</h1>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-         <h2>Subheading</h2>
+         <h1>Explore o Universo!</h1>
+         <p>Explore as estrelas, conheça os planetas de nosso sistema solar, e até mesmo os lugares mais distantes de nossa galaxia!</p>
+          <h2>Ao Infinito e Além!</h2>
          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
          <a class="uk-button uk-button-primary" href="#">Button</a>
       </div>

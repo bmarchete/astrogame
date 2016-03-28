@@ -22,7 +22,7 @@ class HomeController extends Controller
             return redirect('/game');
         }
 
-        return view('project.home');
+        return view('project.home', ['page' => 'index']);
     }
 
     /**
@@ -31,7 +31,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function sobre() {
-        return view('project.about');
+        return view('project.about', ['page' => 'sobre']);
     }
 
     /**
@@ -83,7 +83,7 @@ class HomeController extends Controller
                  'github' => ''],
 
                 ];
-        return view('project.team', ['team' => $team]);
+        return view('project.team', ['team' => $team, 'page' => 'equipe']);
     }
 
     /**
@@ -92,7 +92,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function contato() {
-        return view('project.contact');
+        return view('project.contact', ['page' => 'contato']);
     }
 
     /**
@@ -101,7 +101,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function termos() {
-        return view('project.termos');
+        return view('project.termos', ['page' => 'termos']);
     }
 
     /**
@@ -110,7 +110,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function politica() {
-        return view('project.politica');
+        return view('project.politica', ['page' => 'politica']);
     }
 
     /**

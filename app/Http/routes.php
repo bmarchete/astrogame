@@ -23,17 +23,20 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/contato', 'HomeController@enviar_contato');
 	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
 	Route::post('/bug', 'BugController@store');
-
-	// implements
 	Route::get('/termos', 'HomeController@termos');
 	Route::get('/politica', 'HomeController@politica');
 
+	// no authentication game
+	
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
 		Route::get('/', 'GameController@index');
 		Route::get('/campaign', 'GameController@index');
 		Route::get('/exploration', 'GameController@exploration');
 		Route::get('/observatory', 'GameController@observatory');
+
+		// public profile
+		Route::get('/player/{id}', 'GameController@player')->where('id', '[0-9]+');
 
 		// chapter
 		Route::get('/chapter_complete/{key}', 'GameController@chapter_complete')->where('key', '[a-z-]+');

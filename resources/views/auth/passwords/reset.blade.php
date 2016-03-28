@@ -1,70 +1,48 @@
-@extends('layouts.app')
-
+@extends('project.general')
+@section('title')
+Reset | {{ trans('project.project-name') }}
+@stop
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+<div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
+   <div class="uk-vertical-align-middle" style="width: 300px;">
+      <img class="uk-margin-bottom" width="280" height="120" src="{{ url('img/logo.png') }}" alt="{{ trans('project.project-name') }}">
+      <form class="uk-panel uk-panel-box uk-form" role="form" method="POST" action="{{ url('/password/reset') }}">
+         {!! csrf_field() !!}
 
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
-                        {!! csrf_field() !!}
+         @if ($errors->has('email'))
+         <div class="uk-alert uk-alert-danger" data-uk-alert>
+            <a href="#" class="uk-alert-close uk-close"></a>
+            <strong>{{ $errors->first('email') }}</strong>
+         </div>
+         @endif
 
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ $email or old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-refresh"></i>Reset Password
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+         <input type="hidden" name="token" value="{{ $token }}">
+         <div class="uk-form-row">
+            <input placeholder="Email Address" class="uk-width-1-1 uk-form-large" type="email"  name="email" value="{{ $email or old('email') }}">
+         </div>
+         <div class="uk-form-row">
+            <input type="password" placeholder="Password" class="uk-width-1-1 uk-form-large" name="password">
+            @if ($errors->has('password'))
+            <span class="help-block">
+            <strong>{{ $errors->first('password') }}</strong>
+            </span>
+            @endif
+         </div>
+         <div class="uk-form-row">
+            <input type="password" placeholder="Confirm Password" class="uk-width-1-1 uk-form-large" name="password_confirmation">
+            @if ($errors->has('password_confirmation'))
+            <span class="help-block">
+            <strong>{{ $errors->first('password_confirmation') }}</strong>
+            </span>
+            @endif
+         </div>
+         <div class="uk-form-row">
+            <button type="submit" class="uk-button uk-width-1-1 uk-button-primary uk-button-large">
+            <i class="uk-icon-refresh"></i> Reset Password
+            </button>
+         </div>
+   </div>
+   </form>
+</div>
 </div>
 @endsection

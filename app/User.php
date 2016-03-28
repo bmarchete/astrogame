@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
 use Log;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -85,7 +86,7 @@ class User extends Authenticatable
 
 
     // @return string
-    public static function patente(){
+    public static function patente($user_level = 0){
         // (1-3)  -> Observador 
         // (3-6)  -> Vigia das estrelas
         // (6-9)  -> Residente (?)
@@ -99,8 +100,12 @@ class User extends Authenticatable
             return trans('game.patent-gm');
         }
 
-        $level = auth()->user()->level;
-        
+        if($user_level == 0){
+            $level = auth()->user()->level;
+        } else {
+            $level = $user_level;
+        }
+
         if($level < 3){
             return trans('game.patent1');
         } else if($level >= 3 && $level < 6){
@@ -119,6 +124,14 @@ class User extends Authenticatable
             return trans('game.patent8');
         } else if($level > 15){
             return trans('game.patent9');
+        }
+    }
+
+    public function desde(){
+        if(\App::isLocale('pt-br')){
+            return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d/m/Y');
+        } else {
+            return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y');    
         }
     }
 }

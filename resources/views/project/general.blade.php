@@ -27,15 +27,23 @@
       <div id="menu" class="uk-offcanvas">
          <div class="uk-offcanvas-bar">
             <ul class="uk-nav uk-nav-offcanvas">
-               <li class="uk-active">
+               @if (!isset($page))
+               {{ $page = 'index' }} <!-- HACK // PLEASE FOR GOD'S SAKE, REMOVE THIS -->
+               @endif
+               <li @if ($page == 'index') class="uk-active" @endif>
                   <a href="{{ URL('/') }}"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
                </li>
-               <li><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
-               <li><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
-               <li><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
+               <li @if ($page == 'sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
+               <li @if ($page == 'equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
+               <li @if ($page == 'contato') class="uk-active" @endif><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
                <li class="uk-nav-divider"></li>
-               <li><a href="{{ URL('/termos') }}">Termos de uso {{ trans('project.termos') }}</a></li>
-               <li><a href="{{ URL('/politica') }}">{{ trans('project.politica') }}</a></li>
+               <li @if ($page == 'login') class="uk-active" @endif><a href="{{ URL('/login') }}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
+               <li><a href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Login com facebook</a></li>
+               <li @if ($page == 'register') class="uk-active" @endif><a href="{{ URL('/register') }}"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
+               
+               <li class="uk-nav-divider"></li>
+               <li @if ($page == 'termos') class="uk-active" @endif><a href="{{ URL('/termos') }}"><i class="uk-icon-paper-plane"></i> {{ trans('project.termos') }}</a></li>
+               <li @if ($page == 'politica') class="uk-active" @endif><a href="{{ URL('/politica') }}"><i class="uk-icon-paper-plane"></i> {{ trans('project.politica') }}</a></li>
             </ul>
          </div>
       </div>

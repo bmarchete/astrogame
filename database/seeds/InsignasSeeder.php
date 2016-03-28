@@ -12,8 +12,40 @@ class InsignasSeeder extends Seeder
 		[
 			'name' => 'Apollo 11',
 			'reason' => 'Ganha quando completa a missão da apollo 11',
-			'img_url' => 'basic_telescope',
+			'img_url' => 'apollo_11',
 		],
+
+        [
+            'name' => 'Space Shuttle',
+            'reason' => 'Ganha quando utiliza uma nava espacial',
+            'img_url' => 'space_shuttle',
+        ],
+
+        [
+            'name' => 'Apollo 12',
+            'reason' => 'Ganha quando completa a missão da apollo 11',
+            'img_url' => 'apollo_11',
+        ],
+
+        [
+            'name' => 'Apollo 13',
+            'reason' => 'Ganha quando completa a missão da apollo 11',
+            'img_url' => 'apollo_11',
+        ],
+
+        [
+            'name' => 'Apollo 14',
+            'reason' => 'Ganha quando completa a missão da apollo 11',
+            'img_url' => 'apollo_11',
+        ],
+
+        [
+            'name' => 'Apollo 15',
+            'reason' => 'Ganha quando completa a missão da apollo 11',
+            'img_url' => 'apollo_11',
+        ],
+
+          
 	];
 
     /**
