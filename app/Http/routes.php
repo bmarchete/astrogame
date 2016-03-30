@@ -25,8 +25,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/bug', 'BugController@store');
 	Route::get('/termos', 'HomeController@termos');
 	Route::get('/politica', 'HomeController@politica');
-
-	// no authentication game
 	
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
@@ -34,6 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/campaign', 'GameController@index');
 		Route::get('/exploration', 'GameController@exploration');
 		Route::get('/observatory', 'GameController@observatory');
+		Route::get('/ranking', 'GameController@ranking');
 
 		// public profile
 		Route::get('/player/{id}', 'GameController@player')->where('id', '[0-9]+');
@@ -52,7 +51,6 @@ Route::group(['middleware' => ['web']], function () {
 		// general
 		Route::get('/music/{volume}', 'GameController@change_volume_music')->where('volume', '[0-9-]+');
 		Route::get('/effects/{volume}', 'GameController@change_volume_effects')->where('volume', '[0-9-]+');
-
 
 		// chapters
 		Route::get('/welcome', 'GameController@welcome');

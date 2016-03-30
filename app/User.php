@@ -65,12 +65,13 @@ class User extends Authenticatable
      * @return void
      */
     public static function gain_xp($xp){
-        DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);
+        DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);  
         auth()->user()->xp += $xp;   
+        Log::info('Player: ' . auth()->user()->id . ' ganhou ' . $xp . ' de xp.');
         if(auth()->user()->xp > self::xp_for_next_level()){
             auth()->user()->level += 1;
             DB::table('users')->where('id', auth()->user()->id)->increment('level');
-            Log::info('Player: ' . auth()->user()->id . " passou para o level " . auth()->user()->level);    
+            Log::info('Player: ' . auth()->user()->id . ' passou para o level ' . auth()->user()->level);    
         }
     }
 

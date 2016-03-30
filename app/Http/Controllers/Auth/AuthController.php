@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\UserConfig;
 use DB;
+use Image;
 
 class AuthController extends Controller
 {
@@ -71,6 +72,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
         UserConfig::installConfig($user->id);
+
+        $path = 'users/avatar/' . md5($user->id) . '.jpg';
+        Image::make(url('/img/avatar.png'))->fit(500, 500)->save($path);
+
         DB::table('users')->where('id', $user->id)->update(['money' => 5000]);
         return $user;
     }

@@ -61,6 +61,13 @@ class GameController extends Controller
         return view('game.general.observatory', $this->view_vars());
     }
 
+    public function ranking() {
+        $players = ['players' => User::select('id', 'name', 'level', 'xp', 'money')->limit(5)->orderBy('xp', 'DESC')->get()];
+        $this->view_vars[] = $players;
+
+        return view('game.general.ranking', $this->view_vars());
+    }
+
     public function player(Request $request){
         $user_id = $request->id;
         $check_user = User::where('id', $user_id)->limit(1)->get()->first();

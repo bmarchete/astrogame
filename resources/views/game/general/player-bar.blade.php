@@ -63,7 +63,10 @@ function change_xp(xp){
               });
         });
 
-        
+        $(".quest-avaliable").change(function() {
+            var quest_text = $(this).val();
+            $(".quest-text").html(quest_text);
+        });
     });
 
     function buy_item(item){
@@ -148,7 +151,7 @@ function change_xp(xp){
 
          <div class="uk-width-1-2 uk-width-large-2-10 uk-text-left uk-hidden-small">
             <ul class="uk-list">
-            <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="Nível"></i> {{ $user_level }} ({{ $patente }})</li>
+            <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
             <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG <span class="money">{{ $user_money }}</span></li>  
             </ul>
         </div>
@@ -251,8 +254,10 @@ function change_xp(xp){
                     </div>
                 </div>
             <div class="uk-modal-footer uk-text-right">
-                <button type="submit" class="uk-button uk-button-primary">{{ trans('game.submit') }}</button>
-                <button class="uk-modal-close uk-button uk-button-danger">{{ trans('game.cancel') }}</button>
+                <div class="uk-button-group">
+                    <button class="uk-modal-close uk-button uk-button-danger"><i class="uk-icon-trash"> </i> {{ trans('game.cancel') }}</button>
+                    <button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-send"></i> {{ trans('game.submit') }}</button>
+                </div>
             </div>
         </div>
     </div>
@@ -308,10 +313,10 @@ function change_xp(xp){
         <a href="" class="uk-modal-close uk-close"></a>
 
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}">
-            <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-user"></i> Perfil</a></li>
-            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> Mochila</a></li>
-            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> Patentes</a></li>
-            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> Insignas</a></li>
+            <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-user"></i> {{ trans('game.profile') }}</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> {{ trans('game.bag') }}</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> {{ trans('game.patents') }}</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> {{ trans('game.insignas') }}</a></li>
         </ul>
         
         <ul id="tab-content" class="uk-switcher uk-margin">
@@ -328,7 +333,7 @@ function change_xp(xp){
                         <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
                         <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>  
                     </ul>
-                    <a href="{{ url('/game/player')}}/{{ auth()->user()->id }}">Ver meu perfil público</a>
+                    <a href="{{ url('/game/player')}}/{{ auth()->user()->id }}">{{ trans('game.profile-public') }}</a>
                 </div>
                 </div>
             </li>
@@ -379,12 +384,47 @@ function change_xp(xp){
 
 <!-- quests modal -->
 <div id="quests" class="uk-modal">
-    <div class="uk-modal-dialog uk-modal-dialog-large">
+    <div class="uk-modal-dialog">
         <a href="" class="uk-modal-close uk-close"></a>
          <div class="uk-modal-header">
             <h3 class="uk-panel-header">{{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">!</span></h3>
         </div>
-        <div class="uk-overflow-container">
+
+        
+        <div class="uk-grid" data-uk-grid>
+            <div class="uk-width-1-3">
+                <h3>{{ trans('game.quest-avaliable') }}</h3>
+                <select class="uk-form-select quest-avaliable"> 
+                    @foreach ($avaliable_quests as $quest)
+                    <option value="{{ $quest->id }}">{{$quest->title}}</option>
+                    
+                    <div id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
+                    <div id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
+                    <div id="quest-recompensas-{{$quest->id}}">{{ $quest->recompensas }}</div>
+                    @endforeach
+                    <option value="3">Teste</option>
+                </select>
+            </div>
+
+            <div class="uk-width-2-3 uk-overflow-container">
+                <div style="height: 160px; overflow: scroll">
+                <h3 class="quest-title">Quest Title</h3>
+                <p class="quest-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+
+                <h3>Recompensas</h3>
+
+                <span><i class="uk-icon-money"> </i> {{ auth()->user()->money }}</span> / 
+                <span><i class="uk-icon-exclamation"> </i> 1000 XP</span>
+
+                <br>
+
+                <button class="uk-button uk-button-danger">Aceitar missão</button>
+                
+            </div>    
+        </div>
+
+        <div class="uk-overflow-container uk-hidden">
         <table class="uk-table">
             <caption>{{ trans('game.quest-avaliable') }}</caption>
             <thead>

@@ -28,6 +28,13 @@ return [
 	'shop-name' => 'Loja Pan Galáctia',
 	'shop-slogan' => 'Vamos as compras?',
 	'logout' => 'Sair',
+	'profile' => 'Perfil',
+	'patents' => 'Patentes',
+	'insignas' => 'Insignas',
+	'profile-public' => 'Ver meu perfil público',
+	'since' => 'Desde',
+	'money' => 'Dinheiro',
+	
 
 	// items
 	'remove-item' => 'Você deseja remover este item de sua mochila?',
@@ -53,6 +60,10 @@ return [
 	'bug-repeat' => 'Você acabou de enviar essa sugestão!',
 	'bug-title' => 'Sugestões e Bug Report',
 	'bug-message' => 'Mensagem',
+
+	// profile public
+	'recent-activ' => 'Atividade recente',
+	'completed-chapter' => 'Completou o :capitulo :capitulo-name. Ganhou :xp XP',
 
 
 	// patentes

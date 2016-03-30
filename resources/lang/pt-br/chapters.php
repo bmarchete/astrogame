@@ -22,7 +22,20 @@ return [
 
 	'tutorial' =>
 	[
+		'fala1' => 'Olá aspirante, seja bem-vindo! Estou aqui para te auxiliar na sua primeira missão. Meu nome é Galileu Galilei, sou um astrônomo, físico e matemático italiano, nascido em 1564.',
+		'fala2' => 'Na minha época, eu cosmutava observar as estrelas, era fascinado por isso...',
+		'fala3' => 'Fui o responsável por aperfeiçoar a luneta, e em 1610 observei montanhas e crateras na Lua, manchas no Sol e quatro satélites em volta de Júpiter. ',
+		'fala4' => 'Está na hora de começar a observar as estrelas, aspirante. Isso é uma tarefa fundamental para que você possa se aventurar mais além nesse grande universo...',
+		'fala5' => 'Para observar as estrelas será necessário uma luneta. Vá até a LOJA e compre uma LUNETA SIMPLES para começarmos a nossa aventura!',
+		'fala6' => 'Ótimo! Com essa luneta, poderemos começar a observar o céu e as estrelas, mas você também vai precisar de um GUIA DAS ESTRELAS, vá até a loja e compre um desses!',
+		'fala7' => 'O Guia das estrelas contém uma série de informações mais detalhadas sobre tudo oque você encontra em suas missões. Para ler essas informações, basta selecionar o guia em seu inventário.',
+		'fala8' => 'Com o Guia das Estrelas você pode começar a fazer as suas primeiras missões, clique no menu CAMPANHA para ver o seu catálogo de missões.',
 
+	],
+
+	'quests' =>
+	[
+		
 	],
 
 	'chapter1' =>

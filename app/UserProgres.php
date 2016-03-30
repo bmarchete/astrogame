@@ -78,11 +78,11 @@ class UserProgres extends Model
     		return ['completed' => false, 'msg' => 'chapter ja completado antes'];
     	}
 
-    	$progress_table = $this->insert(['key' => $this->key, 'user_id' => auth()->user()->id]);
+    	$progress_table = $this->insert(['key' => $this->key, 'user_id' => auth()->user()->id, 'completed' => true]);
     	
     	// xp_reward
     	if(isset($key_data['xp_reward'])){
-    		// User::xp_reward($key_data['xp_reward']);
+    		User::gain_xp($key_data['xp_reward']);
     	}
 
     	// items_reward
