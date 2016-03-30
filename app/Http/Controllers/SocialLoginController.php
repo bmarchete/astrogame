@@ -44,7 +44,12 @@ class SocialLoginController extends Controller
 
             $check_user_email = User::where('email', $user->email)->limit(1)->get()->first();
             if(empty($check_user) && $check_user_email){
-                return redirect('/login')->with('social_error', 'Você já se cadastrou com esse email do facebook :(');
+                $check_user_email->provider_id = 1;
+                $check_user_email->provider_user_id = $user->id;
+                $check_user_email->save();
+                auth()->login($check_user_email);
+
+                return redirect('/game');
             }
 
             $user_db = new User;
