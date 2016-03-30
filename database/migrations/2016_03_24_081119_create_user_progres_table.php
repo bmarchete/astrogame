@@ -16,7 +16,7 @@ class CreateUserProgresTable extends Migration
             $table->increments('id');
             $table->string('key');
             
-            $table->string('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->boolean('completed')->default(false);
