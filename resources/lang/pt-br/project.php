@@ -10,7 +10,8 @@ return [
 		'home' => 'Inicial',
 		'sobre' => 'Sobre',
 		'equipe' => 'Equipe',
-		'contato' => 'Contato'
+		'contato' => 'Contato',
+		'ranking' => 'Ranking',
 	],
 
 	'home-title' => 'ASTRO GAME',
@@ -45,7 +46,9 @@ return [
 	'submit' => 'Entrar',
 
 	'remember' => 'Lembrar-me',
-	'forget-password' => "Esqueceu a senha?",
+	'forget-password' => 'Esqueceu a senha?',
+
+	'made-by' => 'Feito com <i class="uk-icon-heart"></i> por 3EMIA',
 
 	// contato
 	'contato-title' => 'Entre em contato conosco',

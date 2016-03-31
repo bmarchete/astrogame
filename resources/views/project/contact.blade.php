@@ -1,7 +1,7 @@
 @extends('project.general')
 
 @section('title') 
-Contato 
+{{ trans('project.contato-title') }} 
 @stop
 @section('content')
 <div class="uk-container uk-container-center contact-section">
@@ -9,7 +9,16 @@ Contato
       <div class="uk-width-1-1 uk-width-medium-1-2 uk-width-large-2-3">
          <div class="uk-panel">
             <h2>{{ trans('project.contato-title') }}</h2>
-            <form class="uk-form uk-form-stacked">
+            <form class="uk-form uk-form-stacked" action="{{ url('/contato')}}" method="POST">
+               {!! csrf_field() !!}
+
+               @foreach ($errors->all() as $error)
+               <div class="uk-alert uk-alert-danger" data-uk-alert>
+                  <a href="#" class="uk-alert-close uk-close"></a>
+                  <strong>{{ $error }}</strong>
+               </div>
+               @endforeach
+
                <div class="uk-form-row">
                   <label class="uk-form-label" for="name">{{ trans('project.your-name') }}</label>
                   <div class="uk-form-controls">
@@ -28,15 +37,18 @@ Contato
                      <textarea class="uk-width-1-1" name="message" cols="100" rows="9" required></textarea>
                   </div>
                </div>
-               <div class="uk-form-row">
+               <div class="uk-form-row uk-text-right">
                   <div class="uk-form-controls">
-                     <button class="uk-button uk-button-primary">{{ trans('project.enviar') }}</button>
+                     <button class="uk-button uk-button-large uk-button-primary"><i class="uk-icon-send"></i> {{ trans('project.enviar') }}</button>
                   </div>
                </div>
             </form>
          </div>
       </div>
-      <div class="uk-width-1-1 uk-width-medium-1-2 uk-width-large-1-3">
+
+      <div class="uk-grid-divider uk-visible-small"></div>
+
+      <div class="uk-width-1-1 uk-width-medium-1-2 uk-width-large-1-3 uk-text-center-small">
          <div class="uk-panel uk-panel-box uk-panel-box-secondary">
             <h3 class="uk-panel-title">{{ trans('project.project-name') }}</h3>
             <p>

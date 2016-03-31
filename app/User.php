@@ -68,10 +68,10 @@ class User extends Authenticatable
         DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);  
         auth()->user()->xp += $xp;   
         Log::info('Player: ' . auth()->user()->id . ' ganhou ' . $xp . ' de xp.');
-        if(auth()->user()->xp > self::xp_for_next_level()){
+        if(auth()->user()->xp >= self::xp_for_next_level()){
             auth()->user()->level += 1;
             DB::table('users')->where('id', auth()->user()->id)->increment('level');
-            Log::info('Player: ' . auth()->user()->id . ' passou para o level ' . auth()->user()->level);    
+            Log::info('Player: ' . auth()->user()->id . ' passou de level.');    
         }
     }
 
@@ -134,5 +134,31 @@ class User extends Authenticatable
         } else {
             return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y');    
         }
+    }
+
+    public function insignas(){
+        return \App\Insignas::get();
+    }
+
+    public function recent_feed() {
+        return [
+                (object) ['icon' => 'check',
+                 'text' => 'Completou o primeiro capítulo: Bem Vindo ao Astrogame. Ganhou 150 XP e um chapéu',
+                 'date' => '20/03/2016'],
+
+                (object) ['icon' => 'shopping-cart',
+                 'text' => 'Comprou um telescópio',
+                 'date' => '21/03/2016'],
+
+                 (object) ['icon' => 'bookmark',
+                 'text' => 'Ganhou a insigna da Apollo 11',
+                 'date' => '21/03/2016'],
+
+                 (object) ['icon' => 'exclamation',
+                 'text' => 'Completou o terceiro capítulo: Sistema Solar. Ganhou 153 XP',
+                 'date' => '24/03/2016'],
+                 
+                 ];
+
     }
 }

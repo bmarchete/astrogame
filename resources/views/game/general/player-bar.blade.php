@@ -137,7 +137,7 @@ function change_xp(xp){
 		    <a href="{{ URL('/logout') }}" class="logout uk-icon-small uk-close-alt uk-icon-sign-out" data-uk-tooltip title="{{trans('game.logout')}}"></a>
         </div>
 
-		<div class="uk-width-5-10 uk-width-large-8-10 uk-margin-bottom">
+		<div class="uk-width-5-10 uk-width-large-8-10 uk-margin-bottom uk-text-center">
 			<div class="uk-progress">
 		    	<div class="uk-progress-bar" style="width: {{ $xp_bar }}%;" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">{{ $user_xp }} / {{ $xp_for_next_level }}</div>
 			</div>
@@ -158,33 +158,30 @@ function change_xp(xp){
 
 		<div class="uk-width-large-5-10 uk-hidden-small uk-hidden-medium">
     		<div class="uk-button-group">
-    		    <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
-    		    <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
-                <button data-uk-modal="{target:'#calendar'}" class="uk-button"><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
-                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary"><i class="uk-icon-search"></i>{{ trans('game.observatory') }}</a>
-                <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
-                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success"><i class="uk-icon-exclamation"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">{{ count($avaliable_quests) }}</span> </button>
+    		    <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
+    		    <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success" title="Volte todos os dias aqui!" data-uk-tooltip><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
+                <button data-uk-modal="{target:'#calendar'}" class="uk-button" title="Quando o cometa Halley passará novamente?" data-uk-tooltip><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
+                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" title="Hora de observar o céu!" data-uk-tooltip><i class="uk-icon-search"></i> {{ trans('game.observatory') }}</a>
+                <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-danger" title="Vamos gastar um pouco de dinheiro!" data-uk-tooltip><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
+                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success" title="Cada missão uma nova aventura!" data-uk-tooltip><i class="uk-icon-exclamation"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">{{ count($avaliable_quests) }}</span> </button>
     		</div>
 		</div>
 
-        <div class="uk-hidden-large uk-width-1-2 uk-margin-top">
-                <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger"><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
-                <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
-        
-        </div>
-
-        <div class="uk-hidden-large uk-width-1-1 uk-text-center uk-margin-top">
-            <div class="uk-button-group">
-                <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-primary"><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
-                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary"><i class="uk-icon-search"></i>{{ trans('game.observatory') }}</a>
-            </div>
-        </div>
-
-        <div class="uk-hidden-large uk-width-1-1 uk-text-center">   
-        
-            <div class="uk-button-group">
-                <button data-uk-modal="{target:'#calendar'}" class="uk-button"><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
-                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success"><i class="uk-icon-search-plus"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">2</span> </button>
+        <div class="uk-hidden-large uk-button-dropdown uk-text-left" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
+            <button class="uk-button uk-button-success"><i class="uk-icon-rocket"></i> Navegador <i class="uk-icon-caret-down"></i></button>
+            <div class="uk-dropdown uk-dropdown-bottom" style="top: 30px; left: 0px;">
+                <ul class="uk-nav uk-nav-dropdown">
+                    <li><a href="{{ URL('/game/campaign') }}" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a></li>
+                    <li><a href="{{ URL('/game/exploration') }}" title="Volte todos os dias aqui!" data-uk-tooltip><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="{{ URL('/game/observatory')}}" title="Hora de observar o céu!" data-uk-tooltip><i class="uk-icon-search"></i> {{ trans('game.observatory') }}</a></li>
+                    <li><a href="#" data-uk-modal="{target:'#calendar'}" title="Quando o cometa Halley passará novamente?" data-uk-tooltip><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="#" data-uk-modal="{target:'#shop'}" title="Vamos gastar um pouco de dinheiro!" data-uk-tooltip><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </a></li>
+                    <li><a href="#"  data-uk-modal="{target:'#quests'}" title="Cada missão uma nova aventura!" data-uk-tooltip><i class="uk-icon-exclamation"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">{{ count($avaliable_quests) }}</span> </a></li>
+                    <li><a href="{{ url('/ranking') }}"><i class="uk-icon-puzzle-piece"></i> Ranking Geral</a></li>
+                    <!-- <li class="uk-nav-header">Header</li> -->
+                </ul>
             </div>
         </div>
 	</div>
@@ -333,7 +330,7 @@ function change_xp(xp){
                         <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
                         <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>  
                     </ul>
-                    <a href="{{ url('/game/player')}}/{{ auth()->user()->id }}">{{ trans('game.profile-public') }}</a>
+                    <a href="{{ url('/player')}}/{{ auth()->user()->id }}">{{ trans('game.profile-public') }}</a>
                 </div>
                 </div>
             </li>

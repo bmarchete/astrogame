@@ -1,5 +1,5 @@
 @extends('project.general')
-@section('title') Termos de uso | {{ trans('project.title') }} @stop
+@section('title') {{ trans('project.termos') }} | {{ trans('project.title') }} @stop
 
 @section('javascript')
 
@@ -9,7 +9,7 @@
 <div class="uk-container uk-container-center" style="padding-top: 130px">
 	<div class="uk-grid" data-uk-grid>
 		<div class="uk-witdh-1-1 uk-width-large-3-4 uk-align-center">
-<h1>Termos de uso</h1>
+      <h1>{{ trans('project.termos') }}</h1>
 	<div class="uk-text-justify">
       	<p>Ao utilizar e participar de forma ativa na ETEC Social, de qualquer das formas que o website permite, o Utilizador declara ter lido e aceitar cumprir os presentes Termos e Condições. A ETEC Social reserva-se o direito – mas não a obrigação – de, perante o não cumprimento destes Termos e Condições, eliminar todo e qualquer conteúdo que os infrinja, bem como restringir e/ou bloquear o acesso do Utilizador infrator à participação no website, sem qualquer aviso prévio.</p>
       <p>Na utilização que fizer deste website (incluindo na submissão, envio ou publicação de conteúdos que fizer para a ETEC Social), o Utilizador está obrigado e declara aceitar e cumprir a legislação aplicável, e concretamente o Código do Direito de Autor e dos Direitos Conexos, o Código da Propriedade Industrial e a Lei da Criminalidade Informática.</p>

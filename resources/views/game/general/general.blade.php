@@ -16,7 +16,11 @@
    </head>
    <body>
       @yield('content')
-      @include('game.general.player-bar')
+
+      @if (auth()->check())
+         @include('game.general.player-bar')
+      @endif
+      
       {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', 
                               '/vendor/uikit/js/uikit.min.js',
                               '/vendor/jquery/ajaxform.min.js',

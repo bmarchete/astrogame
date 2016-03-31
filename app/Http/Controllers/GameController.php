@@ -13,6 +13,8 @@ use App\Item;
 use App\Quest;
 use App\UserProgres;
 use App\UserInsignas;
+use App\Insignas;
+use App\UserObservatory;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
@@ -42,25 +44,21 @@ class GameController extends Controller
      */
     public function index() {     
         $current_chapter = new UserProgres();
-        $name = $current_chapter->current()->name;
+        $chapter_name = $current_chapter->current()->name;
 
-        return $this->$name();
+        return $this->$chapter_name();
     }   
 
-    public function tutorial() {
-        $chapter = new UserProgres;
-        $chapter->key = 'welcome';
-        $complete = $chapter->complete();
-
-        return view('game.chapters.tutorial', $this->view_vars());
-    }
-
-    public function welcome() {
-        return view('game.chapters.welcome', $this->view_vars());
-    }
-
     public function observatory() {
+        $observatory = new UserObservatory();
+        $observatory->get_users_planetarium();
+        $this->view_vars[] = ['planetarium' => $observatory->planetarium];
+
         return view('game.general.observatory', $this->view_vars());
+    }
+
+    public function exploration() {
+        return view('game.general.exploration', $this->view_vars());
     }
 
     public function ranking() {
@@ -70,11 +68,12 @@ class GameController extends Controller
         return view('game.general.ranking', $this->view_vars());
     }
 
+    // player public profile
     public function player(Request $request){
         $user_id = $request->id;
         $check_user = User::where('id', $user_id)->limit(1)->get()->first();
         if(!$check_user){
-            return "Esse player não existe";
+            return 'Esse player não existe';
         }
         $this->view_vars[] = ['player' => $check_user];
         $this->view_vars[] = ['player_patente' => User::patente($check_user->level)];
@@ -97,21 +96,15 @@ class GameController extends Controller
             'avaliable_quests' => Quest::avaliable_quests(),
             'accepted_quests' => Quest::accepted_quests(),
             'patente' => User::patente(),
-            'user_insignas' => \App\Insignas::all(),
+            'user_insignas' => Insignas::all(),
         ];
     }
 
-    // chapters
-    public function chapter1() { 
-        return view('game.chapters.universe', $this->view_vars());
-
-    } // the universe
-    public function chapter2() { } // galaxy clusters
-    public function chapter3() { } // galaxies
-
-
+    // =================================================
+    // functions
+    // =================================================
     public function chapter_complete(Request $request) {
-        // alguma checagem para não ter espertinhos
+        // alguma checagem aqui para não ter espertinhos
         $key = $request->key;
 
         $chapter = new UserProgres;
@@ -140,7 +133,6 @@ class GameController extends Controller
         return response()->json(['canceled' => $status]);
     }
 
-    // items
     public function buy_item(Request $request){
         $item_id = $request->id;
         $item_return = Item::buy_item($item_id);
@@ -162,4 +154,24 @@ class GameController extends Controller
         }
         UserConfig::setConfig('music_volume', $volume);
     }
+
+    // ========================================
+    // chapters
+    // order:
+    // 1 - welcome (pre-tutorial)
+    // 2 - tutorial
+    // 3 - capítulo 1
+    public function welcome() {
+        return view('game.chapters.welcome', $this->view_vars());
+    }
+
+    public function tutorial() {
+        $chapter = new UserProgres;
+        $chapter->key = 'welcome';
+        $complete = $chapter->complete();
+
+        return view('game.chapters.tutorial', $this->view_vars());
+    }
+
+    
 }

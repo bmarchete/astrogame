@@ -18,6 +18,7 @@
                <li><a href="{{ URL('/') }}">{{ trans('project.navbar.home') }}</a></li>
                <li><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
                <li><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
+               <li><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
                <li><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
             </ul>
             <a href="#menu" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
@@ -44,6 +45,7 @@
                <li class="uk-nav-divider"></li>
                <li @if ($page == 'termos') class="uk-active" @endif><a href="{{ URL('/termos') }}"><i class="uk-icon-paper-plane"></i> {{ trans('project.termos') }}</a></li>
                <li @if ($page == 'politica') class="uk-active" @endif><a href="{{ URL('/politica') }}"><i class="uk-icon-paper-plane"></i> {{ trans('project.politica') }}</a></li>
+            
             </ul>
          </div>
       </div>
