@@ -97,11 +97,11 @@ class User extends Authenticatable
         // (13)   -> Astronauta - Pesquisador
         // (14)   -> Astronauta - Líder de Módulo
         // (15)   -> Astronauta - Chefe de estação
-        if(auth()->user()->type == 3){
+        if(auth()->check() && auth()->user()->type == 3){
             return trans('game.patent-gm');
         }
 
-        if($user_level == 0){
+        if(auth()->check() && $user_level == 0){
             $level = auth()->user()->level;
         } else {
             $level = $user_level;

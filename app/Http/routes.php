@@ -9,6 +9,8 @@
 | it contains. The "web" middleware group is defined in your HTTP
 | kernel and includes session state, CSRF protection, and more.
 |
+| @author: Eduardo Augusto Ramos
+|
 */
 
 Route::group(['middleware' => ['web']], function () {    
@@ -20,23 +22,24 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/sobre', 'HomeController@sobre');
 	Route::get('/equipe', 'HomeController@equipe');
 	Route::get('/contato', 'HomeController@contato');
-	Route::post('/contato', 'HomeController@enviar_contato');
-	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
-	Route::post('/bug', 'BugController@store');
 	Route::get('/termos', 'HomeController@termos');
 	Route::get('/politica', 'HomeController@politica');
+
+	Route::post('/contato', 'HomeController@enviar_contato');
+	Route::post('/bug', 'BugController@store');
+	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
 	
+	// public profile
+	Route::get('/player/{id}', 'GameController@player')->where('id', '[0-9]+');
+	Route::get('/ranking', 'GameController@ranking');
+
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
 		Route::get('/', 'GameController@index');
 		Route::get('/campaign', 'GameController@index');
 		Route::get('/exploration', 'GameController@exploration');
 		Route::get('/observatory', 'GameController@observatory');
-		Route::get('/ranking', 'GameController@ranking');
-
-		// public profile
-		Route::get('/player/{id}', 'GameController@player')->where('id', '[0-9]+');
-
+		
 		// chapter
 		Route::get('/chapter_complete/{key}', 'GameController@chapter_complete')->where('key', '[a-z-]+');
 
@@ -60,7 +63,6 @@ Route::group(['middleware' => ['web']], function () {
 	});
 
 	// social login
-	Route::get('/login/{provider}', 'SocialLoginController@login');
-	Route::get('/fallback/{provider}', 'SocialLoginController@fallback');
-
+	Route::get('/login/{provider}', 'SocialLoginController@login')->where('provider', '[a-z-]+');
+	Route::get('/fallback/{provider}', 'SocialLoginController@fallback')->where('provider', '[a-z-]+');
 });

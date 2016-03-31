@@ -40,9 +40,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function equipe() {
-        $team = [
-                
-                (object) [
+        $team = [(object) [
                  'name' => 'Eduardo Ramos',
                  'img' => 'img/team/edu.jpg',
                  'description' => 'Programador, roterista, front-end, designer e mochileiro',
@@ -80,9 +78,8 @@ class HomeController extends Controller
                  'description' => 'Faz tudo e mochileiro',
                  'facebook' => '',
                  'twitter' => '',
-                 'github' => ''],
-
-                ];
+                 'github' => '']
+                 ];
         return view('project.team', ['team' => $team, 'page' => 'equipe']);
     }
 
@@ -140,15 +137,15 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function enviar_contato(Request $request){
-        $data = ['nome' => $request->nome, 'email' => $request->email, 'contato' => $request->contato];
+        $data = ['name' => $request->name, 'email' => $request->email, 'message' => $request->message];
         $validator = Validator::make($data, [
-            'nome' => 'required|max:255',
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'contato' => 'required|min:6',
+            'message' => 'required|min:6',
         ]);
 
         if($validator->fails()){
-            return $validator->errors();
+            return redirect('contato')->withErrors($validator)->withInput();
         }
 
         // se passar

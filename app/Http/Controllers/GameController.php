@@ -21,7 +21,9 @@ class GameController extends Controller
     private $view_vars = [];
 
     public function __construct() {
-        $this->player_bar();
+        if(auth()->check()){
+            $this->player_bar();
+        }
     }
 
     private function view_vars(){
