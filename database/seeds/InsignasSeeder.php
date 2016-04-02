@@ -304,7 +304,7 @@ class InsignasSeeder extends Seeder
     	foreach($this->insignas as $insigna){
     		if(DB::table('insignas')->where('name', $insigna['name'])->get() == null){
     			DB::table('insignas')->insert($insigna);
-    			echo '[ INFO ] Insigna: ' . htmlspecialchars($insigna['name']) . " adicionada. \n";
+    			echo '[ INFO ] Insigna: ' . e($insigna['name']) . " adicionada. \n";
     		}
     	}
     }
