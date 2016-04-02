@@ -164,6 +164,25 @@ class GameController extends Controller
     }
 
     // ========================================
+    // quests
+    public function quest(Request $request){
+        $quest_id = $request->id;
+        switch ($quest_id) {
+            case 1:
+                return $this->quest_stars();
+                break;
+            
+            default:
+                return view("Nenhuma quest encontrada");
+                break;
+        }
+    }
+
+    public function quest_stars(){
+        return view('game.quests.quest_1', $this->view_vars());
+    }
+
+    // ========================================
     // chapters
     // order:
     // 1 - welcome (pre-tutorial)

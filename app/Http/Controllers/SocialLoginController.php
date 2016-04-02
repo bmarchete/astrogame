@@ -80,9 +80,9 @@ class SocialLoginController extends Controller
         $path = 'users/avatar/' . md5($user_id) . '.jpg';
         
         try{
-            Image::make($avatar_url)->fit(500, 500)->save($path);
+            Image::make($avatar_url)->fit(800, 800)->save($path);
         } catch (\Intervention\Image\Exception\NotReadableException $e) {
-            Image::make(url('/img/avatar.png'))->fit(500, 500)->save($path);
+            Image::make(url('/img/avatar.png'))->fit(800, 800)->save($path);
         }
     }
 

@@ -8,9 +8,9 @@ html {
 	background: #000;
 }
 body {
-	background: url('../../img/bg.jpg') no-repeat center center /cover;
+	background: url('../../img/bg.jpg') no-repeat center center / cover;
 	min-height: 800px;
-	transition: 1s all ease;
+	transition: 0.8s all ease;
 	overflow: hidden;
 }
 

@@ -129,24 +129,24 @@ $(document).ready(function(){
 @stop
 
 @section('content')
-<video width="1366" id="big-bang-video" style="display:none" controls="false" preload>
+<video id="big-bang-video" style="display:none; width: 100%" controls="true" preload>
     <source src="{{URL('/videos/big_bang.mp4')}}" type="video/mp4">
 </video>
 
-<video width="1366" id="stars-video" controls="false" style="display:none" preload>
+<video id="stars-video" controls="true" style="display:none; width: 100%" preload>
     <source src="{{URL('/videos/astro_bp.mp4')}}" type="video/mp4">
 </video>
 
-<video width="1366" id="milkway-video" controls="false" style="display:none" preload>
+<video id="milkway-video" controls="false" style="display:none; width: 100%" preload>
     <source src="{{URL('/videos/milky_way.m4v')}}">
 </video>
 
-<video width="1366" id="solar-video" controls="false" style="display:none" preload>
-    <source src="{{URL('/videos/sistema solar.mp4')}}">
+<video id="solar-video" controls="false" style="display:none; width: 100%" preload>
+    <source src="{{URL('/videos/sistema solar.mp4')}}"  type="video/mp4">
 </video>
 
-<video width="1366" id="terra-video" controls="false" style="display:none" preload>
-    <source src="{{URL('/videos/terra.mp4')}}">
+<video id="terra-video" controls="false" style="display:none; width: 100%" preload>
+    <source src="{{URL('/videos/terra.mp4')}}" type="video/mp4">
 </video>
 
 <div class="uk-container uk-container-center game-section">

@@ -34,7 +34,7 @@ $(document).ready(function(){
 </script>
 @stop
 @section('content')
-<video width="1366" id="nebulosa" style="display:none" controls="false" preload>
+<video id="nebulosa" style="display:none; width: 100%" controls="false" preload>
     <source src="{{URL('/videos/orion_nebulosa.m4v')}}" >
 </video>
 

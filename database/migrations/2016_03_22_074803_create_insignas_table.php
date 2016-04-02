@@ -15,7 +15,7 @@ class CreateInsignasTable extends Migration
         Schema::create('insignas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255);
-            $table->string('reason', 255);
+            $table->text('reason');
             $table->string('img_url', 255);
         });
     }
