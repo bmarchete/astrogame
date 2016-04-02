@@ -1,0 +1,51 @@
+## Todolist
+- [ x ] instalação de virtual host
+- [ x ] setup de servidor git
+- [ x ] instalação inicial do laravel
+- [ x ] tradução laravel pt-br
+- [ x ] instalação do phpunit
+- [ x ] instalação do Laravel Debugbar
+- [ x ] setup do database / migrations
+- [ ] setup AppName do laravel
+- [ x ] setup do database / migrations
+- [ x ] estrutura para arquivos de vendor e de fácil atualização
+- [ x ] instalação uikit
+- [ x ] instalação do Buzz HTML5 audio plugin
+- [ x ] instalação do popcorn.js
+- [ x ] instalação do virtualsky
+- [ ] tradução para português do virtualsky
+- [ x ] setup do Collection HTML
+- [ x ] setup do middleware HTMLminify
+- [ x ] setup do css e js minify
+- [ x ] setup das páginas de erro (404, 503)
+- [ ] setup página de erro 403
+- [ ] design páginas de erros
+- [ x ] cadastro
+- [ x ] login
+- [ ] recuperar senha
+- [ ] login com facebook
+- [ ] login com google
+- [ x ] add base para suporte a outros idiomas
+- [ x ] user_settings model
+- [ x ] quest model
+- [ ] conquistas model
+- [ x ] insignas model
+- [ ] user_insignas model
+- [ x ] items model
+- [ x ] bag model
+- [ x ] estrutura para envio de sugestões e bugs
+- [ x ] estutura básica de quizzes
+- [ ] estrutura para tradução dos quizzes
+- [ ] estrutura básica para clubes (clubes de astronomia = guildas = grupos)
+	- titulo
+	- descricao
+	- insigna
+- commandos:
+	- [ ] change money
+	- [ ] change level
+	- [ ] ban user
+	- [ ] unban user
+	- [ ] ban list
+	- [ ] gm list
+	- [ ] change togm
+	- [ ] list bug report
