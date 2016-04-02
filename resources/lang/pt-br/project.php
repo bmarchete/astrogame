@@ -15,7 +15,7 @@ return [
 	],
 
 	'home-title' => 'ASTRO GAME',
-	'home-description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh lectus, congue sit amet fermentum nec, gravida non diam. Duis tincidunt risus mauris, sit',
+	'home-description' => 'É um jogo online com uma plataforma interativa onde você irá explorar o Cosmos em seu sentido mais amplo possível. Venha se aventurar conosco!',
 
 	'home-text' => [
 		'title1' => 'Sample Heading',
@@ -76,10 +76,10 @@ return [
 
 
 	// team
-	'team' => 'Equipe',
-	'team-pre-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.',
+	'team' => 'Equipe Desastronautas',
+	'team-pre-text' => 'Equipe fundadora e desenvolvedora do jogo',
 	'team-about' => 'Desastronautas',
-	'team-text' => '<p>Nós somos um grupo de alunos do terceiro ano do Ensino Médio Integrado à Informática do Centro Paula Souza Pedro Ferreira Alves. Humanoides, trekkers, fissurados pelos mistérios do cosmos, mochileiros, e nerds aspirantes de tecnologia. </p><p>De acordo com Carl Sagan, a ciência não descobriu somente que o universo encerra uma grande implícita e estática acessível a compreensão humana, mas também somos, em um sentido real e profundo, uma parte deste Cosmo, nascidos dele, nosso destino, irremediavelmente ligado a ele.</p>',
+	'team-text' => '<p>Somos um grupo de amigos do terceiro ano do Ensino médio Integrado à Informática para Internet do Centro Paula Souza ETEC Pedro Ferreira Alves de Mogi Mirim. Humanoides, mochileiros, nerds, aspirantes dos mistérios do Cosmos, amantes da tecnologia e maratonistas – de séries. </p><p>O grupo surgiu a partir da necessidade de se formar equipes para o TCC, e decidimos, portanto, que em nosso tema - depois de várias e várias discussões - abordaríamos a Astrologia e Cosmologia pois, assim como Carl Sagan, acreditamos que somos uma parte deste Cosmo, nascidos dele, nossos destinos irremediavelmente ligado a ele. </p>',
 	'team-figcaption' => 'Uma foto nossa',
 
 ];

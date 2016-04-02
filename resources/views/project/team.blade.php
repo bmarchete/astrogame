@@ -35,7 +35,7 @@
 <div class="uk-grid uk-container uk-container-center" data-uk-grid-margin>
    <div class="uk-width-1-1 uk-width-large-2-4">
       <h1>{{ trans('project.team-about') }}</h1>
-      <p>{!! trans('project.team-text') !!}</p>
+      {!! trans('project.team-text') !!}
    </div>
    <div class="uk-width-1-1 uk-width-large-2-4">
    	<div class="uk-thumbnail uk-overlay-hover ">

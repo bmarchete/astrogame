@@ -10,41 +10,101 @@ class InsignasSeeder extends Seeder
 	public $insignas = [
 		
 		[
-			'name' => 'Apollo 11',
-			'reason' => 'Ganha quando completa a missão da apollo 11',
-			'img_url' => 'apollo_11',
+			'name' => 'Project Mercury',
+			'reason' => 'Project Mercury foi o primeiro programa Americano de voo especial. Ele consiste em uma tripulação de 6 e missões de 1961 a 1963. Alan Shepard foi o primeiro Americano no espaço em 5 de maio em 1962',
+			'img_url' => 'Project Mercury'            
 		],
 
+        /*
         [
-            'name' => 'Space Shuttle',
-            'reason' => 'Ganha quando utiliza uma nava espacial',
-            'img_url' => 'space_shuttle',
-        ],
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
 
         [
-            'name' => 'Apollo 12',
-            'reason' => 'Ganha quando completa a missão da apollo 11',
-            'img_url' => 'apollo_11',
-        ],
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
 
         [
-            'name' => 'Apollo 13',
-            'reason' => 'Ganha quando completa a missão da apollo 11',
-            'img_url' => 'apollo_11',
-        ],
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
 
         [
-            'name' => 'Apollo 14',
-            'reason' => 'Ganha quando completa a missão da apollo 11',
-            'img_url' => 'apollo_11',
-        ],
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
 
         [
-            'name' => 'Apollo 15',
-            'reason' => 'Ganha quando completa a missão da apollo 11',
-            'img_url' => 'apollo_11',
-        ],
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
 
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]
+
+        [
+            'name' => '',
+            'reason' => '',
+            'img_url' => ''
+        ]*/
           
 	];
 
