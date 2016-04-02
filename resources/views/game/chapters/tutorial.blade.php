@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-{{ trans('chapters.welcome.title') }} | {{ trans('project.title') }}
+{{ trans('chapters.tutorial.title') }} | {{ trans('project.title') }}
 @stop
 
 @section('style')
@@ -11,20 +11,61 @@
                        '/js/chapters/general.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
-	UIkit.notify({message: '<i class="uk-icon-exclamation"> </i> Você ganhou 100 xp!', status: 'success', pos:'top-right'});
-	UIkit.notify({message: '<i class="uk-icon-exclamation"> </i> Parabéns, você acabou de completar as boas vindas!', status: 'success', pos:'top-right'});
-
 	$("#pular").click(function(){
-		window.location('{{ url('/pular') }}');
+		UIkit.modal.confirm("Tem certeza disso? Não vou explicar como funciona depois, e você vai ficar perdidão ai.", function(){
+			UIkit.modal.confirm("Certeza mesmo?", function(){
+				window.location = '{{ url('/game/chapter1') }}';
+			});
+		});
 	});
 
 	$("#bora").click(function(){
 		$("#capitulo").hide();
 		$(".cientist").show();
 		$(".cientist-message").show();
-		cientist("Olá, meu nome é Galileu", 100);
+
+		cientist("{{ trans('chapters.tutorial.fala1') }}", 150);
+		cientist("{{ trans('chapters.tutorial.fala2') }}", 10000);
+        setTimeout(function() { $("body").css("background", "url('{{ url('/img/chapter/night-sky-stars.jpeg') }}') center bottom / cover"); }, 10000);
+
+        
+
+        cientist("{{ trans('chapters.tutorial.fala3') }}", 20000);
+        setTimeout(function() { $("body").css("background", "url('{{ url('/img/chapter/wallpaper-crateras-da-lua-5650.jpg') }}') center top / cover"); }, 21000);
+        setTimeout(function() { $("body").css("background", "url('{{ url('/img/chapter/20000719_1320_eit304_1024.jpg') }}') center center / cover"); }, 24000);
+        setTimeout(function() { $("body").css("background", "url('{{ url('/img/chapter/606605main_jupiter2_lg.jpg') }}') center center / cover"); }, 27000);
+
+        setTimeout(function() { $("body").removeAttr('style'); }, 30000);
+        cientist("{{ trans('chapters.tutorial.fala4') }}", 30000);
+
+
+        setTimeout(function(){
+        	
+        	cientist("{{ trans('chapters.tutorial.fala5') }}", 0);
+
+        	var shop = UIkit.modal("#shop");
+	    	shop.show();
+
+        }, 40000);
 	});
+
+	
+
 });
+
+function buyTutorialHander() { 
+    cientist("{{ trans('chapters.tutorial.fala6') }}", 0);
+}
+
+function buyTutorialLivroHandler(){
+	cientist("{{ trans('chapters.tutorial.fala7') }}", 0);
+	cientist("{{ trans('chapters.tutorial.fala8') }}", 10000);
+
+	// bug suggestions
+	setTimeout(function() { window.location = '{{ url('/game/chapter1') }}'; } , 20000);
+}
+
+
 </script>
 @stop
 

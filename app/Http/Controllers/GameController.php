@@ -91,13 +91,21 @@ class GameController extends Controller
             'user_xp' => auth()->user()->xp,
             'xp_for_next_level' => User::xp_for_next_level(),
             'lang' => session()->get('language', 'pt-br'),
-            'shop' => Item::shop(),
+            'shop' => $this->shop(),
             'bag' => UserBag::bag(),
             'avaliable_quests' => Quest::avaliable_quests(),
             'accepted_quests' => Quest::accepted_quests(),
             'patente' => User::patente(),
             'user_insignas' => Insignas::all(),
         ];
+    }
+
+    public function shop() {
+        $telescopios = Item::where('name', 'LIKE', '%Telescópio%')->get();
+        $livros = Item::where('name', 'LIKE', '%Livro%')->get();
+        $insignas = [];
+
+        return ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => $insignas];
     }
 
     // =================================================
@@ -168,9 +176,45 @@ class GameController extends Controller
     public function tutorial() {
         $chapter = new UserProgres;
         $chapter->key = 'welcome';
-        $complete = $chapter->complete();
+        $complete = $chapter->complete()['completed'];
+        if($complete){
+            session()->put('notify', 
 
+            [
+            
+            ['text' => '<i class="uk-icon-exclamation"> </i> Você ganhou 100 xp!',
+             'status' => 'success'],
+            ['text' => '<i class="uk-icon-exclamation"> </i> Parabéns, você acabou de completar as boas vindas!',
+             'status' => 'success'],
+
+            ]);
+        } else {
+            session()->forget('notify');
+        }
         return view('game.chapters.tutorial', $this->view_vars());
+    }
+
+    public function chapter1() {
+        $chapter = new UserProgres;
+        $chapter->key = 'tutorial';
+        $complete = $chapter->complete()['completed'];
+
+        if($complete){
+            session()->put('notify', 
+
+            [
+            
+            ['text' => '<i class="uk-icon-exclamation"> </i> Você ganhou 200 xp!',
+             'status' => 'success'],
+            ['text' => '<i class="uk-icon-exclamation"> </i> Parabéns, você acabou de completar o tutorial básico!',
+             'status' => 'success'],
+
+            ]);
+        } else {
+            session()->forget('notify');
+        }
+
+        return view('game.chapters.chapter1', $this->view_vars());
     }
 
     

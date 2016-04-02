@@ -6,8 +6,9 @@ function cientist(message, timer){
 	}, timer);
 }
 
-function fala_hide() {
-	
+function cientist_hide() {
+	$(".cientist-message").hide();
+	$(".cientist").hide();
 }
 
 function fullscreen_video(video){
@@ -39,7 +40,7 @@ function change_background(url, timer){
 		$("body").css("background", "url('"+ url +"') center center");
 		}, timer);
 	} else {
-		$("body").removeAttr('css');
+		$("body").removeAttr('style');
 	}
 
 

@@ -15,7 +15,6 @@ $(document).ready(function(){
     /* ======================================== */
     /* PART I - BIG BANG */
     /* ======================================== */
-    
     var big_bang = Popcorn("#big-bang-video");
     var big_bang_video = document.getElementById("big-bang-video");
 
@@ -31,7 +30,7 @@ $(document).ready(function(){
     });
 
     big_bang_video.addEventListener('ended', function( e ) {
-        //change_background('{{ url('/img/chapter/big-bang-static.jpg') }}', 0);
+        change_background('{{ url('/img/chapter/big-bang-static.jpg') }}', 0);
         $("#big-bang-video").hide();
 
         $(".cientist").show();
@@ -52,11 +51,14 @@ $(document).ready(function(){
         
     }, false);
 
+    /* ======================================== */
+    /* PART II - Milk way */
+    /* ======================================== */
     var milky_way = Popcorn("#milkway-video");
     var milky_way_video = document.getElementById("milkway-video");
 
     star_video_element.addEventListener('ended', function( e ) {
-       // $("body").removeAttr('css');
+        $("body").removeAttr('style');
         
         $("#stars-video").hide();
         $(".cientist").show();
@@ -80,6 +82,9 @@ $(document).ready(function(){
 
     }, false);
 
+    /* ======================================== */
+    /* PART III - Sistema Solar */
+    /* ======================================== */
     var solar = Popcorn("#solar-video");
     var solar_video_element = document.getElementById("solar-video");
 
@@ -94,6 +99,9 @@ $(document).ready(function(){
 
     }, false);
 
+    /* ======================================== */
+    /* PART IV - TERRA */
+    /* ======================================== */
     var terra = Popcorn("#terra-video");
     var terra_video_element = document.getElementById("terra-video");
 
@@ -112,11 +120,10 @@ $(document).ready(function(){
         $(".cientist").hide('fast');
         $(".cientist-message").hide('fast');
 
+
+        // PRÓXIMO CAPÍTULO
         window.location = '{{ url('/game/tutorial') }}';
     }, false);
-    /* ======================================== */
-    /* PART II - BIG BANG */
-    /* ======================================== */
 });
 </script>
 @stop

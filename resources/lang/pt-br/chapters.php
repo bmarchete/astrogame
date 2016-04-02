@@ -22,6 +22,8 @@ return [
 
 	'tutorial' =>
 	[
+		'title' => 'Tutorial',
+
 		'fala1' => 'Olá aspirante, seja bem-vindo! Estou aqui para te auxiliar na sua primeira missão. Meu nome é Galileu Galilei, sou um astrônomo, físico e matemático italiano, nascido em 1564.',
 		'fala2' => 'Na minha época, eu cosmutava observar as estrelas, era fascinado por isso...',
 		'fala3' => 'Fui o responsável por aperfeiçoar a luneta, e em 1610 observei montanhas e crateras na Lua, manchas no Sol e quatro satélites em volta de Júpiter. ',
@@ -30,6 +32,8 @@ return [
 		'fala6' => 'Ótimo! Com essa luneta, poderemos começar a observar o céu e as estrelas, mas você também vai precisar de um GUIA DAS ESTRELAS, vá até a loja e compre um desses!',
 		'fala7' => 'O Guia das estrelas contém uma série de informações mais detalhadas sobre tudo oque você encontra em suas missões. Para ler essas informações, basta selecionar o guia em seu inventário.',
 		'fala8' => 'Com o Guia das Estrelas você pode começar a fazer as suas primeiras missões, clique no menu CAMPANHA para ver o seu catálogo de missões.',
+
+		'fala9' => 'Você também pode enviar sugestões por aqui para melhorarmos nosso jogo!',
 
 	],
 
@@ -40,6 +44,16 @@ return [
 
 	'chapter1' =>
 	[
+		'title' => 'Nebulosas',
 
+		'fala1' => 'As estrelas nascem a partir de grande nuvens formadas de gases, poeira e partículas sólidas, chamadas nebulosas....',
+		'fala2' => 'Dentro da nebulosa, esses gases e poeira se agrupam por causa da força da gravidade, formando assim as estrelas.',
+		'fala3' => 'Parece estranho, mas quando olhamos para uma estrela, estamos vendo o seu passado.',
+		'fala4' => 'Quando observamos uma estrela, estamos vendo a luz que ela emitiu para o espaço, e essa luz demora para chegar até nós, mesmo sendo muito rápida.',
+		'fala5' => 'Se a estrela estiver bem longe, bem longe mesmo, ela pode até já não existir mais...',
+		'fala6' => '',
+		'fala7' => '',
+		'fala8' => '',
+			
 	],
 ];

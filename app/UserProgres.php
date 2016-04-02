@@ -26,7 +26,7 @@ class UserProgres extends Model
     		'name' => 'chapter1',
     		'xp_reward' => 100,
     		'items_reward' => [1, 2],
-    		'min_level' => 2,
+    		'min_level' => 1,
     	],
 
     ];
@@ -56,7 +56,7 @@ class UserProgres extends Model
     	}
 
     	$chapters_completed = array_intersect($final_keys, $chapters_completed); // une os capítulos completados
-    	$chapter_num = count($chapters_completed); // lembrete: lembre que a array começa sempre com 0 (não é necessário tirar -1 aqui)
+    	$chapter_num = count($chapters_completed) + 1; // lembrete: lembre que a array começa sempre com 0 (não é necessário tirar -1 aqui)
     	return (object) $this->keys[$chapter_num];
     }
 

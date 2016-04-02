@@ -11,9 +11,9 @@ class ItemsSeeder extends Seeder
 	public $items = [
 		
 		[
-			'name' => 'Telescópio básico',
-			'description' => 'Usado por telescópios anônimos',
-			'price' => 42,
+			'name' => 'Luneta Simples',
+			'description' => 'Alcance: Curto. Descrição: Permite uma visão superficial do céu.',
+			'price' => 50,
 			'min_level' => 1,
 			'img_url' => 'basic_telescope',
 			'max_stack' => 1,
@@ -21,21 +21,13 @@ class ItemsSeeder extends Seeder
 
 
 		[
-			'name' => 'Telescópio avançado',
-			'description' => 'Usado por bons telescópios',
-			'price' => 52,
-			'min_level' => 2,
-			'img_url' => 'basic_telescope',
-			'max_stack' => 2,
-		],
-
-		[
-			'name' => 'Livro de constelações',
-			'description' => 'Livro antigo',
-			'price' => 30,
+			'name' => 'Guia das Estrelas',
+			'description' => 'Desbloqueia missões de nivel 1 - 5',
+			'price' => 25,
 			'min_level' => 1,
 			'img_url' => 'book_1',
-			'max_stack' => 3,
+			'max_stack' => 1,
+			// 'text' => '',
 		],
 	];
 
