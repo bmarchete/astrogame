@@ -129,23 +129,23 @@ $(document).ready(function(){
 @stop
 
 @section('content')
-<video id="big-bang-video" style="display:none; width: 100%" controls="true" preload>
+<video id="big-bang-video" style="display:none" class="uk-responsive-width" controls="true" preload>
     <source src="{{URL('/videos/big_bang.mp4')}}" type="video/mp4">
 </video>
 
-<video id="stars-video" controls="true" style="display:none; width: 100%" preload>
+<video id="stars-video" controls="true" style="display:none" class="uk-responsive-width" preload>
     <source src="{{URL('/videos/astro_bp.mp4')}}" type="video/mp4">
 </video>
 
-<video id="milkway-video" controls="false" style="display:none; width: 100%" preload>
+<video id="milkway-video" controls="false" style="display:none" class="uk-responsive-width" preload>
     <source src="{{URL('/videos/milky_way.m4v')}}">
 </video>
 
-<video id="solar-video" controls="false" style="display:none; width: 100%" preload>
+<video id="solar-video" controls="false" style="display:none" class="uk-responsive-width" preload>
     <source src="{{URL('/videos/sistema solar.mp4')}}"  type="video/mp4">
 </video>
 
-<video id="terra-video" controls="false" style="display:none; width: 100%" preload>
+<video id="terra-video" controls="false" style="display:none" class="uk-responsive-width" preload>
     <source src="{{URL('/videos/terra.mp4')}}" type="video/mp4">
 </video>
 
