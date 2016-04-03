@@ -257,9 +257,11 @@ function VirtualSky(input){
 	/*@cc_on
 	this.ie = true
 	@*/
-
+	
 	this.q = $.query();    // Query string
-	this.langurl = "lang/%LANG%.json";	// The location of the language files
+	this.dir = $('script[src*=virtualsky]').attr('src').match(/^.*\//);  // the JS file path
+	this.dir = this.dir && this.dir[0] || ""; // set dir to match or ""
+	this.langurl = this.dir + "lang/%LANG%.json";	// The location of the language files
 
 	this.id = '';						// The ID of the canvas/div tag - if none given it won't display
 	this.gradient = true;				// Show the sky gradient
@@ -1198,7 +1200,21 @@ VirtualSky.prototype.createSky = function(){
 		var loading = 'Loading sky...';
 		ctx.fillText(loading,(ctx.wide-ctx.measureText(loading).width)/2,(this.tall-fs)/2)
 		ctx.fill();
-
+		
+		$("#"+this.idinner).on('dblclick', function() {
+			var div_name = this.id.replace('_inner', '');
+			var screen = document.getElementById(div_name);			
+            if (screen.requestFullscreen) {
+              screen.requestFullscreen();
+            } else if (screen.msRequestFullscreen) {
+              screen.msRequestFullscreen();
+            } else if (screen.mozRequestFullScreen) {
+              screen.mozRequestFullScreen();
+            } else if (screen.webkitRequestFullscreen) {
+              screen.webkitRequestFullscreen();
+            }
+		});
+		
 		$("#"+this.idinner).on('click',{sky:this},function(e){
 			var x = e.pageX - $(this).offset().left - window.scrollX;
 			var y = e.pageY - $(this).offset().top - window.scrollY;

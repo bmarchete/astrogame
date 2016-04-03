@@ -9,31 +9,43 @@ Observatório
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/vendor/virtualsky/virtualsky.js'])->withFullURL() !!}
+<script src="{{ url('/vendor/virtualsky/virtualsky.js') }}"></script>
 <script>
 $(document).ready(function() {
 
         var planetarium = $.virtualsky({
                 id: 'starmap',
                 projection: 'stereo',
-                stars: [[]],
                 showstars: {{ $planetarium['showstars'] }},
                 showstarlabels: {{ $planetarium['showstarlabels'] }},
                 constellations: {{ $planetarium['constellations'] }},
-                keyboard: false,
-                lang: "{{ \Lang::getLocale() }}",
+                keyboard: true,
+                lang: 'pt',
                 showdate: {{ $planetarium['showdate'] }},
                 showplanets: {{ $planetarium['showplanets'] }},
                 showplanetlabels:  {{ $planetarium['showplanetlabels'] }},
                 scalestars: 3,
                 live: true,
-                lines: {!! $planetarium['lines'] !!},
                 magnitude: {{ $planetarium['magnitude'] }},
                 cardinalpoints: true,
                 showposition: false,
                 gradient: true,
                 ground :true,
         });
+
+        /* $('#starmap').on('dblclick', function(){
+            var elem = document.getElementById("starmap");
+            if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+              elem.msRequestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+              elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+              elem.webkitRequestFullscreen();
+            }
+        }); */
+        planetarium.fullScreen();
 });
 </script>
 @stop
@@ -51,7 +63,7 @@ $(document).ready(function() {
                 </div>
 
                 <div class="uk-width-medium-3-4">
-                        <div id="starmap" style="width:100%;height:800px;"></div>
+                        <div id="starmap" style="width:100%;height:500px;"></div>
                 </div>
         </div>
 </div>
