@@ -198,7 +198,7 @@ function change_xp(xp){
 
         <div class="uk-hidden-large uk-button-dropdown uk-text-left" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
             <button class="uk-button uk-button-success"><i class="uk-icon-rocket"></i> Navegador <i class="uk-icon-caret-down"></i></button>
-            <div class="uk-dropdown uk-dropdown-bottom" style="top: 30px; left: 0px;">
+            <div class="uk-dropdown uk-dropdown-bottom">
                 <ul class="uk-nav uk-nav-dropdown">
                     <li><a href="{{ URL('/game/campaign') }}" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a></li>
                     <li><a href="{{ URL('/game/exploration') }}" title="Volte todos os dias aqui!" data-uk-tooltip><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a></li>
