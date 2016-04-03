@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
 
     big_bang_video.addEventListener('ended', function( e ) {
-        change_background('{{ url('/img/chapter/big-bang-static.jpg') }}', 0);
+        //change_background('{{ url('/img/chapter/big-bang-static.jpg') }}', 0);
         $("#big-bang-video").hide();
 
         $(".cientist").show();
@@ -40,13 +40,13 @@ $(document).ready(function(){
         setTimeout(function(){
             star_video.play();
             $("#stars-video").show();
-            cientist('{{ trans('chapters.welcome.fala3') }}', 0);
+            cientist('{{ trans('chapters.welcome.fala3') }}', 2000);
         }, 16000);      
         
         setTimeout(
             function() {
-                $(".cientist").hide('fast');
-                $(".cientist-message").hide('fast');                
+                $(".cientist").hide();
+                $(".cientist-message").hide();                
             }, 23000);
         
     }, false);
@@ -56,13 +56,14 @@ $(document).ready(function(){
     /* ======================================== */
     var milky_way = Popcorn("#milkway-video");
     var milky_way_video = document.getElementById("milkway-video");
+    milky_way_video.volume = 0;
 
     star_video_element.addEventListener('ended', function( e ) {
         $("body").removeAttr('style');
         
+        cientist('{{ trans('chapters.welcome.fala4') }}', 0);
         $("#stars-video").hide();
         $(".cientist").show();
-        cientist('{{ trans('chapters.welcome.fala4') }}', 800);
         $(".cientist-message").show();
 
          setTimeout(
@@ -75,10 +76,10 @@ $(document).ready(function(){
 
          setTimeout(
             function() {
-                $(".cientist").hide('fast');
-                $(".cientist-message").hide('fast');   
+                $(".cientist").hide();
+                $(".cientist-message").hide();   
         
-            }, 22000);
+            }, 30000);
 
     }, false);
 
@@ -90,12 +91,13 @@ $(document).ready(function(){
 
     milky_way_video.addEventListener('ended', function( e ) {
         $("#milkway-video").hide();
-
-        $(".cientist").show();
         solar.play();
-        $("#solar-video").show();
-        cientist('{{ trans('chapters.welcome.fala6') }}', 2000);
+
+        cientist('{{ trans('chapters.welcome.fala6') }}', 0);
+        $(".cientist").show();
         $(".cientist-message").show();
+        
+        $("#solar-video").show();
 
     }, false);
 

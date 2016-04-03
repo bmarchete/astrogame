@@ -24,13 +24,17 @@ html, body, h1, h2, h3, h4, h5, h6, a {
 
 .home-section {
 	padding-top: 200px;
-	background: url('../../img/home-section5.jpg') no-repeat center bottom /cover;
+	background: url('../../img/galaxy_flat.png') no-repeat center top /cover;
 	min-height: 450px;
     background-attachment: fixed;
 }
 
 .home-section h1, .home-section p {
 	color: #fff
+}
+
+.about-section {
+    padding-top: 100px
 }
 
 .footer {

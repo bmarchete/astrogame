@@ -99,11 +99,11 @@ function change_xp(xp){
                     if(data.status_or_price == false){
                         UIkit.notify('<i class="uk-icon-close"> </i> ' + data.msg, {status:'danger', pos: 'top-right'});
                     } else {
-                        if(item == 1){
+                        if(item == 1){ // luneta simples
                            buyTutorialHander();
                         }
 
-                        if(item == 3){
+                        if(item == 2){ // guia das estrelas
                             buyTutorialLivroHandler();
                         }
 
@@ -145,7 +145,7 @@ function change_xp(xp){
     }
 
     // music background
-    var music_background = new buzz.sound('{{ url('sounds/music/bg2.mp3') }}', {preload: true, loop: true});
+    var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: true});
     var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
     var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
     var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false})

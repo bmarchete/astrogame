@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
 
     public static function xp_for_next_level() {
-        return self::$level_xp[auth()->user()->level];
+        return self::$level_xp[auth()->user()->level + 1];
     }
 
 
