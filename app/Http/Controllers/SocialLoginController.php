@@ -66,6 +66,7 @@ class SocialLoginController extends Controller
             
             auth()->login($user_db, true);
             UserConfig::installConfig($user_db->id);
+            DB::table('users')->where('id', $user_db->id)->update(['money' => 5000]);
             return redirect('/game');
 
         } else if($provider == 'google'){
