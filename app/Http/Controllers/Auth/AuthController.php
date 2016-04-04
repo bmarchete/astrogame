@@ -7,7 +7,6 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Image;
 use App\Events\RegisterUser;
 
 class AuthController extends Controller
@@ -71,8 +70,8 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
         
-        $path = 'users/avatar/' . md5($user->id) . '.jpg';
-        Image::make(url('/img/avatar.png'))->fit(500, 500)->save($path);
+        $user->makeAvatar();
+
         event(new RegisterUser($user));
         return $user;
     }

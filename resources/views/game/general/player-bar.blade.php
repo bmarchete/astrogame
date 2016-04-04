@@ -112,11 +112,15 @@ function change_xp(xp){
                         UIkit.notify('<i class="uk-icon-close"> </i> ' + data.msg, {status:'danger', pos: 'top-right'});
                     } else {
                         if(item == 1){ // luneta simples
-                           buyTutorialHander();
+                            if (typeof buyTutorialHander == 'function'){
+                             buyTutorialHander(); 
+                            }
                         }
 
                         if(item == 2){ // guia das estrelas
-                            buyTutorialLivroHandler();
+                            if (typeof buyTutorialLivroHandler == 'function'){
+                             buyTutorialLivroHandler(); 
+                            }
                         }
 
                         UIkit.notify('<i class="uk-icon-check"> </i> ' + data.msg, {status:'success', pos: 'top-right'});

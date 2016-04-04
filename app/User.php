@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
 use Log;
 use Carbon\Carbon;
+use Image;
 
 class User extends Authenticatable
 {
@@ -160,5 +161,21 @@ class User extends Authenticatable
                  
                  ];
 
+    }
+
+    public function make_avatar($url = ''){
+        $path = 'users/avatar/' . md5($this->id) . '.jpg';
+        $width = 500;
+        $height = 500;
+
+        if(empty($url)){ // default avatar
+            Image::make(url('/img/avatar.png'))->fit($width, $height)->save($path);
+        } else {
+            try{
+                Image::make($url)->fit($width, $height)->save($path);
+            } catch (\Intervention\Image\Exception\NotReadableException $e) { // default avatar
+                Image::make(url('/img/avatar.png'))->fit($width, $height)->save($path);
+            }
+        }
     }
 }
