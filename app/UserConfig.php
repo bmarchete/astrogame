@@ -42,6 +42,9 @@ class UserConfig extends Model
         }
 
     	foreach(self::$default as $key => $content){
+            if($key == 'lang'){
+                $content = session()->get('language');
+            }
     		$config = new UserConfig;
     		$config->key = $key;
     		$config->content = $content;

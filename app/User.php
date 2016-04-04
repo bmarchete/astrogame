@@ -163,7 +163,7 @@ class User extends Authenticatable
 
     }
 
-    public function make_avatar($url = ''){
+    public function makeAvatar($url = ''){
         $path = 'users/avatar/' . md5($this->id) . '.jpg';
         $width = 500;
         $height = 500;

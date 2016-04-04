@@ -71,7 +71,7 @@ class SocialLoginController extends Controller
         $user_db->password = bcrypt('temp' . rand() . 'temp');
         $user_db->save();
 
-        $user_db->make_avatar($user->avatar);
+        $user_db->makeAvatar($user->avatar);
         
         auth()->login($user_db, true);
         event(new RegisterUser($user_db));
