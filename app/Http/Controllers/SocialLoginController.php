@@ -9,6 +9,7 @@ use Socialize;
 use App\User;
 use App\UserConfig;
 use Image;
+use App\Events\RegisterUser;
 
 class SocialLoginController extends Controller
 {
@@ -65,8 +66,8 @@ class SocialLoginController extends Controller
             $this->make_avatar($user_db->id, $user->avatar);
             
             auth()->login($user_db, true);
-            UserConfig::installConfig($user_db->id);
-            DB::table('users')->where('id', $user_db->id)->update(['money' => 5000]);
+            event(new RegisterUser($user_db));
+
             return redirect('/game');
 
         } else if($provider == 'google'){

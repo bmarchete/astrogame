@@ -7,9 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use App\UserConfig;
-use DB;
 use Image;
+use App\Events\RegisterUser;
 
 class AuthController extends Controller
 {
@@ -71,12 +70,10 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        UserConfig::installConfig($user->id);
-
+        
         $path = 'users/avatar/' . md5($user->id) . '.jpg';
         Image::make(url('/img/avatar.png'))->fit(500, 500)->save($path);
-
-        DB::table('users')->where('id', $user->id)->update(['money' => 5000]);
+        event(new RegisterUser($user));
         return $user;
     }
 
