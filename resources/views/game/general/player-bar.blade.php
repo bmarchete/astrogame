@@ -85,6 +85,18 @@ function change_xp(xp){
             $(".accept-quest").val(id);
         });
 
+        $('#fullscreen').on('click', function(){
+            var elem = document.body;
+            if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+              elem.msRequestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+              elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+              elem.webkitRequestFullscreen();
+            }
+        });
 
     });
     
@@ -152,6 +164,8 @@ function change_xp(xp){
 
     music_background.play().loop();
     music_background.setVolume({{ $music_volume }});
+
+
 
 </script>
 @stop
@@ -243,7 +257,7 @@ function change_xp(xp){
             <div class="uk-form-row">
                 <div class="uk-form-controls">
                         <div class="uk-form-select" data-uk-form-select>
-                            <span>{{ trans('game.lang') }}: </span>
+                            {{ $lang }}
                             <select id="lang-select" name="lang">
                                 <option value="pt-br" @if ($lang == 'pt-br') selected @endif >Português Brasileiro</option>
                                 <option value="en" @if ($lang == 'en') selected @endif>English</option>
@@ -262,7 +276,11 @@ function change_xp(xp){
                     </label>
                 </div>
             </div>
+
         </form>
+        <div class="uk-form-row">
+                <button class="uk-button uk-button-danger" id="fullscreen"><i class="uk-icon-external-link"></i> Modo Tela Cheia</button>
+            </div>
     </div>
 </div>
 
