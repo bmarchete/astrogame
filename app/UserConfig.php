@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace AstroGame;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
@@ -42,9 +42,12 @@ class UserConfig extends Model
         }
 
     	foreach(self::$default as $key => $content){
-            if($key == 'lang'){
+            /* if($key == 'lang'){
+                if(empty(session()->get('language'))){
+                    $content = 'pt-br';
+                }
                 $content = session()->get('language');
-            }
+            } */
     		$config = new UserConfig;
     		$config->key = $key;
     		$config->content = $content;

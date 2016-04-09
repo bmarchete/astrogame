@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace AstroGame;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
@@ -138,7 +138,7 @@ class User extends Authenticatable
     }
 
     public function insignas(){
-        return \App\Insignas::get();
+        return \AstroGame\Insignas::get();
     }
 
     public function recent_feed() {

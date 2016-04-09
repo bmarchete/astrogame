@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace AstroGame\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Bug;
+use AstroGame\Http\Requests;
+use AstroGame\Bug;
 use Validator;
 use Response;
 

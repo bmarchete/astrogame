@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace AstroGame;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;

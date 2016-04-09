@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace AstroGame\Events;
 
 abstract class Event
 {

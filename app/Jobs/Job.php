@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace AstroGame\Jobs;
 
 use Illuminate\Bus\Queueable;
 

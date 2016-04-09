@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace AstroGame\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\User;
-use App\UserConfig;
-use App\UsersQuest;
-use App\UserBag;
-use App\Item;
-use App\Quest;
-use App\UserProgres;
-use App\UserInsignas;
-use App\Insignas;
-use App\UserObservatory;
+use AstroGame\Http\Requests;
+use AstroGame\User;
+use AstroGame\UserConfig;
+use AstroGame\UsersQuest;
+use AstroGame\UserBag;
+use AstroGame\Item;
+use AstroGame\Quest;
+use AstroGame\UserProgres;
+use AstroGame\UserInsignas;
+use AstroGame\Insignas;
+use AstroGame\UserObservatory;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
@@ -109,8 +109,7 @@ class GameController extends Controller
     }
 
     // =================================================
-    // functions
-    // =================================================
+    // 
     public function chapter_complete(Request $request) {
         // alguma checagem aqui para não ter espertinhos
         $key = $request->key;
@@ -118,6 +117,7 @@ class GameController extends Controller
         $chapter = new UserProgres;
         $chapter->key = $key;
         $complete = $chapter->complete();
+    // =================================================
         
         return response()->json($complete);
     }

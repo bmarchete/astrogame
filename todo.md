@@ -6,7 +6,7 @@
 - [x] instalação do phpunit
 - [x] instalação do Laravel Debugbar
 - [x] setup do database / migrations
-- [ ] setup AppName do laravel
+- [x] setup AppName do laravel
 - [x] setup do database / migrations
 - [x] estrutura para arquivos de vendor e de fácil atualização
 - [x] instalação uikit
@@ -23,7 +23,7 @@
 - [x] cadastro
 - [x] login
 - [ ] recuperar senha
-- [ ] login com facebook
+- [x] login com facebook
 - [ ] login com google
 - [x] add base para suporte a outros idiomas
 - [x] user_settings model
@@ -52,7 +52,7 @@
 - [ ] enviar email do contato
 - [ ] favicon
 - [ ] mudar logo
-- [ ]
+- [ ] bug da linguagem do navegador na hora de cadastrar
 
 Escrito / projetos:
 - [ ] Título do Projeto

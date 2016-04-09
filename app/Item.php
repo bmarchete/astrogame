@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace AstroGame;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
-use App\UserBag;
+use AstroGame\UserBag;
 
 class Item extends Model
 {

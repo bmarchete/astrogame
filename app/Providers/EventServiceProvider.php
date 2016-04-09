@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace AstroGame\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -14,27 +14,27 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'Illuminate\Auth\Events\Attempting' => [
-            'App\Listeners\LogAuthenticationAttempt',
+            'AstroGame\Listeners\LogAuthenticationAttempt',
         ],
 
         'Illuminate\Auth\Events\Login' => [
-            'App\Listeners\LogSuccessfulLogin',
+            'AstroGame\Listeners\LogSuccessfulLogin',
         ],
 
         'Illuminate\Auth\Events\Logout' => [
-            'App\Listeners\LogSuccessfulLogout',
+            'AstroGame\Listeners\LogSuccessfulLogout',
         ],
 
         'Illuminate\Auth\Events\Lockout' => [
-            'App\Listeners\LogLockout',
+            'AstroGame\Listeners\LogLockout',
         ],
 
         'Illuminate\Foundation\Auth\RegistersUsers' => [
-            'App\Listeners\RegisterUsers',
+            'AstroGame\Listeners\RegisterUsers',
         ],
 
-        'App\Events\RegisterUser' => [
-            'App\Listeners\RegisterUsers'
+        'AstroGame\Events\RegisterUser' => [
+            'AstroGame\Listeners\RegisterUsers'
         ],
     ];
 

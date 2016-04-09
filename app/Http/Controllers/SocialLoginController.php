@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace AstroGame\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use AstroGame\Http\Requests;
 use Socialize;
-use App\User;
-use App\Events\RegisterUser;
+use AstroGame\User;
+use AstroGame\Events\RegisterUser;
 
 class SocialLoginController extends Controller
 {

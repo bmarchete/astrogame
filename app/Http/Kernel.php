@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace AstroGame\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -24,13 +24,13 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
+            \AstroGame\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\Language::class,
-            \App\Http\Middleware\HTMLminify::class,
+            \AstroGame\Http\Middleware\VerifyCsrfToken::class,
+            \AstroGame\Http\Middleware\Language::class,
+            \AstroGame\Http\Middleware\HTMLminify::class,
             
         ],
 
@@ -47,9 +47,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth' => \AstroGame\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \AstroGame\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }
