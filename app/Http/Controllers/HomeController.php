@@ -51,8 +51,9 @@ class HomeController extends Controller
                 (object) [
                  'name' => 'Adriano Faboci',
                  'img' => 'img/team/adriano.jpg',
-                 'description' => 'Faz tudo e mochileiro',
-                 'facebook' => '',
+                 'description' => 'Um jovem amante da música, que adora ouvir um som no volume máximo de seu fone de ouvido,
+além de um viciado em series e jogos eletrônicos!',
+                 'facebook' => 'https://www.facebook.com/adriano.faboci?fref=ts',
                  'twitter' => '',
                  'github' => ''],
 
@@ -60,7 +61,7 @@ class HomeController extends Controller
                  'name' => 'Brenda Conttessotto',
                  'img' => 'img/team/bre.jpg',
                  'description' => 'Faz tudo e mochileira',
-                 'facebook' => '',
+                 'facebook' => 'https://www.facebook.com/brendacaroline.conttessotto?fref=ts',
                  'twitter' => '',
                  'github' => ''],
 
@@ -68,7 +69,7 @@ class HomeController extends Controller
                  'name' => 'Laís Vitória',
                  'img' => 'img/team/lais.jpg',
                  'description' => 'Artista, roterista, escritora, designer e mochileira',
-                 'facebook' => '',
+                 'facebook' => 'https://www.facebook.com/laisvitoria.granziera?fref=ts',
                  'twitter' => '',
                  'github' => ''],
 
@@ -76,7 +77,7 @@ class HomeController extends Controller
                  'name' => 'Gabriel Ferreira',
                  'img' => 'img/team/gabriel.jpg',
                  'description' => 'Faz tudo e mochileiro',
-                 'facebook' => '',
+                 'facebook' => 'https://www.facebook.com/profile.php?id=100004880953329&fref=ts',
                  'twitter' => '',
                  'github' => '']
                  ];
