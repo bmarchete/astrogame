@@ -9,6 +9,6 @@ Thumbs.db
 /public/js/builds
 *.wav
 /public/css/fonts
-/public/users/
+/public/users/avatar/*.jpg
 *.mp4
 *.m4v
