@@ -1,10 +1,6 @@
 @extends('project.general')
 @section('title') {{ trans('project.title') }} @stop
 
-@section('javascript')
-
-@stop
-
 @section('content')
 <div class="home-section">
    <div class="uk-grid" data-uk-grid-margin>

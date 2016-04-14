@@ -81,7 +81,6 @@
             <li>ANA LAURA SANTOS</li>
             <li>BRENDA CONTTESSOTTO</li>
             <li>BRUNO CASTIGLIONI</li>
-            <li>BRUNO PAULSEN</li>
             <li>CAIO EDUARDO</li>
             <li>CARLOS EDUARDO</li>
             <li>CAROL SANTOS</li>
