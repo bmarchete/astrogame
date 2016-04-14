@@ -28,6 +28,12 @@ return [
 	'shop-name' => 'Pan Galáctia Shop',
 	'shop-slogan' => 'Let\'s shop?',
 	'logout' => 'Logout',
+	'profile' => 'Perfil',
+	'patents' => 'Patents',
+	'insignas' => 'Insignas',
+	'profile-public' => 'View my public profile',
+	'since' => 'Since',
+	'money' => 'Money',
 
 	// items
 	'remove-item' => 'Do you want to remove this item from your bag?',
@@ -53,5 +59,21 @@ return [
 	'bug-repeat' => 'You already had send this suggestion!',
 	'bug-title' => 'Suggestions and Bug Report',
 	'bug-message' => 'Message',
+	
+	// profile public
+	'recent-activ' => 'Recent Activid',
+	'completed-chapter' => 'Completed the :capitulo :capitulo-name. Win :xp XP',
+	
+	// patentes
+	'patent1' => 'Observer',
+	'patent2' => 'Star Guard',
+	'patent3' => 'Residente',
+	'patent4' => 'Scientist',
+	'patent5' => 'Laboratory Boss',
+	'patent6' => 'Astronaut - Amador',
+	'patent7' => 'Astronaut - Pesquisador',
+	'patent8' => 'Astronaut - Líder de Módulo',
+	'patent9' => 'Astronaut- Chefe de estação',
+	'patent-gm' => 'Desastronauta Master',
 
 ];
