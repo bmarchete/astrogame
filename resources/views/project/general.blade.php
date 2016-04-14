@@ -19,6 +19,7 @@
                <li><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
                <li><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
                <li><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
+               <li><a href="{{ URL('/blog') }}">{{ trans('project.navbar.blog') }}</a></li>
                <li><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
             </ul>
             <a href="#menu" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>

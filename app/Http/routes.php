@@ -25,6 +25,12 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/termos', 'HomeController@termos');
 	Route::get('/politica', 'HomeController@politica');
 
+	// website-blog
+	Route::get('/blog', 'BlogController@index');
+	Route::get('/blog/category/{category}', 'BlogController@category');
+	Route::get('/blog/post/{post}', 'BlogController@post');
+	
+
 	Route::post('/contato', 'HomeController@enviar_contato');
 	Route::post('/bug', 'BugController@store');
 	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
@@ -40,6 +46,11 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/exploration', 'GameController@exploration');
 		Route::get('/observatory', 'GameController@observatory');
 		
+		// exploration
+		// iniciar exploração
+		// cancelar exploração
+		// 
+
 		// chapter
 		Route::get('/chapter_complete/{key}', 'GameController@chapter_complete')->where('key', '[a-z-]+');
 
