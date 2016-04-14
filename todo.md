@@ -13,12 +13,12 @@
 - [x] instalação do Buzz HTML5 audio plugin
 - [x] instalação do popcorn.js
 - [x] instalação do virtualsky
-- [ ] tradução para português do virtualsky
+- [x] tradução para português do virtualsky
 - [x] setup do Collection HTML
 - [x] setup do middleware HTMLminify
 - [x] setup do css e js minify
 - [x] setup das páginas de erro (404, 503)
-- [ ] setup página de erro 403
+- [x] setup página de erro 403
 - [ ] design páginas de erros
 - [x] cadastro
 - [x] login
@@ -53,6 +53,13 @@
 - [ ] favicon
 - [ ] mudar logo
 - [ ] bug da linguagem do navegador na hora de cadastrar
+- [ ] design do blog
+- [ ] base do blog
+- [ ] trocar foto de perfil
+- [ ] trocar nome do usuário
+- [ ] trocar senha do usuário
+- [ ] trocar email
+- [ ] trocar mouse cursor
 
 Escrito / projetos:
 - [ ] Título do Projeto
