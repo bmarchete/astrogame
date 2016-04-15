@@ -62,7 +62,7 @@
             </p>
             <h3 class="uk-h4">{{ trans('project.follow-us') }}</h3>
             <p>
-               <a href="#" class="uk-icon-button uk-icon-facebook"></a>
+               <a href="https://www.facebook.com/cosmosexpoete" class="uk-icon-button uk-icon-facebook"></a>
                <a href="#" class="uk-icon-button uk-icon-instagram"></a>
             </p>
          </div>

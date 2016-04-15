@@ -11,7 +11,9 @@ return [
 		'home' => 'Home',
 		'sobre' => 'About',
 		'equipe' => 'Team',
-		'contato' => 'Contact'
+		'contato' => 'Contact',
+		'ranking' => 'Ranking',
+		'blog' => 'Blog',
 	],
 
 	'home-title' => 'ASTRO GAME',
@@ -28,11 +30,25 @@ return [
 	'forget-password' => "Forget your password?",
 
 	// contato
-	'contato-title' => 'Entre em contato conosco',
+	'contato-title' => 'Send us a contact',
 	'your-name' => 'Your name',
 	'your-email' => 'Your email',
 	'your-message' => 'Your message',
 	'enviar' => 'Submit',
+	'follow-us' => 'Follow Us',
+	'name-placeholder' => 'Name',
+	'email-placeholder' => 'example@example.com',
+
+	// footer
+	'made-by' => 'Made with <i class="uk-icon-heart"></i> by 3EMIA',
+
+	// cadastro
+	'name' => 'Name',
+	'email-register' => 'Email (example@example.com)',
+	'login-register' => 'I have an account',
+	'facebook' => 'Login with facebook',
+	'google' => 'Login with google',
+	'confirm-password' => 'Confirm your password',
 
 	// login
 	'email' => 'Email',

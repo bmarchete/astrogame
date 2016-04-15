@@ -13,6 +13,7 @@ return [
 		'equipe' => 'Equipe',
 		'contato' => 'Contato',
 		'ranking' => 'Ranking',
+		'blog' => 'Desastronautas',
 	],
 
 	'home-title' => 'ASTRO GAME',

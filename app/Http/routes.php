@@ -27,10 +27,13 @@ Route::group(['middleware' => ['web']], function () {
 
 	// website-blog
 	Route::get('/blog', 'BlogController@index');
-	Route::get('/blog/category/{category}', 'BlogController@category');
-	Route::get('/blog/post/{post}', 'BlogController@post');
-	
+	Route::get('/blog/{page}', 'BlogController@page')->where('page', '[0-9]+');
+	Route::get('/blog/category/{category}', 'BlogController@category')->where('category', '[a-z-]+');
+	Route::get('/blog/post/{post}', 'BlogController@single_post');
+	Route::get('/blog/serach/{search}', 'BlogController@search');
+	Route::get('/blog/author/{author}', 'BlogController@author')->where('author', '[a-z]+');
 
+	// post
 	Route::post('/contato', 'HomeController@enviar_contato');
 	Route::post('/bug', 'BugController@store');
 	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
@@ -71,6 +74,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/welcome', 'GameController@welcome');
 		Route::get('/tutorial', 'GameController@tutorial');
 		Route::get('/chapter1', 'GameController@chapter1');
+		Route::get('/chapter2', 'GameController@chapter2');
 		
 	});
 
