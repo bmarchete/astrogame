@@ -168,9 +168,6 @@ function change_xp(xp){
 
     music_background.play().loop();
     music_background.setVolume({{ $music_volume }});
-
-
-
 </script>
 @stop
 <button class="uk-button uk-button-success button-player-bar" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}">{{ trans('game.player-bar') }}</button>
@@ -181,7 +178,9 @@ function change_xp(xp){
         <div class="uk-width-5-10 uk-width-large-2-10">
             <button class="uk-close uk-close-alt" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}"></button>
             <a href="#close-bar" class="volume uk-icon-small uk-close-alt uk-icon-cog" data-uk-modal="{target:'#settings'}" data-uk-tooltip title="{{ trans('game.config') }}"></a>
+            <a href="{{ URL('/home') }}" class="logout uk-icon-small uk-close-alt uk-icon-home" data-uk-tooltip title="{{trans('game.home')}}"></a>
             <a href="{{ URL('/logout') }}" class="logout uk-icon-small uk-close-alt uk-icon-sign-out" data-uk-tooltip title="{{trans('game.logout')}}"></a>
+            
         </div>
 
         <div class="uk-width-5-10 uk-width-large-8-10 uk-margin-bottom uk-text-center">

@@ -87,4 +87,5 @@ return [
     	<p>O percurso começa com pequenos stands explicando um pouco sobre cada conteúdo do COSMOS e termina num simulador, onde tudo o que foi exposto nas apresentações do percurso será reapresentado de uma forma resumida e visual, trazendo a sensação de submersão espacial dentro de um ambiente fechado e escuro. Neste simulador teremos a presença de uma pessoa que fará o papel de capitão da nave; pessoa que será responsável pelos visitantes e tudo o mais que ocorrer na sala. Não recomendado para claustrofóbicos, pessoas com medo do escuro, problemas cardíacos.</p>',
     	          
 
+    
 ];

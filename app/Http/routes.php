@@ -19,6 +19,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	// website-projeto
 	Route::get('/', 'HomeController@index');
+	Route::get('/home', 'HomeController@home');
 	Route::get('/sobre', 'HomeController@sobre');
 	Route::get('/equipe', 'HomeController@equipe');
 	Route::get('/contato', 'HomeController@contato');
@@ -26,12 +27,12 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/politica', 'HomeController@politica');
 
 	// website-blog
-	Route::get('/blog', 'BlogController@index');
-	Route::get('/blog/{page}', 'BlogController@page')->where('page', '[0-9]+');
-	Route::get('/blog/category/{category}', 'BlogController@category')->where('category', '[a-z-]+');
-	Route::get('/blog/post/{post}', 'BlogController@single_post');
-	Route::get('/blog/serach/{search}', 'BlogController@search');
-	Route::get('/blog/author/{author}', 'BlogController@author')->where('author', '[a-z]+');
+	Route::get('/desastronautas', 'BlogController@index');
+	Route::get('/desastronautas/{page}', 'BlogController@page')->where('page', '[0-9]+');
+	Route::get('/desastronautas/category/{category}', 'BlogController@category')->where('category', '[a-z-]+');
+	Route::get('/desastronautas/post/{post}', 'BlogController@single_post');
+	Route::post('/desastronautas/search', 'BlogController@search');
+	Route::get('/desastronautas/author/{author}', 'BlogController@author')->where('author', '[a-z]+');
 
 	// post
 	Route::post('/contato', 'HomeController@enviar_contato');

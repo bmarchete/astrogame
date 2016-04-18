@@ -18,9 +18,21 @@
                <img class="uk-border-circle" width="250" height="250" src="{{ $member->img }}" alt="">
                <figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
                   <div>
+                     @if (!empty($member->facebook))
                      <a href="{{ $member->facebook }}" class="uk-icon-button uk-icon-facebook"></a>
+                     @endif
+
+                     @if (!empty($member->twitter))
                      <a href="{{ $member->twitter }}" class="uk-icon-button uk-icon-twitter"></a>
+                     @endif
+
+                     @if (!empty($member->github))
                      <a href="{{ $member->github }}" class="uk-icon-button uk-icon-github"></a>
+                     @endif
+
+                     @if (!empty($member->instagram))
+                     <a href="{{ $member->instagram }}" class="uk-icon-button uk-icon-instagram"></a>
+                     @endif
                   </div>
                </figcaption>
             </figure>

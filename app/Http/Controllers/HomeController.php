@@ -22,6 +22,10 @@ class HomeController extends Controller
             return redirect('/game');
         }
 
+        return $this->home();
+    }
+
+    public function home() {
         return view('project.home', ['page' => 'index']);
     }
 
@@ -51,8 +55,7 @@ class HomeController extends Controller
                 (object) [
                  'name' => 'Adriano Faboci',
                  'img' => 'img/team/adriano.jpg',
-                 'description' => 'Um jovem amante da música, que adora ouvir um som no volume máximo de seu fone de ouvido,
-além de um viciado em series e jogos eletrônicos!',
+                 'description' => 'Um jovem amante da música, além de um viciado em series e jogos eletrônicos!',
                  'facebook' => 'https://www.facebook.com/adriano.faboci?fref=ts',
                  'twitter' => '',
                  'github' => ''],

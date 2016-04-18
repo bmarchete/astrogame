@@ -8,6 +8,26 @@ html, body, h1, h2, h3, h4, h5, h6, a {
 	font-family: 'Roboto', sans-serif;
 }
 
+.blog-header {
+    background: url('../../img/desastronautas.jpg') no-repeat center top /cover;
+    height: 140px;
+    padding-top: 160px
+}
+
+.blog-header h1{
+    color: #fff;
+    font-size: 44px
+}
+
+.blog p {
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin-bottom: 1.4375rem;
+    line-height: 1.5;
+    letter-spacing: 0.01rem;
+    text-rendering: optimizeLegibility;
+}
+
 .contact-section {
     padding-top: 160px
 }

@@ -1,32 +1,32 @@
 @extends('project.general')
-@section('title')
-Blog
-@stop
-
+@section('title') {{ trans('blog.blog-full') }} @stop
 @section('content')
-<div class="uk-container uk-container-center" style="padding-top: 200px">
+<div class="blog-header">
+    <div class="uk-container uk-container-center">
+        <h1>Desastronautas</h1>
+    </div>
+</div>
 
+<div class="uk-container uk-container-center uk-margin-large-top blog">
 <div class="uk-grid" data-uk-grid-margin>
-    <h1>Blog Desastronautas</h1>
-    <div class="uk-width-medium-4-4">
+    <div class="uk-width-medium-3-4">
         @foreach ($posts as $post)
         <article class="uk-article">
 
             <h1 class="uk-article-title">
-                <a href="layouts_post.html">{{ $post->title }}</a>
+                <a href="{{ url('/desastronautas/post/' . $post->link) }}">{{ $post->title }}</a>
             </h1>
 
-            <p class="uk-article-meta">Written by {{ $post->name }} on 12 April 2013. Posted in <a href="#">{{ $post->category }}</a></p>
+            <p class="uk-article-meta">{{ trans('blog.written')}} <a href="{{ url('/player/' . $post->author_link)}}">{{ $post->name }}</a> on 12 April 2013. {{ trans('blog.category') }} <a href="{{ url('desastronautas/post/' . $post->link) }}">{{ $post->category }}</a></p>
 
             <p>
-                <a href=""><img width="900" height="300" src="img/home-section3.jpg" alt=""></a>
+                <a href="{{ url('desastronautas/post/' . $post->link) }}"><img src="img/blog/lua.png" alt="{{ $post->title }}"></a>
             </p>
 
             {!! $post->content !!}
 
             <p>
                 <a class="uk-button uk-button-primary" href="">Continuar lendo</a>
-                <a class="uk-button" href="">4 Comments</a>
             </p>
 
         </article>
@@ -43,6 +43,10 @@ Blog
             <li><a href="#"><i class="uk-icon-angle-double-right"></i></a></li>
         </ul>
 
+    </div>
+
+    <div class="uk-width-medium-1-4">
+        @include('blog.sidebar')
     </div>
 </div>
 </div>

@@ -5,10 +5,13 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>@yield('title')</title>
+      <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
       {!! Minify::stylesheet([
                               '/vendor/uikit/css/uikit.gradient.css',
                               '/css/project/main.css'])->withFullUrl() !!}
       @yield('style')
+      
+      <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
    </head>
    <body>
       <nav class="uk-navbar uk-navbar-attached">
@@ -19,7 +22,7 @@
                <li><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
                <li><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
                <li><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
-               <li><a href="{{ URL('/blog') }}">{{ trans('project.navbar.blog') }}</a></li>
+               <li><a href="{{ URL('/desastronautas') }}">{{ trans('project.navbar.blog') }}</a></li>
                <li><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
             </ul>
             <a href="#menu" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
