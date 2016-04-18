@@ -41,16 +41,16 @@
 	- descricao
 	- insigna
 - commandos:
-	- [ ] change money
-	- [ ] change level
+	- [x] change money
+	- [x] change level
 	- [ ] ban user
 	- [ ] unban user
 	- [ ] ban list
-	- [ ] gm list
+	- [x] gm list
 	- [ ] change togm
 	- [ ] list bug report
 - [ ] enviar email do contato
-- [ ] favicon
+- [x] favicon
 - [ ] mudar logo
 - [ ] bug da linguagem do navegador na hora de cadastrar
 - [ ] design do blog

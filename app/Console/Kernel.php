@@ -14,6 +14,10 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\AccountType::class,
+        Commands\PlayerLevel::class,
+        Commands\PlayerMoney::class,
+        Commands\GMList::class,
+        
     ];
 
     /**
