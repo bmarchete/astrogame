@@ -73,8 +73,8 @@ class HomeController extends Controller
                  'img' => 'img/team/lais.jpg',
                  'description' => 'Artista, roterista, escritora, designer e mochileira',
                  'facebook' => 'https://www.facebook.com/laisvitoria.granziera?fref=ts',
-                 'twitter' => '',
-                 'github' => ''],
+                 'instagram' => '',
+                 'devianart' => ''],
 
                  (object) [
                  'name' => 'Gabriel Ferreira',
