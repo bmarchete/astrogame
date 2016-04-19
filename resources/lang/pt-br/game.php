@@ -34,7 +34,7 @@ return [
 	'profile-public' => 'Ver meu perfil público',
 	'since' => 'Desde',
 	'money' => 'Dinheiro',
-	
+	'home' => 'Página Inicial',
 
 	// items
 	'remove-item' => 'Você deseja remover este item de sua mochila?',
@@ -60,6 +60,8 @@ return [
 	'bug-repeat' => 'Você acabou de enviar essa sugestão!',
 	'bug-title' => 'Sugestões e Bug Report',
 	'bug-message' => 'Mensagem',
+	'bug-success' => 'Sugestão enviada com sucesso!',
+	'bug-fail' => 'Erro ao enviar a sugestão',
 
 	// profile public
 	'recent-activ' => 'Atividade recente',

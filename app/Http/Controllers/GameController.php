@@ -61,6 +61,10 @@ class GameController extends Controller
         return view('game.general.exploration', $this->view_vars());
     }
 
+    public function campaing_map() {
+        return view('game.general.map', $this->view_vars());
+    }
+
     public function ranking() {
         $players = ['players' => User::select('id', 'name', 'level', 'xp', 'money')->limit(5)->orderBy('xp', 'DESC')->get()];
         $this->view_vars[] = $players;

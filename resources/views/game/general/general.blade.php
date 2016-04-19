@@ -12,6 +12,7 @@
                   '/vendor/uikit/css/components/progress.gradient.css', 
                   '/vendor/uikit/css/components/tooltip.gradient.css',
                   '/vendor/uikit/css/components/datepicker.gradient.css',
+                  '/vendor/uikit/css/components/form-file.gradient.css',
                   
                   ])->withFullUrl() !!}
       @yield('style')

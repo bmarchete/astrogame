@@ -35,7 +35,7 @@ function change_xp(xp){
                    if (data.status){
                         var modal = UIkit.modal("#bug-report-modal");
                         modal.hide();
-                        UIkit.notify(data.text, {status:'success', pos: 'top-right'});
+                        UIkit.notify("<i class='uk-icon-check'></i> " + data.text, {status:'success', pos: 'top-right'});
                    } else {
                         UIkit.notify("<i class='uk-icon-close'></i> " + data.text, {status:'danger', pos: 'top-right'});
                    }    
@@ -84,23 +84,7 @@ function change_xp(xp){
             $(".xp-reward").html(xp_reward);
             $(".accept-quest").val(id);
         });
-
-        $('#fullscreen').on('click', function(){
-            var elem = document.body;
-            if (elem.requestFullscreen) {
-              elem.requestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-              elem.msRequestFullscreen();
-            } else if (elem.mozRequestFullScreen) {
-              elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) {
-              elem.webkitRequestFullscreen();
-            }
-        });
-
     });
-    
-    
 
     function buy_item(item){
         UIkit.modal.confirm("{{ trans('game.buy-item') }}", function(){
@@ -259,15 +243,17 @@ function change_xp(xp){
 
             <div class="uk-form-row">
                 <div class="uk-form-controls">
-                        <div class="uk-form-select" data-uk-form-select>
-                            {{ $lang }}
-                            <select id="lang-select" name="lang">
-                                <option value="pt-br" @if ($lang == 'pt-br') selected @endif >Português Brasileiro</option>
-                                <option value="en" @if ($lang == 'en') selected @endif>English</option>
-                                <option value="es" @if ($lang == 'es') selected @endif>Español</option>
-                                <option value="fr" @if ($lang == 'fr') selected @endif>Français</option>
-                            </select>
-                        </div>
+
+                    <div class="uk-form-select" data-uk-form-select>
+
+                        <select id="lang-select" name="lang">
+                            <option value="pt-br" @if ($lang == 'pt-br') selected @endif >Português Brasileiro</option>
+                            <option value="en" @if ($lang == 'en') selected @endif>English</option>
+                            <option value="es" @if ($lang == 'es') selected @endif>Español</option>
+                            <option value="fr" @if ($lang == 'fr') selected @endif>Français</option>
+                        </select>
+                        <label for="lang"><i class="uk-icon-language"></i> Idioma </label>
+                    </div>
                 </div>
             </div>
 
@@ -279,11 +265,7 @@ function change_xp(xp){
                     </label>
                 </div>
             </div>
-
         </form>
-        <div class="uk-form-row">
-                <button class="uk-button uk-button-danger" id="fullscreen"><i class="uk-icon-external-link"></i> Modo Tela Cheia</button>
-            </div>
     </div>
 </div>
 
@@ -554,6 +536,7 @@ function change_xp(xp){
 
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}">
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-user"></i> {{ trans('game.profile') }}</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-cog"></i> Conta</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> {{ trans('game.bag') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> {{ trans('game.patents') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> {{ trans('game.insignas') }}</a></li>
@@ -576,6 +559,47 @@ function change_xp(xp){
                     <a href="{{ url('/player')}}/{{ auth()->user()->id }}">{{ trans('game.profile-public') }}</a>
                 </div>
                 </div>
+            </li>
+
+
+            <li class="" aria-hidden="true">
+                 <div class="uk-grid" data-uk-grid>
+                    <div class="uk-width-1-1">
+                    <form method="post" action="" class="uk-form user-config">
+                        {!! csrf_field() !!}
+
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="text">Nome:</label>
+                            <div class="uk-form-controls">
+                                <input type="text" name="name" value="{{ auth()->user()->name }}">
+                            </div>
+                        </div>
+
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="text">Email:</label>
+                            <div class="uk-form-controls">
+                                <input type="email" name="email" value="{{ auth()->user()->email }}">
+                            </div>
+                        </div>
+
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="text">Senha:</label>
+                            <div class="uk-form-controls">
+                                <input type="password" name="password" placeholder="Mude sua senha">
+                            </div>
+                        </div>
+
+                        <div class="uk-form-row">
+                            <div class="uk-form-controls">
+                               <div class="uk-form-file">
+                                    <button class="uk-button">Mudar Avatar</button>
+                                    <input type="file">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             </li>
 
             <li class="" aria-hidden="true">

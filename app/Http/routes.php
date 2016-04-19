@@ -49,6 +49,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/campaign', 'GameController@index');
 		Route::get('/exploration', 'GameController@exploration');
 		Route::get('/observatory', 'GameController@observatory');
+		Route::get('/map', 'GameController@campaing_map');
 		
 		// exploration
 		// iniciar exploração
