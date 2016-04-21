@@ -37,7 +37,7 @@ function fullscreen_exit(){
 function change_background(url, timer){
 	if(url != ''){
 		setTimeout(function() {
-		$("body").css("background", "url('"+ url +"') center center");
+		$("body").css("background", "url('"+ url +"') center center / cover");
 		}, timer);
 	} else {
 		$("body").removeAttr('style');

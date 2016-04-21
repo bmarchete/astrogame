@@ -26,13 +26,22 @@
                      <a href="{{ $member->twitter }}" class="uk-icon-button uk-icon-twitter"></a>
                      @endif
 
+                     @if (!empty($member->instagram))
+                     <a href="{{ $member->instagram }}" class="uk-icon-button uk-icon-instagram"></a>
+                     @endif
+
+                     @if (!empty($member->devianart))
+                     <a href="{{ $member->devianart }}" class="uk-icon-button uk-icon-deviantart"></a>
+                     @endif
+
                      @if (!empty($member->github))
                      <a href="{{ $member->github }}" class="uk-icon-button uk-icon-github"></a>
                      @endif
 
-                     @if (!empty($member->instagram))
-                     <a href="{{ $member->instagram }}" class="uk-icon-button uk-icon-instagram"></a>
+                     @if (!empty($member->blog))
+                     <a href="{{ $member->blog }}" class="uk-icon-button uk-icon-pencil"></a>
                      @endif
+                     
                   </div>
                </figcaption>
             </figure>

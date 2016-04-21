@@ -50,39 +50,39 @@ class HomeController extends Controller
                  'description' => 'Programador, roterista, front-end, designer e mochileiro',
                  'facebook' => 'https://www.facebook.com/eduardoaugustoramos',
                  'twitter' => 'https://twitter.com/EduardoRamos__',
-                 'github' => 'http://github.com/Ablon'],
+                 'github' => 'http://github.com/Ablon',
+                 'blog' => 'http://astrogame.localhost/desastronautas/author/edu'],
 
                 (object) [
                  'name' => 'Adriano Faboci',
                  'img' => 'img/team/adriano.jpg',
                  'description' => 'Um jovem amante da música, além de um viciado em series e jogos eletrônicos!',
-                 'facebook' => 'https://www.facebook.com/adriano.faboci?fref=ts',
-                 'twitter' => '',
-                 'github' => ''],
+                 'facebook' => 'https://www.facebook.com/adriano.faboci',
+                 'instagram' => 'https://www.instagram.com/adriano_faboci/',
+                 'blog' => 'http://astrogame.localhost/desastronautas/author/adriano'],
 
                  (object) [
                  'name' => 'Brenda Conttessotto',
                  'img' => 'img/team/bre.jpg',
-                 'description' => 'Faz tudo e mochileira',
-                 'facebook' => 'https://www.facebook.com/brendacaroline.conttessotto?fref=ts',
-                 'twitter' => '',
-                 'github' => ''],
+                 'description' => 'Faz tudo',
+                 'facebook' => 'https://www.facebook.com/brendacaroline.conttessotto',
+                 'blog' => 'http://astrogame.localhost/desastronautas/author/brenda'],
 
                  (object) [
                  'name' => 'Laís Vitória',
                  'img' => 'img/team/lais.jpg',
                  'description' => 'Artista, roterista, escritora, designer e mochileira',
-                 'facebook' => 'https://www.facebook.com/laisvitoria.granziera?fref=ts',
-                 'instagram' => '',
-                 'devianart' => ''],
+                 'facebook' => 'https://www.facebook.com/laisvitoria.granziera',
+                 'instagram' => 'https://www.instagram.com/lais_granziera/',
+                 'devianart' => 'http://artbygranziera.deviantart.com/',
+                 'blog' => 'http://astrogame.localhost/desastronautas/author/lais'],
 
                  (object) [
                  'name' => 'Gabriel Ferreira',
                  'img' => 'img/team/gabriel.jpg',
                  'description' => 'Faz tudo e mochileiro',
-                 'facebook' => 'https://www.facebook.com/profile.php?id=100004880953329&fref=ts',
-                 'twitter' => '',
-                 'github' => '']
+                 'facebook' => 'https://www.facebook.com/profile.php?id=100004880953329',
+                 'blog' => 'http://astrogame.localhost/desastronautas/author/gab']
                  ];
         return view('project.team', ['team' => $team, 'page' => 'equipe']);
     }

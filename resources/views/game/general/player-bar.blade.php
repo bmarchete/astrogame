@@ -622,15 +622,13 @@ function change_xp(xp){
             </li>
             <li class="" aria-hidden="true">
                 <dl class="uk-description-list-line">
-                    <dt><div class="uk-badge">(0-3)</div> {{ trans('game.patent1')}}</dt>
-                    <dt><div class="uk-badge">(3-6)</div> {{ trans('game.patent2')}}</dt>
-                    <dt><div class="uk-badge">(6-9)</div> {{ trans('game.patent3')}}</dt>
-                    <dt><div class="uk-badge">(9-10)</div> {{ trans('game.patent4')}}</dt>
-                    <dt><div class="uk-badge">(10-11)</div> {{ trans('game.patent5')}}</dt>
-                    <dt><div class="uk-badge">(12)</div> {{ trans('game.patent6')}}</dt>
-                    <dt><div class="uk-badge">(13)</div> {{ trans('game.patent7')}}</dt>
-                    <dt><div class="uk-badge">(14)</div> {{ trans('game.patent8')}}</dt>
-                    <dt><div class="uk-badge">(15)</div> {{ trans('game.patent9')}}</dt>
+                    <dt><div class="uk-badge">(0-3)</div> Aspirante <div class="uk-text-muted">Observa o espaço à olho nu, de um campo durante a noite</div></dt>
+                    <dt><div class="uk-badge">(4-6)</div> Observador <div class="uk-text-muted">Possui de início uma luneta simples e depois passa a ter um telescópio simples em um pequeno observatório em seu quintal</div></dt>
+                    <dt><div class="uk-badge">(7-9)</div> Aprendiz <div class="uk-text-muted">Atua como um aprendiz em um laboratório modesto dirigido por um dos astrônomos que irão narrar o capítulo</div></dt>
+                    <dt><div class="uk-badge">(10-12)</div> Doutor <div class="uk-text-muted">Possui agora um laboratório bem maior e mais completo</div></dt>
+                    <dt><div class="uk-badge">(13-14)</div> Comissário  <div class="uk-text-muted">SEM TEXTO</div></dt>
+                    <dt><div class="uk-badge">(15)</div> Capitão   <div class="uk-text-muted">É agora capitão de uma espação espacial</div></dt>
+                    
                 </dl>
             </li>
             <li class="" aria-hidden="true">
