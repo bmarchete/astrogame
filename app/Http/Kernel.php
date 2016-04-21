@@ -31,6 +31,8 @@ class Kernel extends HttpKernel
             \AstroGame\Http\Middleware\VerifyCsrfToken::class,
             \AstroGame\Http\Middleware\Language::class,
             \AstroGame\Http\Middleware\HTMLminify::class,
+
+            \Bepsvpt\LaravelSecurityHeader\SecurityHeaderMiddleware::class,
             
         ],
 

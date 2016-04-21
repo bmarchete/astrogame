@@ -163,7 +163,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Devfactory\Minify\MinifyServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+
+        Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider::class,
 
     ],
 
