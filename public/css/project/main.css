@@ -9,7 +9,7 @@ html, body, h1, h2, h3, h4, h5, h6, a {
 }
 
 .blog-header {
-    background: url('../../img/desastronautas.jpg') no-repeat center top /cover;
+    background: url('../../img/desastronautas.jpg') no-repeat center top /cover fixed;
     height: 140px;
     padding-top: 160px
 }

@@ -189,7 +189,7 @@ function change_xp(xp){
         <div class="uk-width-large-5-10 uk-hidden-small uk-hidden-medium">
             <div class="uk-button-group">
                 <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
-                <a href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success" title="Volte todos os dias aqui!" data-uk-tooltip><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a>
+                <button href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success" title="Recurso não disponível" data-uk-tooltip disabled="true"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</button>
                 <button data-uk-modal="{target:'#calendar'}" class="uk-button" title="Quando o cometa Halley passará novamente?" data-uk-tooltip><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
                 <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" title="Hora de observar o céu!" data-uk-tooltip><i class="uk-icon-search"></i> {{ trans('game.observatory') }}</a>
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-danger" title="Vamos gastar um pouco de dinheiro!" data-uk-tooltip><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>

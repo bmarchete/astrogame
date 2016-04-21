@@ -15,19 +15,10 @@ class BlogController extends Controller
     }
 
     private function list_posts($page = 1){
-        //$posts = Post::select('id', 'title', 'category', 'content')->join('users', 'posts.user_id', '=', 'users.id')->limit(5)->get();
-        $posts = [
-            (object) ['id' => 1,
-                    'title' => 'Júpiter sob a lua hoje!',
-                    'content' => '<p>Temos hoje uma maravilhosa vista no céu noturno, dê uma saidinha lá fora e veja o planeta Júpiter a olho nu, logo abaixo da lua!</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>',
-                    'category' => 'teste',
-                    'link' => 'teste-post-1',
-                    'author_link' => 1,
-                    'name' => 'Edu'],
+        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.slug', 'user_id')
+                     ->paginate(10);
 
-
-        ];
-        return view('blog.index', ['posts' => $posts]);
+        return view('blog.index', ['title' => '', 'posts' => $posts]);
     }
 
     public function page(Request $request){
@@ -36,32 +27,48 @@ class BlogController extends Controller
     }
 
     public function single_post(Request $request){
-        $post = $request->post;
+        $slug = $request->slug;
 
-        $post = (object) ['id' => 1,
-                    'title' => 'Júpiter sob a lua hoje!',
-                    'content' => '<p>Temos hoje uma maravilhosa vista no céu noturno, dê uma saidinha lá fora e veja o planeta Júpiter a olho nu, logo abaixo da lua!</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>',
-                    'category' => 'teste',
-                    'link' => 'teste-post-1',
-                    'author_link' => 1,
-                    'name' => 'Edu'];
+        $post = Post::select('posts.id', 'posts.title', 'posts.content', 'posts.category', 'posts.created_at', 'posts.slug', 'user_id', 'users.name')
+                     ->join('users', 'posts.user_id', '=', 'user_id')
+                     ->where('slug', $slug)
+                     ->limit(1)
+                     ->get()
+                     ->first();
+
         return view('blog.single-post', ['post' => $post]);
 
     }
 
     public function category(Request $request){
+        $category = $request->category;
 
+        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.slug', 'user_id')
+                     ->where('category', '=', $category)
+                     ->paginate(10);
+
+        return view('blog.index', ['title' => $category . ' | ', 'posts' => $posts]);
     }
 
     public function search(Request $request){
         $search = $request->search;
 
-                
+        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.slug', 'user_id', 'users.name')
+                     ->join('users', 'posts.user_id', '=', 'user_id')
+                     ->where('title', 'LIKE', "%$search%")
+                     ->orWhere('short_description', 'LIKE', '%$search%')
+                     ->paginate(10);
 
+        return view('blog.index', ['title' => $search . ' | ', 'posts' => $posts]);
     }
 
     public function author(Request $request){
         $author = $request->author;
 
+        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.slug', 'user_id')
+                     ->where('user_id', $author)
+                     ->paginate(10);
+
+        return view('blog.index', ['title' => $author . ' | ', 'posts' => $posts]);
     }
 }

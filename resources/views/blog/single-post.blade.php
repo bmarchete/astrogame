@@ -17,14 +17,12 @@
     <div class="uk-width-medium-3-4">
         <article class="uk-article">
 
-            <h1 class="uk-article-title">
-                <a href="{{ url('/desastronautas/post/' . $post->link) }}">{{ $post->title }}</a>
-            </h1>
+            <h1 class="uk-article-title">{{ $post->title }}</h1>
 
-            <p class="uk-article-meta">{{ trans('blog.written')}} <a href="{{ url('/player/' . $post->author_link)}}">{{ $post->name }}</a> on 12 April 2013. {{ trans('blog.category') }} <a href="{{ url('desastronautas/post/' . $post->link) }}">{{ $post->category }}</a></p>
+            <p class="uk-article-meta">{{ trans('blog.written')}} <a href="{{ url('/player/' . $post->id)}}">{{ $post->name }}</a> on 12 April 2013. {{ trans('blog.category') }} <a href="{{ url('desastronautas/post/' . $post->link) }}">{{ $post->category }}</a></p>
 
             <p>
-                <a href="{{ url('desastronautas/post/' . $post->link) }}"><img src="img/blog/lua.png" alt="{{ $post->title }}"></a>
+                <img src="img/blog/lua.png" alt="{{ $post->title }}">
             </p>
 
             {!! $post->content !!}
