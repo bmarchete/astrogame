@@ -45,38 +45,31 @@ Route::group(['middleware' => ['web']], function () {
 
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
-		Route::get('/', 'GameController@index');
+		Route::get('/', 'ChapterController@index');
 		Route::get('/campaign', 'GameController@index');
-		Route::get('/exploration', 'GameController@exploration');
-		Route::get('/observatory', 'GameController@observatory');
+		Route::get('/exploration', 'ExplorationController@index');
+		Route::get('/observatory', 'ObservatoryController@index');
 		Route::get('/map', 'GameController@campaing_map');
-		
-		// exploration
-		// iniciar exploração
-		// cancelar exploração
-		// 
-
-		// chapter
-		Route::get('/chapter_complete/{key}', 'GameController@chapter_complete')->where('key', '[a-z-]+');
 
 		// quests
-		Route::get('/quest_accept/{id}', 'GameController@quest_accept')->where('id', '[0-9-]+');
-		Route::get('/quest_cancel/{id}', 'GameController@quest_cancel')->where('id', '[0-9-]+');
-		Route::get('/quest/{id}', 'GameController@quest');
+		Route::get('/quest_accept/{id}', 'QuestController@quest_accept')->where('id', '[0-9-]+');
+		Route::get('/quest_cancel/{id}', 'QuestController@quest_cancel')->where('id', '[0-9-]+');
+		Route::get('/quest/{id}', 'QuestController@quest')->where('id', '[0-9-]+');
 
 		// item
-		Route::get('/buy_item/{id}', 'GameController@buy_item')->where('id', '[0-9-]+');
-		Route::get('/remove_item/{id}', 'GameController@remove_item')->where('id', '[0-9-]+');
+		Route::get('/buy_item/{id}', 'ShopController@buy_item')->where('id', '[0-9-]+');
+		Route::get('/remove_item/{id}', 'ShopController@remove_item')->where('id', '[0-9-]+');
 
 		// general
-		Route::get('/music/{volume}', 'GameController@change_volume_music')->where('volume', '[0-9-]+');
-		Route::get('/effects/{volume}', 'GameController@change_volume_effects')->where('volume', '[0-9-]+');
+		Route::get('/music/{volume}', 'AccountController@change_volume_music')->where('volume', '[0-9-]+');
+		Route::get('/effects/{volume}', 'AccountController@change_volume_effects')->where('volume', '[0-9-]+');
 
 		// chapters
-		Route::get('/welcome', 'GameController@welcome');
-		Route::get('/tutorial', 'GameController@tutorial');
-		Route::get('/chapter1', 'GameController@chapter1');
-		Route::get('/chapter2', 'GameController@chapter2');
+		Route::get('/chapter_complete/{key}', 'ChapterController@chapter_complete')->where('key', '[a-z-]+');
+		Route::get('/welcome', 'ChapterController@welcome');
+		Route::get('/tutorial', 'ChapterController@tutorial');
+		Route::get('/chapter1', 'ChapterController@chapter1');
+		Route::get('/chapter2', 'ChapterController@chapter2');
 		
 	});
 
