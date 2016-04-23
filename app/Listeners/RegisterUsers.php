@@ -1,11 +1,11 @@
 <?php
 
-namespace AstroGame\Listeners;
+namespace App\Listeners;
 
-use AstroGame\Events\RegisterUser;
+use App\Events\RegisterUser;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use AstroGame\UserConfig;
+use App\UserConfig;
 use DB;
 
 class RegisterUsers

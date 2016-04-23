@@ -1,20 +1,20 @@
 <?php
 
-namespace AstroGame\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use AstroGame\Http\Requests;
-use AstroGame\User;
-use AstroGame\UserConfig;
-use AstroGame\UsersQuest;
-use AstroGame\UserBag;
-use AstroGame\Item;
-use AstroGame\Quest;
-use AstroGame\UserProgres;
-use AstroGame\UserInsignas;
-use AstroGame\Insignas;
-use AstroGame\UserObservatory;
+use App\Http\Requests;
+use App\User;
+use App\UserConfig;
+use App\UsersQuest;
+use App\UserBag;
+use App\Item;
+use App\Quest;
+use App\UserProgres;
+use App\UserInsignas;
+use App\Insignas;
+use App\UserObservatory;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller

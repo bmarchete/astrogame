@@ -1,9 +1,9 @@
 <?php
 
-namespace AstroGame\Console\Commands;
+namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use AstroGame\User;
+use App\User;
 
 class PlayerLevel extends Command
 {

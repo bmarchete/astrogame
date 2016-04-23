@@ -1,11 +1,11 @@
 <?php
 
-namespace AstroGame\Events;
+namespace App\Events;
 
-use AstroGame\Events\Event;
+use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use AstroGame\User;
+use App\User;
 
 class RegisterUser extends Event
 {

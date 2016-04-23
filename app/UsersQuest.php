@@ -1,10 +1,10 @@
 <?php
 
-namespace AstroGame;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
-use AstroGame\Quest;
+use App\Quest;
 
 class UsersQuest extends Model
 {

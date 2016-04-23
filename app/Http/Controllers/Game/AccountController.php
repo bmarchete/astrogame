@@ -1,11 +1,11 @@
 <?php
 
-namespace AstroGame\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use AstroGame\Http\Requests;
-use AstroGame\UserConfig;
-use AstroGame\User;
+use App\Http\Requests;
+use App\UserConfig;
+use App\User;
 
 class AccountController extends GameController
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace AstroGame\Http\Controllers;
+namespace App\Http\Controllers;
 
-use AstroGame\Http\Requests;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use Validator;
 use Mail;
-use AstroGame\UserConfig;
+use App\UserConfig;
 
 class HomeController extends Controller
 {

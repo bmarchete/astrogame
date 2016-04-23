@@ -1,6 +1,6 @@
 <?php
 
-namespace AstroGame\Listeners;
+namespace App\Listeners;
 
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Queue\InteractsWithQueue;

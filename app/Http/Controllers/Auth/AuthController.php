@@ -1,13 +1,13 @@
 <?php
 
-namespace AstroGame\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use AstroGame\User;
+use App\User;
 use Validator;
-use AstroGame\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use AstroGame\Events\RegisterUser;
+use App\Events\RegisterUser;
 
 class AuthController extends Controller
 {

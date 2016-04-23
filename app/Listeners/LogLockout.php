@@ -1,6 +1,6 @@
 <?php
 
-namespace AstroGame\Listeners;
+namespace App\Listeners;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Queue\InteractsWithQueue;

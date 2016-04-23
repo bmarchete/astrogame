@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        AstroGame\Providers\AppServiceProvider::class,
-        AstroGame\Providers\AuthServiceProvider::class,
-        AstroGame\Providers\EventServiceProvider::class,
-        AstroGame\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
         /*
          * Vendor Service Providers...

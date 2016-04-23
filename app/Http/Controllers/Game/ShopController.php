@@ -1,10 +1,10 @@
 <?php
 
-namespace AstroGame\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use AstroGame\Http\Requests;
+use App\Http\Requests;
 
 class ShopController extends GameController
 {

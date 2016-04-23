@@ -1,11 +1,11 @@
 <?php
 
-namespace AstroGame\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use AstroGame\Http\Requests;
-use AstroGame\Post;
+use App\Http\Requests;
+use App\Post;
 use Carbon\Carbon;
 
 class BlogController extends Controller
