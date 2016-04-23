@@ -536,7 +536,7 @@ function change_xp(xp){
 
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}">
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-user"></i> {{ trans('game.profile') }}</a></li>
-            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-cog"></i> Conta</a></li>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-cog"></i> {{ trans('game.account') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> {{ trans('game.bag') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> {{ trans('game.patents') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> {{ trans('game.insignas') }}</a></li>
@@ -569,21 +569,21 @@ function change_xp(xp){
                         {!! csrf_field() !!}
 
                         <div class="uk-form-row">
-                            <label class="uk-form-label" for="text">Nome:</label>
+                            <label class="uk-form-label" for="text">{{ trans('game.name') }}:</label>
                             <div class="uk-form-controls">
                                 <input type="text" name="name" value="{{ auth()->user()->name }}">
                             </div>
                         </div>
 
                         <div class="uk-form-row">
-                            <label class="uk-form-label" for="text">Email:</label>
+                            <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
                             <div class="uk-form-controls">
                                 <input type="email" name="email" value="{{ auth()->user()->email }}">
                             </div>
                         </div>
 
                         <div class="uk-form-row">
-                            <label class="uk-form-label" for="text">Senha:</label>
+                            <label class="uk-form-label" for="text">{{ trans('game.password') }}:</label>
                             <div class="uk-form-controls">
                                 <input type="password" name="password" placeholder="Mude sua senha">
                             </div>
@@ -592,7 +592,7 @@ function change_xp(xp){
                         <div class="uk-form-row">
                             <div class="uk-form-controls">
                                <div class="uk-form-file">
-                                    <button class="uk-button">Mudar Avatar</button>
+                                    <button class="uk-button">{{ trans('game.avatar') }}</button>
                                     <input type="file">
                                 </div>
                             </div>
@@ -615,7 +615,7 @@ function change_xp(xp){
                             </figure>
                         </li>   
                         @empty
-                        Sua mochila está vazia :(
+                        {{ trans('game.empty-bag') }}
                         @endforelse
                     </ul>
                 </div>
@@ -639,9 +639,8 @@ function change_xp(xp){
                             <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
                         </figure>
                     </li>
-                    
                     @empty
-                    Você não tem nenhuma insigna ainda :(
+                    {{ trans('game.empty-insignas') }}
                     @endforelse
                 </ul>
             </li>
@@ -736,5 +735,4 @@ function change_xp(xp){
         </div>
     @endif
     </div>
-    <!-- accepted_quests -->
 </div>

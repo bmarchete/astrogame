@@ -36,6 +36,11 @@ body {
 	color: #fff;
 }
 
+#player-bar .uk-icon-small, #player-bar .uk-close {
+	margin-right: 5px
+}
+
+
 #player-bar .uk-close {
 	font-size: 26px;
 	width: 30px;
