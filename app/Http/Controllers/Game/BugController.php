@@ -11,13 +11,7 @@ use Response;
 
 class BugController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function send(Request $request)
     {
         $text = $request->input('text');
         $validator = Validator::make(['text' => $text], [

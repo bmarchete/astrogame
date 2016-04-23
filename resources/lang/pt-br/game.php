@@ -80,4 +80,10 @@ return [
 	'patent9' => 'Astronauta- Chefe de estação',
 	'patent-gm' => 'Desastronauta Master',
 	
+	// user config
+	'name' => 'Nome',
+	'nickname' => 'Nickname',
+	'email' => 'Email',
+	'old-password' => 'Senha antiga',
+	'new-password' => 'Nova senha',
 ];

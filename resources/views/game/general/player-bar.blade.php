@@ -27,9 +27,23 @@ function change_xp(xp){
             console.log("Sound effects volume set to: " + volume + "%");
         });
 
+        $(".user-config").ajaxForm({
+            type: 'POST',
+            dataType: 'JSON',
+            success: function(data){
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].status){
+                        UIkit.notify("<i class='uk-icon-check'></i> " + data[i].text, {status:'success', pos: 'top-right'});
+                   } else {
+                        UIkit.notify("<i class='uk-icon-close'></i> " + data[i].text, {status:'danger', pos: 'top-right'});
+                   }  
+                };
+                 
+            }
+        });
 
         $('#bug-report').ajaxForm({
-               type: "POST",
+               type: 'POST',
                dataType: 'JSON',
                success: function(data) {
                    if (data.status){
@@ -252,7 +266,7 @@ function change_xp(xp){
                             <option value="es" @if ($lang == 'es') selected @endif>Español</option>
                             <option value="fr" @if ($lang == 'fr') selected @endif>Français</option>
                         </select>
-                        <label for="lang"><i class="uk-icon-language"></i> Idioma </label>
+                        <label for="lang"><i class="uk-icon-language"></i> {{ trans('game.language') }} </label>
                     </div>
                 </div>
             </div>
@@ -270,7 +284,7 @@ function change_xp(xp){
 </div>
 
 <!-- bug report modal -->
-<form id="bug-report" method="POST" action="{{ URL('/bug') }}" class="uk-form">
+<form id="bug-report" method="POST" action="{{ URL('/game/report') }}" class="uk-form">
 {!! csrf_field() !!}
     <div id="bug-report-modal" class="uk-modal">
         <div class="uk-modal-dialog">
@@ -564,8 +578,16 @@ function change_xp(xp){
 
             <li class="" aria-hidden="true">
                  <div class="uk-grid" data-uk-grid>
+                    @if (!empty(auth()->user()->provider_id))
+                    <div class="uk-width-3-4 uk-align-right">
+                        <div class="uk-alert">
+                            <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
+                        </div>
+                    </div>
+                    @endif
+
                     <div class="uk-width-1-1">
-                    <form method="post" action="" class="uk-form user-config">
+                    <form method="post" action="{{ url('/game/change_account') }}" class="uk-form user-config">
                         {!! csrf_field() !!}
 
                         <div class="uk-form-row">
@@ -576,16 +598,32 @@ function change_xp(xp){
                         </div>
 
                         <div class="uk-form-row">
+                            <label class="uk-form-label" for="text">{{ trans('game.nickname') }}:</label>
+                            <div class="uk-form-controls">
+                                <input type="text" name="nickname" value="{{ auth()->user()->nickname }}">
+                            </div>
+                        </div>
+
+                        <div class="uk-form-row">
                             <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
                             <div class="uk-form-controls">
                                 <input type="email" name="email" value="{{ auth()->user()->email }}">
                             </div>
                         </div>
 
+                        <h2>Mudar senha</h2>
+
                         <div class="uk-form-row">
-                            <label class="uk-form-label" for="text">{{ trans('game.password') }}:</label>
+                            <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
                             <div class="uk-form-controls">
-                                <input type="password" name="password" placeholder="Mude sua senha">
+                                <input type="password" name="old_password">
+                            </div>
+                        </div>
+
+                        <div class="uk-form-row">
+                            <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
+                            <div class="uk-form-controls">
+                                <input type="password" name="new_password">
                             </div>
                         </div>
 
@@ -597,6 +635,8 @@ function change_xp(xp){
                                 </div>
                             </div>
                         </div>
+
+                        <button type="submit" class="uk-button uk-button-success"><i class="uk-icon-check"></i> Salvar alterações</button>
                     </form>
                 </div>
             </div>

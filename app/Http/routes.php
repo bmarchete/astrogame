@@ -36,7 +36,6 @@ Route::group(['middleware' => ['web']], function () {
 
 	// post
 	Route::post('/contato', 'HomeController@enviar_contato');
-	Route::post('/bug', 'BugController@store');
 	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
 	
 	// public profile
@@ -50,6 +49,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/exploration', 'ExplorationController@index');
 		Route::get('/observatory', 'ObservatoryController@index');
 		Route::get('/map', 'GameController@campaing_map');
+		Route::post('/report', 'BugController@send');
 
 		// quests
 		Route::get('/quest_accept/{id}', 'QuestController@quest_accept')->where('id', '[0-9-]+');
@@ -63,6 +63,7 @@ Route::group(['middleware' => ['web']], function () {
 		// general
 		Route::get('/music/{volume}', 'AccountController@change_volume_music')->where('volume', '[0-9-]+');
 		Route::get('/effects/{volume}', 'AccountController@change_volume_effects')->where('volume', '[0-9-]+');
+		Route::post('/change_account', 'AccountController@change_account');
 
 		// chapters
 		Route::get('/chapter_complete/{key}', 'ChapterController@chapter_complete')->where('key', '[a-z-]+');
