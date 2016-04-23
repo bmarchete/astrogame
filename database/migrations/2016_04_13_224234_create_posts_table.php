@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('category');
+            $table->string('img_url');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -29,8 +29,9 @@
             <p class="uk-article-meta">{{ trans('blog.written')}} <a href="{{ url('/player/' . $post->user_id)}}">{{ $post->name }}</a> em {{ $post->created_at}}. {{ trans('blog.category') }} <a href="{{ url('desastronautas/category/' . $post->category) }}">{{ $post->category }}</a></p>
 
             <p>
-                <a href="{{ url('desastronautas/post/' . $post->slug) }}"><img src="{{ url('img/home-section2.jpg') }}" alt="{{ $post->title }}"></a>
+                <a href="{{ url('desastronautas/post/' . $post->slug) }}"><img src="{{ url('img/blog/' . $post->img_url )}}" alt="{{ $post->title }}"></a>
             </p>
+
 
             {!! $post->short_description !!}
 
