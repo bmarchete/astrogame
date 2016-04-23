@@ -10,7 +10,7 @@ use AstroGame\UserConfig;
 
 class HomeController extends Controller
 {
-    public $lang_avaliable = ['pt-br', 'en', 'es', 'fr'];
+    public $lang_avaliable = ['pt-br', 'en'];
 
     /**
      * Página inicial do projeto
