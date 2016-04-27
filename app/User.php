@@ -169,12 +169,12 @@ class User extends Authenticatable
         $height = 500;
 
         if(empty($url)){ // default avatar
-            Image::make(url('/img/avatar.png'))->fit($width, $height)->save($path);
+            Image::make('img/avatar.png')->fit($width, $height)->save($path);
         } else {
             try{
                 Image::make($url)->fit($width, $height)->save($path);
             } catch (\Intervention\Image\Exception\NotReadableException $e) { // default avatar
-                Image::make(url('/img/avatar.png'))->fit($width, $height)->save($path);
+                Image::make('/img/avatar.png')->fit($width, $height)->save($path);
             }
         }
     }

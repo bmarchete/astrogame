@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use AstroGame\User;
-use AstroGame\Events\RegisterUser;
+use App\User;
+use App\Events\RegisterUser;
 
 class AdminSeeder extends Seeder
 {

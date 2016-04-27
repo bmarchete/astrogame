@@ -45,7 +45,7 @@ Route::group(['middleware' => ['web']], function () {
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
 		Route::get('/', 'ChapterController@index');
-		Route::get('/campaign', 'GameController@index');
+		Route::get('/campaign', 'GameController@campaing_map');
 		Route::get('/exploration', 'ExplorationController@index');
 		Route::get('/observatory', 'ObservatoryController@index');
 		Route::get('/map', 'GameController@campaing_map');

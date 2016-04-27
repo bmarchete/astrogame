@@ -35,11 +35,13 @@ return [
 	'since' => 'Desde',
 	'money' => 'Dinheiro',
 	'home' => 'Página Inicial',
+	'language' => 'Idioma',
 
 	// items
 	'remove-item' => 'Você deseja remover este item de sua mochila?',
 	'buy-item' => 'Você deseja comprar este item?',
 	'item-max' => 'Máximo que você pode carregar',
+	'empty-bag' => 'Sua mochila está vazia :/',
 	
 	// quests
 	'quest-avaliable' => 'Missões Disponíveis',
