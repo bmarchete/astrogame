@@ -43,7 +43,7 @@ class ChapterController extends GameController
     // 2 - tutorial
     // 3 - capítulo 1
     public function welcome() {
-        return view('game.chapters.welcome-re-write', $this->view_vars());
+        return view('game.chapters.welcome', $this->view_vars());
     }
 
     public function tutorial() {

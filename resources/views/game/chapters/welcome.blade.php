@@ -136,7 +136,7 @@ $(document).ready(function(){
 </video>
 
 <video id="stars-video" controls="true" style="display:none" class="uk-responsive-width" preload>
-    <source src="{{URL('/videos/astro_bp.mp4')}}" type="video/mp4">
+    <source src="{{URL('/videos/star_intro.mp4')}}" type="video/mp4">
 </video>
 
 <video id="milkway-video" controls="false" style="display:none" class="uk-responsive-width" preload>

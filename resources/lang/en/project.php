@@ -18,7 +18,18 @@ return [
 
 	'home-title' => 'ASTRO GAME',
 	'home-description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh lectus, congue sit amet fermentum nec, gravida non diam. Duis tincidunt risus mauris, sit',
+	
+	'home-text' => [
+		'title1' => 'Level UP!',
+		'text1' => 'Win experience with your character for unlock new contents of more far way places on the universe',
 
+		'title2' => 'Aprenda com experts no assunto!',
+		'text2' => 'Durante a sua jornada uma ajudinha sempre é bem-vinda, e quem melhor para nos auxiliar do que  Copérnico, Carl Sagan e outros ícones da Astronomia?',
+		
+		'title3' => 'Conquiste seu lugar no pódio!',
+		'text3' => 'Faça o seu melhor para ficar entre os primeiros do nosso ranking!',
+	],
+	
 	'login' => 'Login',
 	'cadastrar' => 'Register',
 	'termos' => 'User\'s Terms',

@@ -35,6 +35,8 @@ return [
 	'profile-public' => 'View my public profile',
 	'since' => 'Since',
 	'money' => 'Money',
+	'language' => 'Language',
+	'home' => 'Home Page',
 
 	// items
 	'remove-item' => 'Do you want to remove this item from your bag?',

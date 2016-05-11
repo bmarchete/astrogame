@@ -159,7 +159,7 @@ function change_xp(xp){
     }
 
     // music background
-    var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: true});
+    var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: true});
     var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
     var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
     var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false})
@@ -259,14 +259,13 @@ function change_xp(xp){
                 <div class="uk-form-controls">
 
                     <div class="uk-form-select" data-uk-form-select>
-
                         <select id="lang-select" name="lang">
                             <option value="pt-br" @if ($lang == 'pt-br') selected @endif >Português Brasileiro</option>
                             <option value="en" @if ($lang == 'en') selected @endif>English</option>
                             <option value="es" @if ($lang == 'es') selected @endif>Español</option>
                             <option value="fr" @if ($lang == 'fr') selected @endif>Français</option>
                         </select>
-                        <label for="lang"><i class="uk-icon-language"></i> {{ trans('game.language') }} </label>
+                        <label for="lang"><i class="uk-icon-language"></i>  {{ trans('game.language') }}</label>
                     </div>
                 </div>
             </div>

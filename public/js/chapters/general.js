@@ -1,3 +1,10 @@
+function text_cientist(message){
+    $(".cientist").show();
+    $(".cientist-message").hide();
+    $(".cientist-text").html(message);
+    $(".cientist-message").show('slow');
+}
+
 function cientist(message, timer){
 	setTimeout(function(){
     	$(".cientist-message").hide();
