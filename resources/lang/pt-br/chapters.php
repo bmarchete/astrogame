@@ -43,7 +43,9 @@ return [
 
 	'chapter1' =>
 	[
-		'title' => 'Nebulosas',
+		'title' => 'Copérnico',
+		'header-title' => 'Capítulo II (Copérnico)', 
+		'header-description' => 'Capítulo sobre sistema solar e copernico',
 
 		'fala1' => 'As estrelas nascem a partir de grande nuvens formadas de gases, poeira e partículas sólidas, chamadas nebulosas....',
 		'fala2' => 'Dentro da nebulosa, esses gases e poeira se agrupam por causa da força da gravidade, formando assim as estrelas.',

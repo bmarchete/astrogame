@@ -19,6 +19,8 @@ return [
 	'home-title' => 'ASTRO GAME',
 	'home-description' => 'Jogo online com uma plataforma interativa onde você irá explorar o Cosmos em seu sentido mais amplo possível. Venha se aventurar conosco!',
 
+	'jogar' => 'Voltar ao jogo',
+
 	'home-text' => [
 		'title1' => 'Level UP!',
 		'text1' => 'Ganhe experiência com seu personagem para desbloquear conteúdos de lugares cada vez mais distantes no universo!',
