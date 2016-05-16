@@ -31,8 +31,7 @@ return [
 		'fala5' => 'Para observar as estrelas será necessário uma luneta. Vá até a LOJA e compre uma LUNETA SIMPLES para começarmos a nossa aventura!',
 		'fala6' => 'Ótimo! Com essa luneta, poderemos começar a observar o céu e as estrelas, mas você também vai precisar de um GUIA DAS ESTRELAS, vá até a loja e compre um desses!',
 		'fala7' => 'O Guia das estrelas contém uma série de informações mais detalhadas sobre tudo oque você encontra em suas missões. Para ler essas informações, basta selecionar o guia em seu inventário.',
-		'fala8' => 'Com o Guia das Estrelas você pode começar a fazer as suas primeiras missões, clique no menu CAMPANHA para ver o seu catálogo de missões.',
-
+		'fala8' => 'Com o Guia das Estrelas você pode começar a fazer as suas primeiras missões!',
 		'fala9' => 'Você também pode enviar sugestões por aqui para melhorarmos nosso jogo!',
 
 	],

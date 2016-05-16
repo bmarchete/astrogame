@@ -58,11 +58,11 @@ function buyTutorialHander() {
 }
 
 function buyTutorialLivroHandler(){
-	cientist("{{ trans('chapters.tutorial.fala7') }}", 0);
-	cientist("{{ trans('chapters.tutorial.fala8') }}", 10000);
-
+	cientist_text('{{ trans('chapters.tutorial.fala7') }}').delay(0);
+	cientist_text('{{ trans('chapters.tutorial.fala7') }}').delay(10000);
+	
 	// bug suggestions
-	setTimeout(function() { window.location = '{{ url('/game/chapter1') }}'; } , 20000);
+	//setTimeout(function() { window.location = '{{ url('/game/chapter1') }}'; } , 20000);
 }
 
 
