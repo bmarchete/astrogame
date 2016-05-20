@@ -12,6 +12,7 @@ use App\Events\RegisterUser;
 class SocialLoginController extends Controller
 {
     private $avalible_providers = ['facebook'];
+    private $redirect = '/game';
 
     // checa se pode utilizar
     public function __construct(Request $request){
@@ -40,25 +41,25 @@ class SocialLoginController extends Controller
      *
      * @return void
      */
-    public function facebook() {
+    protected function facebook() {
         $user = Socialize::with('facebook')->user();
         
-        $check_user = User::where('provider_user_id', $user->id)->where('provider_id', 1)->limit(1)->get()->first();
+        $check_user = User::where('provider_user_id', $user->id)->where('provider_id', 1)->limit(1)->first();
         if($check_user){
-            // array diff para checar se o usuário mudou algo
+            $this->check_diff($user, $check_user);
 
             auth()->login($check_user);
-            return redirect('/game');
+            return redirect($this->redirect);
         }
 
-        $check_user_email = User::where('email', $user->email)->limit(1)->get()->first();
+        $check_user_email = User::where('email', $user->email)->limit(1)->first();
         if(empty($check_user) && $check_user_email){
             $check_user_email->provider_id = 1;
             $check_user_email->provider_user_id = $user->id;
             $check_user_email->save();
             auth()->login($check_user_email);
 
-            return redirect('/game');
+            return redirect($this->redirect);
         }
 
         $user_db = new User;
@@ -73,10 +74,9 @@ class SocialLoginController extends Controller
 
         $user_db->makeAvatar($user->avatar);
         
-        auth()->login($user_db, true);
         event(new RegisterUser($user_db));
 
-        return redirect('/game');
+        return redirect($this->redirect);
     }
 
     /**
@@ -84,7 +84,25 @@ class SocialLoginController extends Controller
      *
      * @return void
      */
-    public function google() {
+    protected function google() { }
 
+    /**
+     * Função diff para checar se o usuário mudou algo no provider, se sim moda no banco de dados
+     *
+     * @return void
+     */    
+    protected function check_diff($provider, $db){
+        $user_1 = ['name' => $provider->name,
+                   'email' => $provider->email,
+                   'gender' => ($provider->user['gender'] == 'male') ? 1 : 2];
+        $user_2 = ['name' => $db->name,
+                   'email' => $db->email,
+                   'gender' => $db->gender];
+        
+        if(!empty(array_diff($user_1, $user_2))){
+            $db->email = $provider->email;
+            $db->name = $provider->name;
+            $db->gender = $provider->gender;
+        }
     }
 }
