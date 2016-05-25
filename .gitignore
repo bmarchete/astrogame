@@ -9,7 +9,7 @@ Thumbs.db
 /public/js/builds
 *.wav
 /public/css/fonts
-/public/users/avatar/*.jpg
+/public/users/avatar
 !/public/users/avatar/c4ca4238a0b923820dcc509a6f75849b.jpg
 !/public/users/avatar/c81e728d9d4c2f636f067f89cc14862c.jpg
 !/public/users/avatar/e4da3b7fbbce2345d7772b0674a318d5.jpg

@@ -144,7 +144,7 @@ class HomeController extends Controller
         $data = ['name' => $request->name, 'email' => $request->email, 'message' => $request->message];
         $validator = Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255',
             'message' => 'required|min:6',
         ]);
 
@@ -154,8 +154,9 @@ class HomeController extends Controller
 
         // se passar
         // queue para enviar email
-        Mail::queue('emails.welcome', $data, function ($message) {
-            //
+        Mail::send('emails.welcome', $data, function ($message) {
+            $message->from('eduardo.auramos@gmail.com', 'Laravel test');
+            $message->to('eduardo.auramos@gmail.com');
         });
     }
 }

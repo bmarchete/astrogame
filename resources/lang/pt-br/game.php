@@ -23,6 +23,8 @@ return [
 	'observatory' => 'Observatório',
 	'shop' => 'Loja',
 	'bag' => 'Mochila',
+	'account' => 'Conta',
+	'avatar' => 'Mudar avatar',
 	'player-bar' => 'Menu do Jogador',
 	'player-profile' => 'Perfil do jogador',
 	'shop-name' => 'Loja Pan Galáctia',
