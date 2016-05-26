@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use Validator;
-use Mail;
 use App\UserConfig;
+use Illuminate\Http\Request;
+use Mail;
+use Validator;
 
 class HomeController extends Controller
 {
@@ -17,15 +16,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        if(auth()->check()){
+    public function index()
+    {
+        if (auth()->check()) {
             return redirect('/game');
         }
 
         return $this->home();
     }
 
-    public function home() {
+    public function home()
+    {
         return view('project.home', ['page' => 'index']);
     }
 
@@ -34,7 +35,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sobre() {
+    public function sobre()
+    {
         return view('project.about', ['page' => 'sobre']);
     }
 
@@ -43,47 +45,48 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function equipe() {
+    public function equipe()
+    {
         $team = [(object) [
-                 'name' => 'Eduardo Ramos',
-                 'img' => 'img/team/edu.jpg',
-                 'description' => 'Programador, roterista, front-end, designer e mochileiro',
-                 'facebook' => 'https://www.facebook.com/eduardoaugustoramos',
-                 'twitter' => 'https://twitter.com/EduardoRamos__',
-                 'github' => 'http://github.com/Ablon',
-                 'blog' => 'http://astrogame.localhost/desastronautas/author/edu'],
+            'name'        => 'Eduardo Ramos',
+            'img'         => 'img/team/edu.jpg',
+            'description' => 'Programador, roterista, front-end, designer e mochileiro',
+            'facebook'    => 'https://www.facebook.com/eduardoaugustoramos',
+            'twitter'     => 'https://twitter.com/EduardoRamos__',
+            'github'      => 'http://github.com/Ablon',
+            'blog'        => 'http://astrogame.localhost/desastronautas/author/edu'],
 
-                (object) [
-                 'name' => 'Adriano Faboci',
-                 'img' => 'img/team/adriano.jpg',
-                 'description' => 'Um jovem amante da música, além de um viciado em series e jogos eletrônicos!',
-                 'facebook' => 'https://www.facebook.com/adriano.faboci',
-                 'instagram' => 'https://www.instagram.com/adriano_faboci/',
-                 'blog' => 'http://astrogame.localhost/desastronautas/author/adriano'],
+            (object) [
+                'name'        => 'Adriano Faboci',
+                'img'         => 'img/team/adriano.jpg',
+                'description' => 'Um jovem amante da música, além de um viciado em series e jogos eletrônicos!',
+                'facebook'    => 'https://www.facebook.com/adriano.faboci',
+                'instagram'   => 'https://www.instagram.com/adriano_faboci/',
+                'blog'        => 'http://astrogame.localhost/desastronautas/author/adriano'],
 
-                 (object) [
-                 'name' => 'Brenda Conttessotto',
-                 'img' => 'img/team/bre.jpg',
-                 'description' => 'Faz tudo',
-                 'facebook' => 'https://www.facebook.com/brendacaroline.conttessotto',
-                 'blog' => 'http://astrogame.localhost/desastronautas/author/brenda'],
+            (object) [
+                'name'        => 'Brenda Conttessotto',
+                'img'         => 'img/team/bre.jpg',
+                'description' => 'Faz tudo',
+                'facebook'    => 'https://www.facebook.com/brendacaroline.conttessotto',
+                'blog'        => 'http://astrogame.localhost/desastronautas/author/brenda'],
 
-                 (object) [
-                 'name' => 'Laís Vitória',
-                 'img' => 'img/team/lais.jpg',
-                 'description' => 'Artista, roterista, escritora, designer e mochileira',
-                 'facebook' => 'https://www.facebook.com/laisvitoria.granziera',
-                 'instagram' => 'https://www.instagram.com/lais_granziera/',
-                 'devianart' => 'http://artbygranziera.deviantart.com/',
-                 'blog' => 'http://astrogame.localhost/desastronautas/author/lais'],
+            (object) [
+                'name'        => 'Laís Vitória',
+                'img'         => 'img/team/lais.jpg',
+                'description' => 'Artista, roterista, escritora, designer e mochileira',
+                'facebook'    => 'https://www.facebook.com/laisvitoria.granziera',
+                'instagram'   => 'https://www.instagram.com/lais_granziera/',
+                'devianart'   => 'http://artbygranziera.deviantart.com/',
+                'blog'        => 'http://astrogame.localhost/desastronautas/author/lais'],
 
-                 (object) [
-                 'name' => 'Gabriel Ferreira',
-                 'img' => 'img/team/gabriel.jpg',
-                 'description' => 'Faz tudo e mochileiro',
-                 'facebook' => 'https://www.facebook.com/profile.php?id=100004880953329',
-                 'blog' => 'http://astrogame.localhost/desastronautas/author/gab']
-                 ];
+            (object) [
+                'name'        => 'Gabriel Ferreira',
+                'img'         => 'img/team/gabriel.jpg',
+                'description' => 'Faz tudo e mochileiro',
+                'facebook'    => 'https://www.facebook.com/profile.php?id=100004880953329',
+                'blog'        => 'http://astrogame.localhost/desastronautas/author/gab'],
+        ];
         return view('project.team', ['team' => $team, 'page' => 'equipe']);
     }
 
@@ -92,7 +95,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function contato() {
+    public function contato()
+    {
         return view('project.contact', ['page' => 'contato']);
     }
 
@@ -101,7 +105,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function termos() {
+    public function termos()
+    {
         return view('project.termos', ['page' => 'termos']);
     }
 
@@ -110,7 +115,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function politica() {
+    public function politica()
+    {
         return view('project.politica', ['page' => 'politica']);
     }
 
@@ -120,11 +126,12 @@ class HomeController extends Controller
      * @param string lang
      * @return \Illuminate\Http\Response
      */
-    public function change_language(Request $request, $lang = 'en') {
-        if(in_array($lang, $this->lang_avaliable)){
+    public function change_language(Request $request, $lang = 'en')
+    {
+        if (in_array($lang, $this->lang_avaliable)) {
             session()->put('language', $lang);
-            
-            if(auth()->check()){
+
+            if (auth()->check()) {
                 UserConfig::setConfig('lang', $lang);
             }
 
@@ -140,15 +147,16 @@ class HomeController extends Controller
      * @param object Request
      * @return \Illuminate\Http\Response
      */
-    public function enviar_contato(Request $request){
-        $data = ['name' => $request->name, 'email' => $request->email, 'message' => $request->message];
+    public function enviar_contato(Request $request)
+    {
+        $data      = ['name' => $request->name, 'email' => $request->email, 'message' => $request->message];
         $validator = Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            'name'    => 'required|max:255',
+            'email'   => 'required|email|max:255',
             'message' => 'required|min:6',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return redirect('contato')->withErrors($validator)->withInput();
         }
 

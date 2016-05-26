@@ -5,36 +5,35 @@ use Illuminate\Database\Seeder;
 class PostSeeder extends Seeder
 {
 
-    /** 
-	 * Todos os items devem ser colocados aqui
-	 */
-	public $posts = [
-		
-		[
-			'title' => 'Astronomia como hobby',
-			'short_description' => 'Temos hoje uma maravilhosa vista no céu noturno, dê uma saidinha lá fora e veja o planeta Júpiter a olho nu, logo abaixo da lua!',
-			'slug' => 'astronomia-como-hobby',
-			'content' => '<p>Quem nunca quis ter um hobby que quando te perguntam sobre o que você faz nos tempos vagos encher o peito e dizer que ama olhar as estrelas e sabe reconhecer fácil os objetos do céu noturno?</p>
+    /**
+     * Todos os items devem ser colocados aqui
+     */
+    public $posts = [
+
+        [
+            'title'             => 'Astronomia como hobby',
+            'short_description' => 'Temos hoje uma maravilhosa vista no céu noturno, dê uma saidinha lá fora e veja o planeta Júpiter a olho nu, logo abaixo da lua!',
+            'slug'              => 'astronomia-como-hobby',
+            'content'           => '<p>Quem nunca quis ter um hobby que quando te perguntam sobre o que você faz nos tempos vagos encher o peito e dizer que ama olhar as estrelas e sabe reconhecer fácil os objetos do céu noturno?</p>
 <p>Todos deveriam ter astronomia como um hobby, não nada mais relaxante do que observar as estrelas e imaginar o que há nos lugares mais distantes.</p>
 <p>Com a correria do dia a dia somados a luminosidade dos grandes centros, pouco nos atentamos para os astros que nos cercam, limitamos nossas observações apenas para grandes eventos, como eclipses e acabamos muitas vezes olhando apenas por um monitor ao vivo.</p>
 <p>Começar esse hobby é simples, apenas olhe para cima durante a noite e comece apenas a observar o céu. Se conseguir um achar lugar alto, longe da luminosidade será melhor ainda!</p>
 <p>Não é necessário um telescópio de primeiro momento, se tiver um binóculos empoeirado em casa pode auxiliar bastante nas primeiras observações do céu.</p>
 <p>Após esse primeiro passo, chegou a hora de aprimorar seus conhecimentos e se aventurar mais e mais no cosmo. Para isso conclua todos os capítulos do Astrogame, após zerar o modo campanha você terá conhecimentos suficientes para entender muitas coisas do céu.</p>
 <p>Se ainda não conhece o astrogame, clique no link abaixo e veja um pequeno trailer sobre o jogo desenvolvido por nós e clique em JOGAR para começar a aventura pelo cosmo!<p>',
-            'user_id' => 1,
-			'category' => 'astronomia',
-            'img_url' => 'astronomia-hobby.jpg',
-		],
-
+            'user_id'           => 1,
+            'category'          => 'astronomia',
+            'img_url'           => 'astronomia-hobby.jpg',
+        ],
 
         [
-            'title' => 'Diário de um observador das estrelas',
+            'title'             => 'Diário de um observador das estrelas',
             'short_description' => 'Didário de um observador das estrelas',
-            'slug' => 'diario-estrelas-21-04-2016',
-            'user_id' => 5,
-            'category' => 'diario',
-            'img_url' => 'VirtualAstro-Stargazing-Graphic-copy.jpg',
-            'content' => '<p>Desde criança me contaram sobe os incríveis meteoros, me diziam que por muitas vezes foram tidos como sinais de deuses, ou até mesmo sinais apocalípticos e somente aos meus 16 anos pude entender o porquê disso.</p>
+            'slug'              => 'diario-estrelas-21-04-2016',
+            'user_id'           => 5,
+            'category'          => 'diario',
+            'img_url'           => 'VirtualAstro-Stargazing-Graphic-copy.jpg',
+            'content'           => '<p>Desde criança me contaram sobe os incríveis meteoros, me diziam que por muitas vezes foram tidos como sinais de deuses, ou até mesmo sinais apocalípticos e somente aos meus 16 anos pude entender o porquê disso.</p>
                          <p>O céu sempre manteve sua configuração estática, um grande quadro negro povoado de pequenos pontos brilhantes agrupados de forma caótica. Taís pontos iluminavam a imensidão escura como pequenas pontas de esperança nos piores momentos.</p>
 <p>A madrugada do dia vinte um de abril, foi marcada pelo chuva de meteoros Líricas. O evento reuniu amigos, curiosos e até mesmo pessoas que não sabiam nada sobre astronomia, se juntaram para observar o maravilhoso show cósmico que estava acontecendo.</p>
 
@@ -49,7 +48,7 @@ class PostSeeder extends Seeder
 
 <p>Diário de um observador das estrelas – 21/04/2016</p>',
         ],
-	];
+    ];
 
     /**
      * Run the database seeds.
@@ -58,11 +57,11 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-    	foreach($this->posts as $post){
-    		if(DB::table('posts')->where('title', $post['title'])->get() == null){
-    			DB::table('posts')->insert($post);
-    			echo '[ INFO ] Post: ' . e($post['title']) . " adicionado. \n";
-    		}
-    	}
+        foreach ($this->posts as $post) {
+            if (DB::table('posts')->where('title', $post['title'])->get() == null) {
+                DB::table('posts')->insert($post);
+                echo '[ INFO ] Post: ' . e($post['title']) . " adicionado. \n";
+            }
+        }
     }
 }

@@ -2,57 +2,60 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use DB;
+use Illuminate\Database\Eloquent\Model;
 
 class UserConfig extends Model
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	public static $default = [
-    	'music_volume' => 80,
-    	'effects_volume' => 100,
-    	'lang' => 'pt-br',
+    public static $default = [
+        'music_volume'   => 80,
+        'effects_volume' => 100,
+        'lang'           => 'pt-br',
     ];
 
-    public static function getConfig($config_key){
-    	if(!auth()->check()){
-    		return false;
-    	}
-    	$user_id = auth()->user()->id;
-    	$config = UserConfig::select('content')->where('user_id', $user_id)->where('key', $config_key)->limit(1)->get()->first();
-    	return $config->content;
+    public static function getConfig($config_key)
+    {
+        if (!auth()->check()) {
+            return false;
+        }
+        $user_id = auth()->user()->id;
+        $config  = UserConfig::select('content')->where('user_id', $user_id)->where('key', $config_key)->limit(1)->get()->first();
+        return $config->content;
     }
 
-    public static function setConfig($config_key, $content){
-    	if(!auth()->check()){
-    		return false;
-    	}
-    	DB::table('user_configs')->where('user_id', auth()->user()->id)
-                                 ->where('key', $config_key)
-                                 ->limit(1)
-                                 ->update(['content' => $content]);
-    }    
+    public static function setConfig($config_key, $content)
+    {
+        if (!auth()->check()) {
+            return false;
+        }
+        DB::table('user_configs')->where('user_id', auth()->user()->id)
+            ->where('key', $config_key)
+            ->limit(1)
+            ->update(['content' => $content]);
+    }
 
-    public static function installConfig($user_id = 0){
-        if($user_id != 0){
-            if(auth()->check()){
+    public static function installConfig($user_id = 0)
+    {
+        if ($user_id != 0) {
+            if (auth()->check()) {
                 $user_id = auth()->user()->id;
             }
         }
 
-    	foreach(self::$default as $key => $content){
+        foreach (self::$default as $key => $content) {
             /* if($key == 'lang'){
-                if(empty(session()->get('language'))){
-                    $content = 'pt-br';
-                }
-                $content = session()->get('language');
+            if(empty(session()->get('language'))){
+            $content = 'pt-br';
+            }
+            $content = session()->get('language');
             } */
-    		$config = new UserConfig;
-    		$config->key = $key;
-    		$config->content = $content;
-    		$config->user_id = $user_id;
-    		$config->save();
-    	}
+            $config          = new UserConfig;
+            $config->key     = $key;
+            $config->content = $content;
+            $config->user_id = $user_id;
+            $config->save();
+        }
     }
 }

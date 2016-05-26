@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Events\RegisterUser;
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -20,7 +20,7 @@ class AuthController extends Controller
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
     |
-    */
+     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -50,8 +50,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|min:2|max:60',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|min:2|max:60',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -65,26 +65,29 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        
+
         $user->makeAvatar();
 
         event(new RegisterUser($user));
         return $user;
     }
 
-    public function showRegistrationForm(){
+    public function showRegistrationForm()
+    {
         return view('auth.register', ['page' => 'register']);
     }
 
-    public function showLoginForm(){
+    public function showLoginForm()
+    {
         return view('auth.login', ['page' => 'login']);
     }
 
-    public function showResetForm() {
+    public function showResetForm()
+    {
         return view('auth.passwords.email', ['page' => 'reset']);
     }
 }

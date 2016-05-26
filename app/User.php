@@ -2,33 +2,33 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use DB;
-use Log;
 use Carbon\Carbon;
+use DB;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Image;
+use Log;
 
 class User extends Authenticatable
 {
 
     public static $level_xp =
-    [
-        // level => xp_for_next_level 
-        1 => 400,
-        2 => 900,
-        3 => 1400,
-        4 => 2100,
-        5 => 2800,
-        6 => 3600,
-        7 => 4500,
-        8 => 5400,
-        9 => 6500,
+        [
+        // level => xp_for_next_level
+        1  => 400,
+        2  => 900,
+        3  => 1400,
+        4  => 2100,
+        5  => 2800,
+        6  => 3600,
+        7  => 4500,
+        8  => 5400,
+        9  => 6500,
         10 => 7600,
         11 => 8700,
         12 => 9800,
         13 => 11000,
         14 => 12300,
-        15 => 13600          
+        15 => 13600,
     ];
 
     /**
@@ -55,7 +55,8 @@ class User extends Authenticatable
      *
      * @return void
      */
-    protected static function checkLevel(){
+    protected static function checkLevel()
+    {
 
     }
 
@@ -65,115 +66,124 @@ class User extends Authenticatable
      * @param int xp
      * @return void
      */
-    public static function gain_xp($xp){
-        DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);  
-        auth()->user()->xp += $xp;   
+    public static function gain_xp($xp)
+    {
+        DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);
+        auth()->user()->xp += $xp;
         Log::info('Player: ' . auth()->user()->id . ' ganhou ' . $xp . ' de xp.');
-        if(auth()->user()->xp >= self::xp_for_next_level()){
+        if (auth()->user()->xp >= self::xp_for_next_level()) {
             auth()->user()->level += 1;
             DB::table('users')->where('id', auth()->user()->id)->increment('level');
-            Log::info('Player: ' . auth()->user()->id . ' passou de level.');    
+            Log::info('Player: ' . auth()->user()->id . ' passou de level.');
         }
     }
 
     // pega o xp e transforma em porcentagem
-    public static function xp_bar(){
+    public static function xp_bar()
+    {
         $porcent = (auth()->user()->xp * 100) / self::xp_for_next_level();
         return round($porcent);
     }
 
-    public static function xp_for_next_level() {
+    public static function xp_for_next_level()
+    {
         return self::$level_xp[auth()->user()->level + 1];
     }
 
-
     // @return string
-    public static function patente($user_level = 0){
-        // (1-3)  -> Observador 
+    public static function patente($user_level = 0)
+    {
+        // (1-3)  -> Observador
         // (3-6)  -> Vigia das estrelas
         // (6-9)  -> Residente (?)
-        // (9-10) -> Chefe de Laboratorio 
-        // (10-11)-> Ciêntista 
+        // (9-10) -> Chefe de Laboratorio
+        // (10-11)-> Ciêntista
         // (12)   -> Astronauta - Amador
         // (13)   -> Astronauta - Pesquisador
         // (14)   -> Astronauta - Líder de Módulo
         // (15)   -> Astronauta - Chefe de estação
-        if(auth()->check() && auth()->user()->type == 3){
+        if (auth()->check() && auth()->user()->type == 3) {
             return trans('game.patent-gm');
         }
 
-        if(auth()->check() && $user_level == 0){
+        if (auth()->check() && $user_level == 0) {
             $level = auth()->user()->level;
         } else {
             $level = $user_level;
         }
 
-        if($level < 3){
+        if ($level < 3) {
             return trans('game.patent1');
-        } else if($level >= 3 && $level < 6){
+        } else if ($level >= 3 && $level < 6) {
             return trans('game.patent2');
-        } else if($level >= 6 && $level < 9){
+        } else if ($level >= 6 && $level < 9) {
             return trans('game.patent3');
-        } else if($level >= 9 && $level < 10){
+        } else if ($level >= 9 && $level < 10) {
             return trans('game.patent4');
-        } else if($level >= 10 && $level <= 11){
+        } else if ($level >= 10 && $level <= 11) {
             return trans('game.patent5');
-        } else if($level == 12){
+        } else if ($level == 12) {
             return trans('game.patent6');
-        } else if($level == 13){
+        } else if ($level == 13) {
             return trans('game.patent7');
-        } else if($level == 14){
+        } else if ($level == 14) {
             return trans('game.patent8');
-        } else if($level > 15){
+        } else if ($level > 15) {
             return trans('game.patent9');
         }
     }
 
-    public function desde(){
-        if(\App::isLocale('pt-br')){
+    public function desde()
+    {
+        if (\App::isLocale('pt-br')) {
             return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d/m/Y');
         } else {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y');    
+            return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y');
         }
     }
 
-    public function insignas(){
+    public function insignas()
+    {
         return \App\Insignas::get();
     }
 
-    public function recent_feed() {
+    public function recent_feed()
+    {
         return [
-                (object) ['icon' => 'check',
-                 'text' => 'Completou o primeiro capítulo: Bem Vindo ao Astrogame. Ganhou 150 XP e um chapéu',
-                 'date' => '20/03/2016'],
+            (object) ['icon' => 'check',
+                'text'           => 'Completou o primeiro capítulo: Bem Vindo ao Astrogame. Ganhou 150 XP e um chapéu',
+                'date'           => '20/03/2016'],
 
-                (object) ['icon' => 'shopping-cart',
-                 'text' => 'Comprou um telescópio',
-                 'date' => '21/03/2016'],
+            (object) ['icon' => 'shopping-cart',
+                'text'           => 'Comprou um telescópio',
+                'date'           => '21/03/2016'],
 
-                 (object) ['icon' => 'bookmark',
-                 'text' => 'Ganhou a insigna da Apollo 11',
-                 'date' => '21/03/2016'],
+            (object) ['icon' => 'bookmark',
+                'text'           => 'Ganhou a insigna da Apollo 11',
+                'date'           => '21/03/2016'],
 
-                 (object) ['icon' => 'exclamation',
-                 'text' => 'Completou o terceiro capítulo: Sistema Solar. Ganhou 153 XP',
-                 'date' => '24/03/2016'],
-                 
-                 ];
+            (object) ['icon' => 'exclamation',
+                'text'           => 'Completou o terceiro capítulo: Sistema Solar. Ganhou 153 XP',
+                'date'           => '24/03/2016'],
+
+        ];
 
     }
 
-    public function makeAvatar($url = ''){
-        $path = 'users/avatar/' . md5($this->id) . '.jpg';
-        $width = 500;
+    public function makeAvatar($url = '')
+    {
+        $path   = 'users/avatar/' . md5($this->id) . '.jpg';
+        $width  = 500;
         $height = 500;
 
-        if(empty($url)){ // default avatar
+        if (empty($url)) {
+            // default avatar
             Image::make('img/avatar.png')->fit($width, $height)->save($path);
         } else {
-            try{
+            try {
                 Image::make($url)->fit($width, $height)->save($path);
-            } catch (\Intervention\Image\Exception\NotReadableException $e) { // default avatar
+            } catch (\Intervention\Image\Exception\NotReadableException $e) {
+                // default avatar
                 Image::make('/img/avatar.png')->fit($width, $height)->save($path);
             }
         }
