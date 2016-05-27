@@ -50,9 +50,9 @@ return [
 
 	// cadastro
 	'name' => 'Nome',
-	'email-register' => 'Email (exemplo@exemplo.com)',
-	'login-register' => 'Já tenho uma conta',
-	'facebook' => 'Logar com facebook',
+	'email-register' => 'Email',
+	'login-register' => 'Tenho uma conta',
+	'facebook' => 'Facebook',
 	'google' => 'Logar com google',
 	'confirm-password' => 'Repetir a senha',
 

@@ -1,37 +1,21 @@
 @extends('project.general')
 @section('title')
-{{ trans('project.login') }} | {{ trans('project.project-name') }}
+{{ trans('project.register') }} | {{ trans('project.project-name') }}
 @stop
 @section('content')
 <div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
-   <div class="uk-vertical-align-middle" style="width: 550px;">
+   <div class="uk-vertical-align-middle" >
       <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="{{ trans('project.project-name') }}">
       <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/register') }}">
          {!! csrf_field() !!}
-         @if ($errors->has('name'))
-         <div class="uk-alert uk-alert-danger" data-uk-alert>
-            <a href="#" class="uk-alert-close uk-close"></a>
-            <strong>{{ $errors->first('name') }}</strong>
-         </div>
-         @endif
-         @if ($errors->has('email'))
-         <div class="uk-alert uk-alert-danger" data-uk-alert>
-            <a href="#" class="uk-alert-close uk-close"></a>
-            <strong>{{ $errors->first('email') }}</strong>
-         </div>
-         @endif
-         @if ($errors->has('password'))
-         <div class="uk-alert uk-alert-danger" data-uk-alert>
-            <a href="#" class="uk-alert-close uk-close"></a>
-            <strong>{{ $errors->first('password') }}</strong>
-         </div>
-         @endif
-         @if ($errors->has('password_confirmation'))
-         <div class="uk-alert uk-alert-danger" data-uk-alert>
-            <a href="#" class="uk-alert-close uk-close"></a>
-            <strong>{{ $errors->first('password_confirmation') }}</strong>
-         </div>
-         @endif
+         
+         @foreach ($errors->all() as $error)
+            <div class="uk-alert uk-alert-danger" data-uk-alert>
+               <a href="#" class="uk-alert-close uk-close"></a>
+               <strong>{{ $error }}</strong>
+            </div>
+         @endforeach
+
          <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="text" name="name" value="{{ old('name') }}" placeholder="{{ trans('project.name')}}" required maxlength="60">
          </div>
@@ -41,10 +25,11 @@
          <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="password" name="password" value="{{ old('password') }}" placeholder="{{ trans('project.password') }}" required>
          </div>
-         <div class="uk-form-row">
-            <input class="uk-width-1-1 uk-form-large" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="{{ trans('project.confirm-password') }}" required>
+         <div class="uk-form-row uk-text-small">
+            <div class="uk-float-left">
+            <input type="checkbox" name="terms" required>
+            <label for="terms">Aceito os <a href="{{ url('/terms') }}">termos de uso</a></label>
          </div>
-         <div class="uk-form-row">
             <a class="uk-float-right uk-link uk-link-muted" href="{{ url('/login') }}">{{ trans('project.login-register')}}</a>
          </div>
          <div class="uk-form-row">
