@@ -12,7 +12,8 @@
         "laravel/socialite": "^2.0",
 		"devfactory/minify": "1.0.*",
         "intervention/image": "^2.3",
-        "bepsvpt/laravel-security-header": "^1.1"
+        "bepsvpt/laravel-security-header": "^1.1",
+        "msurguy/honeypot": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

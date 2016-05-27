@@ -11,6 +11,7 @@
             <h2>{{ trans('project.contato-title') }}</h2>
             <form class="uk-form uk-form-stacked" action="{{ url('/contato')}}" method="POST">
                {!! csrf_field() !!}
+               {!! Honeypot::generate('form_name', 'form_time') !!}
 
                @foreach ($errors->all() as $error)
                <div class="uk-alert uk-alert-danger" data-uk-alert>
@@ -18,6 +19,13 @@
                   <strong>{{ $error }}</strong>
                </div>
                @endforeach
+
+               @if(session('status'))
+               <div class="uk-alert uk-alert-success" data-uk-alert>
+                  <a href="#" class="uk-alert-close uk-close"></a>
+                  <strong>{{ trans('project.contact-success') }}</strong>
+               </div>
+               @endif
 
                <div class="uk-form-row">
                   <label class="uk-form-label" for="name">{{ trans('project.your-name') }}</label>
@@ -34,7 +42,7 @@
                <div class="uk-form-row">
                   <label class="uk-form-label">{{ trans('project.your-message') }}</label>
                   <div class="uk-form-controls">
-                     <textarea class="uk-width-1-1" name="message" cols="100" rows="9" required></textarea>
+                     <textarea class="uk-width-1-1" name="mensagem" cols="100" rows="9" required></textarea>
                   </div>
                </div>
                <div class="uk-form-row uk-text-right">

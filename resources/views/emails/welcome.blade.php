@@ -1,2 +1,0 @@
-oioiiioioi
-edu

@@ -164,9 +164,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Devfactory\Minify\MinifyServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
         Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider::class,
-
+        Msurguy\Honeypot\HoneypotServiceProvider::class,
     ],
 
     /*
@@ -221,6 +220,7 @@ return [
         'Socialize' => Laravel\Socialite\Facades\Socialite::class,
         'Minify'    => Devfactory\Minify\Facades\MinifyFacade::class,
         'Image'     => Intervention\Image\Facades\Image::class,
+        'Honeypot'  => Msurguy\Honeypot\HoneypotFacade::class,
     ],
 
 ];

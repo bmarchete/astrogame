@@ -149,22 +149,25 @@ class HomeController extends Controller
      */
     public function enviar_contato(Request $request)
     {
-        $data      = ['name' => $request->name, 'email' => $request->email, 'message' => $request->message];
+        $data      = ['name' => $request->name, 'email' => $request->email, 'mensagem' => $request->mensagem, 'form_name' => $request->form_name, 'form_time' => $request->form_time];
         $validator = Validator::make($data, [
-            'name'    => 'required|max:255',
-            'email'   => 'required|email|max:255',
-            'message' => 'required|min:6',
+            'name'      => 'required|max:255',
+            'email'     => 'required|email|max:255',
+            'mensagem'  => 'required|min:6',
+            'form_name' => 'honeypot',
+            'form_time' => 'required|honeytime:10',
         ]);
 
         if ($validator->fails()) {
             return redirect('contato')->withErrors($validator)->withInput();
         }
 
-        // se passar
-        // queue para enviar email
-        Mail::send('emails.welcome', $data, function ($message) {
-            $message->from('eduardo.auramos@gmail.com', 'Laravel test');
-            $message->to('eduardo.auramos@gmail.com');
-        });
+        if (Mail::send('emails.contact', $data, function ($message) use ($data) {
+            $message->from('no-reply@astrogame.com.br', 'Contato de ' . $data['name']);
+            $message->to('contato@astrogame.com.br');
+            $message->replyTo($data['email']);
+        })) {
+            return redirect('contato')->with(['status' => true]);
+        }
     }
 }
