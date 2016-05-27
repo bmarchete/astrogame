@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
 use Validator;
 
 class AuthController extends Controller
@@ -65,12 +66,11 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'         => $data['name'],
+            'email'        => $data['email'],
+            'password'     => bcrypt($data['password']),
+            'confirm_code' => str_random(30),
         ]);
-
-        $user->makeAvatar();
 
         event(new RegisterUser($user));
         return $user;
@@ -89,5 +89,44 @@ class AuthController extends Controller
     public function showResetForm()
     {
         return view('auth.passwords.email', ['page' => 'reset']);
+    }
+
+    public function confirmEmail(Request $request)
+    {
+        $confirm_code = $request->confirm_code;
+        if (!empty($confirm_code)) {
+            $user               = User::where('confirm_code', '=', $confirm_code)->first();
+            $user->confirmed    = 1;
+            $user->confirm_code = null;
+            $user->save();
+            auth()->login($user);
+        }
+
+        return redirect('/');
+    }
+
+    public function authenticated(Request $request, $user)
+    {
+        if (!$user->confirmed) {
+            auth()->logout();
+            return back()->with(['social_error' => 'You need to confirm your account. We have sent you an activation code, please check your email.']);
+        }
+        return redirect()->intended($this->redirectPath());
+    }
+
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+        if ($validator->fails())
+        {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $user = $this->create($request->all());
+        auth()->logout();
+
+        return redirect('/login')->with(['social_error' => 'Confirme seu email.']);
     }
 }

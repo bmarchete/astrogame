@@ -77,4 +77,7 @@ Route::group(['middleware' => ['web']], function () {
 	// social login
 	Route::get('/login/{provider}', 'SocialLoginController@login')->where('provider', '[a-z-]+');
 	Route::get('/fallback/{provider}', 'SocialLoginController@fallback')->where('provider', '[a-z-]+');
+
+	// confirm email
+	Route::get('/confirm/verify/{confirm_code}', 'Auth\AuthController@confirmEmail');
 });

@@ -96,7 +96,7 @@ class AdminSeeder extends Seeder
                 $user->level     = $admin['level'];
                 $user->xp        = $admin['xp'];
                 $user->money     = $admin['money'];
-                $user->confirmed = true;
+                $user->confirmed = 1;
 
                 $user->save();
 
