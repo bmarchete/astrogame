@@ -163,9 +163,9 @@ class HomeController extends Controller
         }
 
         if (Mail::send('emails.contact', $data, function ($message) use ($data) {
-            $message->from('no-reply@astrogame.com.br', 'Contato de ' . $data['name']);
+            $message->from($data['email'], $data['name']);
+            $message->subject('Contato de ' . $data['name']);
             $message->to('contato@astrogame.com.br');
-            $message->replyTo($data['email']);
         })) {
             return redirect('contato')->with(['status' => true]);
         }
