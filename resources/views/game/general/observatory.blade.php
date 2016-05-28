@@ -51,20 +51,16 @@ $(document).ready(function() {
 @stop
 
 @section('content')
-
 <div class="uk-container uk-container-center" style="padding-top: 40px">
-        <div class="uk-grid" data-uk-grid>
-                <div class="uk-width-medium-1-4">
-                    <div class="uk-panel uk-panel-box uk-text-center">
-                        <img src="{{ url('img/camp-night.png') }}" alt="">
-                        (campo)
-                    </div>
-                    
-                </div>
-
-                <div class="uk-width-medium-3-4">
-                        <div id="starmap" style="width:100%;height:500px;"></div>
-                </div>
+    <div class="uk-grid" data-uk-grid>
+        <div class="uk-width-medium-1-4">
+            <div class="uk-panel uk-panel-box uk-text-center">
+                <img src="{{ url('img/camp-night.png') }}" alt=""> (campo)
+            </div>
         </div>
+        <div class="uk-width-medium-3-4">
+            <div id="starmap" style="width:100%;height:500px;"></div>
+        </div>
+    </div>
 </div>
 @stop

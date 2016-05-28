@@ -1,11 +1,9 @@
 <div class="uk-panel">
     <h3 class="uk-panel-title">{{ trans('blog.search-title') }}</h3>
-    
     <form class="uk-search" data-uk-search method="GET" action="{{ url('/desastronautas/search')}}">
         <input class="uk-search-field" name="search" type="search" placeholder="{{ trans('blog.search') }}">
     </form>
 </div>
-
 <div class="uk-panel">
     <h3 class="uk-panel-title">{{ trans('blog.categories') }}</h3>
     <ul class="uk-list uk-list-line">
@@ -15,7 +13,6 @@
         <li><a href="{{ url('/desastronautas/category/eventos') }}">{{ trans('blog.events') }}</a></li>
     </ul>
 </div>
-
 <div class="uk-panel">
     <h3 class="uk-panel-title">{{ trans('blog.authors') }}</h3>
     <ul class="uk-list uk-list-line">

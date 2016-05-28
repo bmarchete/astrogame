@@ -24,8 +24,8 @@
                 <div class="uk-form-controls">
                     <div class="uk-form-select" data-uk-form-select>
                         <select id="lang-select" name="lang">
-                            <option value="pt-br" @if ($lang=='pt-br') selected @endif>Português Brasileiro</option>
-                            <option value="en" @if ($lang=='en') selected @endif>English</option>
+                            <option value="pt-br" @if ($lang=='pt-br' ) selected @endif>Português Brasileiro</option>
+                            <option value="en" @if ($lang=='en' ) selected @endif>English</option>
                         </select>
                         <label for="lang"><i class="uk-icon-language"></i> {{ trans('game.language') }}</label>
                     </div>
@@ -42,7 +42,6 @@
         </form>
     </div>
 </div>
-
 <!-- bug report modal -->
 <form id="bug-report" method="POST" action="{{ URL('/game/report') }}" class="uk-form">
     {!! csrf_field() !!}
@@ -333,118 +332,118 @@
             </div>
         </div>
     </li>
-	<li aria-hidden="true">
-	    <div class="uk-grid" data-uk-grid>
-	        @if (!empty(auth()->user()->provider_id) && auth()->user()->provider_id == 1)
-	        <div class="uk-width-3-4 uk-align-right">
-	            <div class="uk-alert">
-	                <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
-	            </div>
-	        </div>
-	        @endif
-	        <div class="uk-width-1-1">
-	            <form method="post" action="{{ url('/game/change_account') }}" class="uk-form user-config">
-	                {!! csrf_field() !!}
+  <li aria-hidden="true">
+      <div class="uk-grid" data-uk-grid>
+          @if (!empty(auth()->user()->provider_id) && auth()->user()->provider_id == 1)
+          <div class="uk-width-3-4 uk-align-right">
+              <div class="uk-alert">
+                  <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
+              </div>
+          </div>
+          @endif
+          <div class="uk-width-1-1">
+              <form method="post" action="{{ url('/game/change_account') }}" class="uk-form user-config">
+                  {!! csrf_field() !!}
                   <h3>Básico</h3>
-	                <div class="uk-form-row">
-	                    <label class="uk-form-label" for="text">{{ trans('game.name') }}:</label>
-	                    <div class="uk-form-controls">
-	                        <input type="text" name="name" value="{{ auth()->user()->name }}" class="uk-width-1-1">
-	                    </div>
-	                </div>
-	                <div class="uk-form-row">
-	                    <label class="uk-form-label" for="text">{{ trans('game.nickname') }}:</label>
-	                    <div class="uk-form-controls">
-	                        <input type="text" name="nickname" value="{{ auth()->user()->nickname }}" class="uk-width-1-1">
-	                    </div>
-	                </div>
-	                <div class="uk-form-row">
-	                    <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
-	                    <div class="uk-form-controls">
-	                        <input type="email" name="email" value="{{ auth()->user()->email }}" class="uk-width-1-1">
-	                    </div>
-	                </div>
-	                <h3>Mudar senha</h3>
-	                <div class="uk-form-row">
-	                    <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
-	                    <div class="uk-form-controls">
-	                        <input type="password" name="old_password" class="uk-width-1-1">
-	                    </div>
-	                </div>
-	                <div class="uk-form-row">
-	                    <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
-	                    <div class="uk-form-controls">
-	                        <input type="password" name="new_password" class="uk-width-1-1">
-	                    </div>
-	                </div>
-	                <div class="uk-form-row">
-	                    <div class="uk-form-controls">
-	                        <div class="uk-form-file">
-	                            <button class="uk-button">{{ trans('game.avatar') }}</button>
-	                            <input type="file" name"avatar">
-	                        </div>
-	                    </div>
-	                </div>
-	                <button type="submit" class="uk-button uk-button-success uk-align-right"><i class="uk-icon-check"></i> Salvar alterações</button>
-	            </form>
-	        </div>
-	    </div>
-	</li>
-	<li aria-hidden="true">
-	    <div class="uk-panel uk-panel-box uk-panel-box-primary">
-	        <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> {{ trans('game.bag') }}</h3>
-	        <ul class="uk-list bag bag-items">
-	            <li></li>
-	            @forelse($bag as $item)
-	            <li onclick="remove_item({{ $item->id }});" class="item-{{ $item->id }}">
-	                <span class="uk-badge uk-badge-success">{{ $item->amount }}</span>
-	                <figure class="uk-thumbnail">
-	                    <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
-	                </figure>
-	            </li>
-	            @empty {{ trans('game.empty-bag') }} @endforelse
-	        </ul>
-	    </div>
-	</li>
-	<li aria-hidden="true">
-	    <dl class="uk-description-list-line">
-	        <dt>
-	            <div class="uk-badge">(0-3)</div> Aspirante
-	            <div class="uk-text-muted">Observa o espaço à olho nu, de um campo durante a noite</div>
-	        </dt>
-	        <dt>
-	            <div class="uk-badge">(4-6)</div> Observador
-	            <div class="uk-text-muted">Possui de início uma luneta simples e depois passa a ter um telescópio simples em um pequeno observatório em seu quintal</div>
-	        </dt>
-	        <dt>
-	            <div class="uk-badge">(7-9)</div> Aprendiz
-	            <div class="uk-text-muted">Atua como um aprendiz em um laboratório modesto dirigido por um dos astrônomos que irão narrar o capítulo</div>
-	        </dt>
-	        <dt>
-	            <div class="uk-badge">(10-12)</div> Doutor
-	            <div class="uk-text-muted">Possui agora um laboratório bem maior e mais completo</div>
-	        </dt>
-	        <dt>
-	            <div class="uk-badge">(13-14)</div> Comissário
-	            <div class="uk-text-muted">SEM TEXTO</div>
-	        </dt>
-	        <dt>
-	            <div class="uk-badge">(15)</div> Capitão
-	            <div class="uk-text-muted">É agora capitão de uma espação espacial</div>
-	        </dt>
-	    </dl>
-	</li>
-	<li aria-hidden="true">
-	    <ul class="uk-list insignas" style="overflow-y: scroll; height: 300px">
-	        @forelse($user_insignas as $insigna)
-	        <li>
-	            <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-	                <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
-	            </figure>
-	        </li>
-	        @empty {{ trans('game.empty-insignas') }} @endforelse
-	    </ul>
-	</li>
+                  <div class="uk-form-row">
+                      <label class="uk-form-label" for="text">{{ trans('game.name') }}:</label>
+                      <div class="uk-form-controls">
+                          <input type="text" name="name" value="{{ auth()->user()->name }}" class="uk-width-1-1">
+                      </div>
+                  </div>
+                  <div class="uk-form-row">
+                      <label class="uk-form-label" for="text">{{ trans('game.nickname') }}:</label>
+                      <div class="uk-form-controls">
+                          <input type="text" name="nickname" value="{{ auth()->user()->nickname }}" class="uk-width-1-1">
+                      </div>
+                  </div>
+                  <div class="uk-form-row">
+                      <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
+                      <div class="uk-form-controls">
+                          <input type="email" name="email" value="{{ auth()->user()->email }}" class="uk-width-1-1">
+                      </div>
+                  </div>
+                  <h3>Mudar senha</h3>
+                  <div class="uk-form-row">
+                      <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
+                      <div class="uk-form-controls">
+                          <input type="password" name="old_password" class="uk-width-1-1">
+                      </div>
+                  </div>
+                  <div class="uk-form-row">
+                      <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
+                      <div class="uk-form-controls">
+                          <input type="password" name="new_password" class="uk-width-1-1">
+                      </div>
+                  </div>
+                  <div class="uk-form-row">
+                      <div class="uk-form-controls">
+                          <div class="uk-form-file">
+                              <button class="uk-button">{{ trans('game.avatar') }}</button>
+                              <input type="file" name"avatar">
+                          </div>
+                      </div>
+                  </div>
+                  <button type="submit" class="uk-button uk-button-success uk-align-right"><i class="uk-icon-check"></i> Salvar alterações</button>
+              </form>
+          </div>
+      </div>
+  </li>
+  <li aria-hidden="true">
+      <div class="uk-panel uk-panel-box uk-panel-box-primary">
+          <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> {{ trans('game.bag') }}</h3>
+          <ul class="uk-list bag bag-items">
+              <li></li>
+              @forelse($bag as $item)
+              <li onclick="remove_item({{ $item->id }});" class="item-{{ $item->id }}">
+                  <span class="uk-badge uk-badge-success">{{ $item->amount }}</span>
+                  <figure class="uk-thumbnail">
+                      <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
+                  </figure>
+              </li>
+              @empty {{ trans('game.empty-bag') }} @endforelse
+          </ul>
+      </div>
+  </li>
+  <li aria-hidden="true">
+      <dl class="uk-description-list-line">
+          <dt>
+              <div class="uk-badge">(0-3)</div> Aspirante
+              <div class="uk-text-muted">Observa o espaço à olho nu, de um campo durante a noite</div>
+          </dt>
+          <dt>
+              <div class="uk-badge">(4-6)</div> Observador
+              <div class="uk-text-muted">Possui de início uma luneta simples e depois passa a ter um telescópio simples em um pequeno observatório em seu quintal</div>
+          </dt>
+          <dt>
+              <div class="uk-badge">(7-9)</div> Aprendiz
+              <div class="uk-text-muted">Atua como um aprendiz em um laboratório modesto dirigido por um dos astrônomos que irão narrar o capítulo</div>
+          </dt>
+          <dt>
+              <div class="uk-badge">(10-12)</div> Doutor
+              <div class="uk-text-muted">Possui agora um laboratório bem maior e mais completo</div>
+          </dt>
+          <dt>
+              <div class="uk-badge">(13-14)</div> Comissário
+              <div class="uk-text-muted">SEM TEXTO</div>
+          </dt>
+          <dt>
+              <div class="uk-badge">(15)</div> Capitão
+              <div class="uk-text-muted">É agora capitão de uma espação espacial</div>
+          </dt>
+      </dl>
+  </li>
+  <li aria-hidden="true">
+      <ul class="uk-list insignas" style="overflow-y: scroll; height: 300px">
+          @forelse($user_insignas as $insigna)
+          <li>
+              <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
+                  <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
+              </figure>
+          </li>
+          @empty {{ trans('game.empty-insignas') }} @endforelse
+      </ul>
+  </li>
 </ul>
 </div>
 </div>

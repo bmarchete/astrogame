@@ -223,3 +223,4 @@ function change_xp(xp){
     </div>
 </div>
 @include('game.general.modals')
+
