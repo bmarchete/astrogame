@@ -22,7 +22,6 @@
                         <a class="uk-button uk-button-success uk-button-large" href="{{ URL('/game') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.jogar') }}</a> @else
                         <a class="uk-button uk-button-success uk-button-large" href="{{ URL('/login') }}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a>
                         <a class="uk-button uk-button-primary uk-button-large" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
-                        <a class="uk-button uk-button-danger uk-button-large" href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google</a>
                         <a class="uk-button uk-button-large" href="{{ URL('/register') }}"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a> @endif
                     </div>
                     <div class="uk-hidden-large uk-button-dropdown uk-text-left" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">

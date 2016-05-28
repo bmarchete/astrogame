@@ -22,9 +22,8 @@
 - [ ] design páginas de erros
 - [x] cadastro
 - [x] login
-- [ ] recuperar senha
+- [x] recuperar senha
 - [x] login com facebook
-- [ ] login com google
 - [x] add base para suporte a outros idiomas
 - [x] user_settings model
 - [x] quest model
@@ -48,32 +47,17 @@
 	- [ ] ban list
 	- [x] gm list
 	- [ ] list bug report
-- [ ] enviar email do contato
+- [x] enviar email do contato
 - [x] favicon
 - [ ] mudar logo
 - [ ] bug da linguagem do navegador na hora de cadastrar
-- [ ] design do blog
+- [x] design do blog
 - [x] base do blog
 - [ ] trocar foto de perfil
-- [ ] trocar nome do usuário
-- [ ] trocar senha do usuário
-- [ ] trocar email
+- [x] trocar nome do usuário
+- [x] trocar senha do usuário
+- [x] trocar email
 - [ ] trocar mouse cursor
-
-Escrito / projetos:
-- [x] Título do Projeto
-- [x] Slogan
-- [x] Resumo (Descrever a síntese do projeto)
-- [x] Palavras-Chave (Liste as palavras-chave que descrevem as áreas de atuação do projeto)
-- [x] Introdução (Apresente ao leitor qual assunto será discutido ao longo do texto. Deve ser uma apresentação que sintetize o tema abordado e sua contextualização com a realidade.)
-- [x] Descrição (Apresente ao leitor o conjunto das necessidades e/ou oportunidades identificadas que justifiquem a realização desse projeto para ampliar a cultura da inovação e do empreendedorismo no ambiente interno à Unidade e/ou junto às entidades no seu entorno socioeconômico.)
-- [x] Objetivos (Descreva o(s) Objetivo (s) e Metas que pretende alcançar com o desenvolvimento desse projeto. Apresente, tanto quanto possível a expectativa de alcançar resultados mensuráveis: a. Indicadores qualitativos b. Indicadores quantitativos)
-- [x] Práticas (Descrever como as atividades do projeto serão realizadas, as pessoas que estarão envolvidas em sua execução, a escolha e utilização dos recursos, a comunicação entre os participantes do projeto; (Estratégia utilizada, ferramentas, meios e métodos empregados), a disponibilidade de recursos; (Não obrigatório), a mobilização das equipes, materiais e equipamentos; (Como será o processo de mobilização da equipe?), o controle da qualidade dos procedimentos; (o método empregado?), o monitoramento do emprego dos recursos; (Não obrigatório) e a geração e reprogramação de atividades necessárias. )
-- [ ] Plano de Execução (Determinar prazos para cada etapa de execução cuja flexibilidade viabilize sua execução sem comprometer os resultados, descrevendo o cronograma do conjunto das atividades programadas e os objetivos que devem ser alcançados com cada uma delas, bem como, como será feito o monitoramento dos processos, ou seja, o acompanhamento físico de sua execução.)
-- [ ] ANÁLISE DOS RESULTADOS ALCANÇADOS (Descreva os resultados alcançados e como as práticas desenvolvidas trouxeram benefícios para aprimorar a mobilidade do conhecimento entre geradores e usuários de conhecimento, tanto, dentro da Unidade como em seu entorno socioeconômico.)
-- [ ] Conclusão (Realizar avaliação criteriosa dos erros e acertos para se garantir resultados profícuos e positivos. As Metas foram amplamente atingidas Houve divulgação em meio de comunicação? Quais? Descreva o conjunto das conclusões alcançadas através desse projeto e quais são seus possíveis desdobramentos.)
-
 
 ver isso daqui depois: 
 http://cosmos-book.github.io/contents.html
-
