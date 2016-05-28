@@ -19,4 +19,9 @@ return [
     'sent' => 'O link para redefinição de senha foi enviado para o seu e-mail!',
     'reset' => 'Sua senha foi redefinida!',
 
+    'reset-password' => 'Redefinir Senha',
+    'send' => 'Enviar Redefinição de Senha',
+    'pass' => 'Senha',
+    'confirm-pass' => 'Confirmar senha',
+ 
 ];

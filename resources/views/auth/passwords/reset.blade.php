@@ -1,6 +1,6 @@
 @extends('project.general')
 @section('title')
-Reset | {{ trans('project.project-name') }}
+{{ trans('passwords.reset-password')}} | {{ trans('project.project-name') }}
 @stop
 @section('content')
 <div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
@@ -21,7 +21,7 @@ Reset | {{ trans('project.project-name') }}
             <input placeholder="Email Address" class="uk-width-1-1 uk-form-large" type="email"  name="email" value="{{ $email or old('email') }}">
          </div>
          <div class="uk-form-row">
-            <input type="password" placeholder="Password" class="uk-width-1-1 uk-form-large" name="password">
+            <input type="password" placeholder="{{ trans('passwords.pass')}}" class="uk-width-1-1 uk-form-large" name="password">
             @if ($errors->has('password'))
             <span class="help-block">
             <strong>{{ $errors->first('password') }}</strong>
@@ -29,7 +29,7 @@ Reset | {{ trans('project.project-name') }}
             @endif
          </div>
          <div class="uk-form-row">
-            <input type="password" placeholder="Confirm Password" class="uk-width-1-1 uk-form-large" name="password_confirmation">
+            <input type="password" placeholder="{{ trans('passwords.confirm-pass')}}" class="uk-width-1-1 uk-form-large" name="password_confirmation">
             @if ($errors->has('password_confirmation'))
             <span class="help-block">
             <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -38,7 +38,7 @@ Reset | {{ trans('project.project-name') }}
          </div>
          <div class="uk-form-row">
             <button type="submit" class="uk-button uk-width-1-1 uk-button-primary uk-button-large">
-            <i class="uk-icon-refresh"></i> Reset Password
+            <i class="uk-icon-refresh"></i> {{ trans('passwords.reset-password')}}
             </button>
          </div>
    </div>
