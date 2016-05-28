@@ -25,7 +25,7 @@
                 </p>
                 {!! $post->short_description !!}
                 <p>
-                    <a class="uk-button uk-button-primary" href="">Continuar lendo</a>
+                    <a class="uk-button uk-button-primary" href="{{ url('desastronautas/post/' . $post->slug) }}">Continuar lendo</a>
                 </p>
             </article>
             @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\UserConfig;
+use Hash;
 use Illuminate\Http\Request;
 
 class AccountController extends GameController
@@ -51,11 +52,11 @@ class AccountController extends GameController
 
         // mudou a senha?
         if ($old_password != '' && $new_password != '') {
-            if (auth()->user()->password != bcrypt($old_password)) {
-                $messages[] = ['status' => false, 'text' => 'Senha antiga inválida'];
-            } else {
-                auth()->user()->password = bcrypt($new_password);
+            if (Hash::check($old_password, auth()->user()->password)) {
+                auth()->user()->password = Hash::make($new_password);
                 $messages[]              = ['status' => true, 'text' => 'Senha alterada'];
+            } else {
+                $messages[] = ['status' => false, 'text' => 'Senha antiga inválida'];
             }
         }
 

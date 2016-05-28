@@ -14,7 +14,9 @@ class BlogController extends Controller
 
     private function list_posts($page = 1)
     {
-        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.slug', 'posts.img_url', 'user_id')
+        $posts = Post::select('posts.id', 'posts.title', 'posts.content', 'posts.category', 'posts.created_at', 'posts.slug', 'posts.img_url', 'user_id', 'users.name')
+            ->join('users', 'posts.user_id', '=', 'user_id')
+            ->groupBy('posts.id')
             ->paginate(10);
 
         return view('blog.index', ['title' => '', 'posts' => $posts]);
@@ -45,8 +47,10 @@ class BlogController extends Controller
     {
         $category = $request->category;
 
-        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.img_url', 'posts.slug', 'user_id')
+        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.img_url', 'posts.slug', 'user_id', 'users.name')
+            ->join('users', 'posts.user_id', '=', 'user_id')
             ->where('category', '=', $category)
+            ->groupBy('posts.id')
             ->paginate(10);
 
         return view('blog.index', ['title' => $category . ' | ', 'posts' => $posts]);
@@ -60,6 +64,7 @@ class BlogController extends Controller
             ->join('users', 'posts.user_id', '=', 'user_id')
             ->where('title', 'LIKE', "%$search%")
             ->orWhere('short_description', 'LIKE', '%$search%')
+            ->groupBy('posts.id')
             ->paginate(10);
 
         return view('blog.index', ['title' => $search . ' | ', 'posts' => $posts]);
@@ -69,8 +74,10 @@ class BlogController extends Controller
     {
         $author = $request->author;
 
-        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.img_url', 'posts.slug', 'user_id')
+        $posts = Post::select('posts.id', 'posts.title', 'posts.short_description', 'posts.category', 'posts.created_at', 'posts.img_url', 'posts.slug', 'user_id', 'users.name')
+            ->join('users', 'posts.user_id', '=', 'user_id')
             ->where('user_id', $author)
+            ->groupBy('posts.id')
             ->paginate(10);
 
         return view('blog.index', ['title' => $author . ' | ', 'posts' => $posts]);

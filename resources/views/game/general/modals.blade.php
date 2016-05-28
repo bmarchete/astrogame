@@ -334,15 +334,8 @@
     </li>
   <li aria-hidden="true">
       <div class="uk-grid" data-uk-grid>
-          @if (!empty(auth()->user()->provider_id) && auth()->user()->provider_id == 1)
-          <div class="uk-width-3-4 uk-align-right">
-              <div class="uk-alert">
-                  <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
-              </div>
-          </div>
-          @endif
           <div class="uk-width-1-1">
-              <form method="post" action="{{ url('/game/change_account') }}" class="uk-form user-config">
+              <form method="post" action="{{ url('/game/change_account') }}" class="uk-form user-config" enctype="multipart/form-data">
                   {!! csrf_field() !!}
                   <h3>Básico</h3>
                   <div class="uk-form-row">
@@ -380,11 +373,16 @@
                       <div class="uk-form-controls">
                           <div class="uk-form-file">
                               <button class="uk-button">{{ trans('game.avatar') }}</button>
-                              <input type="file" name"avatar">
+                              <input type="file" name"avatar" accept="image/*">
                           </div>
                       </div>
                   </div>
                   <button type="submit" class="uk-button uk-button-success uk-align-right"><i class="uk-icon-check"></i> Salvar alterações</button>
+                  @if (!empty(auth()->user()->provider_id) && auth()->user()->provider_id == 1)
+                      <button class="uk-button uk-button-success uk-disabled uk-align-right" disabled>
+                          <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
+                      </button>
+                  @endif
               </form>
           </div>
       </div>
