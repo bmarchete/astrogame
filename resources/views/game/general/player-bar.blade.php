@@ -34,6 +34,9 @@ function change_xp(xp){
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].status){
                         UIkit.notify("<i class='uk-icon-check'></i> " + data[i].text, {status:'success', pos: 'top-right'});
+                        if(data[i].avatar){
+                            $(".avatar").attr('src', $(".avatar").attr('src') + '?' + Math.random());
+                        }
                    } else {
                         UIkit.notify("<i class='uk-icon-close'></i> " + data[i].text, {status:'danger', pos: 'top-right'});
                    }  

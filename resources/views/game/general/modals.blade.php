@@ -372,8 +372,8 @@
                   <div class="uk-form-row">
                       <div class="uk-form-controls">
                           <div class="uk-form-file">
-                              <button class="uk-button">{{ trans('game.avatar') }}</button>
-                              <input type="file" name"avatar" accept="image/*">
+                              <button class="uk-button uk-button-danger"><i class="uk-icon uk-icon-photo"></i> {{ trans('game.avatar') }}</button>
+                              <input type="file" name="avatar" accept="image/*">
                           </div>
                       </div>
                   </div>

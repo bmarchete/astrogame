@@ -29,7 +29,7 @@ class RegisterUsers
     public function handle(RegisterUser $event)
     {
         // faz o avatar do usuário
-        //$event->user->makeAvatar();
+        $event->user->makeAvatar();
 
         // instala configurações básicas de usuário
         UserConfig::installConfig($event->user->id);

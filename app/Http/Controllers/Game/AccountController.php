@@ -6,9 +6,12 @@ use App\User;
 use App\UserConfig;
 use Hash;
 use Illuminate\Http\Request;
+use Input;
 
 class AccountController extends GameController
 {
+    public $ext_avaliables = ['png', 'jpg', 'jpge', 'gif'];
+
     public function change_volume_music(Request $request)
     {
         $volume = $request->volume;
@@ -27,7 +30,7 @@ class AccountController extends GameController
         $nickname     = $request->nickname;
         $old_password = $request->old_password;
         $new_password = $request->new_password;
-        $avatar       = ''; // ? todo
+        $avatar       = $request->avatar;
 
         // mudou nome?
         if (auth()->user()->name != $name) {
@@ -54,11 +57,22 @@ class AccountController extends GameController
         if ($old_password != '' && $new_password != '') {
             if (Hash::check($old_password, auth()->user()->password)) {
                 auth()->user()->password = Hash::make($new_password);
-                $messages[]              = ['status' => true, 'text' => 'Senha alterada'];
+                $messages[] = ['status' => true, 'text' => 'Senha alterada'];
             } else {
                 $messages[] = ['status' => false, 'text' => 'Senha antiga inválida'];
             }
         }
+
+        // mudou o avatar?
+        if($request->hasFile('avatar')){
+            if(in_array(strtolower($avatar->getClientOriginalExtension()), $this->ext_avaliables)){
+                auth()->user()->makeAvatar(Input::file('avatar'));
+                $messages[] = ['status' => true, 'text' => 'Avatar alterado com sucesso', 'avatar' => true];
+            } else {
+                $messages[] = ['status' => false, 'text' => 'A foto deve ser em jpg, png, gif ou jpge'];
+            }
+        }
+
 
         return response()->json($messages);
     }
