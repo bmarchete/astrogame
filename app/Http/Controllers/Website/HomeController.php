@@ -119,6 +119,17 @@ class HomeController extends Controller
     {
         return view('project.politica', ['page' => 'politica']);
     }
+    
+    /**
+     * Página de créditos e referencias
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function credits()
+    {
+        return view('project.credits', ['page' => 'credits']);
+    }
+
 
     /**
      * Muda para inglês o aplicativo

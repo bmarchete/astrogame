@@ -25,6 +25,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/contato', 'HomeController@contato');
 	Route::get('/termos', 'HomeController@termos');
 	Route::get('/politica', 'HomeController@politica');
+	Route::get('/credits', 'HomeController@credits');
 
 	// website-blog
 	Route::get('/desastronautas/category/{category}', 'BlogController@category')->where('category', '[a-z-]+');
