@@ -53,7 +53,7 @@
 - [ ] bug da linguagem do navegador na hora de cadastrar
 - [x] design do blog
 - [x] base do blog
-- [ ] trocar foto de perfil
+- [x] trocar foto de perfil
 - [x] trocar nome do usuário
 - [x] trocar senha do usuário
 - [x] trocar email

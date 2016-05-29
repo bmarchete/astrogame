@@ -74,7 +74,7 @@ class GameController extends Controller
         $this->view_vars[] = [
             'music_volume'      => UserConfig::getConfig('music_volume'),
             'xp_bar'            => User::xp_bar(),
-            'user_name'         => auth()->user()->name,
+            'user_name'         => auth()->user()->nickname,
             'user_level'        => auth()->user()->level,
             'user_money'        => auth()->user()->money,
             'user_xp'           => auth()->user()->xp,
