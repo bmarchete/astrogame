@@ -51,7 +51,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nickname'  => 'required|min:2|max:60|unique:users',
+            'nickname' => 'required|min:2|max:60|unique:users',
             'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6',
             'terms'    => 'required',
@@ -67,7 +67,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'nickname'      => $data['nickname'],
+            'nickname'     => $data['nickname'],
             'email'        => $data['email'],
             'password'     => bcrypt($data['password']),
             'confirm_code' => str_random(30),
@@ -100,10 +100,37 @@ class AuthController extends Controller
             $user->confirmed    = 1;
             $user->confirm_code = null;
             $user->save();
+            session()->put('notify',
+                [
+                    ['text' => '<i class="uk-icon-exclamation"></i> Email confirmado com sucesso!', 'status' => 'success'],
+
+                ]);
             auth()->login($user);
         }
 
         return redirect('/');
+    }
+
+    public function login(Request $request)
+    {
+        $field = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'nickname';
+        $request->merge([$field => $request->input('login')]);
+
+        if (auth()->attempt($request->only($field, 'password'))) {
+            return redirect('/game');
+        }
+
+        return redirect('/login')->with([
+            'social_error' => 'These credentials do not match our records.',
+        ]);
+    }
+
+    public function rules()
+    {
+        return [
+            'login'    => 'required',
+            'password' => 'required',
+        ];
     }
 
     public function authenticated(Request $request, $user)

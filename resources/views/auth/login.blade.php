@@ -17,14 +17,14 @@
          </div>
          @endif
 
-         @if ($errors->has('email') || $errors->has('password'))
+         @if ($errors->has('login') || $errors->has('password'))
          <div class="uk-alert uk-alert-danger" data-uk-alert>
             <a href="#" class="uk-alert-close uk-close"></a>
-            <p>{{ $errors->first('email') }}</p>
+            <p>{{ $errors->first('login') }}</p>
          </div>
          @endif
          <div class="uk-form-row">
-            <input class="uk-width-1-1 uk-form-large" type="email" name="email" value="{{ old('email') }}" placeholder="{{ trans('project.email') }}" required>
+            <input class="uk-width-1-1 uk-form-large" type="text" name="login" value="{{ old('login') }}" placeholder="{{ trans('project.email-or-nickname') }}" required>
          </div>
          <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="password" name="password" placeholder="{{ trans('project.password') }}" required>

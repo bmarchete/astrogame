@@ -40,6 +40,7 @@ return [
 	'remember' => 'Lembrar-me',
 	'forget-password' => 'Esqueceu a senha?',
 	'email' => 'Email',
+	'email-or-nickname' => 'Email ou nickname',
 	'password' => 'Senha',
 	'register' => 'Criar Conta',
 
