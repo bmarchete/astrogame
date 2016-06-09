@@ -40,7 +40,7 @@ class GameController extends Controller
 
     public function ranking()
     {
-        $players           = ['players' => User::select('id', 'name', 'level', 'xp', 'money')->limit(5)->orderBy('xp', 'DESC')->get()];
+        $players           = ['players' => User::select('id', 'name', 'level', 'xp', 'money')->limit(30)->orderBy('xp', 'DESC')->get()];
         $this->view_vars[] = $players;
 
         return view('game.general.ranking', $this->view_vars());
