@@ -76,8 +76,6 @@ class SocialLoginController extends Controller
 
         $user_db->makeAvatar($user->avatar);
 
-        event(new RegisterUser($user_db));
-
         return redirect($this->redirect);
     }
 

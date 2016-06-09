@@ -73,7 +73,6 @@ class AuthController extends Controller
             'confirm_code' => str_random(30),
         ]);
 
-        event(new RegisterUser($user));
         return $user;
     }
 

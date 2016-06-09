@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Events\RegisterUser;
+use App\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
         {
             \DB::connection()->disableQueryLog();
         }
+
+        User::created(function ($user) {
+            event(new RegisterUser($user));
+        });
     }
 
     /**
