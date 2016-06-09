@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(ItemsSeeder::class);
         $this->call(QuestsSeeder::class);
-        $this->call(QuizSeeder::class);
         $this->call(InsignasSeeder::class);
         $this->call(PostSeeder::class);
 
