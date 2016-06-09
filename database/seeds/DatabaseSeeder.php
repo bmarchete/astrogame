@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(QuizSeeder::class);
         $this->call(InsignasSeeder::class);
         $this->call(PostSeeder::class);
+
+        factory(App\User::class, 10)->create();
     }
 }
