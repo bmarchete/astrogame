@@ -49,47 +49,37 @@ class ChapterController extends GameController
 
     public function tutorial()
     {
-        $chapter      = new UserProgres;
-        $chapter->key = 'welcome';
-        $complete     = $chapter->complete()['completed'];
-        if ($complete) {
-            session()->put('notify',
-
-                [
-
-                    ['text'  => '<i class="uk-icon-exclamation"> </i> Você ganhou 100 xp!',
-                        'status' => 'success'],
-                    ['text'  => '<i class="uk-icon-exclamation"> </i> Parabéns, você acabou de completar as boas vindas!',
-                        'status' => 'success'],
-
-                ]);
-        } else {
-            session()->forget('notify');
-        }
-        return view('game.chapters.tutorial', $this->view_vars());
+        return $this->general_chapter('tutorial');
     }
 
     public function chapter1()
     {
+        return $this->general_chapter('chapter2');
+    }
+
+    public function chapter2()
+    {
+        return $this->general_chapter('chapter2');
+
+    }
+
+    public function general_chapter($chapter_key)
+    {
         $chapter      = new UserProgres;
-        $chapter->key = 'tutorial';
-        $complete     = $chapter->complete()['completed'];
+        $chapter->key = $chapter_key;
+        $complete     = $chapter->complete()->completed;
 
-        if ($complete) {
+        if($complete){
             session()->put('notify',
-
                 [
-
-                    ['text'  => '<i class="uk-icon-exclamation"> </i> Você ganhou 200 xp!',
-                        'status' => 'success'],
-                    ['text'  => '<i class="uk-icon-exclamation"> </i> Parabéns, você acabou de completar o tutorial básico!',
-                        'status' => 'success'],
+                    ['text' => '<i class="uk-icon-exclamation"></i> Você ganhou CORRIGIR AQUI xp', 'status' => 'success'],
 
                 ]);
         } else {
-            session()->forget('notify');
+            session()->put('notify');
         }
 
-        return view('game.chapters.chapter1', $this->view_vars());
+        return view('game.chapters.' . $chapter_key, $this->view_vars());
+
     }
 }
