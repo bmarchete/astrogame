@@ -41,16 +41,24 @@ class AccountController extends GameController
 
         // mudou nickname?
         if (auth()->user()->nickname != $nickname) {
-            auth()->user()->nickname = $nickname;
-            auth()->user()->save();
-            $messages[] = ['status' => true, 'text' => 'nickname alterado'];
+            if(User::select('id')->where('nickname', $nickname)->limit(1)->first()){
+                $messages[] = ['status' => false, 'text' => 'Nickname já utilizado no sistema'];
+            } else {
+                auth()->user()->nickname = $nickname;
+                auth()->user()->save();
+                $messages[] = ['status' => true, 'text' => 'Nickname alterado'];
+            }
         }
 
         // mudou email?
         if ($email != auth()->user()->email) {
-            auth()->user()->email = $email;
-            auth()->user()->save();
-            $messages[] = ['status' => true, 'text' => 'Email alterado'];
+            if(User::select('id')->where('email', $email)->limit(1)->first()){
+                $messages[] = ['status' => false, 'text' => 'Email já utilizado no sistema'];
+            } else {
+                auth()->user()->email = $email;
+                auth()->user()->save();
+                $messages[] = ['status' => true, 'text' => 'Email alterado'];
+            }
         }
 
         // mudou a senha?
