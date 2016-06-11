@@ -100,8 +100,7 @@ class AdminSeeder extends Seeder
 
                 $user->save();
 
-                event(new RegisterUser($user));
-                echo '[ INFO ] Admin: ' . e($admin['email']) . " adicionado. \n";
+                $this->command->info('Admin: ' . e($admin['email']) . " adicionado.");
             }
         }
     }

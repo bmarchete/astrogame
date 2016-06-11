@@ -60,7 +60,7 @@ class PostSeeder extends Seeder
         foreach ($this->posts as $post) {
             if (DB::table('posts')->where('title', $post['title'])->get() == null) {
                 DB::table('posts')->insert($post);
-                echo '[ INFO ] Post: ' . e($post['title']) . " adicionado. \n";
+                $this->command->info('Post: ' . e($post['title']) . " adicionado.");
             }
         }
     }
