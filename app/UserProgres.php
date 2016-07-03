@@ -17,15 +17,23 @@ class UserProgres extends Model
 
         [
             'name'         => 'tutorial',
-            'xp_reward'    => 100,
-            'items_reward' => [1, 2],
+            'xp_reward'    => 2500,
+            'items_reward' => [],
             'min_level'    => 1,
+            'insigna_reward' => 1,
         ],
 
         [
             'name'         => 'chapter1',
-            'xp_reward'    => 100,
-            'items_reward' => [1, 2],
+            'xp_reward'    => 3000,
+            'items_reward' => [],
+            'min_level'    => 1,
+        ],
+
+        [
+            'name'         => 'chapter2',
+            'xp_reward'    => 3000,
+            'items_reward' => [],
             'min_level'    => 1,
         ],
 
@@ -72,12 +80,12 @@ class UserProgres extends Model
         }
 
         if (empty($key_data)) {
-            return ['completed' => false, 'msg' => 'chapter nao existe'];
+            return (object) ['completed' => false, 'msg' => 'chapter nao existe'];
         }
 
         $check_chapter = $this->select('key')->where('key', $this->key)->where('user_id', auth()->user()->id)->limit(1)->get()->first();
         if ($check_chapter) {
-            return ['completed' => false, 'msg' => 'chapter ja completado antes'];
+            return (object) ['completed' => false, 'msg' => 'chapter ja completado antes'];
         }
 
         $progress_table = $this->insert(['key' => $this->key, 'user_id' => auth()->user()->id, 'completed' => true]);
@@ -89,12 +97,23 @@ class UserProgres extends Model
 
         // items_reward
         if (isset($key_data['items'])) {
-            foreach ($key_data['items'] as $item => $item_id) {
+            foreach ($key_data['items'] as $item_id) {
                 // UserBag::add_item($item_id);
             }
         }
 
-        return ['completed' => $progress_table, 'xp_reward' => $key_data['xp_reward'], 'items_reward' => $key_data['items_reward']];
+        // insigna_reward
+        if(isset($key_data['insigna_reward'])) {
+            if(is_array($key_data['insigna_reward'])){
+                foreach ($key_data['insigna_reward'] as $insigna_id) {
+                    //UserInsignas::add_insigna($insigna_id);
+                }
+            } else {
+                //UserInsignas::add_insigna($key_data['insigna_reward']);
+            }
+        }
+
+        return (object) ['completed' => $progress_table, 'xp_reward' => $key_data['xp_reward']];
     }
 
     // @TODO : FINISH HIM
