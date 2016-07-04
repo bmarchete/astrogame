@@ -48,6 +48,7 @@ return [
 	'made-by' => 'Feito com <i class="uk-icon-heart"></i> por 3EMIA',
 	'termos' => 'Termos de Uso',
 	'politica' => 'Política de Privacidade',
+	'credits' => 'Créditos',
 
 	// cadastro
 	'name' => 'Nome',
