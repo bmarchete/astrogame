@@ -30,14 +30,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/contato', 'ContactController@index');
 	Route::post('/contato', 'ContactController@store');
 
-	// website-blog
-	Route::get('/desastronautas/category/{category}', 'BlogController@category')->where('category', '[a-z-]+');
-	Route::get('/desastronautas/author/{author}', 'BlogController@author')->where('author', '[0-9]+');
-	Route::get('/desastronautas/post/{slug}', 'BlogController@single_post')->where('slug', '[a-z-]+');
-	Route::get('/desastronautas/{page}', 'BlogController@page')->where('page', '[0-9]+');
-	Route::get('/desastronautas/search', 'BlogController@search');
-	Route::get('/desastronautas', 'BlogController@index');
-
 	// language
 	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
 

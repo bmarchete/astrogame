@@ -31,7 +31,6 @@
             <li @if ($page=='sobre' ) class="uk-active" @endif><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
             <li @if ($page=='equipe' ) class="uk-active" @endif><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
             <li @if ($page=='ranking' ) class="uk-active" @endif><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
-            <li @if ($page=='blog' ) class="uk-active" @endif><a href="{{ URL('/desastronautas') }}">{{ trans('project.navbar.blog') }}</a></li>
             <li @if ($page=='contato' ) class="uk-active" @endif><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
           </ul>
           <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas="" href="#offcanvas"></a>
@@ -50,7 +49,6 @@
             </li>
             <li @if ($page=='sobre' ) class="uk-active" @endif><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
             <li @if ($page=='equipe' ) class="uk-active" @endif><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
-            <li @if ($page=='desastronautas' ) class="uk-active" @endif><a href="{{ URL('/desastronautas') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.blog') }}</a></li>
             <li @if ($page=='contato' ) class="uk-active" @endif><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
 
             <li class="uk-nav-divider"></li>
