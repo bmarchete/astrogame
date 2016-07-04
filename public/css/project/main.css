@@ -1,111 +1,306 @@
 /*
- * Cosmos Game Project - main style
+ * Astrogame - main style
  *
  * @author Eduardo Augusto Ramos
- * @version 1.0.0
+ * @version 2.0.1
  */
-html, body, h1, h2, h3, h4, h5, h6, a {
-	font-family: 'Roboto', sans-serif;
-}
+ html {
+     margin: 0;
+     padding: 0;
+ }
+ body {
+     font-family: 'Raleway', sans-serif;
+     margin: 0;
+     padding: 0;
+     background: #25292c;
+ }
+ a {
+     text-decoration: none !important;
+     outline: none !important;
+     box-shadow: none;
+     text-shadow: none;
+ }
+ a:focus,
+ a:hover {
+     color: none !important;
+     box-shadow: none;
+     text-shadow: none;
+ }
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+     font-family: inherit;
+     font-weight: 500;
+     line-height: 1.1;
+     margin-top: 0;
+     margin-bottom: 0.5rem;
+     color: inherit;
+ }
+ .logo {
+     width: 240px;
+     padding: 19px 0;
+ }
+ .uk-logo {
+     margin: 0;
+     padding: 0;
+ }
+ .uk-navbar {
+     margin: 0;
+     padding: 0;
+     background: #222629;
+ }
+ .nav-link {
+     color: #3498db;
+ }
+ .uk-navbar-nav {
+     float: right;
+ }
+ .uk-navbar-nav li {
+     padding: 30px 5px;
+     border-top-width: 3px;
+     border-top-style: solid;
+     border-top-color: #222629;
+     background: none;
+ }
+ .uk-navbar-nav > li > a:focus,
+ .uk-navbar-nav > li > a:hover,
+ .uk-navbar-nav > li.uk-open > a,
+ .uk-navbar-nav > li:hover > a {
+     color: #fff;
+     border: none;
+     background: none;
+     box-shadow: none;
+     text-shadow: none;
+ }
+ .uk-navbar-nav li:hover {
+     padding: 30px 5px;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(1),
+ .uk-navbar-nav li:nth-child(1):hover {
+     border-top-color: #3498db;
+ }
+ .uk-navbar-nav li:nth-child(1) .nav-link:hover {
+     color: #3498db;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(1) a {
+     color: #3498db;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(2),
+ .uk-navbar-nav li:nth-child(2):hover {
+     border-top-color: #e74c3c;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(2) a {
+     color: #e74c3c;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(3),
+ .uk-navbar-nav li:nth-child(3):hover {
+     border-top-color: #f1c40f;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(3) a {
+     color: #f1c40f;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(4),
+ .uk-navbar-nav li:nth-child(4):hover {
+     border-top-color: #2ecc71;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(4) a {
+     color: #2ecc71;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(5),
+ .uk-navbar-nav li:nth-child(5):hover {
+     border-top-color: #e67e22;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(5) a {
+     color: #e67e22;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(6),
+ .uk-navbar-nav li:nth-child(6):hover {
+     border-top-color: #ecf0f1;
+ }
+ .uk-navbar-nav li.uk-active:nth-child(6) a {
+     color: #ecf0f1;
+ }
+ .uk-navbar-nav > li > a {
+     font-family: 'Raleway', sans-serif;
+     font-size: 16px;
+     color: rgba(255, 255, 255, .5);
+     background: none;
+     box-shadow: none;
+     text-shadow: none;
+ }
+ .uk-navbar-nav > li.uk-active > a {
+     color: #3498db;
+     border: none;
+     background: none;
+     box-shadow: none;
+     text-shadow: none;
+ }
+ .astronaut {
+     width: 359px;
+     height: 400px;
+     margin: 0 60px;
+     background: url('../../img/astronaut.png') no-repeat;
+ }
+ .welcome h1,
+ .welcome h2 {
+     color: #fff;
+ }
+ .welcome p {
+     font-size: 16px;
+     color: #fff;
+ }
+ .animate {
+     -webkit-transition: all 0.1s;
+     transition: all 0.1s;
+ }
+ .uk-form .action-button {
+     font-size: 16px;
+     padding: 10px 40px;
+     text-align: center;
+     border-radius: 5px;
+ }
+ .action-button {
+     font-size: 25px;
+     position: relative;
+     float: left;
+     margin: 0 10px 10px 0;
+     padding: 15px 45px;
+     text-decoration: none;
+     color: #fff;
+     border-radius: 10px;
+ }
+ .action-button:hover {
+     color: none !important;
+ }
+ .blue {
+     border-bottom: 5px solid #2980b9;
+     background-color: #3498db;
+     text-shadow: 0 -2px #2980b9;
+ }
+ .red {
+     border-bottom: 5px solid #bd3e31;
+     background-color: #e74c3c;
+     text-shadow: 0 -2px #bd3e31;
+ }
+ .green {
+     border-bottom: 5px solid #669644;
+     background-color: #82bf56;
+     text-shadow: 0 -2px #669644;
+ }
+ .yellow {
+     border-bottom: 5px solid #d1b358;
+     background-color: #f2cf66;
+     text-shadow: 0 -2px #d1b358;
+ }
+ .action-button:active {
+     -webkit-transform: translate(0px, 5px);
+     transform: translate(0px, 5px);
+     border-bottom: 1px solid;
+ }
+ .info {
+     color: #ecf0f1;
+     background: #e74c3c;
+     text-shadow: 1px 2px rgba(55, 58, 60, .37);
+ }
+ .info p {
+     font-size: 16px;
+     line-height: 25px;
+ }
+ .red-info {
+     height: 300px;
+     padding: 60px 50px;
+     background: #e74c3c;
+ }
+ .carrot-info {
+     height: 300px;
+     padding: 60px 50px;
+     background: #e67e22;
+ }
+ .yellow-info {
+     height: 300px;
+     padding: 60px 50px;
+     background: #f1c40f;
+ }
+ .screenshots {
+     padding: 50px 0;
+     background: #ecf0f1;
+ }
+ .screenshots .action-button {
+     font-size: 16px;
+     padding: 8px 28px;
+ }
+ .galileu {
+     padding: 30px 0 15px 0;
+ }
+ .galileu-img {
+     position: relative;
+     top: 15px;
+     right: -265px;
+     width: 200px;
+ }
+ .bubble {
+     font: 16px/25px sans-serif;
+     position: relative;
+     display: inline-block;
+     padding: 15px 25px;
+     color: #333;
+     border-radius: 5px;
+     background-color: #ecf0f1;
+     box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, .5), 3px 3px 0 hsla(0, 0%, 0%, .1);
+     text-shadow: 0 1px 1px hsla(0, 0%, 100%, .5);
+ }
+ .bubble:after,
+ .bubble:before {
+     position: absolute;
+     right: 25px;
+     bottom: -25px;
+     content: '';
+     border-right: 25px solid #ecf0f1;
+     border-bottom: 25px solid transparent;
+ }
+ .bubble:before {
+     right: 22px;
+     bottom: -28px;
+     border-right: 25px solid hsla(0, 0%, 0%, .1);
+ }
+ .contact {
+     padding: 30px 0;
+     color: #ecf0f1;
+     background: #3498db url('../../img/liftoff.png') no-repeat right bottom fixed;
+ }
+ .contact-rocket {
+     width: 500px;
+ }
+ .footer {
+     padding-top: 50px;
+     color: #fff;
+ }
+ .subfooter {
+     background: #222629;
+ }
+ .thumbnav {
+     padding: 40px 0;
+     color: #fff;
+ }
+ .about {
+     background: #ecf0f1;
+ }
 
-.blog-header {
-    background: url('../../img/desastronautas.jpg') no-repeat center top /cover fixed;
-    height: 140px;
-    padding-top: 160px
-}
+ .team {
+     padding: 30px 0;
+     color: #ecf0f1;
+     background: url('../../img/spaceship-night.png') no-repeat bottom / cover;
+ }
 
-.blog-header h1{
-    color: #fff;
-    font-size: 44px
-}
+ .ranking {
+   background: #3498db url('../../img/liftoff.png') no-repeat right bottom fixed;
+   padding: 40px 0;
+ }
 
-.blog p {
-    font-size: 1.25rem;
-    font-weight: normal;
-    margin-bottom: 1.4375rem;
-    line-height: 1.5;
-    letter-spacing: 0.01rem;
-    text-rendering: optimizeLegibility;
-}
-
-.contact-section {
-    padding-top: 160px
-}
-
-.login-section {
-    padding-top: 200px;
-    background: url('../../img/home-section3.jpg') no-repeat center top /cover; 
-        min-height: 650px;
-}
-
-.team-section {
-    padding-top: 100px;
-}
-
-.home-section {
-	padding-top: 200px;
-	background: url('../../img/galaxy_flat.png') no-repeat center top /cover;
-	min-height: 450px;
-    background-attachment: fixed;
-}
-
-.home-section h1, .home-section p {
-	color: #fff
-}
-
-.about-section {
-    padding-top: 100px
-}
-
-.footer {
-	background: #252525;
-	padding: 50px 0;
-}
-
-.footer a, .footer p {
-	color: #fff;
-}
-
-
-.uk-navbar {
-    padding: 15px 0;
-    border: none;
-    background: #252525;
-    position: fixed;
-    width: 100%;
-    z-index: 99;
-}
-
-.uk-navbar .uk-navbar-content,
-.uk-navbar .uk-navbar-brand,
-.uk-navbar .uk-navbar-toggle {
-    height: 40px;
-    margin-top: 0;
-    text-shadow: none;
-}
-
-.uk-navbar .uk-navbar-nav > li > a {
-    height: 40px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 3px !important;
-    text-shadow: none;
-    font-size: 15px;
-    color: #fff;
-    transition: 0.4s all ease;
-    font-family: 'Roboto', sans-serif !important;
-}
-
-.uk-navbar .uk-navbar-nav > li { margin-left: 20px }
-.uk-navbar .uk-navbar-nav > li:hover > a,
-.uk-navbar .uk-navbar-nav > li > a:focus,
-.uk-navbar .uk-navbar-nav > li.uk-open > a {
-    border: none;
-    color: #000;
-}
-
-/* Active */
-.tm-navbar .uk-navbar-nav > li.uk-active > a {
-    background-color: #2BA3D4;
-    color: #FFF;
-}
+ .ranking-list{
+   overflow-y: scroll;
+   height: 500px
+ }

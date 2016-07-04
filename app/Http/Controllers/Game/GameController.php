@@ -43,7 +43,7 @@ class GameController extends Controller
         $players           = ['players' => User::select('id', 'name', 'level', 'xp', 'money')->limit(30)->orderBy('xp', 'DESC')->get()];
         $this->view_vars[] = $players;
 
-        return view('game.general.ranking', $this->view_vars());
+        return view('project.ranking', $this->view_vars());
     }
 
     public function shop()

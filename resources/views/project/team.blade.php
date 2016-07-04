@@ -1,9 +1,12 @@
-@extends('project.general') @section('title') {{ trans('project.team') }} | {{ trans('project.project-name') }} @stop @section('content')
+@extends('project.general')
+@section('title') {{ trans('project.team') }} | {{ trans('project.project-name') }} @stop
+@section('content')
+<div class="team">
 <div class="uk-container uk-container-center uk-margin-large-bottom">
     <div class="uk-grid team-section" data-uk-grid-margin>
         <div class="uk-width-1-1 uk-text-center">
-            <h1 class="uk-heading-large">{{ trans('project.team') }}</h1>
-            <p class="uk-text-large">{{ trans('project.team-pre-text') }}</p>
+            <h1>{{ trans('project.team') }}</h1>
+            <h2>{{ trans('project.team-pre-text') }}</h2>
         </div>
     </div>
     <div class="uk-grid" data-uk-grid-margin>
@@ -31,13 +34,12 @@
                     </figcaption>
                 </figure>
             </div>
-            <h2 class="uk-margin-bottom-remove">{{ $member->name }}</h2>
-            <p class="uk-text-large uk-margin-top-remove uk-text-muted">{{ $member->description }}</p>
+            <h2 class="uk-margin-top">{{ $member->name }}</h2>
+            <p class="uk-text-large">{{ $member->description }}</p>
         </div>
         @endforeach
     </div>
 </div>
-<hr class="uk-grid-divider">
 <div class="uk-grid uk-container uk-container-center" data-uk-grid-margin>
     <div class="uk-width-1-1 uk-width-large-2-4">
         <h1>{{ trans('project.team-about') }}</h1> {!! trans('project.team-text') !!}
@@ -51,4 +53,4 @@
         </div>
     </div>
 </div>
-<hr class="uk-grid-divider"> @stop
+</div>@stop

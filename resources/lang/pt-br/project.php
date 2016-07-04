@@ -1,10 +1,10 @@
 <?php
 
 return [
-	
+
 	// home
 	'project-name' => 'Astrogame',
-	'title' => 'Astrogame | Uma jornada ao conhecimento do Universo', 
+	'title' => 'Astrogame | Uma jornada ao conhecimento do Universo',
 
 	// navbar
 	'navbar' => [
@@ -27,7 +27,7 @@ return [
 
 		'title2' => 'Aprenda com experts no assunto!',
 		'text2' => 'Durante a sua jornada uma ajudinha sempre é bem-vinda, e quem melhor para nos auxiliar do que  Copérnico, Carl Sagan e outros ícones da Astronomia?',
-		
+
 		'title3' => 'Conquiste seu lugar no pódio!',
 		'text3' => 'Faça o seu melhor para ficar entre os primeiros do nosso ranking!',
 	],
@@ -45,7 +45,7 @@ return [
 	'register' => 'Criar Conta',
 
 	// footer
-	'made-by' => 'Feito com <i class="uk-icon-heart"></i> por 3EMIA',
+	'made-by' => 'Feito com <i class="uk-icon-heart"></i> pelo 3 EMIA - 2016',
 	'termos' => 'Termos de Uso',
 	'politica' => 'Política de Privacidade',
 	'credits' => 'Créditos',
@@ -89,7 +89,7 @@ return [
 		<p>Todo o ambiente do stand foi planejado da determinada forma:</p>
     	<p>O percurso dos visitantes será orientado por um guia começando pelo surgimento do universo – o Big Bang, passando pelas estrelas, nebulosas, planetas, constelações, buracos negros, galáxias, maquetes, entre outros astros e eventos da astronomia, até os possíveis planetas que podem ser habitáveis, de forma cronológica.</p>
     	<p>O percurso começa com pequenos stands explicando um pouco sobre cada conteúdo do COSMOS e termina num simulador, onde tudo o que foi exposto nas apresentações do percurso será reapresentado de uma forma resumida e visual, trazendo a sensação de submersão espacial dentro de um ambiente fechado e escuro. Neste simulador teremos a presença de uma pessoa que fará o papel de capitão da nave; pessoa que será responsável pelos visitantes e tudo o mais que ocorrer na sala. Não recomendado para claustrofóbicos, pessoas com medo do escuro, problemas cardíacos.</p>',
-    	          
 
-    
+
+
 ];
