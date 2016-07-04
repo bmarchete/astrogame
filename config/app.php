@@ -159,7 +159,6 @@ return [
         /*
          * Vendor Service Providers...
          */
-        Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Devfactory\Minify\MinifyServiceProvider::class,

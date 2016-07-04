@@ -7,10 +7,9 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "barryvdh/laravel-debugbar": "^2.2",
         "laravelcollective/html": "^5.2",
         "laravel/socialite": "^2.0",
-		"devfactory/minify": "1.0.*",
+		    "devfactory/minify": "1.0.*",
         "intervention/image": "^2.3",
         "bepsvpt/laravel-security-header": "^1.1",
         "msurguy/honeypot": "dev-master"
