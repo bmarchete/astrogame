@@ -28,7 +28,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	// website-contact
 	Route::get('/contato', 'ContactController@index');
-	Route::post('/contato', 'HomeController@store');
+	Route::post('/contato', 'ContactController@store');
 
 	// website-blog
 	Route::get('/desastronautas/category/{category}', 'BlogController@category')->where('category', '[a-z-]+');

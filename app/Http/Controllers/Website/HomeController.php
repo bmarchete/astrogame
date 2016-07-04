@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\UserConfig;
 use Illuminate\Http\Request;
-use Mail;
-use Validator;
 
 class HomeController extends Controller
 {
@@ -90,7 +88,7 @@ class HomeController extends Controller
         return view('project.team', ['team' => $team, 'page' => 'equipe']);
     }
 
-    
+
 
     /**
      * Página de termos de uso

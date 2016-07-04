@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Mail;
 
 class ContactController extends Controller
 {
@@ -28,12 +30,16 @@ class ContactController extends Controller
           return redirect('contato')->withErrors($validator)->withInput();
       }
 
-      if (Mail::send('emails.contact', $data, function ($message) use ($data) {
-          $message->from($data['email'], $data['name']);
-          $message->subject('Contato de '.$data['name']);
-          $message->to('contato@astrogame.me');
-      })) {
-          return redirect('contato')->with(['status' => true]);
+      try {
+        Mail::send('emails.contact', $data, function ($message) use ($data) {
+            $message->from($data['email'], $data['name']);
+            $message->subject('Contato de '.$data['name']);
+            $message->to('eduardo@astrogame.me');
+        });
+
+        return redirect('contato')->with(['status' => true]);
+      } catch (\Exception $e) {
+        return redirect('contato')->withErrors(['Não foi possível enviar o contato, tente mais tarde']);
       }
   }
 
