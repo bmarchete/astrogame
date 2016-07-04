@@ -48,7 +48,7 @@ class HomeController extends Controller
         $team = [(object) [
             'name'        => 'Eduardo Ramos',
             'img'         => 'img/team/edu.jpg',
-            'description' => 'Programador, roterista, front-end, designer e mochileiro',
+            'description' => 'Programador, roterista, front-end, designer, sysadmin e mochileiro',
             'facebook'    => 'https://www.facebook.com/eduardoaugustoramos',
             'twitter'     => 'https://twitter.com/EduardoRamos__',
             'github'      => 'http://github.com/eduduardo',
@@ -57,7 +57,7 @@ class HomeController extends Controller
             (object) [
                 'name'        => 'Adriano Faboci',
                 'img'         => 'img/team/adriano.jpg',
-                'description' => 'Um jovem amante da música, além de um viciado em series e jogos eletrônicos!',
+                'description' => 'Game designer, roterista e mochileiro',
                 'facebook'    => 'https://www.facebook.com/adriano.faboci',
                 'instagram'   => 'https://www.instagram.com/adriano_faboci/',
                 'author_blog' => 'adriano'],
@@ -65,7 +65,7 @@ class HomeController extends Controller
             (object) [
                 'name'        => 'Brenda Conttessotto',
                 'img'         => 'img/team/bre.jpg',
-                'description' => 'Faz tudo',
+                'description' => 'Escritora e mochileira',
                 'facebook'    => 'https://www.facebook.com/brendacaroline.conttessotto',
                 'author_blog' => 'brenda'],
 
@@ -81,7 +81,7 @@ class HomeController extends Controller
             (object) [
                 'name'        => 'Gabriel Ferreira',
                 'img'         => 'img/team/gabriel.jpg',
-                'description' => 'Faz tudo e mochileiro',
+                'description' => 'Escritor, roterista e mochileiro',
                 'facebook'    => 'https://www.facebook.com/profile.php?id=100004880953329',
                 'author_blog' => 'gab'],
         ];

@@ -1,16 +1,22 @@
 @extends('project.general')
 
-@section('title') 
-{{ trans('project.contato-title') }} 
+@section('title')
+{{ trans('project.contato-title') }}
 @stop
 @section('content')
-<div class="uk-container uk-container-center contact-section">
-    <div class="uk-grid" data-uk-grid>
+<div class="thumbnav">
+    <div class="uk-container uk-container-center">
+        <h1>Créditos</h1>
+    </div>
+</div>
+<div class="white">
+<div class="uk-container uk-container-center ">
+    <div class="uk-grid uk-margin-large-top" data-uk-grid>
         <div class="uk-width-1-1 uk-width-medium-1-2 uk-width-large-2-3">
             <div class="uk-panel">
                 <h2>{{ trans('project.contato-title') }}</h2>
                 <form class="uk-form uk-form-stacked" action="{{ url('/contato')}}" method="POST">
-                    {!! csrf_field() !!} {!! Honeypot::generate('form_name', 'form_time') !!} 
+                    {!! csrf_field() !!} {!! Honeypot::generate('form_name', 'form_time') !!}
                     @foreach ($errors->all() as $error)
                     <div class="uk-alert uk-alert-danger" data-uk-alert>
                         <a href="#" class="uk-alert-close uk-close"></a>
@@ -71,5 +77,6 @@
         </div>
     </div>
     <hr class="uk-grid-divider">
+</div>
 </div>
 @stop

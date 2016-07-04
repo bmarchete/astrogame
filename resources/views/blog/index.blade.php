@@ -6,13 +6,14 @@
 @stop
 
 @section('content')
-<div class="blog-header">
+<div class="thumbnav">
     <div class="uk-container uk-container-center">
         <h1>Desastronautas</h1>
     </div>
 </div>
+<div class="white">
 <div class="uk-container uk-container-center uk-margin-large-top blog">
-    <div class="uk-grid" data-uk-grid-margin>
+    <div class="uk-grid uk-margin-large-top" data-uk-grid-margin>
         <div class="uk-width-medium-3-4">
             @if (empty($posts->first())) Não encontramos nenhum post relacionado :( @else @foreach ($posts as $post)
             <article class="uk-article">
@@ -56,5 +57,5 @@
     </div>
 </div>
 </div>
-<hr class="uk-grid-divider">
+</div>
 @stop
