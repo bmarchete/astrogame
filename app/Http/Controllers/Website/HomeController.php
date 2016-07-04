@@ -53,8 +53,8 @@ class HomeController extends Controller
             'description' => 'Programador, roterista, front-end, designer e mochileiro',
             'facebook'    => 'https://www.facebook.com/eduardoaugustoramos',
             'twitter'     => 'https://twitter.com/EduardoRamos__',
-            'github'      => 'http://github.com/Ablon',
-            'blog'        => 'http://astrogame.localhost/desastronautas/author/edu'],
+            'github'      => 'http://github.com/eduduardo',
+            'author_blog' => 'edu'],
 
             (object) [
                 'name'        => 'Adriano Faboci',
@@ -62,14 +62,14 @@ class HomeController extends Controller
                 'description' => 'Um jovem amante da música, além de um viciado em series e jogos eletrônicos!',
                 'facebook'    => 'https://www.facebook.com/adriano.faboci',
                 'instagram'   => 'https://www.instagram.com/adriano_faboci/',
-                'blog'        => 'http://astrogame.localhost/desastronautas/author/adriano'],
+                'author_blog' => 'adriano'],
 
             (object) [
                 'name'        => 'Brenda Conttessotto',
                 'img'         => 'img/team/bre.jpg',
                 'description' => 'Faz tudo',
                 'facebook'    => 'https://www.facebook.com/brendacaroline.conttessotto',
-                'blog'        => 'http://astrogame.localhost/desastronautas/author/brenda'],
+                'author_blog' => 'brenda'],
 
             (object) [
                 'name'        => 'Laís Vitória',
@@ -78,27 +78,19 @@ class HomeController extends Controller
                 'facebook'    => 'https://www.facebook.com/laisvitoria.granziera',
                 'instagram'   => 'https://www.instagram.com/lais_granziera/',
                 'devianart'   => 'http://artbygranziera.deviantart.com/',
-                'blog'        => 'http://astrogame.localhost/desastronautas/author/lais'],
+                'author_blog' => 'lais'],
 
             (object) [
                 'name'        => 'Gabriel Ferreira',
                 'img'         => 'img/team/gabriel.jpg',
                 'description' => 'Faz tudo e mochileiro',
                 'facebook'    => 'https://www.facebook.com/profile.php?id=100004880953329',
-                'blog'        => 'http://astrogame.localhost/desastronautas/author/gab'],
+                'author_blog' => 'gab'],
         ];
         return view('project.team', ['team' => $team, 'page' => 'equipe']);
     }
 
-    /**
-     * Página sobre do contato
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function contato()
-    {
-        return view('project.contact', ['page' => 'contato']);
-    }
+    
 
     /**
      * Página de termos de uso
@@ -119,7 +111,7 @@ class HomeController extends Controller
     {
         return view('project.politica', ['page' => 'politica']);
     }
-    
+
     /**
      * Página de créditos e referencias
      *
@@ -150,35 +142,5 @@ class HomeController extends Controller
             exit('Essa linguagem não é suportada.');
         }
         return redirect()->back();
-    }
-
-    /**
-     * Enviar formulário de contato para a equipe
-     *
-     * @param object Request
-     * @return \Illuminate\Http\Response
-     */
-    public function enviar_contato(Request $request)
-    {
-        $data      = ['name' => $request->name, 'email' => $request->email, 'mensagem' => $request->mensagem, 'form_name' => $request->form_name, 'form_time' => $request->form_time];
-        $validator = Validator::make($data, [
-            'name'      => 'required|max:255',
-            'email'     => 'required|email|max:255',
-            'mensagem'  => 'required|min:6',
-            'form_name' => 'honeypot',
-            'form_time' => 'required|honeytime:10',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('contato')->withErrors($validator)->withInput();
-        }
-
-        if (Mail::send('emails.contact', $data, function ($message) use ($data) {
-            $message->from($data['email'], $data['name']);
-            $message->subject('Contato de ' . $data['name']);
-            $message->to('contato@astrogame.com.br');
-        })) {
-            return redirect('contato')->with(['status' => true]);
-        }
     }
 }

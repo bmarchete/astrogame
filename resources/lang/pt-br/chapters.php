@@ -41,17 +41,17 @@ return [
 		
 	],
 
-	'chapter1' =>
+	'copernico' =>
 	[
 		'title' => 'Copérnico',
 		'header-title' => 'Capítulo II (Copérnico)', 
 		'header-description' => 'Capítulo sobre sistema solar e copernico',
 
-		'fala1' => 'As estrelas nascem a partir de grande nuvens formadas de gases, poeira e partículas sólidas, chamadas nebulosas....',
-		'fala2' => 'Dentro da nebulosa, esses gases e poeira se agrupam por causa da força da gravidade, formando assim as estrelas.',
-		'fala3' => 'Parece estranho, mas quando olhamos para uma estrela, estamos vendo o seu passado.',
-		'fala4' => 'Quando observamos uma estrela, estamos vendo a luz que ela emitiu para o espaço, e essa luz demora para chegar até nós, mesmo sendo muito rápida.',
-		'fala5' => 'Se a estrela estiver bem longe, bem longe mesmo, ela pode até já não existir mais...',
+		'fala1' => 'Olá aspirante! Seja bem-vindo ao Astrogame! Meu nome é Copérnico e te guiarei em seus primeiros passos nessa grande aventura!',
+		'fala2' => 'Eu fui um grande astrônomo e sou considerado o pai da astronomia moderna devido à teoria criada por mim: <b>O Heliocentrismo</b>',
+		'fala3' => 'Para que você possa explorar o Universo, precisará entender como a própria Terra funciona e como ela se comporta. Neste capítulo iremos aprender sobre a Teoria do Heliocentrismo!',
+		'fala4' => 'Há muito tempo, acreditava-se que a Terra era o centro de todo o Universo...',
+		'fala5' => 'Esse pensamento ficou conhecido como A Teoria do Geocentrismo.',
 		'fala6' => '',
 		'fala7' => '',
 		'fala8' => '',

@@ -19,5 +19,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'nickname' => str_random(10),
         'type' => 1,
         'remember_token' => str_random(10),
+        'xp' => rand(200, 10000),
+        'level' => rand(1, 13)
     ];
 });

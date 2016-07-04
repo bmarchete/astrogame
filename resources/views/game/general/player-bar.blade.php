@@ -13,7 +13,6 @@ function change_xp(xp){
 
         $("#volume-music").change(function(){
             var volume=$(this).val();
-            console.log("Music volume set to: " + volume + "%");
             music_background.setVolume(volume);
             $.ajax({
               url: '{{ URL('/game/music') }}/' + volume 
@@ -24,7 +23,6 @@ function change_xp(xp){
 
         $("#volume-sound").change(function(){
             var volume=$(this).val();
-            console.log("Sound effects volume set to: " + volume + "%");
         });
 
         $(".user-config").ajaxForm({
@@ -37,6 +35,8 @@ function change_xp(xp){
                         if(data[i].avatar){
                             $(".avatar").attr('src', $(".avatar").attr('src') + '?' + Math.random());
                         }
+                        $("#old_password").val();
+                        $("#new_password").val();
                    } else {
                         UIkit.notify("<i class='uk-icon-close'></i> " + data[i].text, {status:'danger', pos: 'top-right'});
                    }  

@@ -13,7 +13,7 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {    
+Route::group(['middleware' => ['web']], function () {
 	// auth
 	Route::auth();
 
@@ -22,10 +22,13 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/home', 'HomeController@home');
 	Route::get('/sobre', 'HomeController@sobre');
 	Route::get('/equipe', 'HomeController@equipe');
-	Route::get('/contato', 'HomeController@contato');
 	Route::get('/termos', 'HomeController@termos');
 	Route::get('/politica', 'HomeController@politica');
 	Route::get('/credits', 'HomeController@credits');
+
+	// website-contact
+	Route::get('/contato', 'ContactController@index');
+	Route::post('/contato', 'HomeController@store');
 
 	// website-blog
 	Route::get('/desastronautas/category/{category}', 'BlogController@category')->where('category', '[a-z-]+');
@@ -35,16 +38,15 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/desastronautas/search', 'BlogController@search');
 	Route::get('/desastronautas', 'BlogController@index');
 
-	// post
-	Route::post('/contato', 'HomeController@enviar_contato');
+	// language
 	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
-	
+
 	// public profile
 	Route::get('/player/{id}', 'GameController@player')->where('id', '[0-9]+');
 	Route::get('/ranking', 'GameController@ranking');
 
 	// website-game
-	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {    
+	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {
 		Route::get('/', 'ChapterController@index');
 		Route::get('/campaign', 'GameController@campaing_map');
 		Route::get('/exploration', 'ExplorationController@index');
@@ -72,7 +74,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/tutorial', 'ChapterController@tutorial');
 		Route::get('/chapter1', 'ChapterController@chapter1');
 		Route::get('/chapter2', 'ChapterController@chapter2');
-		
+
 	});
 
 	// social login

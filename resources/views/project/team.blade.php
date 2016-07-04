@@ -25,7 +25,7 @@
                             @endif @if (!empty($member->github))
                             <a href="{{ $member->github }}" class="uk-icon-button uk-icon-github"></a>
                             @endif @if (!empty($member->blog))
-                            <a href="{{ $member->blog }}" class="uk-icon-button uk-icon-pencil"></a>
+                            <a href="{{ url('/desastronautas/author/') . '/' . $member->author_blog }}" class="uk-icon-button uk-icon-pencil"></a>
                             @endif
                         </div>
                     </figcaption>

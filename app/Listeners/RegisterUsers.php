@@ -42,10 +42,11 @@ class RegisterUsers
 
         // confirmação
         $data = ['name' => $event->user->name, 'email' => $event->user->email, 'confirm_code' => $event->user->confirm_code];
-        Mail::send('emails.verify', $data, function ($message) use ($data) {
+        /*Mail::send('emails.verify', $data, function ($message) use ($data) {
             $message->from('no-reply@astrogame.com.br', 'Astrogame');
             $message->subject('Confirmação do Astrogame');
             $message->to($data['email']);
         });
+        */
     }
 }
