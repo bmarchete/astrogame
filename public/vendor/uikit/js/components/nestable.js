@@ -1,4 +1,4 @@
-/*! UIkit 2.25.0 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
+/*! UIkit 2.26.3 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 /*
  * Based on Nestable jQuery Plugin - Copyright (c) 2012 David Bushell - http://dbushell.com/
  */
@@ -130,7 +130,8 @@
 
             var onStartEvent = function(e) {
 
-                var handle = UI.$(e.target);
+                var handle = UI.$(e.target),
+                    link   = handle.is('a[href]') ? handle:handle.parents('a[href]');
 
                 if (e.target === $this.element[0]) {
                     return;
@@ -161,6 +162,8 @@
 
                 $this.delayMove = function(evt) {
 
+                    link = false;
+
                     evt.preventDefault();
                     $this.dragStart(e);
                     $this.trigger('start.uk.nestable', [$this]);
@@ -171,6 +174,15 @@
                 $this.delayMove.x         = parseInt(e.pageX, 10);
                 $this.delayMove.y         = parseInt(e.pageY, 10);
                 $this.delayMove.threshold = $this.options.idlethreshold;
+
+                if (link.length && eEnd == 'touchend') {
+
+                    $this.one(eEnd, function(){
+                        if (link && link.attr('href').trim()) {
+                            location.href = link.attr('href');
+                        }
+                    });
+                }
 
                 e.preventDefault();
             };
@@ -236,10 +248,12 @@
                             item  = {}, attribute,
                             sub   = li.children(list.options._listClass);
 
-                        for (var i = 0; i < li[0].attributes.length; i++) {
+                        for (var i = 0, attr, val; i < li[0].attributes.length; i++) {
                             attribute = li[0].attributes[i];
                             if (attribute.name.indexOf('data-') === 0) {
-                                item[attribute.name.substr(5)] = UI.Utils.str2json(attribute.value);
+                                attr       = attribute.name.substr(5);
+                                val        =  UI.Utils.str2json(attribute.value);
+                                item[attr] = (val || attribute.value=='false' || attribute.value=='0') ? val:attribute.value;
                             }
                         }
 
