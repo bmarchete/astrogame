@@ -1,14 +1,22 @@
 @extends('project.general')
 
-@section('title') 503 | Voltamos logo @stop
+@section('title') 503 | Em manutenção @stop
 
 @section('content')
-<div class="uk-container uk-container-center uk-text-center" style="padding: 180px 0;">
-	<div class="uk-grid" data-uk-grid>
-		<div class="uk-width-1-1">
-			<h1>Parece que deu ruim :(</h1>
-			<h3>Logo, logo voltamos</h3>
-		</div>
-	</div>
+<div class="galileu ranking">
+    <div class="uk-grid" data-uk-grid="">
+        <div class="uk-container uk-container-center">
+            <div class="uk-vertical-align-middle">
+                <div class="uk-width-2-3 uk-container-center uk-text-center">
+                    <span class="bubble">
+                      <img src="img/telescope-not.png" width="150" class="uk-animation uk-animation-hover uk-animation-scale">
+                      <p>Estamos em manutenção! Logo voltamos a explorar o universo!</span>
+                </div>
+                <div class="uk-width-1-3 uk-container-center">
+                    <img class="galileu-img uk-animation-hover uk-animation-shake" alt="" src="img/char/galileu.png">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @stop
