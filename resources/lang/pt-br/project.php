@@ -16,12 +16,17 @@ return [
 		'blog' => 'Desastronautas',
 	],
 
-	'home-title' => 'ASTRO GAME',
-	'home-description' => 'Jogo online com uma plataforma interativa onde você irá explorar o Cosmos em seu sentido mais amplo possível. Venha se aventurar conosco!',
+	'home-title' => 'Bem Vindo Aventureiro!',
+	'home-subtitle' => 'Preparado para explorar o universo?',
+	'home-description' => 'Entre em nossa plataforma interativa onde você irá explorar o Cosmos, conhecer sobre grandes nomes da astronomia e aprender sobre as estrelas, os planetas, o universo e tudo mais!',
 
-	'jogar' => 'Voltar ao jogo',
+	'jogar' => 'Voltar ao jogo!',
+	'enter' => 'Entrar no unvierso!',
+	'play'  => 'Jogar!',
 
 	'home-text' => [
+		'screenshot' => 'Screenshot da tela inicial do jogo',
+
 		'title1' => 'Level UP!',
 		'text1' => 'Ganhe experiência com seu personagem para desbloquear conteúdos de lugares cada vez mais distantes no universo!',
 
@@ -30,6 +35,14 @@ return [
 
 		'title3' => 'Conquiste seu lugar no pódio!',
 		'text3' => 'Faça o seu melhor para ficar entre os primeiros do nosso ranking!',
+
+		'title4' => 'Sobre o Astrogame',
+		'text4' => 'Astrogame é um projeto de conclusão de curso (TCC) feito durante o ano de 2016 na ETEC Pedro Ferreira Alves no curso de Ensino Médio Integrado a Informática para Internet.',
+		'text5' => 'Trata-se de uma plataforma online que disponibiliza conteúdo de astronomia, de forma interativa e de fácil compreensão, sendo o principal meio por um jogo educativo.',
+		'text6' => 'O objetivo é suprir o déficit atual de informações acessíveis e de simples entendimento para estudantes e interessados em geral sobre astronomia.',
+
+		'text7' => 'Olá peregrino, você me conhece? Ai meus modos, nem me apresento, meu nome é Galileu Galiei, contribui muito para diversos assuntos relacionados a astronomia e estou dentro do astrogame para te ajudar em suas descobertas, clique no link para entrar no jogo!',
+
 	],
 
 	// login
@@ -60,6 +73,7 @@ return [
 
 	// contato
 	'contato-title' => 'Entre em contato conosco',
+	'contato-description' => 'Críticas, sugestões, dúvidas, parcerias, nos mande o que quiser, menos SPAM!',
 	'your-name' => 'Seu nome',
 	'your-email' => 'Seu email',
 	'your-message' => 'Sua mensagem',

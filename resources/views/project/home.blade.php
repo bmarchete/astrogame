@@ -13,11 +13,11 @@
 <div class="uk-container uk-margin-large-top uk-container-center uk-text-center-small">
     <div class="uk-grid" data-uk-grid-margin="">
         <div class="uk-vertical-align-middle uk-width-medium-3-6 uk-margin-large-top welcome">
-            <h1>Bem Vindo Aventureiro!</h1>
-            <h2>Preparado para explorar o universo?</h2>
-            <p class="uk-text-muted">Entre em nossa plataforma interativa onde você irá explorar o Cosmos, conhecer sobre grandes nomes da astronomia e aprender sobre as estrelas, os planetas, o universo e tudo mais!</p>
-            @if (auth()->check())
-            <p><a class="action-button shadow animate red" href="#login" data-uk-modal=""><i class="uk-icon uk-icon-rocket"></i> Entrar no universo!</a></p>
+            <h1>{{trans('project.home-title')}}</h1>
+            <h2>{{ trans('project.home-subtitle')}}</h2>
+            <p class="uk-text-muted">{{ trans('project.home-description')}}</p>
+            @if (!auth()->check())
+            <p><a class="action-button shadow animate red" href="#login" data-uk-modal=""><i class="uk-icon uk-icon-rocket"></i> {{ trans('project.enter') }}</a></p>
             @else
             <p><a class="action-button shadow animate green" href="{{url('/game')}}"><i class="uk-icon uk-icon-gamepad"></i> {{trans('project.jogar')}}</a></p>
             @endif
@@ -51,20 +51,18 @@
         <div class="uk-grid" data-uk-grid="">
             <div class="uk-width-medium-1-2">
                 <figure class="uk-overlay uk-overlay-hover">
-                    <img alt="screenshot do astrogame" class="uk-thumbnail uk-overlay-spin" height="" src="img/screenshot.png" width="">
+                    <img alt="screenshot do astrogame" class="uk-thumbnail uk-overlay-spin" src="img/screenshot.png" width="" height="">
                     <figcaption class="uk-overlay-panel uk-overlay-slide-top">
-                        Screenshot da tela inicial do jogo
+                        {{ trans('project.home-text.screenshot')}}
                     </figcaption>
                 </figure>
             </div>
             <div class="uk-width-medium-1-2">
-                <h1>Sobre o Astrogame</h1>
-                <p>Astrogame é um projeto de conclusão de curso (TCC) feito durante o ano de 2016 na ETEC Pedro Ferreira Alves no curso de Ensino Médio Integrado a Informática para Internet. </p>
-                <p>Trata-se de uma plataforma online que disponibiliza conteúdo de astronomia, de forma interativa e de fácil compreensão, sendo o principal meio por um jogo educativo.
-                    <p>
-                        <p>O objetivo é suprir o déficit atual de informações acessíveis e de simples entendimento para estudantes e interessados em geral sobre astronomia.</p>
-
-                        <a class="action-button shadow animate blue" href="#"><i class="uk-icon uk-icon-gamepad"></i> Jogar!</a>
+                <h1>{{ trans('project.home-text.title4') }}</h1>
+                <p>{{ trans('project.home-text.text4') }}</p>
+                <p>{{ trans('project.home-text.text5') }}</p>
+                <p>{{ trans('project.home-text.text6') }}</p>
+                <a class="action-button shadow animate blue" href="#login" data-uk-modal><i class="uk-icon uk-icon-gamepad"></i> {{ trans('project.play') }}</a>
             </div>
         </div>
     </div>
@@ -74,23 +72,21 @@
         <div class="uk-container uk-container-center">
             <div class="uk-vertical-align-middle">
                 <div class="uk-width-1-3 uk-container-center">
-                    <span class="bubble">Olá peregrino, você me conhece? Ai meus modos, nem me apresento, meu nome é Galileu Galiei, contribui muito para diversos assuntos relacionados a astronomia e estou dentro do astrogame para te ajudar em suas descobertas, clique no link para entrar no jogo!</span>
+                    <span class="bubble">{{ trans('project.home-text.text7') }}</span>
                 </div>
                 <div class="uk-width-1-3 uk-container-center">
-                    <img class="galileu-img uk-animation-hover uk-animation-shake" alt="" src="img/char/galileu.png">
+                    <img class="galileu-img uk-animation-hover uk-animation-shake" alt="" src="{{ url('/img/char/galileu.png')}}">
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="contact">
     <div class="uk-container uk-container-center">
         <h1 class="uk-heading-large">{{ trans('project.contato-title') }}</h1>
-        <p class="uk-text-large">Críticas, sugestões, dúvidas, parcerias, nos mande o que quiser, menos SPAM!</p>
+        <p class="uk-text-large">{{ trans('project.contato-description')}}</p>
 
         <div class="uk-grid" data-uk-grid>
-
             <div class="uk-width-2-3">
               <form class="uk-form uk-form-stacked" action="{{ url('/contato')}}" method="POST">
                   {!! csrf_field() !!} {!! Honeypot::generate('form_name', 'form_time') !!}
