@@ -31,14 +31,6 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-form-row uk-hidden-touch">
-                <div class="uk-form-controls">
-                    <label class="uk--label" for="enable-cursos">
-                        <input type="checkbox" name="cursor">
-                        <i class="uk-icon-mouse-pointer"></i> {{ trans('game.cursor') }}
-                    </label>
-                </div>
-            </div>
         </form>
     </div>
 </div>
