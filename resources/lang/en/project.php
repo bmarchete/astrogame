@@ -1,11 +1,9 @@
 <?php
 
-// lang: en
-
 return [
 
-	'project-name' => 'Astro Game',
-	'title' => 'Astro Game',
+	'project-name' => 'Astrogame',
+	'title' => 'Astrogame | A journey to the knowledge of the Universe',
 
 	'navbar' => [
 		'home' => 'Home',
@@ -13,21 +11,29 @@ return [
 		'equipe' => 'Team',
 		'contato' => 'Contact',
 		'ranking' => 'Ranking',
-		'blog' => 'Blog',
 	],
 
-	'home-title' => 'ASTRO GAME',
-	'home-description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh lectus, congue sit amet fermentum nec, gravida non diam. Duis tincidunt risus mauris, sit',
+	'home-title' => 'Welcome adventurer!',
+	'home-subtitle' => 'Are you ready for explorer the universe?',
+	'home-description' => 'Join our interactive platform and explore the Cosmos, meet the big names of astronomy and learn about the stars, the planets, the universe and everything else!',
+
+	'jogar' => 'Back to the game!',
+	'enter' => 'Enter in the Universe!',
+	'play'  => 'Play!',
 
 	'home-text' => [
+		'screenshot' => 'Screenshot of the initial game\'s screen',
 		'title1' => 'Level UP!',
 		'text1' => 'Win experience with your character for unlock new contents of more far way places on the universe',
 
-		'title2' => 'Aprenda com experts no assunto!',
+		'title2' => 'Learn from the experts!',
 		'text2' => 'Durante a sua jornada uma ajudinha sempre é bem-vinda, e quem melhor para nos auxiliar do que  Copérnico, Carl Sagan e outros ícones da Astronomia?',
 
-		'title3' => 'Conquiste seu lugar no pódio!',
-		'text3' => 'Faça o seu melhor para ficar entre os primeiros do nosso ranking!',
+		'title3' => 'Conquer your place on the podium!',
+		'text3' => 'Do your best for stay at the top in our ranking!',
+
+		'title4' => 'About the Astrogame',
+
 	],
 
 	'login' => 'Login',
@@ -36,8 +42,6 @@ return [
 	'politica' => 'Privacy Politics',
 	'senha' => 'Password',
 	'submit' => 'Entrar',
-
-	'jogar' => 'Back to the Game',
 
 	'remember' => 'Remember me',
 	'forget-password' => "Forget your password?",
@@ -51,9 +55,11 @@ return [
 	'follow-us' => 'Follow Us',
 	'name-placeholder' => 'Name',
 	'email-placeholder' => 'example@example.com',
+	'contato' => 'Contact',
 
 	// footer
-	'made-by' => 'Made with <i class="uk-icon-heart"></i> by 3EMIA',
+	'made-by' => 'Made with <i class="uk-icon-heart"></i> by 3 EMIA - 2016',
+	'credits' => 'Credits',
 
 	// cadastro
 	'name' => 'Name',

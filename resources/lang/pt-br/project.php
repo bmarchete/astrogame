@@ -13,7 +13,6 @@ return [
 		'equipe' => 'Equipe',
 		'contato' => 'Contato',
 		'ranking' => 'Ranking',
-		'blog' => 'Desastronautas',
 	],
 
 	'home-title' => 'Bem Vindo Aventureiro!',
@@ -75,6 +74,7 @@ return [
 	'termos-2' => 'termos de uso',
 
 	// contato
+	'contato' => 'Contato', 
 	'contato-title' => 'Entre em contato conosco',
 	'contato-description' => 'Críticas, sugestões, dúvidas, parcerias, nos mande o que quiser, menos SPAM!',
 	'your-name' => 'Seu nome',

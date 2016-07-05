@@ -48,7 +48,7 @@ class HomeController extends Controller
         $team = [(object) [
             'name'        => 'Eduardo Ramos',
             'img'         => 'img/team/edu.jpg',
-            'description' => 'Programador, roterista, front-end, designer, sysadmin e mochileiro',
+            'description' => 'Programador, roteirista, front-end, designer, sysadmin e mochileiro',
             'facebook'    => 'https://www.facebook.com/eduardoaugustoramos',
             'twitter'     => 'https://twitter.com/EduardoRamos__',
             'github'      => 'http://eduduardo.github.io',
@@ -58,7 +58,7 @@ class HomeController extends Controller
             (object) [
                 'name'        => 'Adriano Faboci',
                 'img'         => 'img/team/adriano.jpg',
-                'description' => 'Game designer, roterista e mochileiro',
+                'description' => 'Game designer, roteirista e mochileiro',
                 'facebook'    => 'https://www.facebook.com/adriano.faboci',
                 'instagram'   => 'https://www.instagram.com/adriano_faboci/',
               ],
@@ -68,12 +68,14 @@ class HomeController extends Controller
                 'img'         => 'img/team/bre.jpg',
                 'description' => 'Escritora e mochileira',
                 'facebook'    => 'https://www.facebook.com/brendacaroline.conttessotto',
+                'instagram'   => 'https://www.instagram.com/breconttessotto/',
+                'twitter'     => 'https://twitter.com/breconttessotto',
                 ],
 
             (object) [
                 'name'        => 'Laís Vitória',
                 'img'         => 'img/team/lais.jpg',
-                'description' => 'Artista, roterista, escritora, designer e mochileira',
+                'description' => 'Artista, roteirista, escritora, designer e mochileira',
                 'facebook'    => 'https://www.facebook.com/laisvitoria.granziera',
                 'instagram'   => 'https://www.instagram.com/lais_granziera/',
                 'devianart'   => 'http://artbygranziera.deviantart.com/',
@@ -82,8 +84,9 @@ class HomeController extends Controller
             (object) [
                 'name'        => 'Gabriel Ferreira',
                 'img'         => 'img/team/gabriel.jpg',
-                'description' => 'Escritor, roterista e mochileiro',
+                'description' => 'Escritor, roteirista e mochileiro',
                 'facebook'    => 'https://www.facebook.com/profile.php?id=100004880953329',
+                'twitter'     => 'https://twitter.com/GabrielfilipeF',
                 ],
         ];
         return view('project.team', ['team' => $team, 'page' => 'equipe']);

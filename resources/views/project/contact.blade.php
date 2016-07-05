@@ -6,7 +6,7 @@
 @section('content')
 <div class="thumbnav">
     <div class="uk-container uk-container-center">
-        <h1>Créditos</h1>
+        <h1>{{ trans('project.contato') }}</h1>
     </div>
 </div>
 <div class="white">
@@ -59,19 +59,17 @@
             <div class="uk-panel uk-panel-box uk-panel-box-secondary">
                 <h3 class="uk-panel-title">{{ trans('project.project-name') }}</h3>
                 <p>
-                    <strong>ETEC Pedro Ferreira Alves</strong>
+                    <strong><a href="http://www.pfalves.com.br/">ETEC Pedro Ferreira Alves</a></strong>
                     <br>Mogi Mirim, São Paulo
                     <br>Brazil
                 </p>
                 <p>
-                    <a href="mailto:contato@astrogame.com.br">contato@astrogame.com.br</a>
-                    <br><a href="https://twitter.com/@astrogame">@astrogame</a>
+                    <a href="mailto:eduardo@astrogame.com.br">eduardo@astrogame.com.br</a>
                     <br>
                 </p>
                 <h3 class="uk-h4">{{ trans('project.follow-us') }}</h3>
                 <p>
                     <a href="https://www.facebook.com/cosmosexpoete" class="uk-icon-button uk-icon-facebook"></a>
-                    <a href="#" class="uk-icon-button uk-icon-instagram"></a>
                 </p>
             </div>
         </div>
