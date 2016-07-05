@@ -15,7 +15,7 @@ function change_xp(xp){
             var volume=$(this).val();
             music_background.setVolume(volume);
             $.ajax({
-              url: '{{ URL('/game/music') }}/' + volume 
+              url: '{{ URL('/game/music') }}/' + volume
               // talvez otimizar para não ficar requisitando toda hora para o servidor
             })
 
@@ -39,9 +39,9 @@ function change_xp(xp){
                         $("#new_password").val();
                    } else {
                         UIkit.notify("<i class='uk-icon-close'></i> " + data[i].text, {status:'danger', pos: 'top-right'});
-                   }  
+                   }
                 };
-                 
+
             }
         });
 
@@ -55,8 +55,8 @@ function change_xp(xp){
                         UIkit.notify("<i class='uk-icon-check'></i> " + data.text, {status:'success', pos: 'top-right'});
                    } else {
                         UIkit.notify("<i class='uk-icon-close'></i> " + data.text, {status:'danger', pos: 'top-right'});
-                   }    
-               } 
+                   }
+               }
            });
 
         $("#lang-select").change(function(){
@@ -87,7 +87,7 @@ function change_xp(xp){
               });
         });
 
-        
+
 
         $(".quest-avaliable").change(function() {
             var id = $(this).val();
@@ -114,13 +114,13 @@ function change_xp(xp){
                     } else {
                         if(item == 1){ // luneta simples
                             if (typeof buyTutorialHander == 'function'){
-                             buyTutorialHander(); 
+                             buyTutorialHander();
                             }
                         }
 
                         if(item == 2){ // guia das estrelas
                             if (typeof buyTutorialLivroHandler == 'function'){
-                             buyTutorialLivroHandler(); 
+                             buyTutorialLivroHandler();
                             }
                         }
 
@@ -200,7 +200,6 @@ function change_xp(xp){
         <div class="uk-width-large-5-10 uk-hidden-small uk-hidden-medium">
             <div class="uk-button-group">
                 <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
-                <button href="{{ URL('/game/exploration') }}" class="uk-button uk-button-success" title="Recurso não disponível" data-uk-tooltip disabled="true"><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</button>
                 <button data-uk-modal="{target:'#calendar'}" class="uk-button" title="Quando o cometa Halley passará novamente?" data-uk-tooltip><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
                 <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" title="Hora de observar o céu!" data-uk-tooltip><i class="uk-icon-search"></i> {{ trans('game.observatory') }}</a>
                 <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-danger" title="Vamos gastar um pouco de dinheiro!" data-uk-tooltip><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
@@ -212,7 +211,6 @@ function change_xp(xp){
             <div class="uk-dropdown uk-dropdown-bottom">
                 <ul class="uk-nav uk-nav-dropdown">
                     <li><a href="{{ URL('/game/campaign') }}" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a></li>
-                    <li><a href="{{ URL('/game/exploration') }}" title="Volte todos os dias aqui!" data-uk-tooltip><i class="uk-icon-space-shuttle"></i> {{ trans('game.exploration') }}</a></li>
                     <li class="uk-nav-divider"></li>
                     <li><a href="{{ URL('/game/observatory')}}" title="Hora de observar o céu!" data-uk-tooltip><i class="uk-icon-search"></i> {{ trans('game.observatory') }}</a></li>
                     <li><a href="#" data-uk-modal="{target:'#calendar'}" title="Quando o cometa Halley passará novamente?" data-uk-tooltip><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</a></li>
@@ -226,4 +224,3 @@ function change_xp(xp){
     </div>
 </div>
 @include('game.general.modals')
-
