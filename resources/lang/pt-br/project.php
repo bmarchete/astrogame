@@ -54,6 +54,7 @@ return [
 	'forget-password' => 'Esqueceu a senha?',
 	'email' => 'Email',
 	'email-or-nickname' => 'Email ou nickname',
+	'nickname' => 'Nickname',
 	'password' => 'Senha',
 	'register' => 'Criar Conta',
 
@@ -70,6 +71,8 @@ return [
 	'facebook' => 'Facebook',
 	'google' => 'Logar com google',
 	'confirm-password' => 'Repetir a senha',
+	'termos-1' => 'Aceito os',
+	'termos-2' => 'termos de uso',
 
 	// contato
 	'contato-title' => 'Entre em contato conosco',

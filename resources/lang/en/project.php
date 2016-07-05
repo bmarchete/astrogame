@@ -72,8 +72,11 @@ return [
 	'forget-password' => 'Forget your password?',
 	'email' => 'Email',
 	'email-or-nickname' => 'Email or nickname',
+	'nickname' => 'Nickname',
 	'password' => 'Password',
 	'register' => 'Create account',
+	'termos-1' => 'I accept',
+	'termos-2' => 'the user\'s terms',
 
 	// team
 	'team' => 'Desastronautas Team',

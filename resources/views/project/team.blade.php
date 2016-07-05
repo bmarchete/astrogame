@@ -14,7 +14,7 @@
         <div class="uk-width-medium-1-5 uk-text-center">
             <div class="uk-thumbnail uk-overlay-hover uk-border-circle">
                 <figure class="uk-overlay">
-                    <img class="uk-border-circle" width="250" height="250" src="{{ $member->img }}" alt="">
+                    <img class="uk-border-circle" width="250" height="250" src="{{ $member->img }}" alt="{{ $member->name }}">
                     <figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
                         <div>
                             @if (!empty($member->facebook))
@@ -27,8 +27,6 @@
                             <a href="{{ $member->devianart }}" class="uk-icon-button uk-icon-deviantart"></a>
                             @endif @if (!empty($member->github))
                             <a href="{{ $member->github }}" class="uk-icon-button uk-icon-github"></a>
-                            @endif @if (!empty($member->blog))
-                            <a href="{{ url('/desastronautas/author/') . '/' . $member->author_blog }}" class="uk-icon-button uk-icon-pencil"></a>
                             @endif
                         </div>
                     </figcaption>
@@ -47,7 +45,7 @@
     <div class="uk-width-1-1 uk-width-large-2-4">
         <div class="uk-thumbnail uk-overlay-hover ">
             <figure class="uk-overlay">
-                <img src="img/home-section4.jpg" alt="">
+                <img src="img/home-section4.jpg" alt="Equipe Desastronautas">
                 <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle"> {{ trans('project.team-figcaption')}} </figcatipon>
             </figure>
         </div>

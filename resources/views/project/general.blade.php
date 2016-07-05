@@ -20,7 +20,7 @@
 <body>
   <nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
-          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="#"><img alt="astrogame logo" class='logo' src="img/logo-full.png"></a>
+          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="#"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
           <ul class="uk-navbar-nav uk-hidden-small">
             @if (!isset($page))
             <?php
@@ -58,17 +58,16 @@
           </ul>
       </div>
   </div>
+    @yield('content')
+    @include('project.footer')
 
-
-
-    @yield('content') @include('project.footer')
     <div id="login" class="uk-modal">
         <div class="uk-modal-dialog">
             <a href="" class="uk-modal-close uk-close"></a>
             <h2>Entrar no Astrogame</h2>
             <br>
-            <form class="uk-form uk-width-4-5 uk-container-center" method="POST" action="{{url('/login')}}">
-                  {!! csrf_field() !!}
+            <form class="uk-form uk-width-1-1 uk-container-center" method="POST" action="{{url('/login')}}">
+                {!! csrf_field() !!}
 
                 <div class="uk-form-row">
                     <input class="uk-width-1-1 uk-form-large" type="text" name="login" value="" placeholder="{{ trans('project.email-or-nickname')}}" required>
@@ -82,16 +81,13 @@
                     <a class="uk-float-right uk-link uk-link-muted" href="{{ url('password/reset')}}">{{ trans('project.forget-password') }}</a>
                 </div>
                 <div class="uk-form-row">
-                    <div class="uk-grid" data-uk-grid>
-                        <div class="uk-container">
-                            <div class="uk-width-1-1">
-                                <button type="submit" class="uk-width-1-2 action-button green"><i class="uk-icon-sign-in"></i> {{trans('project.submit')}}</button>
-                                <a class="uk-width-1-2 action-button blue" href="h{{ url('login/facebook')}}"><i class="uk-icon-facebook"></i> Facebook</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#register" data-uk-modal="" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> trans('project.register')</a>
+
+                        <button type="submit" class="uk-width-1-2 action-button green"><i class="uk-icon-sign-in"></i> {{trans('project.submit')}}</button>
+                        <a class="uk-width-1-2 action-button blue" href="{{ url('login/facebook')}}"><i class="uk-icon-facebook"></i> Facebook</a>
+
+                    <a href="#register" data-uk-modal="" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register') }}</a>
                 </div>
+
             </form>
         </div>
     </div>
@@ -104,30 +100,31 @@
             <form class="uk-form uk-width-4-5 uk-container-center" method="POST" action="{{url('/login')}}">
                   {!! csrf_field() !!}
                 <div class="uk-form-row">
-                    <input class="uk-width-1-1 uk-form-large" type="text" name="nickname" value="" placeholder="project.nickname" required maxlength="60">
+                    <input class="uk-width-1-1 uk-form-large" type="text" name="nickname" value="" placeholder="{{ trans('project.nickname') }}" required maxlength="60">
                 </div>
                 <div class="uk-form-row">
                     <input class="uk-width-1-1 uk-form-large" type="email" name="email" value="" placeholder="Email" required>
                 </div>
                 <div class="uk-form-row">
-                    <input class="uk-width-1-1 uk-form-large" type="password" name="password" value="" placeholder="Senha" required>
+                    <input class="uk-width-1-1 uk-form-large" type="password" name="password" value="" placeholder="{{ trans('project.password') }}" required>
                 </div>
                 <div class="uk-form-row uk-text-small">
                     <div class="uk-float-left">
                         <input type="checkbox" name="terms" required>
-                        <label for="terms">Aceito os <a href="http://astrogame.localhost/terms">termos de uso</a></label>
+                        <label for="terms">{{ trans('project.termos-1') }} <a href="{{ url('/termos')}}">{{ trans('project.termos-2') }}</a></label>
                     </div>
-                    <a class="uk-float-right uk-link uk-link-muted" href="http://astrogame.localhost/login">Tenho uma conta</a>
+                    <a class="uk-float-right uk-link uk-link-muted" href="#login" data-uk-modal>{{ trans('project.login-register') }}</a>
                 </div>
                 <div class="uk-form-row">
                     <div class="uk-button-group">
-                        <button type="submit" class="uk-button uk-button-danger uk-button-large"><i class="uk-icon-user-plus"></i> Cadastrar</button>
-                        <a class="uk-button uk-button-primary uk-button-large" href="http://astrogame.localhost/login/facebook"><i class="uk-icon-facebook"></i> Facebook</a>
+                        <button type="submit" class="action-button shadow red"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar')}}</button>
+                        <a class="action-button shadow blue" href="{{ url('login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js'])->withFullUrl() !!} @yield('javascript')
+    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js'])->withFullUrl() !!}
+    @yield('javascript')
 </body>
 </html>

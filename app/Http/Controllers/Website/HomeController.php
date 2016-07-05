@@ -51,8 +51,9 @@ class HomeController extends Controller
             'description' => 'Programador, roterista, front-end, designer, sysadmin e mochileiro',
             'facebook'    => 'https://www.facebook.com/eduardoaugustoramos',
             'twitter'     => 'https://twitter.com/EduardoRamos__',
-            'github'      => 'http://github.com/eduduardo',
-            'author_blog' => 'edu'],
+            'github'      => 'http://eduduardo.github.io',
+            'instagram'   => 'https://www.instagram.com/eduramos__/',
+            ],
 
             (object) [
                 'name'        => 'Adriano Faboci',
@@ -60,14 +61,14 @@ class HomeController extends Controller
                 'description' => 'Game designer, roterista e mochileiro',
                 'facebook'    => 'https://www.facebook.com/adriano.faboci',
                 'instagram'   => 'https://www.instagram.com/adriano_faboci/',
-                'author_blog' => 'adriano'],
+              ],
 
             (object) [
                 'name'        => 'Brenda Conttessotto',
                 'img'         => 'img/team/bre.jpg',
                 'description' => 'Escritora e mochileira',
                 'facebook'    => 'https://www.facebook.com/brendacaroline.conttessotto',
-                'author_blog' => 'brenda'],
+                ],
 
             (object) [
                 'name'        => 'Laís Vitória',
@@ -76,14 +77,14 @@ class HomeController extends Controller
                 'facebook'    => 'https://www.facebook.com/laisvitoria.granziera',
                 'instagram'   => 'https://www.instagram.com/lais_granziera/',
                 'devianart'   => 'http://artbygranziera.deviantart.com/',
-                'author_blog' => 'lais'],
+              ],
 
             (object) [
                 'name'        => 'Gabriel Ferreira',
                 'img'         => 'img/team/gabriel.jpg',
                 'description' => 'Escritor, roterista e mochileiro',
                 'facebook'    => 'https://www.facebook.com/profile.php?id=100004880953329',
-                'author_blog' => 'gab'],
+                ],
         ];
         return view('project.team', ['team' => $team, 'page' => 'equipe']);
     }
