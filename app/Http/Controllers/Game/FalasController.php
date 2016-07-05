@@ -15,6 +15,6 @@ class FalasController extends Controller
         $array = ['c2array' => true,
                   'size' => [9,1,1],
                   'data' => $chapters_falas];
-        return response()->json($array);
+        return response()->json([$array]);
     }
 }

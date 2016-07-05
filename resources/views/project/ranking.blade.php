@@ -19,8 +19,8 @@ Ranking
               <li>
                   <div class="uk-border-circle" style="width: 60px; display: inline-block">
                       <a href="{{ url('/player') . '/' . $player->id }}">
-                <img src="{{ url('users/avatar/' . md5($player->id) . '.jpg') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player->patente() }} {{ $player->name }}">
-            </a>
+                        <img src="{{ url('users/avatar/' . md5($player->id) . '.jpg') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player->patente() }} {{ $player->name }}">
+                      </a>
                   </div>
                   <ul class="uk-list" style="display: inline-block;">
                       <li><i class="uk-icon-space-shuttle"></i> {{ $player->patente($player->level) }} <a href="{{ url('/player') . '/' . $player->id }}"><strong>{{ $player->name }}</strong></a></li>
@@ -32,7 +32,7 @@ Ranking
         </div>
         @if (!auth()->check())
         <div class="uk-text-center uk-margin-top">
-          <a href="" class="action-button red">Jogar</a>
+          <a href="#login" class="action-button red" data-uk-modal>Jogar</a>
         </div>
         @endif
 
