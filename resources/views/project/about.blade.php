@@ -18,7 +18,7 @@
     <div class="uk-container uk-container-center">
     <div class="uk-grid uk-margin-large-top" data-uk-grid>
         <div class="uk-width-medium-1-2">
-            <img width="660" height="400" src="img/home-section3.jpg" alt="">
+            <img width="660" height="400" src="{{ url('img/home-section3.jpg') }}" alt="">
         </div>
         <div class="uk-width-medium-1-2">
             <h1><i class="uk-icon uk-icon-book"></i> Jogue e aprenda</h1>
@@ -47,7 +47,7 @@
                 e se divertir enquanto tem acesso ao material.</p>
         </div>
         <div class="uk-width-medium-1-2">
-            <img width="660" height="400" src="img/screenshots/screenshot (7).png" alt="">
+            <img width="660" height="400" src="{{url('img/screenshots/screenshot (7).png')}}" alt="">
         </div>
     </div>
     <hr class="uk-grid-divider">
@@ -56,7 +56,7 @@
         <div class="uk-width-medium-1-2">
             <div class="uk-thumbnail uk-overlay-hover ">
                 <figure class="uk-overlay">
-                    <img width="660" height="400" src="http://astrogame.localhost/img/history/history_1.jpg" alt="Projeto Cosmos">
+                    <img width="660" height="400" src="{{ url('img/history/history_1.jpg') }}" alt="Projeto Cosmos">
                     <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle">
                         Visita ao planetário de Campinas com a professora Marli </figcatipon>
                 </figure>
@@ -78,15 +78,15 @@
         <div class="uk-width-large-1-2 uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
             <div class="uk-thumbnail uk-overlay-hover ">
                 <figure class="uk-overlay">
-                    <img width="660" height="400" src="http://astrogame.localhost/img/history/entrada_simulador.jpg" alt="">
+                    <img width="660" height="400" src="{{ url('img/history/entrada_simulador.jpg')}}" alt="">
                     <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle">
                         Entrada do Simulador do universo </figcatipon>
                 </figure>
             </div>
         </div>
         <div class="uk-width-large-1-2 uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
-            <video class="uk-responsive-width" controls="true" poster="http://astrogame.localhost/img/history/simluador_cinema.jpg">
-                <source src="http://astrogame.localhost/videos/video_cosmos.mp4" type="video/mp4">
+            <video class="uk-responsive-width" controls="true" poster="{{ url('history/simluador_cinema.jpg')}}">
+                <source src="{{ url('videos/video_cosmos.mp4')}}" type="video/mp4">
             </video>
             <div class="uk-text-muted uk-text-center">Video do Simluador</div>
         </div>
@@ -150,12 +150,12 @@
         <div class="uk-width-large-1-2" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
             <div class="uk-slidenav-position" data-uk-slideshow="{autoplay:true}">
                 <ul class="uk-slideshow">
-                    <li><img src="http://astrogame.localhost/img/history/equipe_completa.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/equipe_com_patrocinador.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/equipe.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/equipe_2.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/equipe_5.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/equipe_6.jpg" alt=""></li>
+                    <li><img src="{{ url('img/history/equipe_completa.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/equipe_com_patrocinador.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/equipe.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/equipe_2.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/equipe_5.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/equipe_6.jpg') }}" alt=""></li>
                 </ul>
                 <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)"></a>
                 <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)"></a>
@@ -166,20 +166,20 @@
         <div class="uk-width-large-1-2" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
             <div class="uk-slidenav-position" data-uk-slideshow="{autoplay:true}">
                 <ul class="uk-slideshow">
-                    <li><img src="http://astrogame.localhost/img/history/nebulosa.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/buraco_negro.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/visitacao1.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/visitacao2.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/lousa.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/simluador_cinema.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/simluador_interno.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/simluador_projetor.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/simluador2.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/lousa.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/planetario.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/planetario_claro.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/equipe_stands.jpg" alt=""></li>
-                    <li><img src="http://astrogame.localhost/img/history/disco_da_voayger.jpg" alt=""></li>
+                    <li><img src="{{ url('img/history/nebulosa.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/buraco_negro.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/visitacao1.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/visitacao2.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/lousa.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/simluador_cinema.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/simluador_interno.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/simluador_projetor.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/simluador2.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/lousa.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/planetario.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/planetario_claro.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/equipe_stands.jpg') }}" alt=""></li>
+                    <li><img src="{{ url('img/history/disco_da_voayger.jpg') }}" alt=""></li>
                 </ul>
                 <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)"></a>
                 <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)"></a>
@@ -213,7 +213,7 @@
         <div class="uk-width-1-1 uk-text-center">
             <div class="uk-thumbnail uk-overlay-hover ">
                 <figure class="uk-overlay">
-                    <img width="660" height="300" src="http://astrogame.localhost/img/history/et_e_equipe.jpg" alt="">
+                    <img width="660" height="300" src="{{ url('img/history/et_e_equipe.jpg') }}" alt="Eduardo Ramos, Renan e Alvaro ET">
                     <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle">
                         Life long and prosper! </figcaption>
                 </figure>
