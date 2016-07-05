@@ -83,7 +83,7 @@
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-steam"></i> Insignas</a></li>
 
         </ul>
-        
+
         <ul id="tab-shop" class="uk-switcher uk-margin">
             @foreach($shop as $category)
             <li aria-hidden="false" class="uk-active">
@@ -92,10 +92,10 @@
                     <li>
                         @if ($item->max_stack > 1)
                         <span class="uk-badge uk-badge-danger" title="{{ trans('game.item-max') }}" data-uk-tooltip>{{ $item->max_stack }}</span>
-                        @endif    
+                        @endif
                             <figure class="uk-thumbnail uk-text-center buy-item" onclick="buy_item({{ $item->id }});">
                                 <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" title="{{ $item->name }}" data-uk-tooltip >
-                           
+
                         </figure>
                          <figcaption class="uk-align-center uk-text-center">
                                 <span class="price" title="Preço" data-uk-tooltip><i class="uk-icon-money"></i> {{ $item->price }}</span>
@@ -286,7 +286,7 @@
     <div class="uk-modal-dialog">
         <a href="#" class="uk-modal-close uk-close"></a>
         <h3>{{ $insigna->name }}</h3>
-            
+
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-1-4">
                 <figure class="uk-thumbnail uk-border-circle">
@@ -297,7 +297,7 @@
                 <p>{{ $insigna->reason }}</p>
             </div>
         </div>
-        
+
     </div>
 </div>
 @endforeach
@@ -314,7 +314,7 @@
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> {{ trans('game.patents') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> {{ trans('game.insignas') }}</a></li>
         </ul>
-        
+
 <ul id="tab-content" class="uk-switcher uk-margin">
     <li aria-hidden="false" class="uk-active">
         <div class="uk-grid" data-uk-grid>
@@ -328,6 +328,12 @@
                     <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>
                 </ul>
+                <div class="uk-margin-bottom uk-text-center">
+                  XP:
+                  <div class="uk-progress">
+                      <div class="uk-progress-bar" style="width: {{ $xp_bar }}%;" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">{{ $user_xp }} / {{ $xp_for_next_level }}</div>
+                  </div>
+              </div>
                 <a href="{{ url('/player')}}/{{ auth()->user()->id }}">{{ trans('game.profile-public') }}</a>
             </div>
         </div>

@@ -3,201 +3,23 @@
 {{ trans('chapters.welcome.title') }} | {{ trans('project.title') }}
 @stop
 
-@section('style')
-<style>
-video {
-	display: none;
-	width: 100%;
-	height: 100%;
-}
-</style>
-@stop
-
 @section('javascript')
-{!! Minify::javascript(['/vendor/popcorn/popcorn-complete.min.js',
-                       '/js/chapters/general.js'])->withFullURL() !!}
+{!! Minify::javascript(['/js/chapters/general.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
-	// iniciadores
-	var big_bang = Popcorn("#big-bang-video");
-    var star_video = Popcorn("#stars-video");
-    var milky_video = Popcorn("#milkway-video");
-    var solar_video = Popcorn("#solar-video");
-    var terra_video = Popcorn("#terra-video");
-
-    var narration_1 = new buzz.sound('{{ url('sounds/narration/welcome_1.mp3') }}', {preload: true, loop: false});
-    var narration_2 = new buzz.sound('{{ url('sounds/narration/welcome_2.mp3') }}', {preload: true, loop: false});
-    var narration_3 = new buzz.sound('{{ url('sounds/narration/welcome_3.mp3') }}', {preload: true, loop: false});
-    
-	/* ======================================== */
-    /* PART I - BIG BANG */
-    /* ======================================== */
-    $("#big-bang").click(function(){
-        $(this).hide();
-        $(".big-bang-text").hide();
-
-        big_bang.play();
-        $("#big-bang-video").show();
-    });
-
-    big_bang.code({
-	  start: 21,
-	  end: 24,
-	  onStart: function() {
-	  	change_background('{{ url('/img/chapter/big-bang-static.jpg') }}', 0);
-	  	$("#big-bang-video").hide();
-        text_cientist('{{ trans('chapters.welcome.fala1') }}');
-        narration_1.play();
-	  },
-      onEnd: function() {
-        star_video.play();
-      }
+	$("#big-bang").click(function(){
+			// gameplay
 	});
-
-    star_video.code({
-        start: 2,
-        end: 3,
-        onStart: function() {
-            text_cientist('{{ trans('chapters.welcome.fala2') }}');
-            narration_2.play();
-        }
-    });
-
-    star_video.code({
-        start: 4,
-        end: 5,
-        onStart: function(){
-            $("#big-bang-video").hide();
-            $("#stars-video").show();
-        } 
-    });
-
-
-    /* ======================================== */
-    /* PART II - STAR VIDEO */
-    /* ======================================== */
-    star_video.code({
-      start: 4,
-      end: 15 ,
-      onStart: function() {
-        text_cientist('{{ trans('chapters.welcome.fala3') }}');
-        narration_3.play();
-      },
-      onEnd: function() {
-        cientist_hide();
-      }
-    });
-
-    star_video.code({
-        start: 21,
-        end: 22,
-        onEnd: function(){
-            $("#stars-video").hide();
-            $("#milkway-video").show();
-            milky_video.play();
-            text_cientist('{{ trans('chapters.welcome.fala4') }}');
-        }
-    });
-
-    /* ======================================== */
-    /* PART III - MILKWAY VIDEO */
-    /* ======================================== */
-    milky_video.code({
-        start: 10,
-        end: 25,
-        onStart: function() {
-            text_cientist('{{ trans('chapters.welcome.fala5') }}');
-        },
-        onEnd: function(){
-            milky_video.pause();
-            $("#milkway-video").hide();
-            $("#solar-video").show();
-            solar_video.play();
-            cientist_hide();
-        }
-    });
-
-    /* ======================================== */
-    /* PART IV - SOLAR VIDEO */
-    /* ======================================== */
-    solar_video.code({
-        start: 8,
-        end: 17,
-        onStart: function() {
-            text_cientist('{{ trans('chapters.welcome.fala6') }}');
-        },
-        onEnd: function(){
-            solar_video.pause();
-            $("#solar-video").hide();
-            $("#terra-video").show();
-            terra_video.play();
-            cientist_hide();
-        }
-    });
-
-    /* ======================================== */
-    /* PART V - TERRA VIDEO (FINAL) */ 
-    /* ======================================== */ 
-    terra_video.code({
-        start: 1,
-        end: 3,
-        onStart: function() {
-            text_cientist('{{ trans('chapters.welcome.fala7') }}');
-        },
-        onEnd: function(){
-
-        }
-    });
-
-    terra_video.code({
-        start: 5,
-        end: 8,
-        onStart: function() {
-            text_cientist('{{ trans('chapters.welcome.fala8') }}');
-        },
-        onEnd: function() {
-            $("#terra-video").hide();
-            cientist_hide();
-            // PRÓXIMO CAPÍTULO
-            window.location = '{{ url('/game/tutorial') }}';
-        }
-    });
-    
 });
 </script>
 @stop
 
 @section('content')
-<video id="big-bang-video" class="uk-responsive-width" controls="controls" preload="true">
-    <source src="{{ url('/videos/big_bang.mp4') }}" type="video/mp4">
-    <source src="{{ url('/videos/big_bang.webm') }}" type="video/webm">
-    <source src="{{ url('/videos/big_bang.ogv') }}" type="video/ogg">
-</video>
-<video id="stars-video" class="uk-responsive-width" controls="controls" preload="true">
-    <source src="{{ url('/videos/star_intro.mp4') }}" type="video/mp4">
-    <source src="{{ url('/videos/star_intro.webm') }}" type="video/webm">
-    <source src="{{ url('/videos/star_intro.ogv') }}" type="video/ogg">
-</video>
-<video id="milkway-video" class="uk-responsive-width" controls="controls" preload="true">
-    <source src="{{ url('/videos/milky_way.mp4') }}" type="video/mp4">
-    <source src="{{ url('/videos/milky_way.webm') }}" type="video/webm">
-    <source src="{{ url('/videos/milky_way.ogv') }}" type="video/ogg">
-</video>
-<video id="solar-video" class="uk-responsive-width" controls="controls" preload="true">
-    <source src="{{ url('/videos/solar_system.mp4') }}" type="video/mp4">
-    <source src="{{ url('/videos/solar_system.webm') }}" type="video/webm">
-    <source src="{{ url('/videos/solar_system.ogv') }}" type="video/ogg">
-</video>
-<video id="terra-video" class="uk-responsive-width" controls="controls" preload="true">
-    <source src="{{ url('/videos/terra.mp4') }}" type="video/mp4">
-    <source src="{{ url('/videos/terra.webm') }}" type="video/webm">
-    <source src="{{ url('/videos/terra.ogv') }}" type="video/ogg">
-</video>
 <div class="uk-container uk-container-center game-section">
     <div class="uk-grid">
         <div class="uk-width-1-1 uk-text-center">
             <h1 class="uk-width-large-1-2 uk-width-medium-1-2 uk-align-center big-bang-text" style="color: #fff">{{ trans('chapters.welcome.start-text') }}</h1>
-            <button class="uk-button-primary uk-button-large" id="big-bang"><i class="uk-icon-flask"></i> {{ trans('chapters.welcome.start-button') }}</button>
+            <a href="#" class="action-button red" id="big-bang"><i class="uk-icon-space-shuttle"></i> {{ trans('chapters.welcome.start-button') }}</a>
         </div>
         <div class="cientist-message" style="display:none">
             <div style="visibility: visible; display: block; opacity: 1;" class="uk-tooltip uk-tooltip-top">

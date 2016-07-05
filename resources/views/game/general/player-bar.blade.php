@@ -171,56 +171,14 @@ function change_xp(xp){
     music_background.setVolume({{ $music_volume }});
 </script>
 @stop
-<button class="uk-button uk-button-success button-player-bar" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}">{{ trans('game.player-bar') }}</button>
-<button class="uk-button uk-button-danger button-suggestion" data-uk-modal="{target:'#bug-report-modal'}">{{ trans('game.suggestions')}}</button>
-<div id="player-bar" class="uk-hidden">
-    <div class="uk-grid uk-container uk-container-center uk-text-center uk-margin-top uk-margin-bottom">
-        <div class="uk-width-5-10 uk-width-large-2-10">
-            <button class="uk-close uk-close-alt" data-uk-toggle="{target:'#player-bar', animation:'uk-animation-slide-bottom'}"></button>
-            <a href="#close-bar" class="volume uk-icon-small uk-close-alt uk-icon-cog" data-uk-modal="{target:'#settings'}" data-uk-tooltip title="{{ trans('game.config') }}"></a>
-            <a href="{{ URL('/home') }}" class="logout uk-icon-small uk-close-alt uk-icon-home" data-uk-tooltip title="{{trans('game.home')}}"></a>
-            <a href="{{ URL('/logout') }}" class="logout uk-icon-small uk-close-alt uk-icon-sign-out" data-uk-tooltip title="{{trans('game.logout')}}"></a>
-        </div>
-        <div class="uk-width-5-10 uk-width-large-8-10 uk-margin-bottom uk-text-center">
-            <div class="uk-progress">
-                <div class="uk-progress-bar" style="width: {{ $xp_bar }}%;" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">{{ $user_xp }} / {{ $xp_for_next_level }}</div>
-            </div>
-        </div>
-        <div class="uk-width-1-2 uk-width-large-2-10 uk-margin-top">
-            <figure data-uk-modal="{target:'#player-modal'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-                <img src="{{ url('users/avatar/' . md5(auth()->user()->id) . '.jpg') }}" alt="foto avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ $user_name }}">
-            </figure>
-        </div>
-        <div class="uk-width-1-2 uk-width-large-2-10 uk-text-left uk-hidden-small">
-            <ul class="uk-list">
-                <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
-                <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG <span class="money">{{ $user_money }}</span></li>
-            </ul>
-        </div>
-        <div class="uk-width-large-5-10 uk-hidden-small uk-hidden-medium">
-            <div class="uk-button-group">
-                <a href="{{ URL('/game/campaign') }}" class="uk-button uk-button-danger" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a>
-                <button data-uk-modal="{target:'#calendar'}" class="uk-button" title="Quando o cometa Halley passará novamente?" data-uk-tooltip><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</button>
-                <a href="{{ URL('/game/observatory')}}" class="uk-button uk-button-primary" title="Hora de observar o céu!" data-uk-tooltip><i class="uk-icon-search"></i> {{ trans('game.observatory') }}</a>
-                <button data-uk-modal="{target:'#shop'}" class="uk-button uk-button-danger" title="Vamos gastar um pouco de dinheiro!" data-uk-tooltip><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </button>
-                <button data-uk-modal="{target:'#quests'}" class="uk-button uk-button-success" title="Cada missão uma nova aventura!" data-uk-tooltip><i class="uk-icon-exclamation"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">{{ count($avaliable_quests) }}</span> </button>
-            </div>
-        </div>
-        <div class="uk-hidden-large uk-button-dropdown uk-text-left" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
-            <button class="uk-button uk-button-success"><i class="uk-icon-rocket"></i> Navegador <i class="uk-icon-caret-down"></i></button>
-            <div class="uk-dropdown uk-dropdown-bottom">
-                <ul class="uk-nav uk-nav-dropdown">
-                    <li><a href="{{ URL('/game/campaign') }}" title="Cada capítulo uma nova aventura!" data-uk-tooltip><i class="uk-icon-rocket"></i> {{ trans('game.campaign') }}</a></li>
-                    <li class="uk-nav-divider"></li>
-                    <li><a href="{{ URL('/game/observatory')}}" title="Hora de observar o céu!" data-uk-tooltip><i class="uk-icon-search"></i> {{ trans('game.observatory') }}</a></li>
-                    <li><a href="#" data-uk-modal="{target:'#calendar'}" title="Quando o cometa Halley passará novamente?" data-uk-tooltip><i class="uk-icon-calendar"></i> {{ trans('game.events') }}</a></li>
-                    <li class="uk-nav-divider"></li>
-                    <li><a href="#" data-uk-modal="{target:'#shop'}" title="Vamos gastar um pouco de dinheiro!" data-uk-tooltip><i class="uk-icon-shopping-cart"></i> {{ trans('game.shop')}} </a></li>
-                    <li><a href="#" data-uk-modal="{target:'#quests'}" title="Cada missão uma nova aventura!" data-uk-tooltip><i class="uk-icon-exclamation"></i> {{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">{{ count($avaliable_quests) }}</span> </a></li>
-                    <li><a href="{{ url('/ranking') }}"><i class="uk-icon-puzzle-piece"></i> Ranking Geral</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<div class="buttons">
+    <a href="#profile" class="action-button green menu-jogador" data-uk-modal="{target:'#player-modal'}">Perfil &nbsp;<i class="uk-icon uk-icon-user"></i></a>
+    <a href="{{ URL('/game/campaign') }}" class="action-button red menu-campanha">Campanha  <i class="uk-icon uk-icon-map"></i></a>
+    <a href="#shop" class="action-button yellow menu-loja" data-uk-modal="{target:'#shop'}">Loja  <i class="uk-icon uk-icon-shopping-cart"></i></a>
+    <a href="#missions" class="action-button red menu-missions" data-uk-modal="{target:'#quests'}">Missões &nbsp;&nbsp;<i class="uk-icon uk-icon-exclamation"></i></a>
+    <a href="#config" class="action-button red menu-config" data-uk-modal="{target:'#settings'}">Configurações  <i class="uk-icon uk-icon-cog"></i></a>
+    <a href="{{ URL('/home') }}" class="action-button green menu-home">Home  <i class="uk-icon uk-icon-home"></i></a>
+    <a href="#suggestions" class="action-button red menu-suggestions" data-uk-modal="{target:'#bug-report-modal'}">{{ trans('game.suggestions')}}  <i class="uk-icon uk-icon-mail-forward"></i></a>
+    <a href="{{ URL('/logout') }}" class="action-button red menu-logout">Sair  <i class="uk-icon uk-icon-arrow-left"></i></a>
 </div>
 @include('game.general.modals')
