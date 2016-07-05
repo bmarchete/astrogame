@@ -21,7 +21,7 @@ return [
 	'home-description' => 'Entre em nossa plataforma interativa onde você irá explorar o Cosmos, conhecer sobre grandes nomes da astronomia e aprender sobre as estrelas, os planetas, o universo e tudo mais!',
 
 	'jogar' => 'Voltar ao jogo!',
-	'enter' => 'Entrar no unvierso!',
+	'enter' => 'Entrar no universo!',
 	'play'  => 'Jogar!',
 
 	'home-text' => [

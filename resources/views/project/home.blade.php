@@ -17,9 +17,9 @@
             <h2>{{ trans('project.home-subtitle')}}</h2>
             <p class="uk-text-muted">{{ trans('project.home-description')}}</p>
             @if (!auth()->check())
-            <p><a class="action-button shadow animate red" href="#login" data-uk-modal=""><i class="uk-icon uk-icon-rocket"></i> {{ trans('project.enter') }}</a></p>
+            <p><a class="action-button shadow animate green" href="#login" data-uk-modal=""><i class="uk-icon uk-icon-rocket"></i> {{ trans('project.enter') }}</a></p>
             @else
-            <p><a class="action-button shadow animate green" href="{{url('/game')}}"><i class="uk-icon uk-icon-gamepad"></i> {{trans('project.jogar')}}</a></p>
+            <p><a class="action-button shadow animate red" href="{{url('/game')}}"><i class="uk-icon uk-icon-gamepad"></i> {{trans('project.jogar')}}</a></p>
             @endif
         </div>
 
@@ -29,20 +29,24 @@
     </div>
 </div>
 <div class="info">
-    <div class="uk-container uk-container-center">
-        <div class="uk-grid" data-uk-grid-margin="">
-            <div class="uk-width-medium-1-3 red-info">
-                <h2><i class="uk-icon uk-icon-graduation-cap"></i> {{ trans('project.home-text.title2') }}</h2>
-                <p>{{ trans('project.home-text.text2') }}</p>
-            </div>
-            <div class="uk-width-medium-1-3 carrot-info">
-              <h2><i class="uk-icon uk-icon-level-up"></i> {{ trans('project.home-text.title1') }}</h2>
-              <p>{{ trans('project.home-text.text1') }}</p>
-            </div>
-            <div class="uk-width-medium-1-3 yellow-info">
-                <h2><i class="uk-icon uk-icon-cubes"></i> {{ trans('project.home-text.title3') }}</h2>
-                <p>{{ trans('project.home-text.text3') }}</p>
-            </div>
+    <div class="uk-grid uk-margin-large-top" data-uk-grid-margin="">
+        <div class="uk-width-medium-1-3 red-info">
+            <div class="uk-container">
+            <h2><i class="uk-icon uk-icon-graduation-cap"></i> {{ trans('project.home-text.title2') }}</h2>
+            <p>{{ trans('project.home-text.text2') }}</p>
+          </div>
+        </div>
+        <div class="uk-width-medium-1-3 uk-margin-remove carrot-info">
+          <div class="uk-container">
+          <h2><i class="uk-icon uk-icon-level-up"></i> {{ trans('project.home-text.title1') }}</h2>
+          <p>{{ trans('project.home-text.text1') }}</p>
+        </div>
+        </div>
+        <div class="uk-width-medium-1-3 uk-margin-remove yellow-info">
+          <div class="uk-container">
+            <h2><i class="uk-icon uk-icon-cubes"></i> {{ trans('project.home-text.title3') }}</h2>
+            <p>{{ trans('project.home-text.text3') }}</p>
+          </div>
         </div>
     </div>
 </div>
@@ -57,7 +61,7 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="uk-width-medium-1-2">
+            <div class="uk-width-medium-1-2 uk-margin-top">
                 <h1>{{ trans('project.home-text.title4') }}</h1>
                 <p>{{ trans('project.home-text.text4') }}</p>
                 <p>{{ trans('project.home-text.text5') }}</p>
@@ -71,10 +75,10 @@
     <div class="uk-grid" data-uk-grid="">
         <div class="uk-container uk-container-center">
             <div class="uk-vertical-align-middle">
-                <div class="uk-width-1-3 uk-container-center">
+                <div class="uk-width-medium-1-3 uk-container-center">
                     <span class="bubble">{{ trans('project.home-text.text7') }}</span>
                 </div>
-                <div class="uk-width-1-3 uk-container-center">
+                <div class="uk-width-medium-1-3 uk-container-center">
                     <img class="galileu-img uk-animation-hover uk-animation-shake" alt="" src="{{ url('/img/char/galileu.png')}}">
                 </div>
             </div>
@@ -87,7 +91,7 @@
         <p class="uk-text-large">{{ trans('project.contato-description')}}</p>
 
         <div class="uk-grid" data-uk-grid>
-            <div class="uk-width-2-3">
+            <div class="uk-width-medium-2-3">
               <form class="uk-form uk-form-stacked" action="{{ url('/contato')}}" method="POST">
                   {!! csrf_field() !!} {!! Honeypot::generate('form_name', 'form_time') !!}
                     <div class="uk-form-row">
