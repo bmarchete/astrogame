@@ -23,7 +23,7 @@ Ranking
             </a>
                   </div>
                   <ul class="uk-list" style="display: inline-block;">
-                      <li><i class="uk-icon-space-shuttle"></i> {{ $player->patente() }} <a href="{{ url('/player') . '/' . $player->id }}"><strong>{{ $player->name }}</strong></a></li>
+                      <li><i class="uk-icon-space-shuttle"></i> {{ $player->patente($player->level) }} <a href="{{ url('/player') . '/' . $player->id }}"><strong>{{ $player->name }}</strong></a></li>
                       <li><i class="uk-icon-exclamation"></i> Level: {{ $player->level }} - ({{$player->xp}} XP)</li>
                   </ul>
               </li>
