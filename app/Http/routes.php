@@ -37,6 +37,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/player/{id}', 'GameController@player')->where('id', '[0-9]+');
 	Route::get('/ranking', 'GameController@ranking');
 
+	// langague
+	Route::get('/falas/chapter/{chapter}', 'FalasController@getFromChapter');
+
 	// website-game
 	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {
 		Route::get('/', 'ChapterController@index');
