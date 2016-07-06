@@ -17,7 +17,7 @@
 <body>
   <nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
-          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="#"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
+          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="{{ url('/') }}"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
           <ul class="uk-navbar-nav uk-hidden-small">
             @if (!isset($page))
             <?php
@@ -31,8 +31,8 @@
             <li @if ($page=='contato' ) class="uk-active" @endif><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
           </ul>
           <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas="" href="#offcanvas"></a>
-          <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
-              <a href="#home">
+          <div class="uk-navbar-center uk-visible-small">
+              <a href="{{ url('/')}}">
                   <img alt="astrogame logo" class='logo' src="{{url('img/logo-full.png')}}">
               </a>
           </div>

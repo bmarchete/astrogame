@@ -30,19 +30,19 @@
 </div>
 <div class="info">
     <div class="uk-grid uk-margin-large-top" data-uk-grid-margin="">
-        <div class="uk-width-medium-1-3 red-info">
+        <div class="uk-width-medium-1-3 red-info uk-margin-remove">
             <div class="uk-container">
-            <h2><i class="uk-icon uk-icon-graduation-cap"></i> {{ trans('project.home-text.title2') }}</h2>
-            <p>{{ trans('project.home-text.text2') }}</p>
+              <h2><i class="uk-icon uk-icon-graduation-cap"></i> {{ trans('project.home-text.title2') }}</h2>
+              <p>{{ trans('project.home-text.text2') }}</p>
+            </div>
+        </div>
+        <div class="uk-width-medium-1-3 carrot-info uk-margin-remove">
+          <div class="uk-container">
+            <h2><i class="uk-icon uk-icon-level-up"></i> {{ trans('project.home-text.title1') }}</h2>
+            <p>{{ trans('project.home-text.text1') }}</p>
           </div>
         </div>
-        <div class="uk-width-medium-1-3 uk-margin-remove carrot-info">
-          <div class="uk-container">
-          <h2><i class="uk-icon uk-icon-level-up"></i> {{ trans('project.home-text.title1') }}</h2>
-          <p>{{ trans('project.home-text.text1') }}</p>
-        </div>
-        </div>
-        <div class="uk-width-medium-1-3 uk-margin-remove yellow-info">
+        <div class="uk-width-medium-1-3 yellow-info uk-margin-remove">
           <div class="uk-container">
             <h2><i class="uk-icon uk-icon-cubes"></i> {{ trans('project.home-text.title3') }}</h2>
             <p>{{ trans('project.home-text.text3') }}</p>
@@ -72,7 +72,8 @@
     </div>
 </div>
 <div class="galileu">
-    <div class="uk-grid" data-uk-grid="">
+    <div class="uk-grid" data-uk-grid>
+      <div class="uk-width-1-1">
         <div class="uk-container uk-container-center">
             <div class="uk-vertical-align-middle">
                 <div class="uk-width-medium-1-3 uk-container-center">
@@ -83,6 +84,8 @@
                 </div>
             </div>
         </div>
+
+    </div>
     </div>
 </div>
 <div class="contact">
