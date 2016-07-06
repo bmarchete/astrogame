@@ -4,11 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Entre em nossa plataforma interativa onde você irá explorar o Cosmos, conhecer sobre grandes nomes da astronomia e aprender sobre as estrelas, os planetas, o universo e tudo mais!">
     <meta name="author" content="Eduardo Augusto Ramos">
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
-
     <title>@yield('title')</title>
 
     <link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -81,13 +78,10 @@
                     <a class="uk-float-right uk-link uk-link-muted" href="{{ url('password/reset')}}">{{ trans('project.forget-password') }}</a>
                 </div>
                 <div class="uk-form-row">
-
                         <button type="submit" class="uk-width-1-2 action-button green"><i class="uk-icon-sign-in"></i> {{trans('project.submit')}}</button>
                         <a class="uk-width-1-2 action-button blue" href="{{ url('login/facebook')}}"><i class="uk-icon-facebook"></i> Facebook</a>
-
                     <a href="#register" data-uk-modal="" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register') }}</a>
                 </div>
-
             </form>
         </div>
     </div>
