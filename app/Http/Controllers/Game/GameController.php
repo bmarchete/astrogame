@@ -9,6 +9,7 @@ use App\User;
 use App\UserBag;
 use App\UserConfig;
 use Illuminate\Http\Request;
+use DB;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
@@ -40,7 +41,9 @@ class GameController extends Controller
 
     public function ranking()
     {
-        $players           = ['players' => User::select('id', 'name', 'level', 'xp', 'money')->limit(30)->orderBy('xp', 'DESC')->get()];
+        DB::statement(DB::raw('set @row:=0'));
+        $players           = ['players' => User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'money')->limit(50)->orderBy('xp', 'DESC')->get()];
+        $this->view_vars[] = ['page' => 'ranking'];
         $this->view_vars[] = $players;
 
         return view('project.ranking', $this->view_vars());

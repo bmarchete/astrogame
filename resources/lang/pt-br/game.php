@@ -12,9 +12,9 @@ return [
 	'volume-sound' => 'Efeitos Sonoros',
 	'cursor' => 'Habilitar cursor personalizado',
 	'lang' => 'Linguagem',
-	
+
 	// player-bar
-	'level' => 'Nível',	
+	'level' => 'Nível',
 	'astronaut' => 'Astronauta',
 	'quests' => 'Missões',
 	'exploration' => 'Exploração',
@@ -38,13 +38,14 @@ return [
 	'money' => 'Dinheiro',
 	'home' => 'Página Inicial',
 	'language' => 'Idioma',
+	'ranking' => 'Rank',
 
 	// items
 	'remove-item' => 'Você deseja remover este item de sua mochila?',
 	'buy-item' => 'Você deseja comprar este item?',
 	'item-max' => 'Máximo que você pode carregar',
 	'empty-bag' => 'Sua mochila está vazia :/',
-	
+
 	// quests
 	'quest-avaliable' => 'Missões Disponíveis',
 	'quest-accept' => 'Missões Aceitas',
@@ -83,7 +84,7 @@ return [
 	'patent8' => 'Astronauta - Líder de Módulo',
 	'patent9' => 'Astronauta- Chefe de estação',
 	'patent-gm' => 'Desastronauta Master',
-	
+
 	// user config
 	'name' => 'Nome',
 	'nickname' => 'Nickname',

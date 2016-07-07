@@ -18,10 +18,9 @@
 @stop
 
 @section('content')
-<div class="uk-container uk-container-center" style="padding-top: 40px">
-    <a class="uk-button uk-button-danger" href="{{ ((\Request::header('referer')) ? Request::header('referer') : url('/')) }}"><i class="uk-icon-sign-out"></i> Voltar</a>
+<div class="uk-container uk-container-center uk-margin-large-top">
     <div class="uk-grid" data-uk-grid>
-        <div class="uk-width-medium-1-4">
+        <div class="uk-width-medium-2-6">
             <div class="uk-panel uk-panel-box uk-text-center">
                 <figure class="uk-thumbnail uk-border-circle" style="width: 120px">
                     <img src="{{ url('users/avatar/' . md5($player->id) . '.jpg') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player_patente }} {{ $player->name }}">
@@ -35,12 +34,10 @@
                     <li><i class="uk-icon-star"></i> {{ trans('game.ranking')}}: <strong>#1</strong></li>
                 </ul>
             </div>
-            <div class="uk-panel uk-panel-box uk-text-center">
-                <img src="{{ url('img/camp-night.png') }}" alt="" data-uk-tooltip title="observando o céu no campo">
-            </div>
+						<a class="action-button red uk-margin-top" href="{{ ((\Request::header('referer')) ? Request::header('referer') : url('/')) }}"><i class="uk-icon-sign-out"></i> Voltar</a>
         </div>
         <div class="uk-grid-divider uk-hidden-large uk-hidden-medium"></div>
-        <div class="uk-width-medium-3-4">
+        <div class="uk-width-medium-4-6">
             <div class="uk-panel uk-panel-box uk-text-center">
                 <h2>Insignas</h2>
                 <ul class="uk-list insignas">

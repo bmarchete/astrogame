@@ -3,9 +3,8 @@
 {{ trans('passwords.reset-password')}} | {{ trans('project.project-name') }}
 @stop
 @section('content')
-<div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
-   <div class="uk-vertical-align-middle" style="width: 300px;">
-      <img class="uk-margin-bottom" width="280" height="120" src="{{ url('img/logo.png') }}" alt="{{ trans('project.project-name') }}">
+<div class="uk-vertical-align uk-margin-large-top uk-text-center uk-height-1-1 login-section">
+   <div class="uk-vertical-align-middle uk-margin-large-top" style="width: 350px;">
       <form class="uk-panel uk-panel-box uk-form" role="form" method="POST" action="{{ url('/password/email') }}">
          {!! csrf_field() !!}
          @if (session('status'))
@@ -24,7 +23,7 @@
             <input type="email" class="uk-width-1-1 uk-form-large" name="email" value="{{ old('email') }}" placeholder="Seu email" required>
          </div>
          <div class="uk-form-row">
-               <button type="submit" class="uk-button uk-width-1-1 uk-button-primary uk-button-large">
+               <button type="submit" class="uk-width-1-1 action-button blue">
                <i class="uk-icon-envelope"></i> {{ trans('passwords.send') }} </button>
          </div>
       </form>
