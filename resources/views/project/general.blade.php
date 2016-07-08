@@ -78,9 +78,13 @@
                     <a class="uk-float-right uk-link uk-link-muted" href="{{ url('password/reset')}}">{{ trans('project.forget-password') }}</a>
                 </div>
                 <div class="uk-form-row">
-                        <button type="submit" class="uk-width-1-2 action-button green"><i class="uk-icon-sign-in"></i> {{trans('project.submit')}}</button>
-                        <a class="uk-width-1-2 action-button blue" href="{{ url('login/facebook')}}"><i class="uk-icon-facebook"></i> Facebook</a>
-                    <a href="#register" data-uk-modal="" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register') }}</a>
+                    <div class="uk-grid" data-uk-grid>
+                      <div class="uk-container">
+                      <button type="submit" class="uk-width-medium-1-3 action-button green"><i class="uk-icon-sign-in"></i> {{trans('project.submit')}}</button>
+                      <a class="uk-width-medium-1-3 action-button blue" href="{{ url('login/facebook')}}"><i class="uk-icon-facebook"></i> Facebook</a>
+                      <a href="#register" data-uk-modal="" class="action-button red uk-width-1-3"><i class="uk-icon-user-plus"></i> {{ trans('project.register') }}</a>
+                    </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -93,6 +97,9 @@
 
             <form class="uk-form uk-width-4-5 uk-container-center" method="POST" action="{{url('/login')}}">
                   {!! csrf_field() !!}
+                  <div class="uk-form-row">
+                     <input class="uk-width-1-1 uk-form-large" type="text" name="name" value="{{ old('name') }}" placeholder="{{ trans('project.name')}}" required>
+                  </div>
                 <div class="uk-form-row">
                     <input class="uk-width-1-1 uk-form-large" type="text" name="nickname" value="" placeholder="{{ trans('project.nickname') }}" required maxlength="60">
                 </div>

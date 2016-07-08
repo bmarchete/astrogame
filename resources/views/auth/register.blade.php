@@ -8,7 +8,7 @@
       <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="{{ trans('project.project-name') }}">
       <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/register') }}">
          {!! csrf_field() !!}
-         
+
          @foreach ($errors->all() as $error)
             <div class="uk-alert uk-alert-danger" data-uk-alert>
                <a href="#" class="uk-alert-close uk-close"></a>
@@ -16,6 +16,9 @@
             </div>
          @endforeach
 
+         <div class="uk-form-row">
+            <input class="uk-width-1-1 uk-form-large" type="text" name="name" value="{{ old('name') }}" placeholder="{{ trans('project.name')}}" required>
+         </div>
          <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="text" name="nickname" value="{{ old('nickname') }}" placeholder="{{ trans('project.nickname')}}" required maxlength="60">
          </div>
