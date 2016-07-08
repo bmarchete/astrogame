@@ -312,7 +312,7 @@
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-2-4">
                 <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
-                    <img src="{{ url('users/avatar/' . md5(auth()->user()->id) . '.jpg') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ auth()->user()->name }}">
+                    <img src="{{ auth()->user()->avatar() }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ auth()->user()->name }}">
                 </figure>
             </div>
             <div class="uk-width-2-4">

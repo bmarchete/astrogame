@@ -175,18 +175,23 @@ class User extends Authenticatable
         $path   = public_path('users/avatar/' . md5($this->id) . '.jpg');
         $width  = 500;
         $height = 500;
-        $default = public_path('img/avatar.png');
 
-        if (empty($url)) {
-            // default avatar
-            Image::make($default)->fit($width, $height)->save($path);
-        } else {
+        if (!empty($url)) {
             try {
                 Image::make($url)->fit($width, $height)->save($path);
             } catch (\Intervention\Image\Exception\NotReadableException $e) {
                 // default avatar
-                Image::make($default)->fit($width, $height)->save($path);
             }
+        }
+    }
+
+    public function avatar(){
+        $path = 'users/avatar/' . md5($this->id) . '.jpg';
+        $default = 'img/avatar.png';
+        if(file_exists(public_path($path))){
+            return url($path);
+        } else {
+            return url($default);
         }
     }
 }

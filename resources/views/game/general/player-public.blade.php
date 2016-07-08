@@ -23,7 +23,7 @@
         <div class="uk-width-medium-2-6">
             <div class="uk-panel uk-panel-box uk-text-center">
                 <figure class="uk-thumbnail uk-border-circle" style="width: 120px">
-                    <img src="{{ url('users/avatar/' . md5($player->id) . '.jpg') }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player_patente }} {{ $player->name }}">
+                    <img src="{{ $player->avatar() }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player_patente }} {{ $player->name }}">
                 </figure>
                 <h3>{{ $player->name }}</h3>
                 <ul class="uk-list uk-list-striped uk-text-left">

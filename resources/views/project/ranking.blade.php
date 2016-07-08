@@ -19,7 +19,7 @@ Ranking Global | Astrogame
               <li>
                   <div class="uk-border-circle uk-hidden-small" style="width: 60px; display: inline-block">
                       <a href="{{ url('/player') . '/' . $player->id }}">
-                        <img src="{{ url('users/avatar/' . md5($player->id) . '.jpg') }}" alt="avatar" class="uk-border-circle avatar">
+                        <img src="{{ $player->avatar() }}" alt="avatar" class="uk-border-circle avatar">
                       </a>
                   </div>
                   <ul class="uk-list" style="display: inline-block;">
