@@ -45,6 +45,8 @@
                 ao mesmo tempo.</p>
             <p>Com a implementação do projeto criaremos uma plataforma que possa oferecer conteúdo de alta qualidade em um formato de fácil compreensão e acessibilidade para que os diferentes públicos possam ter onde aprender de forma interativa e dinâmica,
                 e se divertir enquanto tem acesso ao material.</p>
+                <p>Você pode baixar a versão final do .pdf Trabalho de Conclusão de Curso no link abaixo:</p>
+            <p><a href="{{ url('tcc.pdf')}}" class="action-button red"><i class="uk-icon uk-icon-download"></i> Download do TCC</a></p>
         </div>
         <div class="uk-width-medium-1-2">
             <img width="660" height="400" src="{{url('img/screenshots/screenshot (7).png')}}" alt="">
