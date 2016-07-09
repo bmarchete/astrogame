@@ -28,6 +28,10 @@
          <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="password" name="password" value="{{ old('password') }}" placeholder="{{ trans('project.password') }}" required>
          </div>
+         <div class="uk-form-row">
+            {!! Recaptcha::render() !!}
+         </div>
+
          <div class="uk-form-row uk-text-small">
             <div class="uk-float-left">
             <input type="checkbox" name="terms" required>
