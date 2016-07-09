@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -30,7 +31,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/game';
 
     /**
      * Create a new authentication controller instance.
@@ -113,18 +114,32 @@ class AuthController extends Controller
         return redirect('/');
     }
 
+    // @overwrite the original method
     public function login(Request $request)
     {
+        // nickname ou email função
         $field = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'nickname';
         $request->merge([$field => $request->input('login')]);
 
-        if (auth()->attempt($request->only($field, 'password'))) {
-            return redirect('/game');
+        $throttles = $this->isUsingThrottlesLoginsTrait();
+
+        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
         }
 
-        return redirect('/login')->with([
-            'social_error' => 'These credentials do not match our records.',
-        ]);
+        $credentials = $request->only($field, 'password');
+
+        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+            return $this->handleUserWasAuthenticated($request, $throttles);
+        }
+
+        if ($throttles && ! $lockedOut) {
+            $this->incrementLoginAttempts($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
     }
 
     public function rules()
@@ -139,7 +154,7 @@ class AuthController extends Controller
     {
         if (!$user->confirmed) {
             auth()->logout();
-            return back()->with(['social_error' => 'You need to confirm your account. We have sent you an activation code, please check your email.']);
+            return back()->withErrors(['msg' => trans('auth.confirmation')]);
         }
         return redirect()->intended($this->redirectPath());
     }

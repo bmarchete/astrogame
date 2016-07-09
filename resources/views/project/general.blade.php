@@ -67,7 +67,7 @@
                 {!! csrf_field() !!}
 
                 <div class="uk-form-row">
-                    <input class="uk-width-1-1 uk-form-large" type="text" name="login" value="" placeholder="{{ trans('project.email-or-nickname')}}" required>
+                    <input class="uk-width-1-1 uk-form-large" type="text" name="login" value="{{ old('email-or-nickname') }}" placeholder="{{ trans('project.email-or-nickname')}}" required>
                 </div>
                 <div class="uk-form-row">
                     <input class="uk-width-1-1 uk-form-large" type="password" name="password" placeholder="{{ trans('project.password')}}" required>
@@ -95,24 +95,25 @@
             <a href="" class="uk-modal-close uk-close"></a>
             <h2>Registrar no Astrogame</h2>
 
-            <form class="uk-form uk-width-4-5 uk-container-center" method="POST" action="{{url('/login')}}">
+            <form class="uk-form uk-width-4-5 uk-container-center" method="POST" action="{{url('/register')}}">
                   {!! csrf_field() !!}
                   <div class="uk-form-row">
                      <input class="uk-width-1-1 uk-form-large" type="text" name="name" value="{{ old('name') }}" placeholder="{{ trans('project.name')}}" required>
                   </div>
                 <div class="uk-form-row">
-                    <input class="uk-width-1-1 uk-form-large" type="text" name="nickname" value="" placeholder="{{ trans('project.nickname') }}" required maxlength="60">
+                    <input class="uk-width-1-1 uk-form-large" type="text" name="nickname" value="{{ old('nickname') }}" placeholder="{{ trans('project.nickname') }}" required maxlength="60">
                 </div>
                 <div class="uk-form-row">
-                    <input class="uk-width-1-1 uk-form-large" type="email" name="email" value="" placeholder="Email" required>
+                    <input class="uk-width-1-1 uk-form-large" type="email" name="email" value="{{ old('email') }}" placeholder="Email" required>
                 </div>
                 <div class="uk-form-row">
-                    <input class="uk-width-1-1 uk-form-large" type="password" name="password" value="" placeholder="{{ trans('project.password') }}" required>
+                    <input class="uk-width-1-1 uk-form-large" type="password" name="password" value="{{ old('password') }}" placeholder="{{ trans('project.password') }}" required>
                 </div>
 
                 <div class="uk-form-row">
                    {!! Recaptcha::render() !!}
                 </div>
+
                 <div class="uk-form-row uk-text-small">
                     <div class="uk-float-left">
                         <input type="checkbox" name="terms" required>

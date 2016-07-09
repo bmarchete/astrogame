@@ -15,5 +15,6 @@ return [
 
     'failed' => 'As informações de login não foram encontradas.',
     'throttle' => 'Muitas tentativas de login. Por favor tente novamente em :seconds segundos.',
+    'confirmation' => 'Você precisa confirmar sua conta. Nós te enviamos um código de ativação, por favor cheque seu email.',
 
 ];

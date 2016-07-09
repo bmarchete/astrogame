@@ -4,8 +4,10 @@
 @stop
 @section('content')
 <div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
-   <div class="uk-vertical-align-middle" >
-      <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="{{ trans('project.project-name') }}">
+   <div class="uk-vertical-align-middle" style="width: 350px;">
+      <a href="{{url('/')}}">
+        <img class="uk-margin-bottom" src="{{ url('img/logo-full.png') }}" alt="{{ trans('project.project-name') }}">
+      </a>
       <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/register') }}">
          {!! csrf_field() !!}
 
@@ -41,8 +43,8 @@
          </div>
          <div class="uk-form-row">
             <div class="uk-button-group">
-               <button type="submit" class="uk-button uk-button-danger uk-button-large"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
-               <a class="uk-button uk-button-primary uk-button-large" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> {{ trans('project.facebook') }}</a>
+               <button type="submit" class="action-button shadow red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
+               <a class="action-button shadow blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> {{ trans('project.facebook') }}</a>
             </div>
          </div>
       </form>

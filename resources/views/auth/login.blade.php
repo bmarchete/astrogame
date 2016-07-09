@@ -5,26 +5,23 @@
 
 @section('content')
 <div class="uk-vertical-align uk-text-center uk-height-1-1 login-section">
-   <div class="uk-vertical-align-middle" style="width: 300px;">
-      <img class="uk-margin-bottom" width="280" height="120" src="img/logo.png" alt="{{ trans('project.project-name') }}">
+   <div class="uk-vertical-align-middle" style="width: 350px;">
+      <a href="{{url('/')}}">
+        <img class="uk-margin-bottom" src="{{ url('img/logo-full.png') }}" alt="{{ trans('project.project-name') }}">
+      </a>
       <form class="uk-panel uk-panel-box uk-form" method="POST" action="{{ url('/login') }}">
          {!! csrf_field() !!}
 
-         @if (session()->has('social_error'))
-         <div class="uk-alert uk-alert-danger" data-uk-alert>
-            <a href="#" class="uk-alert-close uk-close"></a>
-            <p>{{ session('social_error') }}</p>
-         </div>
-         @endif
-
-         @if ($errors->has('login') || $errors->has('password'))
-         <div class="uk-alert uk-alert-danger" data-uk-alert>
-            <a href="#" class="uk-alert-close uk-close"></a>
-            <p>{{ $errors->first('login') }}</p>
-         </div>
+         @if (count($errors->all()) > 0 )
+             @foreach($errors->all() as $error)
+             <div class="uk-alert uk-alert-danger" data-uk-alert>
+                <a href="#" class="uk-alert-close uk-close"></a>
+                <p>{{ $error }}</p>
+             </div>
+             @endforeach
          @endif
          <div class="uk-form-row">
-            <input class="uk-width-1-1 uk-form-large" type="text" name="login" value="{{ old('login') }}" placeholder="{{ trans('project.email-or-nickname') }}" required>
+            <input class="uk-width-1-1 uk-form-large" type="text" name="login" value="{{ old('email-or-nickname') }}" placeholder="{{ trans('project.email-or-nickname') }}" required>
          </div>
          <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="password" name="password" placeholder="{{ trans('project.password') }}" required>
@@ -34,13 +31,9 @@
             <a class="uk-float-right uk-link uk-link-muted" href="{{ url('/password/reset') }}">{{ trans('project.forget-password')}}</a>
          </div>
          <div class="uk-form-row">
-            <div class="uk-button-group">
-               <button type="submit" class="uk-button uk-button-danger uk-button-large"><i class="uk-icon-sign-in"></i> {{ trans('project.submit') }}</button>
-               <a class="uk-button uk-button-primary uk-button-large" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
-            </div>
-         </div>
-         <div class="uk-form-row">
-            <a href="{{ URL('/register') }}" class="uk-button uk-width-1-1 uk-button-success uk-button-large"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>
+               <button type="submit" class="action-button green uk-width-1-1"><i class="uk-icon-sign-in"></i> {{ trans('project.submit') }}</button>
+               <a class="action-button blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
+               <a href="{{ URL('/register') }}" class="action-button red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>
          </div>
       </form>
    </div>
