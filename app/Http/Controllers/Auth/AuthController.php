@@ -171,6 +171,6 @@ class AuthController extends Controller
         $user = $this->create($request->all());
         auth()->logout();
 
-        return redirect('/login')->with(['social_error' => 'Confirme seu email.']);
+        return redirect('/login')->withErrors(['msg' => trans('auth.confirmation')]);
     }
 }
