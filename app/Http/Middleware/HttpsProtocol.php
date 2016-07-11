@@ -4,16 +4,16 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class HttpsProtocol {
-
+class HttpsProtocol
+{
     public function handle($request, Closure $next)
     {
-	    $request->setTrustedProxies( [ $request->getClientIp() ] ); 
-	
-        if (!$request->secure() /* && ($_SERVER['HTTP_HOST'] != "astrogame.localhost") */) {
+        $request->setTrustedProxies([$request->getClientIp()]);
+
+        if (env('APP_ENV') != 'local' && (!$request->secure() && ($_SERVER['HTTP_HOST'] != 'astrogame.me'))) {
             return redirect()->secure($request->getRequestUri());
         }
 
-        return $next($request); 
+        return $next($request);
     }
 }

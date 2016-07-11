@@ -31,10 +31,9 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \App\Http\Middleware\Language::class,
             \App\Http\Middleware\HTMLminify::class,
-            //\App\Http\Middleware\HttpsProtocol::class,
+            \App\Http\Middleware\HttpsProtocol::class,
 
             \Bepsvpt\LaravelSecurityHeader\SecurityHeaderMiddleware::class,
-
         ],
 
         'api' => [
