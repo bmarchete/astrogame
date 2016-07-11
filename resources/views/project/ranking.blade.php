@@ -11,7 +11,7 @@ Ranking Global | Astrogame
 </div>
 <div class="ranking">
   <div class="uk-container uk-container-center">
-    <div class="uk-width-large-2-5 uk-container-center">
+    <div class="uk-width-large-3-6 uk-container-center">
         <div class="uk-panel uk-panel-box">
             <h2 class="uk-text-center"><i class="uk-icon uk-icon-cubes"></i> Ranking Global</h2>
             <ul class="uk-list uk-list-striped ranking-list">
