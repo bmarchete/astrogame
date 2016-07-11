@@ -8,7 +8,7 @@
     <meta name="author" content="Eduardo Augusto Ramos">
     <title>@yield('title')</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css'])->withFullUrl() !!}
     @yield('style')
     <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
