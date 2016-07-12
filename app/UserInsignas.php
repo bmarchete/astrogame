@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserInsignas extends Model
 {
+    public function insigna(){
+        return $this->belongsTo('App\Insignas');
+    }
 
-    // @ TODO: finish
-    public static function all()
-    {
-        return UserInsignas::join('')->where('user_id', auth()->user()->id)->get();
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

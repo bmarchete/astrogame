@@ -70,11 +70,9 @@ class User extends Authenticatable
     {
         DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);
         auth()->user()->xp += $xp;
-        Log::info('Player: ' . auth()->user()->id . ' ganhou ' . $xp . ' de xp.');
         if (auth()->user()->xp >= self::xp_for_next_level()) {
             auth()->user()->level += 1;
             DB::table('users')->where('id', auth()->user()->id)->increment('level');
-            Log::info('Player: ' . auth()->user()->id . ' passou de level.');
         }
     }
 
@@ -87,7 +85,14 @@ class User extends Authenticatable
 
     public static function xp_for_next_level()
     {
-        return self::$level_xp[auth()->user()->level + 1];
+        $counter = count(self::$level_xp);
+        $max = $counter + 1;
+
+        if( (auth()->user()->level + 1) > $max){
+            return self::$level_xp[$counter];
+        } else {
+            return self::$level_xp[auth()->user()->level + 1];
+        }
     }
 
     // @return string
@@ -128,7 +133,7 @@ class User extends Authenticatable
             return trans('game.patent7');
         } else if ($level == 14) {
             return trans('game.patent8');
-        } else if ($level > 15) {
+        } else {
             return trans('game.patent9');
         }
     }
@@ -145,6 +150,7 @@ class User extends Authenticatable
     public function insignas()
     {
         return \App\Insignas::get();
+        // return $this->hasOne('App\UserInsignas');
     }
 
     public function recent_feed()

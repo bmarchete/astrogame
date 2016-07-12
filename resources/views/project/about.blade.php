@@ -53,7 +53,7 @@
         </div>
     </div>
     <hr class="uk-grid-divider">
-    <h1 class="uk-text-center uk-margin-large-bottom"><i class="uk-icon uk-icon-archive"></i> História do Projeto Cosmos</h1>
+    <h1 class="uk-text-center uk-margin-large-bottom" id="historia-cosmos"><i class="uk-icon uk-icon-archive"></i> História do Projeto Cosmos</h1>
     <div class="uk-grid" data-uk-grid>
         <div class="uk-width-medium-1-2">
             <div class="uk-thumbnail uk-overlay-hover ">
