@@ -78,13 +78,9 @@
                     <a class="uk-float-right uk-link uk-link-muted" href="{{ url('password/reset')}}">{{ trans('project.forget-password') }}</a>
                 </div>
                 <div class="uk-form-row">
-                    <div class="uk-grid" data-uk-grid>
-                      <div class="uk-container">
-                      <button type="submit" class="uk-width-medium-1-3 action-button green"><i class="uk-icon-sign-in"></i> {{trans('project.submit')}}</button>
-                      <a class="uk-width-medium-1-3 action-button blue" href="{{ url('login/facebook')}}"><i class="uk-icon-facebook"></i> Facebook</a>
-                      <a href="#register" data-uk-modal="" class="action-button red uk-width-1-3"><i class="uk-icon-user-plus"></i> {{ trans('project.register') }}</a>
-                    </div>
-                    </div>
+                      <button type="submit" class="action-button green uk-width-1-1"><i class="uk-icon-sign-in"></i> {{ trans('project.submit') }}</button>
+                      <a class="action-button blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
+                      <a href="#register" data-uk-modal="" class="action-button red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>
                 </div>
             </form>
         </div>
@@ -94,8 +90,9 @@
         <div class="uk-modal-dialog">
             <a href="" class="uk-modal-close uk-close"></a>
             <h2>Registrar no Astrogame</h2>
+            <br>
 
-            <form class="uk-form uk-width-4-5 uk-container-center" method="POST" action="{{url('/register')}}">
+            <form class="uk-form uk-width-1-1 uk-container-center" method="POST" action="{{url('/register')}}">
                   {!! csrf_field() !!}
                   <div class="uk-form-row">
                      <input class="uk-width-1-1 uk-form-large" type="text" name="name" value="{{ old('name') }}" placeholder="{{ trans('project.name')}}" required>
@@ -122,10 +119,8 @@
                     <a class="uk-float-right uk-link uk-link-muted" href="#login" data-uk-modal>{{ trans('project.login-register') }}</a>
                 </div>
                 <div class="uk-form-row">
-                    <div class="uk-button-group">
-                        <button type="submit" class="action-button shadow red"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar')}}</button>
-                        <a class="action-button shadow blue" href="{{ url('login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
-                    </div>
+                    <button type="submit" class="action-button shadow red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
+                    <a class="action-button shadow blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> {{ trans('project.facebook') }}</a>
                 </div>
             </form>
         </div>

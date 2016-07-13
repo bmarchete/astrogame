@@ -43,11 +43,11 @@ h6 {
     width: 240px;
     padding: 19px 0;
 }
-.uk-navbar-toggle{
+.uk-navbar-toggle {
     color: #ecf0f1;
     padding-top: 20px;
     text-shadow: none;
-    font-size: 28px
+    font-size: 28px;
 }
 .uk-logo {
     margin: 0;
@@ -206,6 +206,16 @@ h6 {
     transform: translate(0px, 5px);
     border-bottom: 1px solid;
 }
+.action-button[type=submit] {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.action-button[type=submit]:hover {
+    color: #005599;
+    text-shadow: none;
+    cursor: pointer;
+}
 .info {
     color: #ecf0f1;
     text-shadow: 1px 2px rgba(55, 58, 60, .37);
@@ -239,7 +249,7 @@ h6 {
 }
 .galileu-img {
     float: right;
-    margin: 20px 0 -15px 0;
+    margin: 20px 0 -15px;
     width: 200px;
 }
 .bubble {
@@ -298,16 +308,13 @@ h6 {
     overflow-y: scroll;
     height: 500px;
 }
-
 .footer {
     padding-top: 50px;
     color: #7f8c8d;
 }
-
-.footer a{
-  color: #ecf0f1
+.footer a {
+    color: #ecf0f1;
 }
-
 .subfooter {
     background: #222629;
     padding-top: 20px;
