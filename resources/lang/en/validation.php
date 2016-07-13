@@ -110,5 +110,5 @@ return [
 
     'attributes' => [],
 
-    'recaptcha' => 'The :attribute field is not correct.',
+    'recaptcha' => 'The recaptcha field is not correct.',
 ];

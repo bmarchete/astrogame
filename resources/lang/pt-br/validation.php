@@ -105,6 +105,6 @@ return [
     */
 
     'attributes' => [],
-    'recaptcha' => 'O :attribute não está correto.',
+    'recaptcha' => 'O recaptcha não está correto.',
 
 ];
