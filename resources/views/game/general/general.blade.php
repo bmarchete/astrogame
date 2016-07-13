@@ -7,13 +7,13 @@
       <title>@yield('title')</title>
       {!! Minify::stylesheet([
                   '/vendor/uikit/css/uikit.gradient.css',
-                  '/css/game/main.css', 
+                  '/css/game/main.css',
                   '/vendor/uikit/css/components/notify.gradient.css',
-                  '/vendor/uikit/css/components/progress.gradient.css', 
+                  '/vendor/uikit/css/components/progress.gradient.css',
                   '/vendor/uikit/css/components/tooltip.gradient.css',
                   '/vendor/uikit/css/components/datepicker.gradient.css',
                   '/vendor/uikit/css/components/form-file.gradient.css',
-                  
+
                   ])->withFullUrl() !!}
       @yield('style')
    </head>
@@ -23,14 +23,14 @@
       @if (auth()->check())
          @include('game.general.player-bar')
       @endif
-      
-      {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', 
+
+      {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js',
                               '/vendor/uikit/js/uikit.min.js',
                               '/vendor/jquery/ajaxform.min.js',
                               '/vendor/uikit/js/components/notify.min.js',
                               '/vendor/uikit/js/components/tooltip.min.js',
                               '/vendor/uikit/js/components/datepicker.min.js',
-                              '/vendor/buzz/buzz.min.js'])->withFullUrl() !!}
+                              '/vendor/buzz/buzz.min.js'], ['async' => true])->withFullUrl() !!}
       @yield('javascript')
       @yield('javascript2')
    </body>

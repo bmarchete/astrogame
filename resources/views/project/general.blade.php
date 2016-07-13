@@ -8,7 +8,7 @@
     <meta name="author" content="Eduardo Augusto Ramos">
     <title>@yield('title')</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
     {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css'])->withFullUrl() !!}
     @yield('style')
     <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
@@ -135,7 +135,7 @@
             </form>
         </div>
     </div>
-    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js'])->withFullUrl() !!}
+    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js'], ['async' => true])->withFullUrl() !!}
     @yield('javascript')
 
     @if (count($errors->all()) > 0 )
