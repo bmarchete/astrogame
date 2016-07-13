@@ -63,6 +63,16 @@
             <a href="" class="uk-modal-close uk-close"></a>
             <h2>Entrar no Astrogame</h2>
             <br>
+
+            @if (count($errors->all()) > 0 )
+                @foreach($errors->all() as $error)
+                <div class="uk-alert uk-alert-danger" data-uk-alert>
+                   <a href="#" class="uk-alert-close uk-close"></a>
+                   <p>{{ $error }}</p>
+                </div>
+                @endforeach
+            @endif
+
             <form class="uk-form uk-width-1-1 uk-container-center" method="POST" action="{{url('/login')}}">
                 {!! csrf_field() !!}
 
@@ -127,5 +137,11 @@
     </div>
     {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js'])->withFullUrl() !!}
     @yield('javascript')
+
+    @if (count($errors->all()) > 0 )
+    <script>
+        UIkit.modal("#login").show();
+    </script>
+    @endif
 </body>
 </html>
