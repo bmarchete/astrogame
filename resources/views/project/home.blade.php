@@ -6,7 +6,7 @@
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/vendor/uikit/js/components/lightbox.js'])->withFullURL() !!}
+{!! Minify::javascript(['/vendor/uikit/js/components/lightbox.js'], ['async' => true])->withFullURL() !!}
 @stop
 
 @section('content')

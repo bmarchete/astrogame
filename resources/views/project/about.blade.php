@@ -6,7 +6,7 @@
 {!! Minify::stylesheet(['/vendor/uikit/css/components/slideshow.gradient.css', '/vendor/uikit/css/components/dotnav.gradient.css', '/vendor/uikit/css/components/slidenav.gradient.css'])->withFullURL() !!}
 @stop
 @section('javascript')
-{!! Minify::javascript(['/vendor/uikit/js/components/slideshow.js'])->withFullURL() !!}
+{!! Minify::javascript(['/vendor/uikit/js/components/slideshow.js'], ['async' => true])->withFullURL() !!}
 @stop
 @section('content')
 <div class="thumbnav">
