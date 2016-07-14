@@ -135,7 +135,8 @@
             </form>
         </div>
     </div>
-    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js'], ['async' => true])->withFullUrl() !!}
+    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js'])->withFullUrl() !!}
+    {!! Minify::javascript(['/vendor/uikit/js/uikit.min.js'], ['async' => true])->withFullUrl() !!}
     @yield('javascript')
 
     @if (count($errors->all()) > 0 )

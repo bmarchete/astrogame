@@ -31,13 +31,13 @@
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="name">{{ trans('project.your-name') }}</label>
                         <div class="uk-form-controls">
-                            <input type="text" name="name" class="uk-width-1-1" required placeholder="{{ trans('project.name-placeholder') }}">
+                            <input type="text" name="name" class="uk-width-1-1" placeholder="{{ trans('project.name-placeholder') }}" required>
                         </div>
                     </div>
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="email">{{ trans('project.your-email') }}</label>
                         <div class="uk-form-controls">
-                            <input type="email" name="email" class="uk-width-1-1" placeholder="{{ trans('project.email-placeholder') }}">
+                            <input type="email" name="email" class="uk-width-1-1" placeholder="{{ trans('project.email-placeholder') }}" required>
                         </div>
                     </div>
                     <div class="uk-form-row">

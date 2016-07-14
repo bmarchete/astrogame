@@ -2,11 +2,11 @@
 @section('title') {{ trans('project.title') }} @stop
 
 @section('style')
-{!! Minify::stylesheet(['/vendor/uikit/css/components/slidenav.gradient.css'])->withFullURL() !!}
+{!! Minify::stylesheet(['/vendor/uikit/css/components/tooltip.gradient.css'])->withFullURL() !!}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/vendor/uikit/js/components/lightbox.js'], ['async' => true])->withFullURL() !!}
+{!! Minify::javascript(['/vendor/uikit/js/components/tooltip.js'], ['async' => true])->withFullURL() !!}
 @stop
 
 @section('content')
@@ -24,7 +24,7 @@
         </div>
 
         <div class="uk-width-medium-3-6 uk-hidden-small">
-            <div class="astronaut uk-animation-hover uk-animation-shake"></div>
+            <div class="astronaut uk-animation-hover uk-animation-shake" data-uk-tooltip title="That's one small step for a man, one giant leap for mankind."></div>
         </div>
     </div>
 </div>
@@ -100,21 +100,21 @@
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="name">{{ trans('project.name')}}</label>
                         <div class="uk-form-controls">
-                            <input type="text" name="name" placeholder="{{ trans('project.your-name') }}" class="uk-width-1-1">
+                            <input type="text" name="name" placeholder="{{ trans('project.your-name') }}" class="uk-width-1-1" required>
                         </div>
                     </div>
 
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="name">{{ trans('project.email') }}</label>
                         <div class="uk-form-controls">
-                            <input type="email" name="email" placeholder="{{ trans('project.your-email') }}" class="uk-width-1-1">
+                            <input type="email" name="email" placeholder="{{ trans('project.your-email') }}" class="uk-width-1-1" required>
                         </div>
                     </div>
 
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="mensagem">{{ trans('project.your-message') }}</label>
                         <div class="uk-form-controls">
-                            <textarea name="mensagem" rows="8" cols="40" class="uk-width-1-1"></textarea>
+                            <textarea name="mensagem" rows="8" cols="40" class="uk-width-1-1" required></textarea>
                         </div>
                     </div>
                     <div class="uk-form-row">
