@@ -30,7 +30,7 @@
                               '/vendor/uikit/js/components/notify.min.js',
                               '/vendor/uikit/js/components/tooltip.min.js',
                               '/vendor/uikit/js/components/datepicker.min.js',
-                              '/vendor/buzz/buzz.min.js'], ['async' => true])->withFullUrl() !!}
+                              '/vendor/buzz/buzz.min.js'])->withFullUrl() !!}
       @yield('javascript')
       @yield('javascript2')
    </body>
