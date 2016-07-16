@@ -88,7 +88,7 @@ class User extends Authenticatable
         $counter = count(self::$level_xp);
         $max = $counter + 1;
 
-        if( (auth()->user()->level + 1) > $max){
+        if( (auth()->user()->level + 1) >= $max){
             return self::$level_xp[$counter];
         } else {
             return self::$level_xp[auth()->user()->level + 1];

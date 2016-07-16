@@ -53,9 +53,9 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'nickname' => 'required|min:2|max:60|unique:users',
-            'name'     => 'required|min:2',
+            'name'     => 'required|min:2|max:255',
             'email'    => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|max:255',
             'terms'    => 'required',
             'g-recaptcha-response' => 'required|recaptcha',
         ]);
