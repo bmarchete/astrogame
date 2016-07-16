@@ -64,7 +64,7 @@
             <h2>Entrar no Astrogame</h2>
             <br>
 
-            @if (count($errors->all()) > 0 )
+            @if (isset($errors) && count($errors->all()) > 0 )
                 @foreach($errors->all() as $error)
                 <div class="uk-alert uk-alert-danger" data-uk-alert>
                    <a href="#" class="uk-alert-close uk-close"></a>
@@ -139,7 +139,7 @@
     {!! Minify::javascript(['/vendor/uikit/js/uikit.min.js'], ['async' => true])->withFullUrl() !!}
     @yield('javascript')
 
-    @if (count($errors->all()) > 0 )
+    @if (isset($errors) && count($errors->all()) > 0 )
     <script>
         UIkit.modal("#login").show();
     </script>
