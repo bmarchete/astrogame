@@ -46,7 +46,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/campaign', 'GameController@campaing_map');
 		Route::get('/observatory', 'ObservatoryController@index');
 		Route::get('/map', 'GameController@campaing_map');
-		Route::post('/report', 'BugController@send');
+		Route::post('/report', 'ReportController@send');
 
 		// quests
 		Route::get('/quest_accept/{id}', 'QuestController@quest_accept')->where('id', '[0-9-]+');
