@@ -23,3 +23,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'level' => rand(1, 13)
     ];
 });
+
+$factory->define(App\History::class, function (Faker\Generator $faker) {
+    return [
+        'texto' => $faker->sentence(5),
+        'user_id' => \App\User::orderByRaw('RAND()')->first()->id,
+        'icon' => function(){
+            $icons = ['check', 'space-shuttle', 'shopping-cart'];
+            $random_index = rand(0, count($icons) - 1);
+            return $icons[$random_index];
+        },
+    ];
+});

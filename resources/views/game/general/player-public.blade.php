@@ -53,9 +53,11 @@
             <div class="uk-panel uk-panel-box">
                 <h2>{{ trans('game.recent-activ') }}</h2>
                 <ul class="uk-list uk-list-striped uk-text-left">
-                    @foreach($player->recent_feed() as $item)
-                    <li><i class="uk-icon-{{ $item->icon }}"> </i> {{ $item->text }} <span class="uk-text-muted uk-text-small">{{ $item->date }}</span></li>
-                    @endforeach
+                    @forelse($player->history as $item)
+                    	<li><i class="uk-icon-{{ $item->icon }}"> </i> {{ $item->texto }} <span class="uk-text-muted uk-text-small">{{ $item->created_at }}</span></li>
+										@empty
+											<p>Nenhuma atividade recente</p>
+										@endforelse
                 </ul>
             </div>
         </div>

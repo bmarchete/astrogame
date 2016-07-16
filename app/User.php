@@ -153,27 +153,9 @@ class User extends Authenticatable
         // return $this->hasOne('App\UserInsignas');
     }
 
-    public function recent_feed()
+    public function history()
     {
-        return [
-            (object) ['icon' => 'check',
-                'text'           => 'Completou o primeiro capítulo: Bem Vindo ao Astrogame. Ganhou 150 XP e um chapéu',
-                'date'           => '20/03/2016'],
-
-            (object) ['icon' => 'shopping-cart',
-                'text'           => 'Comprou um telescópio',
-                'date'           => '21/03/2016'],
-
-            (object) ['icon' => 'bookmark',
-                'text'           => 'Ganhou a insigna da Apollo 11',
-                'date'           => '21/03/2016'],
-
-            (object) ['icon' => 'exclamation',
-                'text'           => 'Completou o terceiro capítulo: Sistema Solar. Ganhou 153 XP',
-                'date'           => '24/03/2016'],
-
-        ];
-
+        return $this->hasMany('App\History');
     }
 
     public function makeAvatar($url = '')
