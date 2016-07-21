@@ -8,7 +8,7 @@
                 <div class="uk-form-controls">
                     <label class="uk-form-label" for="enable-sound">
                         <i class="uk-icon-volume-off"></i>
-                        <input id="volume-sound" type="range" min="0" max="100" value="100"> <i class="uk-icon-volume-up"></i> {{ trans('game.volume-sound') }}
+                        <input id="volume-effects" type="range" min="0" max="100" value="100"> <i class="uk-icon-volume-up"></i> {{ trans('game.volume-sound') }}
                     </label>
                 </div>
             </div>

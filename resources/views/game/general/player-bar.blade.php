@@ -21,8 +21,12 @@ function change_xp(xp){
 
         });
 
-        $("#volume-sound").change(function(){
+        $("#volume-effects").change(function(){
             var volume=$(this).val();
+            sound_effect.setVolume(volume);
+            $.ajax({
+                url: '{{ URL('/game/effects') }}/' + volume
+            })
         });
 
         $(".user-config").ajaxForm({
@@ -56,12 +60,14 @@ function change_xp(xp){
                    } else {
                         UIkit.notify("<i class='uk-icon-close'></i> " + data.text, {status:'danger', pos: 'top-right'});
                    }
+               },
+               error: function(data){
+                    UIkit.notify("<i class='uk-icon-close'></i> " + data.responseJSON.text[0], {status:'danger', pos: 'top-right'});
                }
            });
 
         $("#lang-select").change(function(){
             var lang=$(this).val();
-            console.log(lang);
             url = '{{ URL('/lang/')}}/' + lang;
             window.location.href = url;
         });
@@ -167,8 +173,16 @@ function change_xp(xp){
     var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
     var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false})
 
+    var sound_effect = new buzz.group([
+          coin_effect,
+          delete_effect,
+          quest_effect
+    ]);
+
     music_background.play().loop();
     music_background.setVolume({{ $music_volume }});
+
+    sound_effect.setVolume({{ $effects_volume }});
 </script>
 @stop
 <div class="buttons">

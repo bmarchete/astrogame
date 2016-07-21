@@ -21,6 +21,15 @@ class AccountController extends GameController
         UserConfig::setConfig('music_volume', $volume);
     }
 
+    public function change_volume_effects(Request $request)
+    {
+        $volume = $request->volume;
+        if ($volume > 100 || $volume < 0) {
+            return 'Não é possível fazer isso';
+        }
+        UserConfig::setConfig('effects_volume', $volume);
+    }
+
     public function change_account(Request $request)
     {
         $messages = [];
