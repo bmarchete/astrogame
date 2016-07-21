@@ -516,3 +516,21 @@
     @endif
 </div>
 </div>
+<!-- observatory -->
+<div id="observatory" class="uk-modal">
+  <div class="uk-modal-dialog uk-modal-dialog-large">
+    <a href="" class="uk-modal-close uk-close"></a>
+    <div class="uk-grid" data-uk-grid>
+      <div class="uk-width-1-1">
+        <div id="starmap" style="width:100%;height:500px;" data-uk-check-display></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- campanha map -->
+<div id="campaign" class="uk-modal">
+  <div class="uk-modal-dialog">
+    <a href="" class="uk-modal-close uk-close"></a>
+    @include('game.general.map')
+  </div>
+</div>

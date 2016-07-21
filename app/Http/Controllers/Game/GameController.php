@@ -8,6 +8,7 @@ use App\Quest;
 use App\User;
 use App\UserBag;
 use App\UserConfig;
+use App\UserObservatory;
 use Illuminate\Http\Request;
 use DB;
 
@@ -84,6 +85,7 @@ class GameController extends Controller
 
     protected function player_bar()
     {
+        $planet = new UserObservatory();
         $this->view_vars[] = [
             'music_volume'      => UserConfig::getConfig('music_volume'),
             'effects_volume'    => UserConfig::getConfig('effects_volume'),
@@ -100,6 +102,7 @@ class GameController extends Controller
             'accepted_quests'   => Quest::accepted_quests(),
             'patente'           => User::patente(),
             'user_insignas'     => Insignas::all(),
+            'planetarium'       => $planet->planetarium,
         ];
     }
 }
