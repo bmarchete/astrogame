@@ -33,28 +33,6 @@ $(document).ready(function(){
 </script>
 
 <script src="{{ url('construct/welcome/c2runtime.js') }}"></script>
-
-    <script>
-
-		// Pause and resume on page becoming visible/invisible
-		function onVisibilityChanged() {
-			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
-				cr_setSuspended(true);
-			else
-				cr_setSuspended(false);
-		};
-
-		document.addEventListener("visibilitychange", onVisibilityChanged, false);
-		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
-		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
-		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
-
-		if (navigator.serviceWorker && navigator.serviceWorker.register)
-		{
-			// Register an empty service worker to trigger web app install banners.
-			navigator.serviceWorker.register("{{ url('construct/welcome/sw.js') }}", { scope: "./" });
-		}
-    </script>
 @stop
 
 @section('content')
