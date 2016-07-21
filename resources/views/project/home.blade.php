@@ -80,7 +80,7 @@
                     <span class="bubble">{{ trans('project.home-text.text7') }}</span>
                 </div>
                 <div class="uk-width-medium-1-3 uk-container-center">
-                    <img class="galileu-img uk-animation-hover uk-animation-shake" alt="" src="{{ url('/img/char/galileu.png')}}">
+                    <img class="galileu-img uk-animation-hover uk-animation-shake" alt="Galileu Galilei avatar" src="{{ url('/img/char/galileu.png')}}">
                 </div>
             </div>
         </div>
@@ -100,21 +100,21 @@
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="name">{{ trans('project.name')}}</label>
                         <div class="uk-form-controls">
-                            <input type="text" name="name" placeholder="{{ trans('project.your-name') }}" class="uk-width-1-1" required>
+                            <input type="text" name="name" id="name" placeholder="{{ trans('project.your-name') }}" class="uk-width-1-1" required>
                         </div>
                     </div>
 
                     <div class="uk-form-row">
-                        <label class="uk-form-label" for="name">{{ trans('project.email') }}</label>
+                        <label class="uk-form-label" for="email">{{ trans('project.email') }}</label>
                         <div class="uk-form-controls">
-                            <input type="email" name="email" placeholder="{{ trans('project.your-email') }}" class="uk-width-1-1" required>
+                            <input type="email" name="email" id="email" placeholder="{{ trans('project.your-email') }}" class="uk-width-1-1" required>
                         </div>
                     </div>
 
                     <div class="uk-form-row">
                         <label class="uk-form-label" for="mensagem">{{ trans('project.your-message') }}</label>
                         <div class="uk-form-controls">
-                            <textarea name="mensagem" rows="8" cols="40" class="uk-width-1-1" required></textarea>
+                            <textarea name="mensagem" id="mensagem" rows="8" cols="40" class="uk-width-1-1" required></textarea>
                         </div>
                     </div>
                     <div class="uk-form-row">
