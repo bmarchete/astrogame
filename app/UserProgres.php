@@ -92,7 +92,7 @@ class UserProgres extends Model
 
         // xp_reward
         if (isset($key_data['xp_reward'])) {
-            User::gain_xp($key_data['xp_reward']);
+            auth()->user()->gain_xp($key_data['xp_reward']);
         }
 
         // items_reward

@@ -11,7 +11,7 @@ use Log;
 class User extends Authenticatable
 {
 
-    public static $level_xp =
+    public $level_xp =
         [
         // level => xp_for_next_level
         1  => 400,
@@ -66,32 +66,47 @@ class User extends Authenticatable
      * @param int xp
      * @return void
      */
-    public static function gain_xp($xp)
+    public function gain_xp($xp)
     {
-        DB::table('users')->where('id', auth()->user()->id)->increment('xp', $xp);
-        auth()->user()->xp += $xp;
-        if (auth()->user()->xp >= self::xp_for_next_level()) {
-            auth()->user()->level += 1;
-            DB::table('users')->where('id', auth()->user()->id)->increment('level');
+        DB::table('users')->where('id', $this->id)->increment('xp', $xp);
+        $this->xp += $xp;
+        if ($this->xp >= $this->xp_for_next_level()) {
+            $this->level += 1;
+            DB::table('users')->where('id', $this->id)->increment('level');
         }
     }
 
+    public function gain_money($money){
+        DB::table('users')->where('id', $this->id)->increment('money', $money);
+        $this->money += $money;
+    }
+
+    public function remove_money($money){
+      DB::table('users')->where('id', $this->id)->decrement('money', $money);
+      $final = $this->money - $money;
+      if($final > $this->money){
+          $this->money = 0;
+      } else {
+          $this->money = $final;
+      }
+    }
+
     // pega o xp e transforma em porcentagem
-    public static function xp_bar()
+    public function xp_bar()
     {
-        $porcent = (auth()->user()->xp * 100) / self::xp_for_next_level();
+        $porcent = ($this->xp * 100) / $this->xp_for_next_level();
         return round($porcent);
     }
 
-    public static function xp_for_next_level()
+    public function xp_for_next_level()
     {
-        $counter = count(self::$level_xp);
+        $counter = count($this->level_xp);
         $max = $counter + 1;
 
-        if( (auth()->user()->level + 1) >= $max){
-            return self::$level_xp[$counter];
+        if( ($this->level + 1) >= $max){
+            return $this->level_xp[$counter];
         } else {
-            return self::$level_xp[auth()->user()->level + 1];
+            return $this->level_xp[$this->level + 1];
         }
     }
 
@@ -181,5 +196,9 @@ class User extends Authenticatable
         } else {
             return url($default);
         }
+    }
+
+    public function config(){
+        return $this->hasMany('App\UserConfig');
     }
 }

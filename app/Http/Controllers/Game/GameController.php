@@ -61,13 +61,23 @@ class GameController extends Controller
     // player public profile
     public function player(Request $request)
     {
-        $user_id    = $request->id;
-        $check_user = User::where('id', $user_id)->limit(1)->get()->first();
-        if (!$check_user) {
+        $user = User::where('id', $request->id)->limit(1)->first();
+
+        // checagens
+        if (!$user) {
             return 'Esse player não existe';
         }
-        $this->view_vars[] = ['player' => $check_user];
-        $this->view_vars[] = ['player_patente' => User::patente($check_user->level)];
+
+        foreach($user->config as $config){
+            if($config->key == 'private'){
+                if($config->value == true){
+                    return abort(404, 'Usuário privado');
+                }
+            }
+        }
+
+        $this->view_vars[] = ['player' => $user];
+        $this->view_vars[] = ['player_patente' => User::patente($user->level)];
 
         return view('game.general.player-public', $this->view_vars());
     }
@@ -76,12 +86,13 @@ class GameController extends Controller
     {
         $this->view_vars[] = [
             'music_volume'      => UserConfig::getConfig('music_volume'),
-            'xp_bar'            => User::xp_bar(),
+            'effects_volume'    => UserConfig::getConfig('effects_volume'),
+            'xp_bar'            => auth()->user()->xp_bar(),
             'user_name'         => auth()->user()->nickname,
             'user_level'        => auth()->user()->level,
             'user_money'        => auth()->user()->money,
             'user_xp'           => auth()->user()->xp,
-            'xp_for_next_level' => User::xp_for_next_level(),
+            'xp_for_next_level' => auth()->user()->xp_for_next_level(),
             'lang'              => session()->get('language', 'pt-br'),
             'shop'              => $this->shop(),
             'bag'               => UserBag::bag(),

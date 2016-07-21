@@ -3,7 +3,6 @@
 namespace App;
 
 use App\Quest;
-use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class UsersQuest extends Model
@@ -24,7 +23,7 @@ class UsersQuest extends Model
 
     private function quests_exists()
     {
-        return (Quest::select('id')->where('id', $this->quest_id)->limit(1)->get()->first()) ? true : false;
+        return (Quest::select('id')->where('id', $this->quest_id)->limit(1)->first()) ? true : false;
     }
 
     private function user_quest_exists()
@@ -65,7 +64,23 @@ class UsersQuest extends Model
     {
         $quest = $this->user_quest_exists();
         if ($quest && $quest->completed == false) {
-            return DB::table('users_quests')->where('quest_id', $quest_id)->where('user_id', $this->user_id)->update(['completed' => true]);
+            $user_quest = UsersQuest::select('quest_id')->where('quest_id', $quest_id)->where('user_id', $this->user_id)->first();
+            $user_quest->completed = true;
+            $user_quest->save();
+
+            $this->reward_user($user_quest, auth()->user());
         }
+    }
+
+    public function reward_user(UsersQuest $user_quest, User $user){
+        // add xp
+        $user->gain_xp($user_quest->quest_info->xp_reward);
+
+        // add money
+        $user->gain_money($user_quest->quest_info->money_reward);
+    }
+
+    public function quest_info(){
+        return $this->belongsTo('App\Quest');
     }
 }

@@ -13,6 +13,7 @@ class UserConfig extends Model
         'music_volume'   => 80,
         'effects_volume' => 100,
         'lang'           => 'pt-br',
+        'private'        => false,
     ];
 
     public static function getConfig($config_key)
