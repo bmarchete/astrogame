@@ -2,9 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-use Validator;
-
 class StoreReportRequest extends Request
 {
     /**
@@ -27,11 +24,5 @@ class StoreReportRequest extends Request
         return [
             'text' => 'required|min:10|max:65535',
         ];
-    }
-
-    protected function failedValidation(Validator $validator)
-    {
-        $messages = $validator->errors();
-        return response()->json(['status' => false, 'text' => $messages->first('text')]);
     }
 }
