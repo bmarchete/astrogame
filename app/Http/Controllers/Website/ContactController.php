@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
-use Mail;
+use App\Contact;
 
 class ContactController extends Controller
 {
@@ -17,16 +17,15 @@ class ContactController extends Controller
    */
   public function store(ContactRequest $request)
   {
-      try {
-        Mail::send('emails.contact', $request, function ($message) use ($request) {
-            $message->from($request->email, $request->name);
-            $message->subject('Contato de '. $request->name);
-            $message->to('eduardo@astrogame.me');
-        });
+      $contact = new Contact();
+      $contact->name = $request->name;
+      $contact->email = $request->email;
+      $contact->mensagem = $request->mensagem;
 
-        return redirect('contato')->with(['status' => true]);
-      } catch (\Exception $e) {
-        return redirect('contato')->withErrors(['Não foi possível enviar o contato, tente mais tarde'])->withInput();
+      if ($contact->save()) {
+          return redirect('contato')->with(['status' => true]);
+      } else {
+          return redirect('contato')->withErrors(['Não foi possível enviar o contato, tente mais tarde'])->withInput();
       }
   }
 
