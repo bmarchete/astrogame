@@ -169,8 +169,10 @@ class AuthController extends Controller
         }
 
         $user = $this->create($request->all());
-        auth()->logout();
+        // send confirm email
+        // auth()->logout();
+        // return redirect('/login')->withErrors(['msg' => trans('auth.confirmation')]);
 
-        return redirect('/login')->withErrors(['msg' => trans('auth.confirmation')]);
+        return redirect('/game');
     }
 }

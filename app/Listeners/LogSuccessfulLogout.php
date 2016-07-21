@@ -5,6 +5,7 @@ namespace App\Listeners;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use DB;
 
 class LogSuccessfulLogout
 {
@@ -26,6 +27,6 @@ class LogSuccessfulLogout
      */
     public function handle(Logout $event)
     {
-        \DB::table('users')->where('id', $event->user->id)->limit(1)->update(['online' => false]);
+        DB::table('users')->where('id', $event->user->id)->limit(1)->update(['online' => false]);
     }
 }

@@ -34,15 +34,16 @@ class RegisterUsers
         // instala configurações básicas de usuário
         UserConfig::installConfig($event->user->id);
 
-        // usuário ganha 5000 conto
-        DB::table('users')->where('id', $event->user->id)->update(['money' => 5000]);
+        // usuário ganha 1000 conto
+        DB::table('users')->where('id', $event->user->id)->update(['money' => 1000]);
 
         // autentica caso não estiver autenticado
         auth()->login($event->user, true);
 
         // confirmação
+        /*
         $data = ['name' => $event->user->name, 'email' => $event->user->email, 'confirm_code' => $event->user->confirm_code];
-        /*Mail::send('emails.verify', $data, function ($message) use ($data) {
+        Mail::send('emails.verify', $data, function ($message) use ($data) {
             $message->from('no-reply@astrogame.com.br', 'Astrogame');
             $message->subject('Confirmação do Astrogame');
             $message->to($data['email']);

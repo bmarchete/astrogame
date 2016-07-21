@@ -5,6 +5,7 @@ namespace App\Listeners;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use DB;
 
 class LogSuccessfulLogin
 {
@@ -26,6 +27,6 @@ class LogSuccessfulLogin
      */
     public function handle(Login $event)
     {
-        \DB::table('users')->where('id', $event->user->id)->limit(1)->update(['online' => true]);
+        DB::table('users')->where('id', $event->user->id)->limit(1)->update(['online' => true]);
     }
 }
