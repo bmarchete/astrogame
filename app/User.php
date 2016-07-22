@@ -176,20 +176,17 @@ class User extends Authenticatable
     public function makeAvatar($url = '')
     {
         $path   = public_path('users/avatar/' . md5($this->id) . '.jpg');
-
         $width  = 500;
         $height = 500;
 
+        // caso já existir um avatar no lugar
+        if(file_exists($path)){
+            unlink($path);
+        }
+
         if (!empty($url)) {
             try {
-                $avatar = Image::make($url)->fit($width, $height);
-
-                // caso já existir um avatar no lugar
-                if(file_exists($path)){
-                    unlink($path);
-                }
-
-                $avatar->save($path);
+                $avatar = Image::make($url)->fit($width, $height)->save($path);
 
             } catch (Exception $e) {
                 // default avatar

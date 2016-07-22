@@ -71,6 +71,12 @@ $(document).ready(function(){
         {{ session()->forget('notify') }}
     @endif
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-Token': '{{ csrf_token() }}'
+        }
+    });
+
     $("#volume-music").change(function(){
         var volume=$(this).val();
         background.setVolume(volume);
@@ -115,12 +121,6 @@ $(document).ready(function(){
         var file_avatar = $("#avatar-file")[0].files[0];
         var formData = new FormData();
         formData.append('avatar', file_avatar);
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-Token': '{{ csrf_token() }}'
-            }
-        });
 
         $.ajax({
             method: 'POST',
