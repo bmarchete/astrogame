@@ -31,22 +31,17 @@ class SocialLoginController extends Controller
         return Socialize::with($provider)->redirect();
     }
 
-    // genérica para os dois
-    public function fallback($provider)
-    {
-        return $this->$provider();
-    }
-
     /**
-     * Função que é acionada quando o facebook valida e volta a requisição de login
+     * Função que é acionada quando o facebook ou google valida e volta a requisição de login
      *
      * @return void
      */
-    protected function facebook()
+    protected function fallback($provider)
     {
-        $user = Socialize::with('facebook')->user();
+        $provider_id = ($provider == 'facebook') ? 1 : 2; // 2 = google
+        $user = Socialize::with($provider)->user();
 
-        $check_user = User::where('provider_user_id', $user->id)->where('provider_id', 1)->limit(1)->first();
+        $check_user = User::where('provider_user_id', $user->getId())->where('provider_id', $provider_id)->limit(1)->first();
         if ($check_user) {
             $this->check_diff($user, $check_user);
 
@@ -54,10 +49,10 @@ class SocialLoginController extends Controller
             return redirect($this->redirect);
         }
 
-        $check_user_email = User::where('email', $user->email)->limit(1)->first();
+        $check_user_email = User::where('email', $user->getEmail())->limit(1)->first();
         if (empty($check_user) && $check_user_email) {
-            $check_user_email->provider_id      = 1;
-            $check_user_email->provider_user_id = $user->id;
+            $check_user_email->provider_id      = $provider_id;
+            $check_user_email->provider_user_id = $user->getId();
             $check_user_email->save();
             auth()->login($check_user_email);
 
@@ -65,29 +60,18 @@ class SocialLoginController extends Controller
         }
 
         $user_db                   = new User;
-        $user_db->name             = $user->name;
-        $user_db->email            = $user->email;
-        $user_db->nickname         = $user->nickname;
-        $user_db->provider_id      = 1;
-        $user_db->provider_user_id = $user->id;
+        $user_db->name             = $user->getName();
+        $user_db->email            = $user->getEmail();
+        $user_db->nickname         = $user->getNickname();
+        $user_db->provider_id      = $provider_id;
+        $user_db->provider_user_id = $user->getId();
         $user_db->gender           = ($user->user['gender'] == 'male') ? 1 : 2;
-        $user_db->password         = bcrypt('temp' . rand() . 'temp');
+        $user_db->password         = bcrypt('temp' . rand(1, 100000) . 'temp');
         $user_db->save();
 
-        $user_db->makeAvatar($user->avatar_original);
+        $user_db->makeAvatar($user->getAvatar());
 
         return redirect($this->redirect);
-    }
-
-    /**
-     * Função que é acionada quando o google valida e volta a requisição de login
-     *
-     * @return void
-     */
-    protected function google()
-    {
-        $user = Socialize::with('google')->user();
-        dd($user);
     }
 
     /**
@@ -95,18 +79,18 @@ class SocialLoginController extends Controller
      *
      * @return void
      */
-    protected function check_diff($provider, $db)
+    protected function check_diff($provider, User $db)
     {
-        $user_1 = ['name' => $provider->name,
-            'email'           => $provider->email,
+        $user_1 = ['name' => $provider->getName(),
+            'email'           => $provider->getEmail(),
             'gender'          => ($provider->user['gender'] == 'male') ? 1 : 2];
         $user_2 = ['name' => $db->name,
             'email'           => $db->email,
             'gender'          => $db->gender];
 
         if (!empty(array_diff($user_1, $user_2))) {
-            $db->email  = $provider->email;
-            $db->name   = $provider->name;
+            $db->email  = $provider->getEmail();
+            $db->name   = $provider->getName();
             $db->gender = $provider->gender;
         }
     }
