@@ -166,7 +166,7 @@ $(document).ready(function(){
         $(".accept-quest").val(id);
     });
 
-    $(".menu-campanha").click(function(){
+    $(".action-button").click(function(){
         map_effect.play();
     });
 
@@ -222,6 +222,7 @@ $(document).ready(function(){
             showposition: false,
             gradient: true,
             ground :true,
+            width: 1080,
     });
 
     $('#starmap').on('dblclick', function(){
@@ -236,6 +237,13 @@ $(document).ready(function(){
           elem.webkitRequestFullscreen();
         }
     });
+
+    ///////////////////////////////////////////////////
+    // logicas de jogo
+    ///////////////////////////////////////////////////
+    @if (\App\UsersQuest::is_quest_taken(1, auth()->user()) == false)
+      UIkit.modal("#quests").show();
+    @endif
 });
 
 </script>

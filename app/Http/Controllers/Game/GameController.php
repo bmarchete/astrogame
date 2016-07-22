@@ -86,6 +86,7 @@ class GameController extends Controller
     protected function player_bar()
     {
         $planet = new UserObservatory();
+        $planet->get_users_planetarium();
         $this->view_vars[] = [
             'music_volume'      => UserConfig::getConfig('music_volume'),
             'effects_volume'    => UserConfig::getConfig('effects_volume'),

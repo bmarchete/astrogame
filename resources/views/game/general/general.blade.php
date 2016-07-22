@@ -31,7 +31,8 @@
                               '/vendor/uikit/js/components/tooltip.min.js',
                               '/vendor/uikit/js/components/datepicker.min.js',
                               '/vendor/buzz/buzz.min.js',
-                              '/vendor/virtualsky/virtualsky.js'])->withFullUrl() !!}
+                              ])->withFullUrl() !!}
+      {!! Html::script('/vendor/virtualsky/virtualsky.js') !!}
       @yield('javascript')
       @yield('javascript2')
    </body>

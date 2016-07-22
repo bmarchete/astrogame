@@ -83,4 +83,12 @@ class UsersQuest extends Model
     public function quest_info(){
         return $this->belongsTo('App\Quest');
     }
+
+    public static function is_quest_taken($quest_id, User $user){
+        if(UsersQuest::select('user_id')->where('quest_id', $quest_id)->where('user_id', $user->id)->first()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

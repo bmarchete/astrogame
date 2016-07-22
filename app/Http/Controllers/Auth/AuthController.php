@@ -51,14 +51,19 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $rules = [
             'nickname' => 'required|min:2|max:60|unique:users',
             'name'     => 'required|min:2|max:255',
             'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|max:255',
             'terms'    => 'required',
-            'g-recaptcha-response' => 'required|recaptcha',
-        ]);
+        ];
+
+        if(env('APP_ENV') != 'local'){
+            $rules['g-recaptcha-response'] = 'required|recaptcha';
+        }
+        
+        return Validator::make($data, $rules);
     }
 
     /**

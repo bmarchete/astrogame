@@ -15,7 +15,7 @@ Ranking Global | Astrogame
         <div class="uk-panel uk-panel-box">
             <h2 class="uk-text-center"><i class="uk-icon uk-icon-cubes"></i> Ranking Global</h2>
             <ul class="uk-list uk-list-striped ranking-list">
-              @foreach ($players as $player)
+              @forelse ($players as $player)
               <li>
                   <div class="uk-border-circle uk-hidden-small" style="width: 60px; display: inline-block">
                       <a href="{{ url('/player') . '/' . $player->id }}">
@@ -27,7 +27,9 @@ Ranking Global | Astrogame
                       <li><i class="uk-icon-exclamation"></i> Level: {{ $player->level }} - ({{$player->xp}} XP)</li>
                   </ul>
               </li>
-              @endforeach
+              @empty
+                <p>Acho que ninguém começou a jogar ainda :(</p>
+              @endforelse
             </ul>
         </div>
         <div class="uk-margin-top uk-grid" data-uk-grid>

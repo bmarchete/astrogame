@@ -15,7 +15,7 @@ class CreateUserInsignasTable extends Migration
         Schema::create('user_insignas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('insigna_id')->unsigned();
-            $table->foreign('insigna_id')->references('id')->on('insignas');
+            $table->foreign('insigna_id')->references('id')->on('insignas')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

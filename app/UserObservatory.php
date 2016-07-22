@@ -9,15 +9,16 @@ class UserObservatory extends Model
     public $planetarium =
         [
         'showstars'        => 'true',
-        'showstarlabels'   => 'true',
-        'magnitude'        => '5',
-        'constellations'   => 'true',
+        'showstarlabels'   => 'false',
+        'magnitude'        => '1',
+        'constellations'   => 'false',
         'showplanets'      => 'true',
         'showplanetlabels' => 'true',
         'cardinalpoints'   => 'true',
         'showposition'     => 'true',
         'showdate'         => 'true',
         'lines'            => '[[]]',
+        'keyboard'        => false,
     ];
 
     public function get_users_planetarium()
@@ -29,6 +30,9 @@ class UserObservatory extends Model
             }
         }
         $this->planetarium['lines'] = $this->constellations_lines();
+
+        $this->magnitude_3();
+        $this->constellations();
     }
 
     // @return json
@@ -41,5 +45,18 @@ class UserObservatory extends Model
     private function convert_json_to_string($json)
     {
 
+    }
+
+    public function magnitude_3(){
+        if(\App\UserBag::has_item(2)){ // tem o livro
+            $this->planetarium['magnitude'] = 3;
+        }
+    }
+
+    public function constellations(){
+        if(\App\UserBag::has_item(3)){ // tem o livro 2
+            $this->planetarium['constellations'] = true;
+            $this->planetarium['showstarlabels'] = true;
+        }
     }
 }

@@ -10,8 +10,8 @@ class UserConfig extends Model
     public $timestamps = false;
 
     public static $default = [
-        'music_volume'   => 80,
-        'effects_volume' => 100,
+        'music_volume'   => 50,
+        'effects_volume' => 50,
         'lang'           => 'pt-br',
         'private'        => false,
     ];

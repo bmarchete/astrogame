@@ -17,7 +17,7 @@ class CreateUserBagsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('item_id')->unsigned();
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->integer('amount')->default(1);
             $table->timestamps();
         });

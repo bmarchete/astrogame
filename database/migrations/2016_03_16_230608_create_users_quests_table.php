@@ -15,7 +15,7 @@ class CreateUsersQuestsTable extends Migration
         Schema::create('users_quests', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quest_id')->unsigned();
-            $table->foreign('quest_id')->references('id')->on('quests');
+            $table->foreign('quest_id')->references('id')->on('quests')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('completed')->default(false);

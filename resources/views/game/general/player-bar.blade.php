@@ -10,6 +10,6 @@
     <a href="{{ URL('/home') }}" class="action-button green menu-home">Home  <i class="uk-icon uk-icon-home"></i></a>
     <a href="#suggestions" class="action-button red menu-suggestions" data-uk-modal="{target:'#bug-report-modal'}">{{ trans('game.suggestions')}}  <i class="uk-icon uk-icon-mail-forward"></i></a>
     <a href="{{ URL('/logout') }}" class="action-button red menu-logout">Sair  <i class="uk-icon uk-icon-arrow-left"></i></a>
-    <a href="#observatory" class="action-button red menu-planetario" data-uk-modal="{target:'#observatory'}">Planetário &nbsp;&nbsp;<i class="uk-icon uk-icon-moon-o"></i></a>
+    <a href="#observatory" class="action-button red menu-observatory" data-uk-modal="{target:'#observatory'}">Planetário &nbsp;&nbsp;<i class="uk-icon uk-icon-moon-o"></i></a>
 </div>
 @include('game.general.modals')

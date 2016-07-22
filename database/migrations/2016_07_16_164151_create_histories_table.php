@@ -18,7 +18,7 @@ class CreateHistoriesTable extends Migration
             $table->text('texto');
             $table->string('icon')->nullable();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
