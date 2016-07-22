@@ -9,7 +9,7 @@ use Socialize;
 
 class SocialLoginController extends Controller
 {
-    private $avalible_providers = ['facebook'];
+    private $avalible_providers = ['facebook', 'google'];
     private $redirect           = '/game';
 
     // checa se pode utilizar
@@ -85,7 +85,10 @@ class SocialLoginController extends Controller
      * @return void
      */
     protected function google()
-    {}
+    {
+        $user = Socialize::with('google')->user();
+        dd($user);
+    }
 
     /**
      * Função diff para checar se o usuário mudou algo no provider, se sim moda no banco de dados

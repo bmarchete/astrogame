@@ -50,6 +50,7 @@
 
             <li class="uk-nav-divider"></li>
             <li><a href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Login com facebook</a></li>
+            <li><a href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Login com google</a></li>
             <li @if ($page=='login' ) class="uk-active" @endif><a href="{{ URL('/login') }}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
             <li @if ($page=='register' ) class="uk-active" @endif><a href="{{ URL('/register') }}"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
           </ul>
@@ -90,7 +91,8 @@
                 <div class="uk-form-row">
                       <button type="submit" class="action-button green uk-width-1-1"><i class="uk-icon-sign-in"></i> {{ trans('project.submit') }}</button>
                       <a class="action-button blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
-                      <a href="#register" data-uk-modal="" class="action-button red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>
+                      <a class="action-button red uk-width-1-1" href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google</a>
+                      <a href="#register" data-uk-modal="" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>
                 </div>
             </form>
         </div>
@@ -129,8 +131,10 @@
                     <a class="uk-float-right uk-link uk-link-muted" href="#login" data-uk-modal>{{ trans('project.login-register') }}</a>
                 </div>
                 <div class="uk-form-row">
-                    <button type="submit" class="action-button shadow red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
-                    <a class="action-button shadow blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> {{ trans('project.facebook') }}</a>
+                    <button type="submit" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
+                    <a class="action-button blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> {{ trans('project.facebook') }}</a>
+                    <a class="action-button red uk-width-1-1" href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google</a>
+
                 </div>
             </form>
         </div>

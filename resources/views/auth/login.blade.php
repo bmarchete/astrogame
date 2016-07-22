@@ -33,7 +33,8 @@
          <div class="uk-form-row">
                <button type="submit" class="action-button green uk-width-1-1"><i class="uk-icon-sign-in"></i> {{ trans('project.submit') }}</button>
                <a class="action-button blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook</a>
-               <a href="{{ URL('/register') }}" class="action-button red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>
+               <a class="action-button red uk-width-1-1" href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google</a>
+               <a href="{{ URL('/register') }}" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.register')}}</a>
          </div>
       </form>
    </div>
