@@ -146,8 +146,8 @@ $(document).ready(function(){
                     quest_effect.play();
                     $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
 
-                    if(quest_id == 2) { // ponto pálido
-                        window.location = '{{ url('/game/quest/2') }}';
+                    if(quest_id > 1) { // ponto pálido
+                        window.location = '{{ url('/game/quest') }}' + '/' + quest_id;
                     }
 
                 } else {
@@ -247,9 +247,7 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////
     // logicas de jogo
     ///////////////////////////////////////////////////
-    @if (\App\UsersQuest::is_quest_taken(1, auth()->user()) == false)
-      UIkit.modal("#quests").show();
-    @endif
+
 });
 
 </script>

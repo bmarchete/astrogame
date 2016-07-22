@@ -519,7 +519,8 @@
                 </div>
             </div>
         </div>
-    </div>
+        <hr>
+
     @endif @if (!empty($accepted_quests->first()))
     <div class="uk-grid" data-uk-grid>
         <div class="uk-width-1-3">
@@ -549,7 +550,7 @@
                     <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $accepted_quests->first()->xp_reward }}</span> XP</span>
                 </div>
                 <div class="uk-width-2-4 uk-text-right">
-                    <button class="uk-button uk-button-danger cancel-quest" value="{{ $accepted_quests->first()->id }}">{{ trans('game.quest-cancel') }} <i class="uk-icon-close"></i></button>
+                    <a href="{{ URL('/game/quest') . '/' . $accepted_quests->first()->id }}" class="uk-button uk-button-danger cancel-quest">Retornar a missão <i class="uk-icon-external-link"></i></a>
                 </div>
             </div>
         </div>

@@ -52,19 +52,23 @@ class QuestController extends GameController
     public function quest(Request $request)
     {
         $quest_id = $request->id;
-        switch ($quest_id) {
-            case 2:
-                return $this->quest_palido_ponto_azul();
-                break;
-
-            default:
-                return view('Nenhuma quest encontrada');
-                break;
+        if($quest_id == 2){
+            return $this->quest_palido_ponto_azul();
         }
+
+        if($quest_id == 3){
+            return $this->quest_cosmos_quizz();
+        }
+
+        return abort(404, 'Nenhuma quest encontrada');
     }
 
     public function quest_palido_ponto_azul()
     {
         return view('game.quests.ponto_azul', $this->view_vars());
+    }
+
+    public function quest_cosmos_quizz(){
+        return view('game.quests.cosmos_quizz', $this->view_vars());
     }
 }

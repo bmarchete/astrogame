@@ -6,6 +6,7 @@ class QuestsSeeder extends Seeder
 {
     public $quests = [
         [
+            'id' => 1,
             'title' => 'Primeira Missão!',
             'type' => 1,
             'description' => 'Mais uma vez, seja bem vindo ao Astrogame, sua primeira missão é concluir o capítulo de boas vindas assistindo a todos os videos que aparecer na tela, é rápido e não vai demorar, curta o show do cosmos!',
@@ -17,12 +18,25 @@ class QuestsSeeder extends Seeder
         ],
 
         [
+            'id' => 2,
             'title' => 'Pequena pálida missão!',
             'type' => 1,
             'description' => 'Nessa missão você terá que assistir por completo a mensagem deixada por Carl Sagan quando a espaçonave Voayger 1 passou por Juptier e avistou um pequeno pálido ponto azul, a Terra como um grão de areia.',
             'objetivos' => 'Assistir ao video completo do pequeno pálido ponto azul',
             'xp_reward' => 150,
             'money_reward' => 450,
+            'min_level' => 1,
+            'max_level' => 0,
+        ],
+
+        [
+            'id' => 3,
+            'title' => 'Projeto Cosmos',
+            'type' => 1,
+            'description' => 'Você passou pelo stand do Projeto Cosmos na expoete 2015?',
+            'objetivos' => 'Responder ao quizz do projeto cosmos',
+            'xp_reward' => 500,
+            'money_reward' => 300,
             'min_level' => 1,
             'max_level' => 0,
         ],
