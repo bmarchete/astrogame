@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 use Image;
-use Storage;
 use Log;
 use DB;
 
@@ -177,6 +176,7 @@ class User extends Authenticatable
     public function makeAvatar($url = '')
     {
         $path   = public_path('users/avatar/' . md5($this->id) . '.jpg');
+
         $width  = 500;
         $height = 500;
 
@@ -186,7 +186,7 @@ class User extends Authenticatable
 
                 // caso já existir um avatar no lugar
                 if(file_exists($path)){
-                      Storage::delete($path);
+                    unlink($path);
                 }
 
                 $avatar->save($path);
