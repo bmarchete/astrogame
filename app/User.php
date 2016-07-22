@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 use Image;
-use File;
+use Storage;
 use Log;
 use DB;
 
@@ -186,7 +186,7 @@ class User extends Authenticatable
 
                 // caso já existir um avatar no lugar
                 if(file_exists($path)){
-                      File::delete($path);
+                      Storage::delete($path);
                 }
 
                 $avatar->save($path);
