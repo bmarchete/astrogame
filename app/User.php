@@ -2,11 +2,12 @@
 
 namespace App;
 
-use Carbon\Carbon;
-use DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Carbon\Carbon;
 use Image;
+use File;
 use Log;
+use DB;
 
 class User extends Authenticatable
 {
@@ -165,7 +166,7 @@ class User extends Authenticatable
     public function insignas()
     {
         return \App\Insignas::get();
-        // return $this->hasOne('App\UserInsignas');
+        // return $this->hasMany('App\UserInsignas');
     }
 
     public function history()
@@ -181,8 +182,16 @@ class User extends Authenticatable
 
         if (!empty($url)) {
             try {
-                Image::make($url)->fit($width, $height)->save($path);
-            } catch (\Intervention\Image\Exception\NotReadableException $e) {
+                $avatar = Image::make($url)->fit($width, $height);
+
+                // caso já existir um avatar no lugar
+                if(file_exists($path)){
+                      File::delete($path);
+                }
+
+                $avatar->save($path);
+
+            } catch (Exception $e) {
                 // default avatar
             }
         }
