@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsersQuest extends Model
 {
-    public $quest_id = 0;
-    public $user_id  = 0;
-
     // primeira função que você deve executar!
     public function quest($quest_id)
     {
@@ -28,7 +25,7 @@ class UsersQuest extends Model
 
     private function user_quest_exists()
     {
-        return UsersQuest::select('completed', 'quest_id')->where('quest_id', $this->quest_id)->where('user_id', $this->user_id)->limit(1)->get()->first();
+        return UsersQuest::where('quest_id', $this->quest_id)->where('user_id', $this->user_id)->limit(1)->first();
     }
 
     /**
@@ -64,11 +61,12 @@ class UsersQuest extends Model
     {
         $quest = $this->user_quest_exists();
         if ($quest && $quest->completed == false) {
-            $user_quest = UsersQuest::select('quest_id')->where('quest_id', $quest_id)->where('user_id', $this->user_id)->first();
-            $user_quest->completed = true;
-            $user_quest->save();
+            $quest->completed = true;
 
-            $this->reward_user($user_quest, auth()->user());
+            $this->reward_user($quest, auth()->user());
+            return $quest->save();
+        } else {
+            return false;
         }
     }
 
@@ -81,7 +79,7 @@ class UsersQuest extends Model
     }
 
     public function quest_info(){
-        return $this->belongsTo('App\Quest');
+        return $this->belongsTo('App\Quest', 'quest_id');
     }
 
     public static function is_quest_taken($quest_id, User $user){

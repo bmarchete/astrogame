@@ -296,7 +296,7 @@
 
 <!-- player modal -->
 <div id="player-modal" class="uk-modal">
-    <div class="uk-modal-dialog">
+    <div class="uk-modal-dialog uk-modal-dialog-large">
         <a href="" class="uk-modal-close uk-close"></a>
 
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}">
@@ -308,66 +308,74 @@
         </ul>
 
 <ul id="tab-content" class="uk-switcher uk-margin">
-    <li aria-hidden="false" class="uk-active">
+    <li class="uk-active">
         <div class="uk-grid" data-uk-grid>
-            <div class="uk-width-2-4">
+            <div class="uk-width-medium-1-6">
                 <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
                     <img src="{{ auth()->user()->avatar() }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ auth()->user()->name }}">
                 </figure>
             </div>
-            <div class="uk-width-2-4">
+            <div class="uk-width-medium-5-6">
                 <ul class="uk-list">
                     <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>
                 </ul>
-                <div class="uk-margin-bottom uk-text-center">
+                <div class="uk-margin-bottom">
                   XP:
-                  <div class="uk-progress">
-                      <div class="uk-progress-bar" style="width: {{ $xp_bar }}%;" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">{{ $user_xp }} / {{ $xp_for_next_level }}</div>
+                  <div class="uk-progress uk-progress-striped uk-text-center" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">
+                    {{ $user_xp }} / {{ $xp_for_next_level }}
+                      <div class="uk-progress-bar" style="width: {{ $xp_bar }}%;"></div>
                   </div>
               </div>
                 <a href="{{ url('/player')}}/{{ auth()->user()->id }}">{{ trans('game.profile-public') }}</a>
             </div>
         </div>
     </li>
-  <li aria-hidden="true">
+  <li>
       <div class="uk-grid" data-uk-grid>
           <div class="uk-width-1-1">
-              <form method="post" action="{{ url('/game/change_account') }}" class="uk-form user-config" enctype="multipart/form-data">
+            <form method="post" action="{{ url('/game/change_account') }}" class="uk-form user-config" enctype="multipart/form-data">
                   {!! csrf_field() !!}
                   <h3>Básico</h3>
-                  <div class="uk-form-row">
+                  <div class="uk-grid" data-uk-grid>
+
+                  <div class="uk-width-medium-1-2">
                       <label class="uk-form-label" for="text">{{ trans('game.name') }}:</label>
                       <div class="uk-form-controls">
                           <input type="text" name="name" value="{{ auth()->user()->name }}" class="uk-width-1-1">
                       </div>
                   </div>
-                  <div class="uk-form-row">
+                  <div class="uk-width-medium-1-2">
                       <label class="uk-form-label" for="text">{{ trans('game.nickname') }}:</label>
                       <div class="uk-form-controls">
                           <input type="text" name="nickname" value="{{ auth()->user()->nickname }}" class="uk-width-1-1">
                       </div>
                   </div>
-                  <div class="uk-form-row">
+                  <div class="uk-width-medium-1-2">
                       <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
                       <div class="uk-form-controls">
                           <input type="email" name="email" value="{{ auth()->user()->email }}" class="uk-width-1-1">
                       </div>
                   </div>
-                  <h3>Mudar senha</h3>
-                  <div class="uk-form-row">
+
+                  <div class="uk-width-medium-1-1">
+                      <br>
+                    <h3>Mudar senha</h3>
+                  </div>
+                  <div class="uk-width-medium-1-2">
                       <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
                       <div class="uk-form-controls">
                           <input type="password" name="old_password" class="uk-width-1-1">
                       </div>
                   </div>
-                  <div class="uk-form-row">
+                  <div class="uk-width-medium-1-2">
                       <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
                       <div class="uk-form-controls">
                           <input type="password" name="new_password" class="uk-width-1-1">
                       </div>
                   </div>
-                  <div class="uk-form-row">
+                  <div class="uk-width-medium-1-1">
+                    <br>
                       <div class="uk-form-controls">
                           <div class="uk-form-file">
                               <button class="uk-button uk-button-danger"><i class="uk-icon uk-icon-photo"></i> {{ trans('game.avatar') }}</button>
@@ -375,6 +383,9 @@
                           </div>
                       </div>
                   </div>
+
+                  </div>
+
                   <button type="submit" class="uk-button uk-button-success uk-align-right"><i class="uk-icon-check"></i> Salvar alterações</button>
                   @if (!empty(auth()->user()->provider_id) && auth()->user()->provider_id == 1)
                       <button class="uk-button uk-button-success uk-disabled uk-align-right" disabled>
@@ -382,10 +393,11 @@
                       </button>
                   @endif
               </form>
+
           </div>
       </div>
   </li>
-  <li aria-hidden="true">
+  <li>
       <div class="uk-panel uk-panel-box uk-panel-box-primary">
           <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> {{ trans('game.bag') }}</h3>
           <ul class="uk-list bag bag-items">
@@ -401,36 +413,55 @@
           </ul>
       </div>
   </li>
-  <li aria-hidden="true">
+  <li>
       <dl class="uk-description-list-line">
           <dt>
-              <div class="uk-badge">(0-3)</div> Aspirante
+              <strong>(0-3)</strong> Aspirante
+              @if ($user_level <= 3)
+              <div class="uk-badge uk-badge-warning">Você está aqui</div>
+              @endif
+
               <div class="uk-text-muted">Observa o espaço à olho nu, de um campo durante a noite</div>
           </dt>
           <dt>
-              <div class="uk-badge">(4-6)</div> Observador
+              <strong>(4-6)</strong> Observador
+              @if ($user_level >= 4 && $user_level <= 6)
+              <div class="uk-badge uk-badge-warning">Você está aqui</div>
+              @endif
               <div class="uk-text-muted">Possui de início uma luneta simples e depois passa a ter um telescópio simples em um pequeno observatório em seu quintal</div>
           </dt>
           <dt>
-              <div class="uk-badge">(7-9)</div> Aprendiz
+              <strong>(7-9)</strong> Aprendiz
+              @if ($user_level >= 7 && $user_level <= 9)
+              <div class="uk-badge uk-badge-warning">Você está aqui</div>
+              @endif
               <div class="uk-text-muted">Atua como um aprendiz em um laboratório modesto dirigido por um dos astrônomos que irão narrar o capítulo</div>
           </dt>
           <dt>
-              <div class="uk-badge">(10-12)</div> Doutor
+              <strong>(10-12)</strong> Doutor
+              @if ($user_level >= 10 && $user_level <= 12)
+              <div class="uk-badge uk-badge-warning">Você está aqui</div>
+              @endif
               <div class="uk-text-muted">Possui agora um laboratório bem maior e mais completo</div>
           </dt>
           <dt>
-              <div class="uk-badge">(13-14)</div> Comissário
+              <strong>(13-14)</strong> Comissário
+              @if ($user_level >= 13 && $user_level <= 14)
+              <div class="uk-badge uk-badge-warning">Você está aqui</div>
+              @endif
               <div class="uk-text-muted">SEM TEXTO</div>
           </dt>
           <dt>
-              <div class="uk-badge">(15)</div> Capitão
+              <strong>(15)</strong> Capitão
+              @if ($user_level >= 15)
+              <div class="uk-badge uk-badge-warning">Você está aqui</div>
+              @endif
               <div class="uk-text-muted">É agora capitão de uma espação espacial</div>
           </dt>
       </dl>
   </li>
-  <li aria-hidden="true">
-      <ul class="uk-list insignas" style="overflow-y: scroll; height: 300px">
+  <li>
+      <ul class="uk-list insignas" style="overflow-y: scroll; height: 400px">
           @forelse($user_insignas as $insigna)
           <li>
               <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
@@ -450,13 +481,18 @@
         <div class="uk-modal-header">
             <h3 class="uk-panel-header">{{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">!</span></h3>
         </div>
+
+
         @if (!empty($avaliable_quests->first()))
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-1-3">
-                <h3>{{ trans('game.quest-avaliable') }}</h3> @foreach ($avaliable_quests as $quest)
+                <h3>{{ trans('game.quest-avaliable') }}</h3>
+
+                @foreach ($avaliable_quests as $quest)
                 <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
                 <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
                 <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
+                <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
                 @endforeach
                 <select class="uk-form-select quest-avaliable">
                     @foreach ($avaliable_quests as $quest)
@@ -468,11 +504,13 @@
                 <div style="height: 160px; overflow-y: scroll">
                     <h3 class="quest-title">{{ $avaliable_quests->first()->title }}</h3>
                     <p class="quest-description">{{ $avaliable_quests->first()->description }}</p>
+                    <h5><strong>Objetivos</strong></h5>
+                    <p class="quest-objetivos">{{ $avaliable_quests->first()->objetivos }}</p>
                 </div>
                 <h3>{{ trans('game.quest-reward') }}</h3>
                 <div class="uk-grid" data-uk-grid>
                     <div class="uk-width-2-4">
-                        <span><i class="uk-icon-money"></i> {{ auth()->user()->money }}</span> /
+                        <span><i class="uk-icon-money"></i> <span class="money-reward">{{ $avaliable_quests->first()->money_reward }}</span></span> /
                         <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $avaliable_quests->first()->xp_reward }}</span> XP</span>
                     </div>
                     <div class="uk-width-2-4 uk-text-right">
@@ -485,10 +523,13 @@
     @endif @if (!empty($accepted_quests->first()))
     <div class="uk-grid" data-uk-grid>
         <div class="uk-width-1-3">
-            <h3>{{ trans('game.quest-accepted') }}</h3> @foreach ($accepted_quests as $quest)
-            <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
-            <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
-            <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
+            <h3>{{ trans('game.quest-accepted') }}</h3>
+
+            @foreach ($accepted_quests as $quest)
+              <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
+              <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
+              <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
+              <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
             @endforeach
             <select class="uk-form-select quest-avaliable">
                 @foreach ($accepted_quests as $quest)
@@ -504,7 +545,7 @@
             <h3>{{ trans('game.quest-reward') }}</h3>
             <div class="uk-grid" data-uk-grid>
                 <div class="uk-width-2-4">
-                    <span><i class="uk-icon-money"></i> {{ auth()->user()->money }}</span> /
+                    <span><i class="uk-icon-money"></i> <span class="money-reward">{{ $accepted_quests->first()->money_reward }}</span></span> /
                     <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $accepted_quests->first()->xp_reward }}</span> XP</span>
                 </div>
                 <div class="uk-width-2-4 uk-text-right">

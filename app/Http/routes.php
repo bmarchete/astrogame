@@ -49,6 +49,8 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/quest_accept/{id}', 'QuestController@quest_accept')->where('id', '[0-9-]+');
 		Route::get('/quest_cancel/{id}', 'QuestController@quest_cancel')->where('id', '[0-9-]+');
 		Route::get('/quest/{id}', 'QuestController@quest')->where('id', '[0-9-]+');
+		Route::get('/quest_complete/{id}', 'QuestController@quest_complete')->where('id', '[0-9-]+');
+
 
 		// item
 		Route::get('/buy_item/{id}', 'ShopController@buy_item')->where('id', '[0-9-]+');

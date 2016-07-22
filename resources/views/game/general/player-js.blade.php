@@ -146,6 +146,10 @@ $(document).ready(function(){
                     quest_effect.play();
                     $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
 
+                    if(quest_id == 2) { // ponto pálido
+                        window.location = '{{ url('/game/quest/2') }}';
+                    }
+
                 } else {
                     UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
                 }
@@ -159,10 +163,12 @@ $(document).ready(function(){
         var quest_title = $("#quest-title-" + id).html();
         var quest_description = $("#quest-description-" + id).html();
         var xp_reward = $("#xp-reward-" + id).html();
+        var money_reward = $("#money-reward-" + id).html();
 
         $(".quest-title").html(quest_title);
         $(".quest-description").html(quest_description);
         $(".xp-reward").html(xp_reward);
+        $(".money-reward").html(money_reward);
         $(".accept-quest").val(id);
     });
 

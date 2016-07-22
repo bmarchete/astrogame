@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\UsersQuest;
+use App\Quest;
 
 class QuestController extends GameController
 {
@@ -27,24 +29,42 @@ class QuestController extends GameController
         return response()->json(['canceled' => $status]);
     }
 
+    public function quest_complete(Request $request){
+        $quest_id = $request->id;
+
+        $quest_user = new UsersQuest();
+        $quest_user->quest($quest_id);
+        if($quest_user->complete_quest()){
+        session()->put('notify',
+            [
+                ['text' => '<i class="uk-icon-exclamation"></i> Missão: ' . $quest_user->quest_info->title . ' completada', 'status' => 'success'],
+                ['text' => '<i class="uk-icon-money"></i> Ganho: ' . $quest_user->quest_info->money_reward . ' de dinheiro', 'status' => 'success'],
+                ['text' => '<i class="uk-icon-exclamation"></i> Ganho: ' . $quest_user->quest_info->xp_reward . ' de XP ', 'status' => 'success'],
+
+            ]);
+          }
+
+        return redirect('/game');
+    }
+
     // ========================================
     // quests
     public function quest(Request $request)
     {
         $quest_id = $request->id;
         switch ($quest_id) {
-            case 1:
-                return $this->quest_stars();
+            case 2:
+                return $this->quest_palido_ponto_azul();
                 break;
 
             default:
-                return view("Nenhuma quest encontrada");
+                return view('Nenhuma quest encontrada');
                 break;
         }
     }
 
-    public function quest_stars()
+    public function quest_palido_ponto_azul()
     {
-        return view('game.quests.quest_1', $this->view_vars());
+        return view('game.quests.ponto_azul', $this->view_vars());
     }
 }

@@ -212,3 +212,8 @@ a:hover {
 .menu-logout:hover {
 	left: -7px;
 }
+
+.uk-progress-bar {
+		color: #000 !important;
+		text-shadow: none !important;
+}

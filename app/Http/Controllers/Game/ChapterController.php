@@ -76,7 +76,7 @@ class ChapterController extends GameController
 
                 ]);
         } else {
-            session()->put('notify');
+            //session()->put('notify');
         }
 
         return view('game.chapters.' . $chapter_key, $this->view_vars());
