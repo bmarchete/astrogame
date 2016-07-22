@@ -109,6 +109,45 @@ $(document).ready(function(){
         }
     });
 
+
+
+    $("#avatar-file").change(function() {
+        var file_avatar = $("#avatar-file")[0].files[0];
+        var formData = new FormData();
+        formData.append('avatar', file_avatar);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-Token': '{{ csrf_token() }}'
+            }
+        });
+
+        $.ajax({
+            method: 'POST',
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            url: '{{ url('/game/change_account') }}',
+            data: formData,
+            success: function(data) {
+                if (data[0].status) {
+                    UIkit.notify("<i class='uk-icon-check'></i> " + data[0].text, {
+                        status: 'success',
+                        pos: 'top-right'
+                    });
+                    if (data[0].avatar) {
+                        $(".avatar").attr('src', $(".avatar").attr('src') + '?' + Math.random());
+                    }
+                } else {
+                    UIkit.notify("<i class='uk-icon-close'></i> " + data[0].text, {
+                        status: 'danger',
+                        pos: 'top-right'
+                    });
+                }
+            }
+        });
+    });
+
     $('#bug-report').ajaxForm({
            type: 'POST',
            dataType: 'JSON',
@@ -172,51 +211,13 @@ $(document).ready(function(){
         $(".accept-quest").val(id);
     });
 
-    $(".action-button").click(function(){
-        map_effect.play();
-    });
-
-    // music background
-    var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: false});
-    var music_background2 = new buzz.sound('{{ url('sounds/music/bg2.mp3') }}', {preload: true, loop: false});
-
-    var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
-    var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
-    var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false});
-    var map_effect = new buzz.sound('{{ url('/sounds/effects/map_open.mp3')}}', {preload: true, loop:false});
-
-    var sound_effect = new buzz.group([
-          coin_effect,
-          delete_effect,
-          quest_effect,
-          map_effect
-    ]);
-
-    var background = new buzz.group([
-        music_background, music_background2
-    ]);
-
-    // starts the background music
-    music_background.play();
-    music_background.bind("ended", function(){
-        // when ended starts the second
-        music_background2.play();
-    });
-
-    music_background2.bind("ended", function(){
-        music_background.play();
-    });
-
-    background.setVolume({{ $music_volume }});
-    sound_effect.setVolume({{ $effects_volume }});
-
     var planetarium = $.virtualsky({
             id: 'starmap',
             projection: 'stereo',
             showstars: {{ $planetarium['showstars'] }},
             showstarlabels: {{ $planetarium['showstarlabels'] }},
             constellations: {{ $planetarium['constellations'] }},
-            keyboard: true,
+            keyboard: false,
             lang: 'pt',
             showdate: {{ $planetarium['showdate'] }},
             showplanets: {{ $planetarium['showplanets'] }},
@@ -249,5 +250,46 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////
 
 });
+
+///////////////////////////////////////////////////
+// sons do jogo
+///////////////////////////////////////////////////
+$(".action-button").click(function(){
+    map_effect.play();
+});
+
+// music background
+var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: false});
+var music_background2 = new buzz.sound('{{ url('sounds/music/bg2.mp3') }}', {preload: true, loop: false});
+
+var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
+var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
+var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false});
+var map_effect = new buzz.sound('{{ url('/sounds/effects/map_open.mp3')}}', {preload: true, loop:false});
+
+var sound_effect = new buzz.group([
+      coin_effect,
+      delete_effect,
+      quest_effect,
+      map_effect
+]);
+
+var background = new buzz.group([
+    music_background, music_background2
+]);
+
+// starts the background music
+music_background.play();
+music_background.bind("ended", function(){
+    // when ended starts the second
+    music_background2.play();
+});
+
+music_background2.bind("ended", function(){
+    music_background.play();
+});
+
+background.setVolume({{ $music_volume }});
+sound_effect.setVolume({{ $effects_volume }});
 
 </script>

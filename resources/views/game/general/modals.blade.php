@@ -305,6 +305,8 @@
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> {{ trans('game.bag') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> {{ trans('game.patents') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> {{ trans('game.insignas') }}</a></li>
+            <li><a href="{{ url('/ranking')}}"><i class="uk-icon-cubes"></i> Ranking dos amigos</a></li>
+
         </ul>
 
 <ul id="tab-content" class="uk-switcher uk-margin">
@@ -312,7 +314,11 @@
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-medium-1-6">
                 <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
-                    <img src="{{ auth()->user()->avatar() }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $patente }} {{ auth()->user()->name }}">
+                  <div class="uk-form-file">
+                      <img src="{{ auth()->user()->avatar() }}" alt="avatar" class="uk-border-circle avatar">
+                      <input type="file" name="avatar" accept="image/*" id="avatar-file" data-uk-tooltip title="Alterar avatar">
+                  </div>
+
                 </figure>
             </div>
             <div class="uk-width-medium-5-6">

@@ -32,6 +32,7 @@ class AccountController extends GameController
 
     public function change_account(Request $request)
     {
+        // falta um validator
         $messages = [];
 
         $name         = $request->name;
@@ -42,14 +43,14 @@ class AccountController extends GameController
         $avatar       = $request->avatar;
 
         // mudou nome?
-        if (auth()->user()->name != $name) {
+        if ($name != '' && auth()->user()->name != $name) {
             auth()->user()->name = $name;
             auth()->user()->save();
             $messages[] = ['status' => true, 'text' => 'Nome alterado'];
         }
 
         // mudou nickname?
-        if (auth()->user()->nickname != $nickname) {
+        if ($nickname != '' && auth()->user()->nickname != $nickname) {
             if(User::select('id')->where('nickname', $nickname)->limit(1)->first()){
                 $messages[] = ['status' => false, 'text' => 'Nickname já utilizado no sistema'];
             } else {
@@ -60,7 +61,7 @@ class AccountController extends GameController
         }
 
         // mudou email?
-        if ($email != auth()->user()->email) {
+        if ($email != '' && $email != auth()->user()->email) {
             if(User::select('id')->where('email', $email)->limit(1)->first()){
                 $messages[] = ['status' => false, 'text' => 'Email já utilizado no sistema'];
             } else {
