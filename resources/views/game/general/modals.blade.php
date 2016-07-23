@@ -99,177 +99,6 @@
     </div>
 </div>
 
-<!-- calendar modal -->
-<div id="calendar" class="uk-modal">
-    <div class="uk-modal-dialog">
-        <a href="" class="uk-modal-close uk-close"></a>
-        <div class="uk-modal-header">
-            <h3 class="uk-panel-header">Calendário Galáctico</h3>
-            <div class="uk-datepicker" id="">
-   <div class="uk-datepicker-nav">
-      <a href="" class="uk-datepicker-previous"></a><a href="" class="uk-datepicker-next"></a>
-      <div class="uk-datepicker-heading">
-         <span class="uk-form-select">
-            March
-            <select class="update-picker-month">
-               <option value="0">January</option>
-               <option value="1">February</option>
-               <option value="2" selected="">March</option>
-               <option value="3">April</option>
-               <option value="4">May</option>
-               <option value="5">June</option>
-               <option value="6">July</option>
-               <option value="7">August</option>
-               <option value="8">September</option>
-               <option value="9">October</option>
-               <option value="10">November</option>
-               <option value="11">December</option>
-            </select>
-         </span>
-         <span class="uk-form-select">
-            2016
-            <select class="update-picker-year">
-               <option value="1966">1966</option>
-               <option value="1967">1967</option>
-               <option value="1968">1968</option>
-               <option value="1969">1969</option>
-               <option value="1970">1970</option>
-               <option value="1971">1971</option>
-               <option value="1972">1972</option>
-               <option value="1973">1973</option>
-               <option value="1974">1974</option>
-               <option value="1975">1975</option>
-               <option value="1976">1976</option>
-               <option value="1977">1977</option>
-               <option value="1978">1978</option>
-               <option value="1979">1979</option>
-               <option value="1980">1980</option>
-               <option value="1981">1981</option>
-               <option value="1982">1982</option>
-               <option value="1983">1983</option>
-               <option value="1984">1984</option>
-               <option value="1985">1985</option>
-               <option value="1986">1986</option>
-               <option value="1987">1987</option>
-               <option value="1988">1988</option>
-               <option value="1989">1989</option>
-               <option value="1990">1990</option>
-               <option value="1991">1991</option>
-               <option value="1992">1992</option>
-               <option value="1993">1993</option>
-               <option value="1994">1994</option>
-               <option value="1995">1995</option>
-               <option value="1996">1996</option>
-               <option value="1997">1997</option>
-               <option value="1998">1998</option>
-               <option value="1999">1999</option>
-               <option value="2000">2000</option>
-               <option value="2001">2001</option>
-               <option value="2002">2002</option>
-               <option value="2003">2003</option>
-               <option value="2004">2004</option>
-               <option value="2005">2005</option>
-               <option value="2006">2006</option>
-               <option value="2007">2007</option>
-               <option value="2008">2008</option>
-               <option value="2009">2009</option>
-               <option value="2010">2010</option>
-               <option value="2011">2011</option>
-               <option value="2012">2012</option>
-               <option value="2013">2013</option>
-               <option value="2014">2014</option>
-               <option value="2015">2015</option>
-               <option value="2016" selected>2016</option>
-               <option value="2017">2017</option>
-               <option value="2018">2018</option>
-               <option value="2019">2019</option>
-               <option value="2020">2020</option>
-               <option value="2021">2021</option>
-               <option value="2022">2022</option>
-               <option value="2023">2023</option>
-               <option value="2024">2024</option>
-               <option value="2025">2025</option>
-               <option value="2026">2026</option>
-               <option value="2027">2027</option>
-               <option value="2028">2028</option>
-               <option value="2029">2029</option>
-               <option value="2030">2030</option>
-               <option value="2031">2031</option>
-               <option value="2032">2032</option>
-               <option value="2033">2033</option>
-               <option value="2034">2034</option>
-               <option value="2035">2035</option>
-               <option value="2036">2036</option>
-            </select>
-         </span>
-      </div>
-   </div>
-   <table class="uk-datepicker-table">
-      <thead>
-         <tr>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-            <th>Sun</th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td><a href="" class="uk-datepicker-table-muted" data-date="2016-02-29T12:00:00-03:00">29</a></td>
-            <td><a href="" class="" data-date="2016-03-01T12:00:00-03:00">1</a></td>
-            <td><a href="" class="" data-date="2016-03-02T12:00:00-03:00">2</a></td>
-            <td><a href="" class="" data-date="2016-03-03T12:00:00-03:00">3</a></td>
-            <td><a href="" class="" data-date="2016-03-04T12:00:00-03:00">4</a></td>
-            <td><a href="" class="" data-date="2016-03-05T12:00:00-03:00">5</a></td>
-            <td><a href="" class="" data-date="2016-03-06T12:00:00-03:00">6</a></td>
-         </tr>
-         <tr>
-            <td><a href="" class="" data-date="2016-03-07T12:00:00-03:00">7</a></td>
-            <td><a href="" class="" data-date="2016-03-08T12:00:00-03:00">8</a></td>
-            <td><a href="" class="" data-date="2016-03-09T12:00:00-03:00">9</a></td>
-            <td><a href="" class="" data-date="2016-03-10T12:00:00-03:00">10</a></td>
-            <td><a href="" class="" data-date="2016-03-11T12:00:00-03:00">11</a></td>
-            <td><a href="" class="" data-date="2016-03-12T12:00:00-03:00">12</a></td>
-            <td><a href="" class="" data-date="2016-03-13T12:00:00-03:00">13</a> (Cometa Halley)</td>
-         </tr>
-         <tr>
-            <td><a href="" class="" data-date="2016-03-14T12:00:00-03:00">14</a></td>
-            <td><a href="" class="" data-date="2016-03-15T12:00:00-03:00">15</a></td>
-            <td><a href="" class="" data-date="2016-03-16T12:00:00-03:00">16</a></td>
-            <td><a href="" class="" data-date="2016-03-17T12:00:00-03:00">17</a></td>
-            <td><a href="" class="" data-date="2016-03-18T12:00:00-03:00">18</a></td>
-            <td><a href="" class="" data-date="2016-03-19T12:00:00-03:00">19</a></td>
-            <td><a href="" class="" data-date="2016-03-20T12:00:00-03:00">20</a></td>
-         </tr>
-         <tr>
-            <td><a href="" class="" data-date="2016-03-21T12:00:00-03:00">21</a></td>
-            <td><a href="" class="" data-date="2016-03-22T12:00:00-03:00">22</a></td>
-            <td><a href="" class="" data-date="2016-03-23T12:00:00-03:00">23</a></td>
-            <td><a href="" class="" data-date="2016-03-24T12:00:00-03:00">24</a></td>
-            <td><a href="" class="" data-date="2016-03-25T12:00:00-03:00">25</a></td>
-            <td><a href="" class="" data-date="2016-03-26T12:00:00-03:00">26</a></td>
-            <td><a href="" class="" data-date="2016-03-27T12:00:00-03:00">27</a></td>
-         </tr>
-         <tr>
-            <td><a href="" class="" data-date="2016-03-28T12:00:00-03:00">28</a></td>
-            <td><a href="" class="" data-date="2016-03-29T12:00:00-03:00">29</a></td>
-            <td><a href="" class="" data-date="2016-03-30T12:00:00-03:00">30</a></td>
-            <td><a href="" class="uk-active" data-date="2016-03-31T12:00:00-03:00">31</a></td>
-            <td><a href="" class="uk-datepicker-table-muted" data-date="2016-04-01T12:00:00-03:00">1</a></td>
-            <td><a href="" class="uk-datepicker-table-muted" data-date="2016-04-02T12:00:00-03:00">2</a></td>
-            <td><a href="" class="uk-datepicker-table-muted" data-date="2016-04-03T12:00:00-03:00">3</a></td>
-         </tr>
-      </tbody>
-   </table>
-</div>
-
-        </div>
-    </div>
-</div>
-
 <!-- insignas details modal -->
 @forelse($user_insignas as $insigna)
 <div id="insigna-{{ $insigna->id }}" class="uk-modal">
@@ -304,19 +133,17 @@
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> {{ trans('game.patents') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> {{ trans('game.insignas') }}</a></li>
             <li><a href="{{ url('/ranking')}}"><i class="uk-icon-cubes"></i> Ranking dos amigos</a></li>
-
         </ul>
 
 <ul id="tab-content" class="uk-switcher uk-margin">
     <li class="uk-active">
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-medium-1-6">
-                <figure class="uk-thumbnail uk-border-circle" style="width: 200px">
+                <figure class="uk-thumbnail uk-border-circle">
                   <div class="uk-form-file">
                       <img src="{{ auth()->user()->avatar() }}" alt="avatar" class="uk-border-circle avatar">
                       <input type="file" name="avatar" accept="image/*" id="avatar-file" data-uk-tooltip title="Alterar avatar">
                   </div>
-
                 </figure>
             </div>
             <div class="uk-width-medium-5-6">
@@ -341,51 +168,41 @@
                   {!! csrf_field() !!}
                   <h3>Básico</h3>
                   <div class="uk-grid" data-uk-grid>
+                    <div class="uk-width-medium-1-2">
+                        <label class="uk-form-label" for="text">{{ trans('game.name') }}:</label>
+                        <div class="uk-form-controls">
+                            <input type="text" name="name" value="{{ auth()->user()->name }}" class="uk-width-1-1">
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-2">
+                        <label class="uk-form-label" for="text">{{ trans('game.nickname') }}:</label>
+                        <div class="uk-form-controls">
+                            <input type="text" name="nickname" value="{{ auth()->user()->nickname }}" class="uk-width-1-1">
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-2">
+                        <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
+                        <div class="uk-form-controls">
+                            <input type="email" name="email" value="{{ auth()->user()->email }}" class="uk-width-1-1">
+                        </div>
+                    </div>
 
-                  <div class="uk-width-medium-1-2">
-                      <label class="uk-form-label" for="text">{{ trans('game.name') }}:</label>
-                      <div class="uk-form-controls">
-                          <input type="text" name="name" value="{{ auth()->user()->name }}" class="uk-width-1-1">
-                      </div>
-                  </div>
-                  <div class="uk-width-medium-1-2">
-                      <label class="uk-form-label" for="text">{{ trans('game.nickname') }}:</label>
-                      <div class="uk-form-controls">
-                          <input type="text" name="nickname" value="{{ auth()->user()->nickname }}" class="uk-width-1-1">
-                      </div>
-                  </div>
-                  <div class="uk-width-medium-1-2">
-                      <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
-                      <div class="uk-form-controls">
-                          <input type="email" name="email" value="{{ auth()->user()->email }}" class="uk-width-1-1">
-                      </div>
-                  </div>
-
-                  <div class="uk-width-medium-1-1">
-                      <br>
-                    <h3>Mudar senha</h3>
-                  </div>
-                  <div class="uk-width-medium-1-2">
-                      <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
-                      <div class="uk-form-controls">
-                          <input type="password" name="old_password" class="uk-width-1-1">
-                      </div>
-                  </div>
-                  <div class="uk-width-medium-1-2">
-                      <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
-                      <div class="uk-form-controls">
-                          <input type="password" name="new_password" class="uk-width-1-1">
-                      </div>
-                  </div>
-                  <div class="uk-width-medium-1-1">
-                    <br>
-                      <div class="uk-form-controls">
-                          <div class="uk-form-file">
-                              <button class="uk-button uk-button-danger"><i class="uk-icon uk-icon-photo"></i> {{ trans('game.avatar') }}</button>
-                              <input type="file" name="avatar" accept="image/*">
-                          </div>
-                      </div>
-                  </div>
+                    <div class="uk-width-medium-1-1">
+                        <br>
+                        <h3>Mudar senha</h3>
+                    </div>
+                    <div class="uk-width-medium-1-2">
+                        <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
+                        <div class="uk-form-controls">
+                            <input type="password" name="old_password" class="uk-width-1-1">
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-2">
+                        <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
+                        <div class="uk-form-controls">
+                            <input type="password" name="new_password" class="uk-width-1-1">
+                        </div>
+                    </div>
                   </div>
 
                   <button type="submit" class="uk-button uk-button-success uk-align-right"><i class="uk-icon-check"></i> Salvar alterações</button>
@@ -403,7 +220,6 @@
                       </button>
                   @endif
               </form>
-
           </div>
       </div>
   </li>
@@ -484,6 +300,7 @@
 </ul>
 </div>
 </div>
+
 <!-- quests modal -->
 <div id="quests" class="uk-modal">
     <div class="uk-modal-dialog">
@@ -492,80 +309,96 @@
             <h3 class="uk-panel-header">{{ trans('game.quests') }} <span class="uk-badge uk-badge-warning">!</span></h3>
         </div>
 
+        <ul class="uk-tab" data-uk-tab="{connect:'#tab-quests'}" data-uk-check-display>
+            <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-exclamation"></i> Quests Disponíveis</a></li>
+            <li aria-expanded="true"><a href="#"><i class="uk-icon-exclamation-triangle"></i> Quests Aceitas</a></li>
+        </ul>
 
-        @if (!empty($avaliable_quests->first()))
-        <div class="uk-grid" data-uk-grid>
-            <div class="uk-width-medium-1-3">
-                <h3>{{ trans('game.quest-avaliable') }}</h3>
+<ul id="tab-quests" class="uk-switcher uk-margin">
+    <li class="uk-active">
+      @if (!empty($avaliable_quests->first()))
+      <div class="uk-grid" data-uk-grid>
+          <div class="uk-width-medium-1-3 uk-text-center uk-margin-bottom">
+              <h3>{{ trans('game.quest-avaliable') }}</h3>
 
-                @foreach ($avaliable_quests as $quest)
-                <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
-                <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
-                <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
-                <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
-                @endforeach
-                <select class="uk-form-select quest-avaliable">
-                    @foreach ($avaliable_quests as $quest)
-                    <option value="{{ $quest->id }}">{{$quest->title}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="uk-width-medium-2-3 uk-overflow-container">
-                <div style="height: 160px; overflow-y: scroll">
-                    <h3 class="quest-title">{{ $avaliable_quests->first()->title }}</h3>
-                    <p class="quest-description">{{ $avaliable_quests->first()->description }}</p>
-                    <h5><strong>Objetivos</strong></h5>
-                    <p class="quest-objetivos">{{ $avaliable_quests->first()->objetivos }}</p>
-                </div>
-                <h3>{{ trans('game.quest-reward') }}</h3>
-                <div class="uk-grid" data-uk-grid>
-                    <div class="uk-width-2-4">
-                        <span><i class="uk-icon-money"></i> <span class="money-reward">{{ $avaliable_quests->first()->money_reward }}</span></span> /
-                        <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $avaliable_quests->first()->xp_reward }}</span> XP</span>
-                    </div>
-                    <div class="uk-width-2-4 uk-text-right">
-                        <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->id }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-    @endif @if (!empty($accepted_quests->first()))
-    <div class="uk-grid" data-uk-grid>
-        <div class="uk-width-1-3">
-            <h3>{{ trans('game.quest-accepted') }}</h3>
-
-            @foreach ($accepted_quests as $quest)
+              @foreach ($avaliable_quests as $quest)
               <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
               <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
               <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
               <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
-            @endforeach
-            <select class="uk-form-select quest-avaliable">
-                @foreach ($accepted_quests as $quest)
-                <option value="{{ $quest->id }}">{{$quest->title}}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="uk-width-2-3 uk-overflow-container">
-            <div style="height: 160px; overflow-y: scroll">
-                <h3 class="quest-title">{{ $accepted_quests->first()->title }}</h3>
-                <p class="quest-description">{{ $accepted_quests->first()->description }}</p>
-            </div>
-            <h3>{{ trans('game.quest-reward') }}</h3>
-            <div class="uk-grid" data-uk-grid>
-                <div class="uk-width-2-4">
-                    <span><i class="uk-icon-money"></i> <span class="money-reward">{{ $accepted_quests->first()->money_reward }}</span></span> /
-                    <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $accepted_quests->first()->xp_reward }}</span> XP</span>
-                </div>
-                <div class="uk-width-2-4 uk-text-right">
-                    <a href="{{ URL('/game/quest') . '/' . $accepted_quests->first()->id }}" class="uk-button uk-button-danger cancel-quest">Retornar a missão <i class="uk-icon-external-link"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
+              @endforeach
+              <select class="uk-form-select quest-avaliable">
+                  @foreach ($avaliable_quests as $quest)
+                  <option value="{{ $quest->id }}">{{$quest->title}}</option>
+                  @endforeach
+              </select>
+          </div>
+          <div class="uk-width-medium-2-3 uk-overflow-container">
+              <div style="height: 160px; overflow-y: scroll">
+                  <h3 class="quest-title">{{ $avaliable_quests->first()->title }}</h3>
+                  <p class="quest-description">{{ $avaliable_quests->first()->description }}</p>
+                  <h5><strong>Objetivos</strong></h5>
+                  <p class="quest-objetivos">{{ $avaliable_quests->first()->objetivos }}</p>
+              </div>
+              <h3>{{ trans('game.quest-reward') }}</h3>
+              <div class="uk-grid" data-uk-grid>
+                  <div class="uk-width-2-4">
+                      <span><i class="uk-icon-money"></i> <span class="money-reward">{{ $avaliable_quests->first()->money_reward }}</span></span> /
+                      <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $avaliable_quests->first()->xp_reward }}</span> XP</span>
+                  </div>
+                  <div class="uk-width-2-4 uk-text-right">
+                      <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->id }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      @else
+        <p>Parece que não há nenhuma quest disponível :(</p>
+      @endif
+    </li>
+    <li>
+      @if (!empty($accepted_quests->first()))
+      <div class="uk-grid" data-uk-grid>
+          <div class="uk-width-medium-1-3 uk-text-center uk-margin-bottom">
+              <h3>{{ trans('game.quest-accepted') }}</h3>
+
+              @foreach ($accepted_quests as $quest)
+                <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
+                <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
+                <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
+                <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
+              @endforeach
+              <select class="uk-form-select quest-avaliable">
+                  @foreach ($accepted_quests as $quest)
+                  <option value="{{ $quest->id }}">{{$quest->title}}</option>
+                  @endforeach
+              </select>
+          </div>
+
+          <div class="uk-width-medium-2-3 uk-overflow-container">
+              <div style="height: 160px; overflow-y: scroll">
+                  <h3 class="quest-title">{{ $accepted_quests->first()->title }}</h3>
+                  <p class="quest-description">{{ $accepted_quests->first()->description }}</p>
+              </div>
+              <h3>{{ trans('game.quest-reward') }}</h3>
+              <div class="uk-grid" data-uk-grid>
+                  <div class="uk-width-2-4">
+                      <span><i class="uk-icon-money"></i> <span class="money-reward">{{ $accepted_quests->first()->money_reward }}</span></span> /
+                      <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $accepted_quests->first()->xp_reward }}</span> XP</span>
+                  </div>
+                  <div class="uk-width-2-4 uk-text-right">
+                      <a href="{{ URL('/game/quest') . '/' . $accepted_quests->first()->id }}" class="uk-button uk-button-danger cancel-quest">Retornar a missão <i class="uk-icon-external-link"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      @else
+          <p>Você não aceitou nenhuma quest ainda</p>
+      @endif
+    </li>
+</ul>
+
+
 </div>
 </div>
 <!-- observatory -->
