@@ -90,8 +90,13 @@ class GameController extends Controller
               // return view('game.general.player-privade', $this->view_vars());
         }
 
+        // ranking - não sei qual bruxaria faz essa query aqui, mas funciona
+        $ranking = User::selectRaw(DB::raw('FIND_IN_SET( xp, (SELECT GROUP_CONCAT( xp ORDER BY xp DESC ) FROM users )) AS rank'))
+                        ->where('id', $user->id)->first();
+
         $this->view_vars[] = ['player' => $user];
         $this->view_vars[] = ['player_patente' => User::patente($user->level)];
+        $this->view_vars[] = ['player_rank' => $ranking->rank];
 
         return view('game.general.player-public', $this->view_vars());
     }

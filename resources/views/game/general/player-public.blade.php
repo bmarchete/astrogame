@@ -31,7 +31,7 @@
                     <li><i class="uk-icon-bookmark"></i> {{ trans('game.patents') }}: <strong>{{ $player_patente }}</strong></li>
                     <li><i class="uk-icon-money"></i> {{ trans('game.money')}}: <strong>{{ $player->money }}</strong></li>
                     <li><i class="uk-icon-calendar"></i> {{ trans('game.since')}}: <strong>{{ $player->desde() }}</strong></li>
-                    <li><i class="uk-icon-star"></i> {{ trans('game.ranking')}}: <strong>#1</strong></li>
+                    <li><i class="uk-icon-star"></i> {{ trans('game.ranking')}}: <strong># {{ $player_rank }}</strong></li>
                 </ul>
             </div>
 						<a class="action-button red uk-margin-top" href="{{ ((\Request::header('referer')) ? Request::header('referer') : url('/')) }}"><i class="uk-icon-sign-out"></i> Voltar</a>
