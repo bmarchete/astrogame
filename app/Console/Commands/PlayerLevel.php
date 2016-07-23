@@ -42,40 +42,26 @@ class PlayerLevel extends Command
         $email = $this->argument('email');
         $level = $this->argument('level');
 
-        $user = User::where('email', $email)->get()->first();
+        $user = User::where('email', $email)->first();
 
-        $xp = 0;
-        $array = [// level => xp_for_next_level 
-        1 => 400,
-        2 => 900,
-        3 => 1400,
-        4 => 2100,
-        5 => 2800,
-        6 => 3600,
-        7 => 4500,
-        8 => 5400,
-        9 => 6500,
-        10 => 7600,
-        11 => 8700,
-        12 => 9800,
-        13 => 11000,
-        14 => 12300,
-        15 => 13600  ]; // isso não deve ficar aqui
-
-        foreach($array as $array_level => $array_xp){
-            if($array_level <= $level){
-                $xp += $array_xp;
-            }
-        }
-        
         if(!$user){
-            return $this->error("[ERRO] $email nao esta associado com nenhuma conta");
+            return $this->error("[ ERRO ] $email nao esta associado com nenhuma conta");
+        }
+
+        if($level > 15){
+            return $this->info("[ ERRO ] level tem que ser menor que 15, nada foi alterado");
+        }
+
+        foreach($user->level_xp as $array_level => $array_xp){
+            if($array_level == $level + 1){
+                $xp = $array_xp;
+            }
         }
 
         $user->level = $level;
         $user->xp = $xp;
         $user->save();
 
-        return $this->info("[INFO] Level do jogador alterado para $level");
+        return $this->info("[ INFO ] Level do jogador alterado para $level");
     }
 }

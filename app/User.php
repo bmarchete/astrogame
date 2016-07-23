@@ -70,7 +70,8 @@ class User extends Authenticatable
     {
         DB::table('users')->where('id', $this->id)->increment('xp', $xp);
         $this->xp += $xp;
-        if ($this->xp >= $this->xp_for_next_level()) {
+
+        while($this->xp >= $this->xp_for_next_level()){
             $this->level += 1;
             DB::table('users')->where('id', $this->id)->increment('level');
         }

@@ -327,9 +327,8 @@
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>
                 </ul>
                 <div class="uk-margin-bottom">
-                  XP:
-                  <div class="uk-progress uk-progress-striped uk-text-center" data-uk-tooltip title="{{ $xp_bar }}% ({{ $user_xp }} XP)">
-                    {{ $user_xp }} / {{ $xp_for_next_level }}
+                  XP: {{ $xp_bar }}% ({{ $user_xp }} XP)
+                  <div class="uk-progress uk-progress-striped uk-text-center" data-uk-tooltip title="{{ $user_xp }} / {{ $xp_for_next_level }}">
                       <div class="uk-progress-bar" style="width: {{ $xp_bar }}%;"></div>
                   </div>
               </div>

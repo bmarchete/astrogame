@@ -121,6 +121,7 @@ $(document).ready(function(){
         var file_avatar = $("#avatar-file")[0].files[0];
         var formData = new FormData();
         formData.append('avatar', file_avatar);
+        UIkit.notify("<i class='uk-icon-exclamation'></i> Enviando avatar, aguarde um pouco :)", {status:'warning', pos: 'top-right'});
 
         $.ajax({
             method: 'POST',
