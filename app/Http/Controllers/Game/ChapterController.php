@@ -78,8 +78,10 @@ class ChapterController extends GameController
         } else {
             //session()->put('notify');
         }
-
-        return view('game.chapters.' . $chapter_key, $this->view_vars());
-
+        if(view()->exists('game.chapters.' . $chapter_key)){
+          return view('game.chapters.' . $chapter_key, $this->view_vars());
+        } else {
+          return view('game.chapters.welcome', $this->view_vars());
+        }
     }
 }
