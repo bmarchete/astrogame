@@ -64,6 +64,7 @@ class UsersQuest extends Model
             $quest->completed = true;
 
             $this->reward_user($quest, auth()->user());
+            $this->history_quest($quest->quest_info, auth()->user());
             return $quest->save();
         } else {
             return false;
@@ -76,6 +77,14 @@ class UsersQuest extends Model
 
         // add money
         $user->gain_money($user_quest->quest_info->money_reward);
+    }
+
+    public function history_quest(Quest $quest, User $user){
+        $history = new \App\History;
+        $history->user_id = $user->id;
+        $history->texto = "Completou a quest <strong>" . $quest->title . "</strong> e ganhou " . $quest->xp_reward . " pontos de XP";
+        $history->icon  = "exclamation";
+        $history->save();
     }
 
     public function quest_info(){

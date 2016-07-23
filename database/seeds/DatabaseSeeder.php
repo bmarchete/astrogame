@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestsSeeder::class);
         $this->call(InsignasSeeder::class);
 
-        factory(App\User::class, 10)->create();
-        factory(App\History::class, 10)->create();
+        // factory(App\User::class, 10)->create();
+        // factory(App\History::class, 10)->create();
 
     }
 }

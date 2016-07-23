@@ -16,4 +16,6 @@ https://astrogame.me
 
 ## TODO LIST
 [ ] Fazer configuração de deixar o perfil privado
-[ ] 
+[ ] Melhorar traduções
+[ ] Adicionar mais itens
+[ ] Adicionar histórico quando

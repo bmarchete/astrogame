@@ -10,6 +10,7 @@ class UserProgres extends Model
         [
         [
             'name'         => 'welcome',
+            'title'        => 'Boas Vindas',
             'xp_reward'    => 2000,
             'items_reward' => [],
             'min_level'    => 1,
@@ -17,6 +18,7 @@ class UserProgres extends Model
 
         [
             'name'         => 'tutorial',
+            'title'        => 'Tutorial',
             'xp_reward'    => 2500,
             'items_reward' => [],
             'min_level'    => 1,
@@ -25,6 +27,7 @@ class UserProgres extends Model
 
         [
             'name'         => 'chapter1',
+            'title'        => 'Capítulo 1',
             'xp_reward'    => 3000,
             'items_reward' => [],
             'min_level'    => 1,
@@ -32,6 +35,7 @@ class UserProgres extends Model
 
         [
             'name'         => 'chapter2',
+            'title'        => 'Capítulo 2',
             'xp_reward'    => 3000,
             'items_reward' => [],
             'min_level'    => 1,
@@ -113,6 +117,8 @@ class UserProgres extends Model
             }
         }
 
+        $this->history_chapter(auth()->user(), $key_data['title']);
+
         return (object) ['completed' => $progress_table, 'xp_reward' => $key_data['xp_reward']];
     }
 
@@ -123,5 +129,13 @@ class UserProgres extends Model
         if ($check_chapter) {
             return $this->delete();
         }
+    }
+
+    public function history_chapter(User $user, $chapter_name){
+        $history = new \App\History;
+        $history->user_id = $user->id;
+        $history->texto = "Completou o capítulo <strong>" . $this->name . "</strong>";
+        $history->icon = "space-shuttle";
+        $history->save();
     }
 }
