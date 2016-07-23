@@ -9,6 +9,7 @@ use App\User;
 use App\UserBag;
 use App\UserConfig;
 use App\UserObservatory;
+use App\UserProgres;
 use Illuminate\Http\Request;
 use DB;
 
@@ -43,7 +44,13 @@ class GameController extends Controller
     public function ranking()
     {
         DB::statement(DB::raw('set @row:=0'));
-        $players           = ['players' => User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'money')->limit(50)->orderBy('xp', 'DESC')->get()];
+
+        $players = User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'money')
+                  ->whereHas('config', function ($q) {
+                      $q->where('key', 'private')->where('content', false);
+                  })->limit(50)->orderBy('xp', 'DESC')->get();
+
+        $players           = ['players' => $players];
         $this->view_vars[] = ['page' => 'ranking'];
         $this->view_vars[] = $players;
 
@@ -62,19 +69,25 @@ class GameController extends Controller
     // player public profile
     public function player(Request $request)
     {
-        $user = User::where('id', $request->id)->limit(1)->first();
+        $user = null;
+        // primeiro checa se não é o próprio usuário
+        if(auth()->check()){
+            if($request->id == auth()->user()->id){
+                $user = auth()->user();
+            }
+        }
+
+        // se ainda não achou nenhum usuário procura e verifica se não é privado
+        if($user == null){
+          $user = User::where('id', $request->id)->whereHas('config', function ($q) {
+              $q->where('key', 'private')->where('content', false);
+          })->first();
+        }
 
         // checagens
         if (!$user) {
-            return 'Esse player não existe';
-        }
-
-        foreach($user->config as $config){
-            if($config->key == 'private'){
-                if($config->value == true){
-                    return abort(404, 'Usuário privado');
-                }
-            }
+              return "usuário não existe ou é privado";
+              // return view('game.general.player-privade', $this->view_vars());
         }
 
         $this->view_vars[] = ['player' => $user];
@@ -87,9 +100,11 @@ class GameController extends Controller
     {
         $planet = new UserObservatory();
         $planet->get_users_planetarium();
+        $progress = new UserProgres();
+
         $this->view_vars[] = [
-            'music_volume'      => UserConfig::getConfig('music_volume'),
-            'effects_volume'    => UserConfig::getConfig('effects_volume'),
+            'music_volume'      => UserConfig::getConfig('music_volume', auth()->user()),
+            'effects_volume'    => UserConfig::getConfig('effects_volume', auth()->user()),
             'xp_bar'            => auth()->user()->xp_bar(),
             'user_name'         => auth()->user()->nickname,
             'user_level'        => auth()->user()->level,
@@ -104,6 +119,7 @@ class GameController extends Controller
             'patente'           => User::patente(),
             'user_insignas'     => Insignas::all(),
             'planetarium'       => $planet->planetarium,
+            'progress'          => $progress,
         ];
     }
 }

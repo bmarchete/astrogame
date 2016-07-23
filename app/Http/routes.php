@@ -59,6 +59,7 @@ Route::group(['middleware' => ['web']], function () {
 		// general
 		Route::get('/music/{volume}', 'AccountController@change_volume_music')->where('volume', '[0-9-]+');
 		Route::get('/effects/{volume}', 'AccountController@change_volume_effects')->where('volume', '[0-9-]+');
+		Route::get('/profile/{type}', 'AccountController@change_profile')->where('type', 'private|public');
 		Route::post('/change_account', 'AccountController@change_account');
 
 		// chapters

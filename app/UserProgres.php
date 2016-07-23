@@ -11,6 +11,7 @@ class UserProgres extends Model
         [
             'name'         => 'welcome',
             'title'        => 'Boas Vindas',
+            'description'  => '',
             'xp_reward'    => 2000,
             'items_reward' => [],
             'min_level'    => 1,
@@ -19,6 +20,7 @@ class UserProgres extends Model
         [
             'name'         => 'tutorial',
             'title'        => 'Tutorial',
+            'description'  => '',
             'xp_reward'    => 2500,
             'items_reward' => [],
             'min_level'    => 1,
@@ -28,6 +30,7 @@ class UserProgres extends Model
         [
             'name'         => 'chapter1',
             'title'        => 'Capítulo 1',
+            'description'  => '',
             'xp_reward'    => 3000,
             'items_reward' => [],
             'min_level'    => 1,
@@ -36,6 +39,7 @@ class UserProgres extends Model
         [
             'name'         => 'chapter2',
             'title'        => 'Capítulo 2',
+            'description'  => '',
             'xp_reward'    => 3000,
             'items_reward' => [],
             'min_level'    => 1,

@@ -65,11 +65,9 @@
         <div class="uk-modal-header">
             <h3 class="uk-panel-header">{{ trans('game.shop-name') }}</h3>
         </div>
-        <div class="uk-text-right">
-            <i class="uk-icon-money"></i> {{ auth()->user()->money }} disponível
-        </div>
 
-        <ul class="uk-tab" data-uk-tab="{connect:'#tab-shop'}">
+
+        <ul class="uk-tab" data-uk-tab="{connect:'#tab-shop'}" data-uk-check-display>
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-space-shuttle"></i> Instrumentos óticos</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-book"></i> Livros</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-steam"></i> Insignas</a></li>
@@ -299,7 +297,7 @@
     <div class="uk-modal-dialog uk-modal-dialog-large">
         <a href="" class="uk-modal-close uk-close"></a>
 
-        <ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}">
+        <ul class="uk-tab" data-uk-tab="{connect:'#tab-content'}" data-uk-check-display>
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-user"></i> {{ trans('game.profile') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-cog"></i> {{ trans('game.account') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> {{ trans('game.bag') }}</a></li>
@@ -388,10 +386,17 @@
                           </div>
                       </div>
                   </div>
-
                   </div>
 
                   <button type="submit" class="uk-button uk-button-success uk-align-right"><i class="uk-icon-check"></i> Salvar alterações</button>
+
+                  <div class="uk-align-right">
+                    <div class="uk-button-group" data-uk-switcher>
+                        <button aria-expanded="true" class="uk-button uk-active uk-button-primary" type="button" id="public">Pefil Público <i class="uk-icon-globe"></i></button>
+                        <button aria-expanded="false" class="uk-button uk-button-danger" type="button" id="private">Perfil Privado <i class="uk-icon-user-secret"></i></button>
+                    </div>
+                  </div>
+
                   @if (!empty(auth()->user()->provider_id) && auth()->user()->provider_id == 1)
                       <button class="uk-button uk-button-success uk-disabled uk-align-right" disabled>
                           <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
@@ -490,7 +495,7 @@
 
         @if (!empty($avaliable_quests->first()))
         <div class="uk-grid" data-uk-grid>
-            <div class="uk-width-1-3">
+            <div class="uk-width-medium-1-3">
                 <h3>{{ trans('game.quest-avaliable') }}</h3>
 
                 @foreach ($avaliable_quests as $quest)
@@ -505,7 +510,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="uk-width-2-3 uk-overflow-container">
+            <div class="uk-width-medium-2-3 uk-overflow-container">
                 <div style="height: 160px; overflow-y: scroll">
                     <h3 class="quest-title">{{ $avaliable_quests->first()->title }}</h3>
                     <p class="quest-description">{{ $avaliable_quests->first()->description }}</p>

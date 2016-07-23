@@ -16,14 +16,14 @@ class UserConfig extends Model
         'private'        => false,
     ];
 
-    public static function getConfig($config_key)
+    public static function getConfig($config_key, User $user)
     {
-        if (!auth()->check()) {
-            return false;
+        $config = UserConfig::select('content')->where('user_id', $user->id)->where('key', $config_key)->limit(1)->first();
+        if($config){
+          return $config->content;
+        } else {
+          return false;
         }
-        $user_id = auth()->user()->id;
-        $config  = UserConfig::select('content')->where('user_id', $user_id)->where('key', $config_key)->limit(1)->get()->first();
-        return $config->content;
     }
 
     public static function setConfig($config_key, $content)

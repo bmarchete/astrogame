@@ -30,6 +30,14 @@ class AccountController extends GameController
         UserConfig::setConfig('effects_volume', $volume);
     }
 
+    public function change_profile(Request $request){
+        if($request->type == 'public'){
+            UserConfig::setConfig('private', false);
+        } else if($request->type == 'private'){
+            UserConfig::setConfig('private', true);
+        }
+    }
+
     public function change_account(Request $request)
     {
         // falta um validator

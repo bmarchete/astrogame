@@ -95,6 +95,24 @@ $(document).ready(function(){
         })
     });
 
+    $("#private").click(function(){
+        $.ajax({
+          url: '{{ URL('/game/profile/private') }}',
+          success: function(){
+              UIkit.notify("<i class='uk-icon-user-secret'></i> Perfil alterado para privado", {status:'success', pos: 'top-right'});
+          }
+        });
+    });
+
+    $("#public").click(function(){
+        $.ajax({
+          url: '{{ URL('/game/profile/public') }}',
+          success: function(){
+              UIkit.notify("<i class='uk-icon-globe'></i> Perfil alterado para público", {status:'success', pos: 'top-right'});
+          }
+        });
+    });
+
     $(".user-config").ajaxForm({
         type: 'POST',
         dataType: 'JSON',
