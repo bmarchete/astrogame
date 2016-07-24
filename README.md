@@ -15,7 +15,7 @@ https://astrogame.me
 - Laís Vitória
 
 ## TODO LIST
-[ ] Fazer configuração de deixar o perfil privado
+[x] Fazer configuração de deixar o perfil privado
 [ ] Melhorar traduções
 [ ] Adicionar mais itens
 [ ] Adicionar histórico quando comprar itens
