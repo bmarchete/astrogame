@@ -139,7 +139,7 @@
             </form>
         </div>
     </div>
-    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js'], ['async' => true])->withFullUrl() !!}
+    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js'], ['async' => true])->withFullUrl() !!}
     @yield('javascript')
 
     @if (isset($errors) && count($errors->all()) > 0 )

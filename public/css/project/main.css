@@ -149,6 +149,7 @@ h6 {
     height: 400px;
     margin: 0 60px;
     background: url('../../img/astronaut.png') no-repeat;
+    cursor: pointer;
 }
 .welcome h1,
 .welcome h2 {
