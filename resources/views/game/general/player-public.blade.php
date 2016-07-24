@@ -34,7 +34,7 @@
                     <li><i class="uk-icon-star"></i> {{ trans('game.ranking')}}: <strong># {{ $player_rank }}</strong></li>
                 </ul>
             </div>
-						<a class="action-button red uk-margin-top" href="{{ ((\Request::header('referer')) ? Request::header('referer') : url('/')) }}"><i class="uk-icon-sign-out"></i> Voltar</a>
+						<a class="action-button red uk-margin-top" href="{{ ((Request::header('referer')) ? Request::header('referer') : url('/')) }}"><i class="uk-icon-sign-out"></i> Voltar</a>
         </div>
         <div class="uk-grid-divider uk-hidden-large uk-hidden-medium"></div>
         <div class="uk-width-medium-4-6">
