@@ -5,10 +5,6 @@
 {!! Minify::stylesheet(['/vendor/uikit/css/components/tooltip.gradient.css'])->withFullURL() !!}
 @stop
 
-@section('javascript')
-{!! Minify::javascript(['/vendor/uikit/js/components/tooltip.js'], ['async' => true])->withFullURL() !!}
-@stop
-
 @section('content')
 <div class="uk-container uk-margin-large-top uk-container-center uk-text-center-small">
     <div class="uk-grid" data-uk-grid-margin="">
