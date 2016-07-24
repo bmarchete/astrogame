@@ -144,7 +144,9 @@
 
     @if (isset($errors) && count($errors->all()) > 0 )
     <script>
-        UIkit.modal("#login").show();
+        $(document).ready(function(){
+            UIkit.modal("#login").show();
+        });
     </script>
     @endif
 

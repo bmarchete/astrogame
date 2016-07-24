@@ -54,7 +54,7 @@
                 <h2>{{ trans('game.recent-activ') }}</h2>
                 <ul class="uk-list uk-list-striped uk-text-left">
                     @forelse($player->history as $item)
-                    	<li><i class="uk-icon-{{ $item->icon }}"> </i> {{ $item->texto }} <span class="uk-text-muted uk-text-small">{{ $item->created_at }}</span></li>
+                    	<li><i class="uk-icon-{{ $item->icon }}"> </i> {!! $item->texto !!} <span class="uk-text-muted uk-text-small">{{ $item->created_at }}</span></li>
 										@empty
 											<p>Nenhuma atividade recente</p>
 										@endforelse

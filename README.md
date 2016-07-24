@@ -18,4 +18,5 @@ https://astrogame.me
 [ ] Fazer configuração de deixar o perfil privado
 [ ] Melhorar traduções
 [ ] Adicionar mais itens
-[ ] Adicionar histórico quando
+[ ] Adicionar histórico quando comprar itens
+[ ] Adicionar histórico quando ganhou uma insigna

@@ -80,8 +80,12 @@ $(document).ready(function(){
     $("#volume-music").change(function(){
         var volume=$(this).val();
         background.setVolume(volume);
+        UIkit.notify("<i class='uk-icon-music'></i> Alterando volume, aguarde.", {status:'warning', pos: 'top-right'});
         $.ajax({
-          url: '{{ URL('/game/music') }}/' + volume
+          url: '{{ URL('/game/music') }}/' + volume,
+          success: function(){
+              UIkit.notify("<i class='uk-icon-music'></i> Música alterada para " + volume + "%", {status:'success', pos: 'top-right'});
+          }
           // talvez otimizar para não ficar requisitando toda hora para o servidor
         })
 
@@ -90,8 +94,12 @@ $(document).ready(function(){
     $("#volume-effects").change(function(){
         var volume=$(this).val();
         sound_effect.setVolume(volume);
+        UIkit.notify("<i class='uk-icon-volume-up'></i> Alterando volume, aguarde.", {status:'warning', pos: 'top-right'});
         $.ajax({
-            url: '{{ URL('/game/effects') }}/' + volume
+            url: '{{ URL('/game/effects') }}/' + volume,
+            success: function(){
+                UIkit.notify("<i class='uk-icon-volume-up'></i> Volume dos efeitos sonoros alterado para " + volume + "%", {status:'success', pos: 'top-right'});
+            }
         })
     });
 
