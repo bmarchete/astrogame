@@ -18,7 +18,7 @@
     <div class="uk-container uk-container-center">
     <div class="uk-grid uk-margin-large-top" data-uk-grid>
         <div class="uk-width-medium-1-2">
-            <img width="660" height="400" src="{{ url('img/home-section3.jpg') }}" alt="">
+            <img width="660" height="400" src="{{ url('img/about1.png') }}" alt="Tela de missões do astrogame">
         </div>
         <div class="uk-width-medium-1-2">
             <h1><i class="uk-icon uk-icon-book"></i> Jogue e aprenda</h1>
