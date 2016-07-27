@@ -19,18 +19,6 @@ class GameController extends Controller
         return view('game.general.map');
     }
 
-    public function ranking()
-    {
-        DB::statement(DB::raw('set @row:=0'));
-
-        $players = User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'money')
-                  ->whereHas('config', function ($q) {
-                      $q->where('key', 'private')->where('content', false);
-                  })->limit(50)->orderBy('xp', 'DESC')->get();
-
-        return view('project.ranking', ['players' => $players, 'page' => 'ranking']);
-    }
-
     public function shop()
     {
         $telescopios = Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();

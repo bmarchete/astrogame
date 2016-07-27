@@ -13,32 +13,28 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => 'web'], function () {
 	// auth
 	Route::auth();
 
 	// website-projeto
-	Route::get('/', 'HomeController@index');
-	Route::get('/home', 'HomeController@home');
-	Route::get('/sobre', 'HomeController@sobre');
-	Route::get('/equipe', 'HomeController@equipe');
-	Route::get('/termos', 'HomeController@termos');
-	Route::get('/politica', 'HomeController@politica');
-	Route::get('/credits', 'HomeController@credits');
+	Route::group(['middleware' => 'website'], function(){
+		Route::get('/', 'HomeController@index');
+		Route::get('/home', 'HomeController@home');
+		Route::get('/sobre', 'HomeController@sobre');
+		Route::get('/equipe', 'HomeController@equipe');
+		Route::get('/termos', 'HomeController@termos');
+		Route::get('/politica', 'HomeController@politica');
+		Route::get('/credits', 'HomeController@credits');
 
-	// website-contact
-	Route::get('/contato', 'ContactController@index');
-	Route::post('/contato', 'ContactController@store');
+		// website-contact
+		Route::get('/contato', 'ContactController@index');
+		Route::post('/contato', 'ContactController@store');
 
-	// language
-	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
-
-	// public profile
-	Route::get('/player/{id}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('id', '[0-9]+');
-	Route::get('/ranking', 'GameController@ranking');
-
-	// langague
-	Route::get('/falas/chapter/{chapter}', 'FalasController@getFromChapter');
+		// public profile
+		Route::get('/player/{id}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('id', '[0-9]+');
+		Route::get('/ranking', 'HomeController@ranking');
+	});
 
 	// website-game
 	Route::group(['middleware' => ['auth', 'game'], 'prefix' => 'game'], function () {
@@ -77,4 +73,10 @@ Route::group(['middleware' => ['web']], function () {
 
 	// confirm email
 	Route::get('/confirm/verify/{confirm_code}', 'Auth\AuthController@confirmEmail');
+
+	// language
+	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
+
+	// chapters language
+	Route::get('/falas/chapter/{chapter}', 'FalasController@getFromChapter');
 });
