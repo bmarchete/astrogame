@@ -44,7 +44,7 @@ class ChapterController extends GameController
     // 3 - capítulo 1
     public function welcome()
     {
-        return view('game.chapters.welcome', $this->view_vars());
+        return view('game.chapters.welcome');
     }
 
     public function tutorial()
@@ -79,9 +79,9 @@ class ChapterController extends GameController
             //session()->put('notify');
         }
         if(view()->exists('game.chapters.' . $chapter_key)){
-          return view('game.chapters.' . $chapter_key, $this->view_vars());
+          return view('game.chapters.' . $chapter_key);
         } else {
-          return view('game.chapters.welcome', $this->view_vars());
+          return view('game.chapters.welcome');
         }
     }
 }

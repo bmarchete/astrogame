@@ -34,14 +34,14 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/lang/{lang}', 'HomeController@change_language')->where('lang', '[a-z-]+');
 
 	// public profile
-	Route::get('/player/{id}', 'GameController@player')->where('id', '[0-9]+');
+	Route::get('/player/{id}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('id', '[0-9]+');
 	Route::get('/ranking', 'GameController@ranking');
 
 	// langague
 	Route::get('/falas/chapter/{chapter}', 'FalasController@getFromChapter');
 
 	// website-game
-	Route::group(['middleware' => ['auth'], 'prefix' => 'game'], function () {
+	Route::group(['middleware' => ['auth', 'game'], 'prefix' => 'game'], function () {
 		Route::get('/', 'ChapterController@index');
 		Route::post('/report', 'ReportController@send');
 

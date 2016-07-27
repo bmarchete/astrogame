@@ -208,4 +208,8 @@ class User extends Authenticatable
     public function config(){
         return $this->hasMany('App\UserConfig');
     }
+
+    public function getConfig($config_key){
+        return \App\UserConfig::getConfig($config_key, $this);
+    }
 }

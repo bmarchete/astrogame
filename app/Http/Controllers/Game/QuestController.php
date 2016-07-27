@@ -65,10 +65,10 @@ class QuestController extends GameController
 
     public function quest_palido_ponto_azul()
     {
-        return view('game.quests.ponto_azul', $this->view_vars());
+        return view('game.quests.ponto_azul');
     }
 
     public function quest_cosmos_quizz(){
-        return view('game.quests.cosmos_quizz', $this->view_vars());
+        return view('game.quests.cosmos_quizz');
     }
 }
