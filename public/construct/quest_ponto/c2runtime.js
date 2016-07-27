@@ -16347,5 +16347,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Browser,
 	cr.plugins_.rex_youtube_player,
 	cr.plugins_.rex_youtube_player.prototype.cnds.HasEnded,
+	cr.plugins_.rex_youtube_player.prototype.acts.Destroy,
 	cr.plugins_.Browser.prototype.acts.GoToURL
 ];};
