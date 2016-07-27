@@ -24,15 +24,21 @@ return [
 	'home-text' => [
 		'screenshot' => 'Screenshot of the initial game\'s screen',
 		'title1' => 'Level UP!',
-		'text1' => 'Win experience with your character for unlock new contents of more far way places on the universe',
+		'text1' => 'Win experience with your character for unlock new contents of more far way places on the universe!',
 
 		'title2' => 'Learn from the experts!',
-		'text2' => 'Durante a sua jornada uma ajudinha sempre é bem-vinda, e quem melhor para nos auxiliar do que  Copérnico, Carl Sagan e outros ícones da Astronomia?',
+		'text2' => 'While in your journey a little help is always welcome, and who better to help us than Copernicus, Carl Sagan and others Astronomy\'s icons?',
 
 		'title3' => 'Conquer your place on the podium!',
 		'text3' => 'Do your best for stay at the top in our ranking!',
 
 		'title4' => 'About the Astrogame',
+		'text4' => 'Astrogame is a course\'s conclusion projetc (TCC) made in the year of 2016 at	ETEC Pedro Ferreira Alves for the High School\'s course informatic for Internet. It\'s about an online plataform where there is astronomy contents, in a interative way and easy learning, with the main means being an educative game.	The task is to end with the lack of easy and avaiable informations to studens and interested about astronomy.',
+
+		'galileu_speech' => 'Greetings, pilgrim, do you know me? Look at my behavior, not even introducing myself...My name is Galileu Galilei, and I am very important to Astronomy and I am in Astrogame to help you in your descovery, click in the link to get in the game!',
+
+		'contact-text' => 'Critics, sugestions, questions, partnerships, whetever you want but SPAM!',
+		
 
 	],
 

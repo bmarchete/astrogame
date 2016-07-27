@@ -3,36 +3,19 @@
 {{ trans('chapters.welcome.title') }} | {{ trans('project.title') }}
 @stop
 
-@section('style')
-<style type="text/css">
-		html, body {
-			overflow: hidden;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-		canvas {
-			touch-action-delay: none;
-			touch-action: none;
-			-ms-touch-action: none;
-      width: auto;
-      height: auto;
-		}
-    </style>
-@stop
-
 @section('javascript')
 {!! Minify::javascript(['/js/chapters/general.js'])->withFullURL() !!}
+{!! Minify::javascript(['/construct/welcome/c2runtime.js'])->withFullURL() !!}">
 <script>
 $(document).ready(function(){
 	$("#c2canvasdiv").hide();
 	$("#big-bang").click(function(){
 			$("#c2canvasdiv").show();
 			cr_createRuntime("c2canvas");
+			$(".uk-container").hide();
 	});
 });
 </script>
-
-<script src="{{ url('construct/welcome/c2runtime.js') }}"></script>
 @stop
 
 @section('content')

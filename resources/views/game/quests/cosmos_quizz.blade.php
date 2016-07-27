@@ -3,33 +3,15 @@
 Projeto Cosmos Quizz | {{ trans('project.title') }}
 @stop
 
-@section('style')
-<style type="text/css">
-		html, body {
-			overflow: hidden;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-		canvas {
-			touch-action-delay: none;
-			touch-action: none;
-			-ms-touch-action: none;
-      width: auto;
-      height: auto;
-		}
-    </style>
-@stop
-
 @section('javascript')
 {!! Minify::javascript(['/js/chapters/general.js'])->withFullURL() !!}
+{!! Minify::javascript(['/construct/quest_cosmos/c2runtime.js'])->withFullURL() !!}">
 <script>
 $(document).ready(function(){
-	$("#c2canvasdiv").show();
-	cr_createRuntime("c2canvas");
+		$("#c2canvasdiv").show();
+		cr_createRuntime("c2canvas");
 });
 </script>
-
-<script src="{{ url('construct/quest_cosmos/c2runtime.js') }}"></script>
 @stop
 
 @section('content')
