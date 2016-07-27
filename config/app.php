@@ -165,8 +165,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider::class,
         Msurguy\Honeypot\HoneypotServiceProvider::class,
-
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+        Chencha\Share\ShareServiceProvider::class,
     ],
 
     /*
@@ -222,6 +222,7 @@ return [
         'Image'     => Intervention\Image\Facades\Image::class,
         'Honeypot'  => Msurguy\Honeypot\HoneypotFacade::class,
         'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
+        'Share'     => Chencha\Share\ShareFacade::class,
     ],
 
 ];

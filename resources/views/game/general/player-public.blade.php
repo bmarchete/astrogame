@@ -28,14 +28,23 @@
                 <h3>{{ $player->name }}</h3>
                 <ul class="uk-list uk-list-striped uk-text-left">
                     <li><i class="uk-icon-heart"></i> {{ trans('game.level') }}: <strong>{{ $player->level }}</strong></li>
-                    <li><i class="uk-icon-bookmark"></i> {{ trans('game.patents') }}: <strong>{{ $player_patente }}</strong></li>
+                    <li><i class="uk-icon-bookmark"></i> {{ trans('game.patent') }}: <strong>{{ $player_patente }}</strong></li>
                     <li><i class="uk-icon-money"></i> {{ trans('game.money')}}: <strong>{{ $player->money }}</strong></li>
                     <li><i class="uk-icon-calendar"></i> {{ trans('game.since')}}: <strong>{{ $player->desde() }}</strong></li>
                     <li><i class="uk-icon-star"></i> {{ trans('game.ranking')}}: <strong># {{ $player_rank }}</strong></li>
                 </ul>
             </div>
+
+						<div class="uk-margin">
+								<a href="{{$social->facebook}}" class="uk-icon-button uk-icon-facebook" data-uk-tooltip title="Compartilhar perfil no facebook"></a>
+								<a href="{{$social->twitter}}" class="uk-icon-button uk-icon-twitter" data-uk-tooltip title="Compartilhar perfil no twitter"></a>
+								<a href="{{$social->gplus}}" class="uk-icon-button uk-icon-google-plus" data-uk-tooltip title="Compartilhar perfil no google plus"></a>
+								<a href="{{$social->tumblr}}" class="uk-icon-button uk-icon-tumblr" data-uk-tooltip title="Compartilhar perfil no tumblr"></a>
+								<a href="{{$social->pinterest}}" class="uk-icon-button uk-icon-pinterest" data-uk-tooltip title="Compartilhar perfil no pinterest"></a>
+						</div>
+
 						<a class="action-button red uk-margin-top" href="{{ ((Request::header('referer')) ? Request::header('referer') : url('/')) }}"><i class="uk-icon-sign-out"></i> Voltar</a>
-        </div>
+				</div>
         <div class="uk-grid-divider uk-hidden-large uk-hidden-medium"></div>
         <div class="uk-width-medium-4-6">
             <div class="uk-panel uk-panel-box uk-text-center">

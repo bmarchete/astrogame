@@ -13,7 +13,8 @@
         "intervention/image": "^2.3",
         "bepsvpt/laravel-security-header": "^1.1",
         "msurguy/honeypot": "dev-master",
-        "greggilbert/recaptcha": "^2.1"
+        "greggilbert/recaptcha": "^2.1",
+        "chencha/share": "^5.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

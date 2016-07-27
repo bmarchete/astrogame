@@ -12,6 +12,7 @@ use App\UserObservatory;
 use App\UserProgres;
 use Illuminate\Http\Request;
 use DB;
+use Share;
 
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
@@ -97,6 +98,7 @@ class GameController extends Controller
         $this->view_vars[] = ['player' => $user];
         $this->view_vars[] = ['player_patente' => User::patente($user->level)];
         $this->view_vars[] = ['player_rank' => $ranking->rank];
+        $this->view_vars[] = ['social' => (object) Share::load(url()->current(), 'Veja meu perfil no astrogame', url('/img/avatar.png'))->services('facebook', 'gplus', 'twitter', 'tumblr', 'pinterest')];
 
         return view('game.general.player-public', $this->view_vars());
     }
