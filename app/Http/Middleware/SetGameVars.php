@@ -10,6 +10,7 @@ use App\Quest;
 use App\UserBag;
 use App\Insignas;
 use App\User;
+use App\Item;
 
 class SetGameVars
 {
@@ -28,7 +29,14 @@ class SetGameVars
             $planet = new UserObservatory(); // melhor isso daqui
             $planet->get_users_planetarium();
 
-            view()->composer('game.general.general', function ($view) use ($planet) {
+
+            $telescopios = Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();
+            $livros      = Item::where('name', 'LIKE', '%Livro%')->orWhere('name', 'LIKE', '%Guia%')->get();
+            $insignas    = [];
+
+            $shop = ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => $insignas];
+
+            view()->composer('game.general.general', function ($view) use ($planet, $shop) {
                   $view->with('user_name', auth()->user()->nickname)
                        ->with('user_level', auth()->user()->level)
                        ->with('user_money', auth()->user()->money)
@@ -38,7 +46,7 @@ class SetGameVars
                        ->with('xp_bar', auth()->user()->xp_bar())
                        ->with('xp_for_next_level', auth()->user()->xp_for_next_level())
                        ->with('lang', session()->get('language', 'pt-br'))
-                       ->with('shop', []) // alterar isso daqui
+                       ->with('shop', $shop) // alterar isso daqui
                        ->with('bag', UserBag::bag())
                        ->with('avaliable_quests', Quest::avaliable_quests())
                        ->with('accepted_quests', Quest::accepted_quests())

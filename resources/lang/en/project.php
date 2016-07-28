@@ -38,7 +38,7 @@ return [
 		'galileu_speech' => 'Greetings, pilgrim, do you know me? Look at my behavior, not even introducing myself...My name is Galileu Galilei, and I am very important to Astronomy and I am in Astrogame to help you in your descovery, click in the link to get in the game!',
 
 		'contact-text' => 'Critics, sugestions, questions, partnerships, whetever you want but SPAM!',
-		
+
 
 	],
 
@@ -94,6 +94,6 @@ return [
 	'team' => 'Desastronautas Team',
 	'team-pre-text' => 'Founder & Developer Team',
 	'team-about' => 'Desastronautas',
-		'team-text' => '<p>We are a group of friends of the thirth year of College Centro Paula Souza ETEC Pedro Ferreira Alves in Mogi Mirim. Humanlikes, hitchhikers, nerds, aspirantes dos mistérios do Cosmos, amantes da tecnologia e maratonistas – de séries. </p><p>O grupo surgiu a partir da necessidade de se formar equipes para o TCC, e decidimos, portanto, que em nosso tema - depois de várias e várias discussões - abordaríamos a Astrologia e Cosmologia pois, assim como Carl Sagan, acreditamos que somos uma parte deste Cosmo, nascidos dele, nossos destinos irremediavelmente ligado a ele. </p>',
+	'team-text' => '<p>We are a group of friends of the thirth year of College Centro Paula Souza ETEC Pedro Ferreira Alves in Mogi Mirim. Humanlikes, hitchhikers, nerds, aspirants of the Cosmos mysteries, technology\'s lovers and marathoners of series.</p><p>The group emerged of the need to form teams to the TCC, we then decided that our theme - after a lot of discussions - would be Astronomy and Cosmology because just like Carl Sagan, we believe the we are a part of this Cosmo, born from it, our desteny irretrievably attached to it.</p>',
 	'team-figcaption' => 'A photo with all team togheter',
 ];
