@@ -21,4 +21,3 @@ https://astrogame.me
 - [ ] Adicionar histórico quando comprar itens
 - [ ] Adicionar histórico quando ganhou uma insigna
 - [ ] Adicionar XP para quem enviar sugestão
-- [ ] Adicionar website edu

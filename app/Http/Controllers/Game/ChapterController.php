@@ -73,10 +73,7 @@ class ChapterController extends GameController
             session()->put('notify',
                 [
                     ['text' => '<i class="uk-icon-exclamation"></i> Você ganhou CORRIGIR AQUI xp', 'status' => 'success'],
-
                 ]);
-        } else {
-            //session()->put('notify');
         }
         if(view()->exists('game.chapters.' . $chapter_key)){
           return view('game.chapters.' . $chapter_key);
