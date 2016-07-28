@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Events\RegisterUser;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -35,8 +34,6 @@ class AuthController extends Controller
 
     /**
      * Create a new authentication controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -46,39 +43,41 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         $rules = [
             'nickname' => 'required|min:2|max:60|unique:users',
-            'name'     => 'required|min:2|max:255',
-            'email'    => 'required|email|max:255|unique:users',
+            'name' => 'required|min:2|max:255',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|max:255',
-            'terms'    => 'required',
+            'terms' => 'required',
         ];
 
-        if(env('APP_ENV') != 'local'){
+        if (env('APP_ENV') != 'local') {
             $rules['g-recaptcha-response'] = 'required|recaptcha';
         }
-        
+
         return Validator::make($data, $rules);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
     {
         $user = User::create([
-            'nickname'     => $data['nickname'],
-            'email'        => $data['email'],
-            'name'         => $data['name'],
-            'password'     => bcrypt($data['password']),
+            'nickname' => $data['nickname'],
+            'email' => $data['email'],
+            'name' => $data['name'],
+            'password' => bcrypt($data['password']),
             'confirm_code' => str_random(30),
         ]);
 
@@ -104,8 +103,8 @@ class AuthController extends Controller
     {
         $confirm_code = $request->confirm_code;
         if (!empty($confirm_code)) {
-            $user               = User::where('confirm_code', '=', $confirm_code)->first();
-            $user->confirmed    = 1;
+            $user = User::where('confirm_code', '=', $confirm_code)->first();
+            $user->confirmed = 1;
             $user->confirm_code = null;
             $user->save();
             session()->put('notify',
@@ -140,7 +139,7 @@ class AuthController extends Controller
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
-        if ($throttles && ! $lockedOut) {
+        if ($throttles && !$lockedOut) {
             $this->incrementLoginAttempts($request);
         }
 
@@ -150,7 +149,7 @@ class AuthController extends Controller
     public function rules()
     {
         return [
-            'login'    => 'required',
+            'login' => 'required',
             'password' => 'required',
         ];
     }
@@ -159,8 +158,10 @@ class AuthController extends Controller
     {
         if (!$user->confirmed) {
             auth()->logout();
+
             return back()->withErrors(['msg' => trans('auth.confirmation')]);
         }
+
         return redirect()->intended($this->redirectPath());
     }
 
