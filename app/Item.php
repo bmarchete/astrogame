@@ -48,6 +48,8 @@ class Item extends Model
             UserBag::insert(['user_id' => $user->id, 'item_id' => $item->id]);
         }
 
+        $this->history_item(auth()->user(), $item);
+
         return ['status_or_price' => $item->price, 'msg' => $item->name . ' comprado',
             // checar se já tem esse item, evitar apenas mudança de quantidade
             'html'                    => '<li onclick="remove_item(' . $item->id . ')" class="item-' . $item->id . '"><span class="uk-badge uk-badge-success">1</span><figure class="uk-thumbnail" data-uk-tooltip title="' . $item->name . '"><img src="' . url('/img/items') . '/' . $item->img_url . '.png" alt="" data-uk-tooltip=""></figure></li>'];
@@ -56,5 +58,13 @@ class Item extends Model
     public static function add_item($item_id)
     {
         // @TODO: Finish HIM
+    }
+
+    public function history_item(User $user, Item $item){
+        $history = new \App\History;
+        $history->user_id = $user->id;
+        $history->texto = "Comprou o <strong>" . $item->name . "</strong> por " . $item->price . "";
+        $history->icon  = "shopping-cart";
+        $history->save();
     }
 }
