@@ -3,6 +3,18 @@
 @section('title')
 {{ trans('project.contato-title') }}
 @stop
+
+@section('javascript')
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+@stop
+
 @section('content')
 <div class="thumbnav">
     <div class="uk-container uk-container-center">
@@ -67,10 +79,11 @@
                     <a href="mailto:eduardo@astrogame.com.br">eduardo@astrogame.com.br</a>
                     <br>
                 </p>
-                <h3 class="uk-h4">{{ trans('project.follow-us') }}</h3>
-                <p>
-                    <a href="https://www.facebook.com/cosmosexpoete" class="uk-icon-button uk-icon-facebook"></a>
-                </p>
+            </div>
+
+            <div class="uk-panel uk-panel-box uk-panel-box-secondary">
+                <div class="fb-page" data-href="https://www.facebook.com/cosmosexpoete" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
+
             </div>
         </div>
     </div>
