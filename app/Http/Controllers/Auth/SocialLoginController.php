@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Socialize;
+use Socialite;
 
 class SocialLoginController extends Controller
 {
@@ -26,7 +26,7 @@ class SocialLoginController extends Controller
      */
     public function login($provider)
     {
-        return Socialize::with($provider)->redirect();
+        return Socialite::with($provider)->redirect();
     }
 
     /**
@@ -35,7 +35,7 @@ class SocialLoginController extends Controller
     protected function fallback($provider)
     {
         $provider_id = ($provider == 'facebook') ? 1 : 2; // 2 = google
-        $user = Socialize::with($provider)->user();
+        $user = Socialite::with($provider)->user();
 
         $check_user = User::where('provider_user_id', $user->getId())->where('provider_id', $provider_id)->limit(1)->first();
         if ($check_user) {
