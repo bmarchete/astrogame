@@ -83,7 +83,6 @@
 
             <div class="uk-panel uk-panel-box uk-panel-box-secondary">
                 <div class="fb-page" data-href="https://www.facebook.com/cosmosexpoete" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
-
             </div>
         </div>
     </div>
