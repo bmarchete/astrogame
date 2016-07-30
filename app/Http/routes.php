@@ -18,23 +18,21 @@ Route::group(['middleware' => 'web'], function () {
 	Route::auth();
 
 	// website-projeto
-	Route::group(['middleware' => 'website'], function(){
-		Route::get('/', 'HomeController@index');
-		Route::get('/home', 'HomeController@home');
-		Route::get('/sobre', 'HomeController@sobre');
-		Route::get('/equipe', 'HomeController@equipe');
-		Route::get('/termos', 'HomeController@termos');
-		Route::get('/politica', 'HomeController@politica');
-		Route::get('/credits', 'HomeController@credits');
+	Route::get('/', 'HomeController@index');
+	Route::get('/home', 'HomeController@home');
+	Route::get('/sobre', 'HomeController@sobre');
+	Route::get('/equipe', 'HomeController@equipe');
+	Route::get('/termos', 'HomeController@termos');
+	Route::get('/politica', 'HomeController@politica');
+	Route::get('/credits', 'HomeController@credits');
 
-		// website-contact
-		Route::get('/contato', 'ContactController@index');
-		Route::post('/contato', 'ContactController@store');
+	// website-contact
+	Route::get('/contato', 'ContactController@index');
+	Route::post('/contato', 'ContactController@store');
 
-		// public profile
-		Route::get('/player/{id}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('id', '[0-9]+');
-		Route::get('/ranking', 'HomeController@ranking');
-	});
+	// public profile
+	Route::get('/player/{id}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('id', '[0-9]+');
+	Route::get('/ranking', 'HomeController@ranking');
 
 	// website-game
 	Route::group(['middleware' => ['auth', 'game'], 'prefix' => 'game'], function () {
