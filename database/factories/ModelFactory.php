@@ -27,11 +27,30 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\History::class, function (Faker\Generator $faker) {
     return [
         'texto' => $faker->sentence(5),
-        'user_id' => \App\User::orderByRaw('RAND()')->first()->id,
         'icon' => function(){
-            $icons = ['check', 'space-shuttle', 'shopping-cart'];
+            $icons = ['check', 'space-shuttle', 'shopping-cart', 'exclamation'];
             $random_index = rand(0, count($icons) - 1);
             return $icons[$random_index];
         },
+    ];
+});
+
+$factory->define(App\UsersQuest::class, function (Faker\Generator $faker) {
+    return [
+        'quest_id' => \App\Quest::orderByRaw('RAND()')->first()->id,
+        'completed' => rand(0, 1),
+    ];
+});
+
+$factory->define(App\UserBag::class, function (Faker\Generator $faker) {
+    return [
+        'item_id' => \App\Item::orderByRaw('RAND()')->first()->id,
+        'amount' => rand(0, 3),
+    ];
+});
+
+$factory->define(App\UserInsignas::class, function (Faker\Generator $faker) {
+    return [
+        'insigna_id' => \App\Insignas::orderByRaw('RAND()')->first()->id,
     ];
 });

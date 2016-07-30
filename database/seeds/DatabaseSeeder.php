@@ -6,8 +6,6 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run()
     {
@@ -15,8 +13,17 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestsSeeder::class);
         $this->call(InsignasSeeder::class);
 
-        // factory(App\User::class, 10)->create();
-        // factory(App\History::class, 10)->create();
-
+        if (env('APP_ENV') == 'local') {
+            $confirm = $this->command->confirm('Deseja rodar os test seeders?');
+            if ($confirm) {
+                factory(App\User::class, 500)->create()->each(function ($user) {
+                    factory(App\History::class, 10)->create(['user_id' => $user->id]);
+                    factory(App\UsersQuest::class, 2)->create(['user_id' => $user->id]);
+                    factory(App\UserBag::class, 5)->create(['user_id' => $user->id]);
+                    factory(App\UserInsignas::class, 10)->create(['user_id' => $user->id]);
+                });
+                $this->command->info('Adicionado 500 users aleatorios com history, quests, bag e insignas');
+            }
+        }
     }
 }
