@@ -6,6 +6,7 @@ use App\UserConfig;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
+use Cache;
 
 class HomeController extends Controller
 {
@@ -45,10 +46,12 @@ class HomeController extends Controller
     {
         DB::statement(DB::raw('set @row:=0'));
 
-        $players = User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'money')
-                  ->whereHas('config', function ($q) {
-                      $q->where('key', 'private')->where('content', false);
-                  })->limit(100)->orderBy('xp', 'DESC')->get();
+        $players = Cache::remember('ranking', 5, function(){
+            return User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp')
+                      ->whereHas('config', function ($q) {
+                          $q->where('key', 'private')->where('content', false);
+                      })->limit(100)->orderBy('xp', 'DESC')->get();
+        });
 
         return view('project.ranking', ['players' => $players]);
     }

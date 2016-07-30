@@ -11,6 +11,7 @@ use App\UserBag;
 use App\Insignas;
 use App\User;
 use App\Item;
+use Cache;
 
 class SetGameVars
 {
@@ -29,12 +30,15 @@ class SetGameVars
             $planet = new UserObservatory(); // melhor isso daqui
             $planet->get_users_planetarium();
 
+            $telescopios = Cache::rememberForever('telescopios', function(){
+                return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();
+            });
 
-            $telescopios = Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();
-            $livros      = Item::where('name', 'LIKE', '%Livro%')->orWhere('name', 'LIKE', '%Guia%')->get();
-            $insignas    = [];
+            $livros = Cache::rememberForever('livros', function(){
+                return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Guia%')->get();
+            });
 
-            $shop = ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => $insignas];
+            $shop = ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => []];
 
             view()->composer('game.general.general', function ($view) use ($planet, $shop) {
                   $view->with('user_name', auth()->user()->nickname)

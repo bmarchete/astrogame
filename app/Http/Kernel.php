@@ -17,7 +17,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\EncryptCookies::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \App\Http\Middleware\SetWebsiteVars::class,
+        \App\Http\Middleware\Error404Fixer::class,
+        \App\Http\Middleware\Language::class,
+
     ];
 
     /**
@@ -30,7 +32,6 @@ class Kernel extends HttpKernel
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\Language::class,
             \App\Http\Middleware\HTMLminify::class,
             \App\Http\Middleware\HttpsProtocol::class,
 
@@ -55,5 +56,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'game' => \App\Http\Middleware\SetGameVars::class,
+        'website' => \App\Http\Middleware\SetWebsiteVars::class,
     ];
 }

@@ -34,9 +34,6 @@ class RegisterUsers
         // instala configurações básicas de usuário
         UserConfig::installConfig($event->user->id);
 
-        // usuário ganha 1000 conto
-        DB::table('users')->where('id', $event->user->id)->update(['money' => 1000]);
-
         // autentica caso não estiver autenticado
         auth()->login($event->user, true);
 

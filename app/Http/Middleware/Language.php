@@ -11,7 +11,7 @@ class Language
                                'pt-BR' => 'pt-br',
                                'pt' => 'pt-br',
                                'en' => 'en',
-                               'en-US' => 'en'];
+                               'en-US' => 'en', ];
     /**
      * Handle an incoming request.
      * Checa se há uma linguagem settada na sessão, se sim, muda a lang.
@@ -31,7 +31,7 @@ class Language
 
     private function browser_lang()
     {
-        if(!isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
+        if (!isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             return 'en';
         }
 

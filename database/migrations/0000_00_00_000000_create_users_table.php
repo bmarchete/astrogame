@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->smallInteger('gender'); // 1 = male, 2 = female
             $table->mediumInteger('level')->default(1);
             $table->integer('xp')->default(0);
-            $table->integer('money')->default(0);
+            $table->integer('money')->default(1000); // padrão 1000 de money
             $table->boolean('online')->default(false);
             $table->integer('total_time')->default(0);
             $table->boolean('confirmed')->default(true);

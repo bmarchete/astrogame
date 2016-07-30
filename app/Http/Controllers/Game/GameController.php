@@ -19,15 +19,6 @@ class GameController extends Controller
         return view('game.general.map');
     }
 
-    public function shop()
-    {
-        $telescopios = Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();
-        $livros      = Item::where('name', 'LIKE', '%Livro%')->orWhere('name', 'LIKE', '%Guia%')->get();
-        $insignas    = [];
-
-        return ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => $insignas];
-    }
-
     // player public profile
     public function player(Request $request)
     {
