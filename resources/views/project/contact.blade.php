@@ -76,7 +76,7 @@
                     <br>Brazil
                 </p>
                 <p>
-                    <a href="mailto:eduardo@astrogame.com.br">eduardo@astrogame.com.br</a>
+                    <a href="mailto:eduardo@astrogame.me">eduardo@astrogame.me</a>
                     <br>
                 </p>
             </div>

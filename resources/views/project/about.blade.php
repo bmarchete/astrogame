@@ -69,7 +69,7 @@
         <div class="uk-width-large-1-2 uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
             <div class="uk-thumbnail uk-overlay-hover ">
                 <figure class="uk-overlay">
-                    <img width="660" height="400" src="{{ url('img/history/entrada_simulador.jpg')}}" alt="">
+                    <img width="660" height="400" src="{{ url('img/history/entrada_simulador.jpg')}}" alt="Entra do simulador do projeto cosmos">
                     <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle">
                         {{ trans('about.figcaption2') }} </figcatipon>
                 </figure>
