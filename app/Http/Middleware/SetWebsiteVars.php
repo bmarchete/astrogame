@@ -16,7 +16,7 @@ class SetWebsiteVars
      */
     public function handle($request, Closure $next)
     {
-        if ($request->route()->uri() != null && $request->route()->uri() != '/') {
+        if ($request->route() != null && ($request->route()->uri() != null && $request->route()->uri() != '/')) {
             $uri = $request->route()->uri();
         } else {
             $uri = 'home';
