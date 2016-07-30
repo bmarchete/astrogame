@@ -64,7 +64,7 @@
                 <p>{{ trans('project.home-text.text6') }}</p>
                 <a class="action-button blue" href="#login" data-uk-modal><i class="uk-icon uk-icon-gamepad"></i> {{ trans('project.play') }}</a>
                 @if (session()->get('language', 'pt-br') == 'pt-br')
-                    <a class="action-button red" href="{{ url('lang/en')}}"><i class="uk-icon uk-icon-language"></i> Avalible in English</a>
+                    <a class="action-button red" href="{{ url('lang/en')}}"><i class="uk-icon uk-icon-language"></i> Available in English</a>
                 @else
                     <a class="action-button green" href="{{ url('lang/pt-br')}}"><i class="uk-icon uk-icon-language"></i> Disponível em Português</a>
                 @endif
