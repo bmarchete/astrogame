@@ -76,9 +76,7 @@
             </div>
         </div>
         <div class="uk-width-large-1-2 uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
-            <video class="uk-responsive-width" controls="true" poster="{{ url('history/simluador_cinema.jpg')}}">
-                <source src="{{ url('videos/video_cosmos.mp4')}}" type="video/mp4">
-            </video>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zBx8e6eGfV4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="uk-responsive-width"></iframe>
             <div class="uk-text-muted uk-text-center">{{ trans('about.figcaption3') }}</div>
         </div>
         <div class="uk-width-large-1-2 uk-margin-large-top">
