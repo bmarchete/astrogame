@@ -7,7 +7,7 @@
 
     <div class="subfooter uk-margin-top">
         <div class="uk-container uk-container-center uk-text-right uk-text-center-small">
-          <p> Version 1.2 Galileu <i class="uk-icon uk-icon-rocket"></i> | @if (session()->get('language', 'pt-br') == 'pt-br')
+          <p> <i class="uk-icon uk-icon-rocket"></i> Version 2.1 Carl Sagan | @if (session()->get('language', 'pt-br') == 'pt-br')
               <a href="{{ url('lang/en') }}">Change to English</a> @else
               <a href="{{ url('lang/pt-br') }}">Mudar para Português</a> @endif
           </p>

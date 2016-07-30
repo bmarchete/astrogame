@@ -251,7 +251,8 @@ h6 {
 .galileu-img {
     float: right;
     margin: 20px 0 -15px;
-    width: 200px;
+    width: 150px;
+    cursor: pointer;
 }
 .bubble {
     font: 16px/25px sans-serif;

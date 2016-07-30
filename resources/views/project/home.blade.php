@@ -62,7 +62,12 @@
                 <p>{{ trans('project.home-text.text4') }}</p>
                 <p>{{ trans('project.home-text.text5') }}</p>
                 <p>{{ trans('project.home-text.text6') }}</p>
-                <a class="action-button shadow animate blue" href="#login" data-uk-modal><i class="uk-icon uk-icon-gamepad"></i> {{ trans('project.play') }}</a>
+                <a class="action-button blue" href="#login" data-uk-modal><i class="uk-icon uk-icon-gamepad"></i> {{ trans('project.play') }}</a>
+                @if (session()->get('language', 'pt-br') == 'pt-br')
+                    <a class="action-button red" href="{{ url('lang/en')}}"><i class="uk-icon uk-icon-language"></i> Avalible in English</a>
+                @else
+                    <a class="action-button green" href="{{ url('lang/pt-br')}}"><i class="uk-icon uk-icon-language"></i> Disponível em Português</a>
+                @endif
             </div>
         </div>
     </div>
@@ -76,13 +81,18 @@
                     <span class="bubble">{{ trans('project.home-text.text7') }}</span>
                 </div>
                 <div class="uk-width-medium-1-3 uk-container-center">
-                    <img class="galileu-img uk-animation-hover uk-animation-shake" alt="Galileu Galilei avatar" src="{{ url('/img/char/galileu.png')}}">
+                    <img class="galileu-img uk-animation-hover uk-animation-shake" alt="Galileu Galilei avatar" src="{{ url('/img/char/galileu.png')}}" data-uk-modal="{target:'#galileu'}">
                 </div>
             </div>
         </div>
-
+      </div>
     </div>
-    </div>
+</div>
+<div id="galileu" class="uk-modal">
+  <div class="uk-modal-dialog">
+    <a href="" class="uk-modal-close uk-close"></a>
+    <p>Biografia do Galileu</p>
+  </div>
 </div>
 <div class="contact">
     <div class="uk-container uk-container-center">
