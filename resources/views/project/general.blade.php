@@ -41,13 +41,15 @@
             </li>
             <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
             <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
+            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
             <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
 
             <li class="uk-nav-divider"></li>
-            <li><a href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Login com facebook</a></li>
-            <li><a href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Login com google</a></li>
-            <li @if ($page=='login') class="uk-active" @endif><a href="{{ URL('/login') }}"><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
-            <li @if ($page=='register') class="uk-active" @endif><a href="{{ URL('/register') }}"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
+
+            <li><a href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook Login</a></li>
+            <li><a href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google Login</a></li>
+            <li @if ($page=='login') class="uk-active" @endif><a href="#login" data-uk-modal=""><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
+            <li @if ($page=='register') class="uk-active" @endif><a href="#register" data-uk-modal=""><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
           </ul>
       </div>
   </div>
