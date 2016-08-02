@@ -138,7 +138,7 @@
             <div class="uk-width-medium-1-6">
                 <figure class="uk-thumbnail uk-border-circle">
                   <div class="uk-form-file">
-                      <img src="{{ auth()->user()->avatar() }}" alt="avatar" class="uk-border-circle avatar">
+                      <img src="{{ auth()->user()->avatar() }}" alt="avatar" class="uk-border-circle avatar" style="width: 130px">
                       <input type="file" name="avatar" accept="image/*" id="avatar-file" data-uk-tooltip title="Alterar avatar">
                   </div>
                 </figure>
