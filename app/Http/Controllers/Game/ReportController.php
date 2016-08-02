@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreReportRequest;
 use App\Bug;
 
@@ -16,7 +15,10 @@ class ReportController extends Controller
             return response()->json(['status' => false, 'text' => trans('game.bug-repeat')]);
         }
 
-        if (Bug::insert(['user_id' => $user_id, 'text' => $request->text])) {
+        $bug_report = new Bug();
+        $bug_report->user_id = $user_id;
+        $bug_report->text = $request->text;
+        if ($bug_report->save()) {
             return response()->json(['status' => true, 'text' => trans('game.bug-success')]);
         } else {
             return response()->json(['status' => false, 'text' => trans('game.bug-fail')]);
