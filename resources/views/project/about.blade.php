@@ -93,7 +93,7 @@
                 <li>ADRIANO FABOCI</li>
                 <li>ALICE MANTOVANI</li>
                 <li>ALVARO VIERA</li>
-                <li>ANA JULIA P. LACRETA</li>
+                <li>ANA JULIA LACRETA</li>
                 <li>ANA LAURA SANTOS</li>
                 <li>BRENDA CONTTESSOTTO</li>
                 <li>BRUNO CASTIGLIONI</li>
