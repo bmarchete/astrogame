@@ -11,16 +11,16 @@ class UserProgres extends Model
         [
             'name'         => 'welcome',
             'title'        => 'Boas Vindas',
-            'description'  => '',
+            'description'  => 'Seja bem-vindo ao Astrogame! Vamos começar essa aventura com um rápido passeio pelo Universo..',
             'xp_reward'    => 2000,
             'items_reward' => [],
             'min_level'    => 1,
         ],
 
         [
-            'name'         => 'tutorial',
-            'title'        => 'Tutorial',
-            'description'  => '',
+            'name'         => 'chapter1',
+            'title'        => 'Capítulo I - Copérnico',
+            'description'  => 'Copérnico, o Pai da Astronomia moderna, irá nos falar um pouco sobre a sua principal teoria, o Heliocentrismo!',
             'xp_reward'    => 2500,
             'items_reward' => [],
             'min_level'    => 1,
@@ -28,8 +28,26 @@ class UserProgres extends Model
         ],
 
         [
-            'name'         => 'chapter1',
-            'title'        => 'Capítulo 1',
+            'name'         => 'chapter2',
+            'title'        => 'Capítulo II - Galileu',
+            'description'  => 'O primeiro passo na nossa grande aventura é a observação, e Galileu Galilei é a pessoa certa para nos orientar nessa etapa!',
+            'xp_reward'    => 3000,
+            'items_reward' => [],
+            'min_level'    => 1,
+        ],
+
+        [
+            'name'         => 'chapter3',
+            'title'        => 'Capítulo III - Kepler',
+            'description'  => 'Kepler nos apresenta suas três leis fundamentais, vamos entender como funciona o movimento planetário!',
+            'xp_reward'    => 3000,
+            'items_reward' => [],
+            'min_level'    => 1,
+        ],
+
+        [
+            'name'         => 'chapter4',
+            'title'        => 'Capítulo IV - Hubble',
             'description'  => '',
             'xp_reward'    => 3000,
             'items_reward' => [],
@@ -37,8 +55,8 @@ class UserProgres extends Model
         ],
 
         [
-            'name'         => 'chapter2',
-            'title'        => 'Capítulo 2',
+            'name'         => 'chapter5',
+            'title'        => 'Capítulo V - Carl Sagan',
             'description'  => '',
             'xp_reward'    => 3000,
             'items_reward' => [],
