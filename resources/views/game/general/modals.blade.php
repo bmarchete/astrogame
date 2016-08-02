@@ -43,7 +43,7 @@
             <div class="uk-modal-header">
                 <h2>{{ trans('game.bug-title') }}</div>
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="text">{{ trans('game.bug-message') }}:</label>
+                    <p class="uk-text-muted">Você pode nos enviar sugestões de novas fases, ideias de jogos, melhorias, erros que estão acontecendo no jogo, críticas, e qualquer outra ideia que vier a sua mente.</p>
                     <div class="uk-form-controls">
                         <textarea name="text" minlength="10" rows="5" style="width: 100%" required></textarea>
                     </div>
@@ -66,12 +66,10 @@
             <h3 class="uk-panel-header">{{ trans('game.shop-name') }}</h3>
         </div>
 
-
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-shop'}" data-uk-check-display>
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-space-shuttle"></i> Instrumentos óticos</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-book"></i> Livros</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-steam"></i> Insignas</a></li>
-
         </ul>
 
         <ul id="tab-shop" class="uk-switcher uk-margin">
@@ -83,13 +81,12 @@
                         @if ($item->max_stack > 1)
                         <span class="uk-badge uk-badge-danger" title="{{ trans('game.item-max') }}" data-uk-tooltip>{{ $item->max_stack }}</span>
                         @endif
-                            <figure class="uk-thumbnail uk-text-center buy-item" onclick="buy_item({{ $item->id }});">
-                                <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" title="{{ $item->name }}" data-uk-tooltip >
-
+                        <figure class="uk-thumbnail uk-text-center buy-item" onclick="buy_item({{ $item->id }});">
+                            <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" title="{{ $item->name }}" data-uk-tooltip >
                         </figure>
-                         <figcaption class="uk-align-center uk-text-center">
-                                <span class="price" title="Preço" data-uk-tooltip><i class="uk-icon-money"></i> {{ $item->price }}</span>
-                            </figcaption>
+                        <figcaption class="uk-align-center uk-text-center">
+                            <span class="price" title="Preço" data-uk-tooltip><i class="uk-icon-money"></i> {{ $item->price }}</span>
+                        </figcaption>
                     </li>
                 @endforeach
                 </ul>
@@ -132,7 +129,7 @@
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-shopping-bag"></i> {{ trans('game.bag') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-graduation-cap"></i> {{ trans('game.patents') }}</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-bookmark"></i> {{ trans('game.insignas') }}</a></li>
-            <li><a href="{{ url('/ranking')}}"><i class="uk-icon-cubes"></i> Ranking dos amigos</a></li>
+            <li><a href="{{ url('/ranking')}}"><i class="uk-icon-cubes"></i> Ranking</a></li>
         </ul>
 
 <ul id="tab-content" class="uk-switcher uk-margin">
@@ -174,12 +171,14 @@
                             <input type="text" name="name" value="{{ auth()->user()->name }}" class="uk-width-1-1">
                         </div>
                     </div>
+
                     <div class="uk-width-medium-1-2">
                         <label class="uk-form-label" for="text">{{ trans('game.nickname') }}:</label>
                         <div class="uk-form-controls">
                             <input type="text" name="nickname" value="{{ auth()->user()->nickname }}" class="uk-width-1-1">
                         </div>
                     </div>
+
                     <div class="uk-width-medium-1-2">
                         <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
                         <div class="uk-form-controls">
@@ -187,9 +186,8 @@
                         </div>
                     </div>
 
-                    <div class="uk-width-medium-1-1">
-                        <br>
-                        <h3>Mudar senha</h3>
+                    <div class="uk-width-medium-1-1 uk-margin-top">
+                        <h3>{{ trans('game.change-password') }}</h3>
                     </div>
                     <div class="uk-width-medium-1-2">
                         <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
@@ -205,12 +203,12 @@
                     </div>
                   </div>
 
-                  <button type="submit" class="uk-button uk-button-success uk-align-right"><i class="uk-icon-check"></i> Salvar alterações</button>
+                  <button type="submit" class="uk-button uk-button-success uk-align-right uk-margin-top"><i class="uk-icon-check"></i> Salvar alterações</button>
 
-                  <div class="uk-align-right">
+                  <div class="uk-align-right uk-margin-top">
                     <div class="uk-button-group" data-uk-switcher>
-                        <button aria-expanded="true" class="uk-button uk-active uk-button-primary" type="button" id="public">Pefil Público <i class="uk-icon-globe"></i></button>
-                        <button aria-expanded="false" class="uk-button uk-button-danger" type="button" id="private">Perfil Privado <i class="uk-icon-user-secret"></i></button>
+                        <button aria-expanded="true" class="uk-button @if($profile_private == false) uk-active @endif uk-button-primary" type="button" id="public">Pefil Público <i class="uk-icon-globe"></i></button>
+                        <button aria-expanded="false" class="uk-button @if($profile_private) uk-active @endif uk-button-danger" type="button" id="private">Perfil Privado <i class="uk-icon-user-secret"></i></button>
                     </div>
                   </div>
 
