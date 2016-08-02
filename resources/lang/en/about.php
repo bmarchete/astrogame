@@ -25,8 +25,8 @@ return [
 
     'figcaption1' => 'Visita ao planetário de Campinas com a professora Marli',
 
-    'text10' => 'All began with the idea that emerged while in a chat between the idealizers Brenda and Eduardo: - Do you know what would be cool? Create a universe\'s simulator.',
-    'text11' => 'Thenceforth the idea didn\'t stoped,increasingly ideas were emerging and our friends liked the idea so they supported us too. We roll up the sleeve, visited the Municipal Planetarium of Campinas, in Taquaral. We searched a lot, we organized an equip with more than 40 people and realized one of the best projects of ETEC Pedro Ferreira Alves during the 2015\'s Expoete, there was even a row of people to visit the project and unfortunately a lot of them didn\'t get the change to see.',
+    'text10' => 'Our project was created from the discussion between two people of the crew, Eduardo and Brenda, whom decided that the universe\'s subject was a really nice opportunity to do a project very welcome by the public.',
+    'text11' => 'Given this decision, the project started, and more people came by to help us, around 40 people, who helped us to do, presentate and create. Lots of researches was made previously so we would have lots of content to work with. For example, the Municipal planetarium at Campinas recived our visit and gave us lots of information to our project. Their simulador was the great inspiration to build our own. The final project - Cosmos Project, was presentated to the public in ETEC Pedro Ferreira Alvesd in the 2015\'s Expoete, where people came by and given the project\'s popularity there was queue of people waiting to see the project, yet lots of people didn\'t have the opportunity to enter.',
 
     'text12' => 'Based on the light\'s international year, the mean theme choosed was Science and Life wo the XIV Expoete of ETEC Pedro Ferreira Alves. Thinking about it while making our project, that has the goal to explore the universe\'s light observed from us.',
     'text13' => 'Our project has the mean goal to awake the interest of the public in our stand during the exposition\'s days and also the knowlodge\'s dissemination about astronomy searched in books and a lot of others content\'s avaiable.',
@@ -42,5 +42,12 @@ return [
     'text17' => 'It begins with little stand explainig a little about wich subject about the COSMOS and ends in a simulator, where everything exposed in the presentaions of the route will be reapresente in a resumed and visual way, bringing the sensations os spacial submersion in a closed and dark ambient. In this simulator, we have the presence of one person who will pretent to be the Captain of the ship, the same person who is reponsable to escort the visitors between the stands. It\'s not recomended to claustrophobic, people afraif of dark and people with heart issues.',
 
     'title4' => 'Members of the Cosmos\'s project',
+    
+    'depoimento1' => 'It was a different projet, I had never seen anything like it!',
+    'depoimento2' => 'I can\'t say for sure what I liked more about the project, but I loved the simulator, it was surreal.',
+    'depoimento3' => '',
+    'depoimento4' => 'It was an amazing opportunity to work with this people, we did something and we are proud of it',
+    'depoimento5' => '',
+    
 
 ];
