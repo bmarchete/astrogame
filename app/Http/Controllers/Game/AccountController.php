@@ -38,6 +38,16 @@ class AccountController extends GameController
         }
     }
 
+    public function change_tutorial(Request $request){
+        if($request->tutorial == 'done'){
+            UserConfig::setConfig('tutorial', false);
+            return response()->json(['text' => 'Modo tutorial desativado', 'status' => 'danger']);
+        } else if($request->tutorial == 'again') {
+            UserConfig::setConfig('tutorial', true);
+            return response()->json(['text' => 'Modo tutorial ativado', 'status' => 'success']);
+        }
+    }
+
     public function change_account(Request $request)
     {
         // falta um validator

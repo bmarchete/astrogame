@@ -1,4 +1,5 @@
 <script>
+
 function change_xp(xp){
     $(".uk-progress-bar").css('width', xp);
 }
@@ -63,83 +64,106 @@ function remove_item(item){
 
 }
 function startIntro(){
-        var intro = introJs();
-          intro.setOptions({
-            'showBullets': false,
-            'nextLabel': 'Próximo',
-            'prevLabel': 'Anterior',
-            'skipLabel': 'Sair do Tutorial',
-            'doneLabel': 'OK entendi :)',
-            steps: [
-              {
-                intro: "Bem vindo, nesse jogo você poderá aprender o básico sobre astronomia, mas antes vamos te guiar pelo jogo e mostrar o que você pode fazer nele!"
-              },
+  var intro = introJs();
+    intro.setOptions({
+      'showBullets': false,
+      'nextLabel': 'Próximo',
+      'prevLabel': 'Anterior',
+      'skipLabel': 'Sair do Tutorial',
+      'doneLabel': 'OK entendi :)',
+      steps: [
+        {
+          intro: "Bem vindo, nesse jogo você poderá aprender o básico sobre astronomia, mas antes vamos te guiar pelo jogo e mostrar o que você pode fazer nele!"
+        },
 
-              {
-                intro: "Acesso para <i class='uk-icon-user'></i> perfil, <i class='uk-icon-cog'></i> configurar sua conta, visualizar a quantidade de dinheiro diponível, patentes,  <i class='uk-icon-shopping-bag'></i> mochila e ranking!",
-                element: document.querySelector('.menu-jogador'),
-                position: 'right'
-              },
+        {
+          intro: "Acesso para <i class='uk-icon-user'></i> perfil, <i class='uk-icon-cog'></i> configurar sua conta, visualizar a quantidade de dinheiro diponível, patentes,  <i class='uk-icon-shopping-bag'></i> mochila e ranking!",
+          element: document.querySelector('.menu-jogador'),
+          position: 'right'
+        },
 
-              {
-                intro: "Aqui você pode ver qual capítulo você está e quais faltam completar",
-                element: document.querySelector('.menu-campanha'),
-                position: 'right'
-              },
+        {
+          intro: "Aqui você pode ver qual capítulo você está e quais faltam completar",
+          element: document.querySelector('.menu-campanha'),
+          position: 'right'
+        },
 
-              {
-                intro: "Aqui você aceitar e realizar missões para ganhar mais <i class='uk-icon uk-icon-exclamation'></i> XP e <i class='uk-icon uk-icon-money'></i> dinheiro",
-                element: document.querySelector('.menu-missions'),
-                position: 'right'
-              },
+        {
+          intro: "Aqui você aceitar e realizar missões para ganhar mais <i class='uk-icon uk-icon-exclamation'></i> XP e <i class='uk-icon uk-icon-money'></i> dinheiro",
+          element: document.querySelector('.menu-missions'),
+          position: 'right'
+        },
 
-              {
-                intro: "Aqui você comprar itens com dinheiro adquirido nos capítulos e missões",
-                element: document.querySelector('.menu-loja'),
-                position: 'right'
-              },
+        {
+          intro: "Aqui você comprar itens com dinheiro adquirido nos capítulos e missões",
+          element: document.querySelector('.menu-loja'),
+          position: 'right'
+        },
 
-              {
-                intro: "Você pode visualizar as estrelas aqui",
-                element: document.querySelector('.menu-observatory'),
-                position: 'right'
-              },
+        {
+          intro: "Você pode visualizar as estrelas aqui",
+          element: document.querySelector('.menu-observatory'),
+          position: 'right'
+        },
 
-              {
-                intro: "Aqui você pode alterar o volume do som do jogo e idiomas",
-                element: document.querySelector('.menu-config'),
-                position: 'right'
-              },
+        {
+          intro: "Aqui você pode alterar o volume do som do jogo e idiomas",
+          element: document.querySelector('.menu-config'),
+          position: 'right'
+        },
 
-              {
-                intro: "Você pode nos enviar sugestões de novas fases, ideias de jogos, melhorias, erros que estão acontecendo no jogo, críticas, e qualquer outra ideia que vier a sua mente.",
-                element: document.querySelector('.menu-suggestions'),
-                position: 'right'
-              },
+        {
+          intro: "Você pode nos enviar sugestões de novas fases, ideias de jogos, melhorias, erros que estão acontecendo no jogo, críticas, e qualquer outra ideia que vier a sua mente.",
+          element: document.querySelector('.menu-suggestions'),
+          position: 'right'
+        },
 
-              {
-                intro: "Para começar a jogar clique aqui!",
-                element: document.querySelector('#big-bang'),
-                position: 'top'
-              },
+        {
+          intro: "Para começar a jogar clique aqui!",
+          element: document.querySelector('#big-bang'),
+          position: 'top'
+        },
 
-            ]
-          });
+      ]
+    });
 
-          intro.start();
-
-
-      }
+    intro.start().onexit(function() {
+        tutorial('done');
+        $('#tutorial-done').hide();
+        $('#tutorial-again').show();
+    });
+}
+      
+function tutorial(done_or_again){
+    $.ajax({
+        url: '{{ url('/game/tutorial') . '/' }}' + done_or_again,
+        success: function(data){
+            UIkit.notify("<i class='uk-icon-exclamation'></i> " + data.text, {status:data.status, pos: 'top-right'});
+        }
+    });
+}
 
 ////////////////////////////////////////////////////
 // document ready
 ///////////////////////////////////////////////////
 $(document).ready(function(){
-    startIntro();
 
-    introJs().oncomplete(function() {
-      alert("exit of introduction");
-      console.log('doasidjsaoidaso');
+    @if ($tutorial)
+      startIntro();
+    @endif
+
+    $('#tutorial-done').click(function(){
+      $(this).hide();
+      $('#tutorial-again').show();
+      tutorial('done');
+    });
+
+    $('#tutorial-again').click(function(){
+        $(this).hide();
+        $('#tutorial-done').show();
+        tutorial('again');
+        UIkit.modal("#settings").hide();
+        startIntro();
     });
 
     @if (!session()->has('orientation'))

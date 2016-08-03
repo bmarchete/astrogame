@@ -32,6 +32,15 @@
                 </div>
             </div>
         </form>
+        <div class="uk-margin-top">
+            @if($tutorial)
+              <button class="uk-button uk-button-danger" id="tutorial-done">Desativar Tutorial <i class="uk-icon-close"></i></button>
+              <button class="uk-button uk-button-primary" id="tutorial-again" style="display:none">Ativar Tutorial <i class="uk-icon-exclamation"></i></button>
+            @else
+              <button class="uk-button uk-button-primary" id="tutorial-again">Ativar Tutorial <i class="uk-icon-exclamation"></i></button>
+              <button class="uk-button uk-button-danger" id="tutorial-done" style="display:none">Desativar Tutorial <i class="uk-icon-close"></i></button>
+            @endif
+        </div>
     </div>
 </div>
 <!-- bug report modal -->

@@ -2,7 +2,6 @@
 
 namespace App;
 
-use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class UserConfig extends Model
@@ -19,23 +18,36 @@ class UserConfig extends Model
 
     public static function getConfig($config_key, User $user)
     {
+        if(!array_key_exists($config_key, self::$default)){
+            return false;
+        }
+
         $config = UserConfig::select('content')->where('user_id', $user->id)->where('key', $config_key)->limit(1)->first();
         if($config){
           return $config->content;
         } else {
-          return false;
+          return self::$default[$config_key];
         }
     }
 
     public static function setConfig($config_key, $content)
     {
-        if (!auth()->check()) {
+        if(!array_key_exists($config_key, self::$default)){
             return false;
         }
-        DB::table('user_configs')->where('user_id', auth()->user()->id)
-            ->where('key', $config_key)
-            ->limit(1)
-            ->update(['content' => $content]);
+
+        if (!auth()->check()) { // @TODO not more needed
+            return false;
+        }
+
+        if(UserConfig::select('key')->where('user_id', auth()->user()->id)->where('key', $config_key)->limit(1)->first()){
+            UserConfig::where('user_id', auth()->user()->id)
+                ->where('key', $config_key)
+                ->limit(1)
+                ->update(['content' => $content]);
+        } else {
+            UserConfig::insert(['key' => $config_key, 'content' => $content, 'user_id' => auth()->user()->id]);
+        }
     }
 
     public static function installConfig($user_id = 0)

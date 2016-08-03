@@ -48,6 +48,7 @@ class SetGameVars
                        ->with('music_volume', auth()->user()->getConfig('music_volume'))
                        ->with('effects_volume', auth()->user()->getConfig('effects_volume'))
                        ->with('profile_private', auth()->user()->getConfig('private'))
+                       ->with('tutorial', auth()->user()->getConfig('tutorial'))
                        ->with('xp_bar', auth()->user()->xp_bar())
                        ->with('xp_for_next_level', auth()->user()->xp_for_next_level())
                        ->with('lang', session()->get('language', 'pt-br'))
