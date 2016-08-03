@@ -26,7 +26,14 @@
                     <img src="{{ $player->avatar() }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player_patente }} {{ $player->name }}">
                 </figure>
                 <h3>{{ $player->name }}</h3>
-                <ul class="uk-list uk-list-striped uk-text-left">
+
+								@if ($player->isOnline())
+									<span class="uk-badge uk-badge-success uk-panel-badge">ONLINE <i class="uk-icon uk-icon-gamepad"></i></span>
+								@else
+									<span class="uk-badge uk-badge-danger uk-panel-badge">OFFLINE</span>
+								@endif
+
+								<ul class="uk-list uk-list-striped uk-text-left">
                     <li><i class="uk-icon-heart"></i> {{ trans('game.level') }}: <strong>{{ $player->level }}</strong></li>
                     <li><i class="uk-icon-bookmark"></i> {{ trans('game.patent') }}: <strong>{{ $player_patente }}</strong></li>
                     <li><i class="uk-icon-money"></i> {{ trans('game.money')}}: <strong>{{ $player->money }}</strong></li>

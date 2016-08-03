@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\HttpsProtocol::class,
 
             \Bepsvpt\LaravelSecurityHeader\SecurityHeaderMiddleware::class,
+            \App\Http\Middleware\LogLastUserActivity::class,
         ],
 
         'api' => [
