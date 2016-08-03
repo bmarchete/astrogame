@@ -37,6 +37,13 @@ class RegisterUsers
         // autentica caso não estiver autenticado
         auth()->login($event->user, true);
 
+        // gera o nickname
+        $event->user->generate_nickname();
+        session()->put('notify',
+        [
+            ['text' => '<i class="uk-icon-user"></i> Seu nickname é <strong>'.$event->user->nickname.'</strong> ', 'status' => 'success', 'timeout'=> 0],
+        ]);
+
         // confirmação
         /*
         $data = ['name' => $event->user->name, 'email' => $event->user->email, 'confirm_code' => $event->user->confirm_code];

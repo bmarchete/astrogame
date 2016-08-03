@@ -175,7 +175,7 @@ $(document).ready(function(){
 
     @if (session()->has('notify'))
         @foreach (session()->get('notify') as $notify)
-            UIkit.notify({message: '{!! $notify['text'] !!}', status: '{!! $notify['status'] !!}', pos:'top-right'});
+            UIkit.notify({message: '{!! $notify['text'] !!}', status: '{!! $notify['status'] !!}', pos:'top-right', timeout: {{ $notify['timeout']}}});
         @endforeach
         {{ session()->forget('notify') }}
     @endif

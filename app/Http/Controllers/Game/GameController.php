@@ -37,7 +37,7 @@ class GameController extends Controller
         if (!$user) {
             session()->put('notify',
                 [
-                    ['text' => '<i class="uk-icon-exclamation"></i> Esse usuário é privado', 'status' => 'danger'],
+                    ['text' => '<i class="uk-icon-user-secret"></i> Esse usuário é privado', 'status' => 'danger', 'timeout' => 1000],
                 ]);
 
             return redirect('/');

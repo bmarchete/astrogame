@@ -19,9 +19,6 @@
          @endforeach
 
          <div class="uk-form-row">
-            <input class="uk-width-1-1 uk-form-large" type="text" name="nickname" value="{{ old('nickname') }}" placeholder="{{ trans('project.nickname')}}" required maxlength="60">
-         </div>
-         <div class="uk-form-row">
             <input class="uk-width-1-1 uk-form-large" type="text" name="name" value="{{ old('name') }}" placeholder="{{ trans('project.name')}}" required>
          </div>
          <div class="uk-form-row">

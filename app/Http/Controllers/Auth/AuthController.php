@@ -50,7 +50,6 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         $rules = [
-            'nickname' => 'required|min:2|max:60|unique:users',
             'name' => 'required|min:2|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|max:255',
@@ -74,7 +73,6 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'nickname' => $data['nickname'],
             'email' => $data['email'],
             'name' => $data['name'],
             'password' => bcrypt($data['password']),
@@ -109,7 +107,7 @@ class AuthController extends Controller
             $user->save();
             session()->put('notify',
                 [
-                    ['text' => '<i class="uk-icon-exclamation"></i> Email confirmado com sucesso!', 'status' => 'success'],
+                    ['text' => '<i class="uk-icon-exclamation"></i> Email confirmado com sucesso!', 'status' => 'success', 'timeout' => 0],
 
                 ]);
             auth()->login($user);
