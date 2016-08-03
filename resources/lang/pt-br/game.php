@@ -96,4 +96,5 @@ return [
 	'email' => 'Email',
 	'old-password' => 'Senha antiga',
 	'new-password' => 'Nova senha',
+	'change-password' => 'Mudar a senha',
 ];

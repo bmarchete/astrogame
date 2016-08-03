@@ -191,25 +191,31 @@
                     <div class="uk-width-medium-1-2">
                         <label class="uk-form-label" for="text">{{ trans('game.email') }}:</label>
                         <div class="uk-form-controls">
-                            <input type="email" name="email" value="{{ auth()->user()->email }}" class="uk-width-1-1">
+                            <input type="email" name="email" value="{{ auth()->user()->email }}" class="uk-width-1-1"
+                            @if (!empty(auth()->user()->provider_id))
+                            disabled
+                            @endif
+                            >
                         </div>
                     </div>
 
-                    <div class="uk-width-medium-1-1 uk-margin-top">
-                        <h3>{{ trans('game.change-password') }}</h3>
-                    </div>
-                    <div class="uk-width-medium-1-2">
-                        <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
-                        <div class="uk-form-controls">
-                            <input type="password" name="old_password" class="uk-width-1-1">
-                        </div>
-                    </div>
-                    <div class="uk-width-medium-1-2">
-                        <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
-                        <div class="uk-form-controls">
-                            <input type="password" name="new_password" class="uk-width-1-1">
-                        </div>
-                    </div>
+                    @if (empty(auth()->user()->provider_id))
+                      <div class="uk-width-medium-1-1 uk-margin-top">
+                          <h3>{{ trans('game.change-password') }}</h3>
+                      </div>
+                      <div class="uk-width-medium-1-2">
+                          <label class="uk-form-label" for="text">{{ trans('game.old-password') }}:</label>
+                          <div class="uk-form-controls">
+                              <input type="password" name="old_password" class="uk-width-1-1">
+                          </div>
+                      </div>
+                      <div class="uk-width-medium-1-2">
+                          <label class="uk-form-label" for="text">{{ trans('game.new-password') }}:</label>
+                          <div class="uk-form-controls">
+                              <input type="password" name="new_password" class="uk-width-1-1">
+                          </div>
+                      </div>
+                    @endif
                   </div>
 
                   <button type="submit" class="uk-button uk-button-success uk-align-right uk-margin-top"><i class="uk-icon-check"></i> Salvar alterações</button>
@@ -221,9 +227,13 @@
                     </div>
                   </div>
 
-                  @if (!empty(auth()->user()->provider_id) && auth()->user()->provider_id == 1)
-                      <button class="uk-button uk-button-success uk-disabled uk-align-right" disabled>
-                          <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
+                  @if (!empty(auth()->user()->provider_id))
+                      <button class="uk-button uk-button-success uk-disabled uk-align-right uk-margin-top" disabled>
+                          @if (auth()->user()->provider_id == 1)
+                            <i class="uk-icon-facebook"></i> Vinculado com o Facebook <i class="uk-icon-check"></i>
+                          @elseif (auth()->user()->provider_id == 2)
+                            <i class="uk-icon-google"></i> Vinculado com o Google <i class="uk-icon-check"></i>
+                          @endif
                       </button>
                   @endif
               </form>
@@ -302,7 +312,7 @@
               </figure>
           </li>
           @empty
-          {!! trans('game.empty-insignas') !!} 
+          {!! trans('game.empty-insignas') !!}
           @endforelse
       </ul>
   </li>
