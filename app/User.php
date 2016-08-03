@@ -154,9 +154,9 @@ class User extends Authenticatable
 
     public function makeAvatar($url = '')
     {
-        $path   = public_path('users/avatar/' . md5($this->id) . '.jpg');
-        $width  = 500;
-        $height = 500;
+        $path   = public_path('users/avatar/' . sha1($this->nickname . env('APP_KEY')) . '.jpg');
+        $width  = 1000;
+        $height = 1000;
 
         // caso já existir um avatar no lugar
         if(file_exists($path)){
@@ -174,7 +174,7 @@ class User extends Authenticatable
     }
 
     public function avatar(){
-        $path = 'users/avatar/' . md5($this->id) . '.jpg';
+        $path = 'users/avatar/' . sha1($this->nickname . env('APP_KEY')) . '.jpg';
         $default = 'img/avatar.png';
         if(file_exists(public_path($path))){
             return url($path);
@@ -183,7 +183,13 @@ class User extends Authenticatable
         }
     }
 
-
+    public function remove_avatar(){
+        $path = 'users/avatar/' . sha1($this->nickname . env('APP_KEY')) . '.jpg';
+        if(file_exists(public_path($path))){
+            return unlink($path);
+        }
+        return true;
+    }
 
     public function getConfig($config_key){
         return \App\UserConfig::getConfig($config_key, $this);

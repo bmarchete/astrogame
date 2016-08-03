@@ -66,7 +66,7 @@ class QuestController extends GameController
 
         session()->put('notify',
         [
-            ['text' => '<i class="uk-icon-exclamation"></i> Nenhuma missão encontrada', 'status' => 'danger'],
+            ['text' => '<i class="uk-icon-exclamation"></i> Nenhuma missão encontrada', 'status' => 'danger', 'timeout' => 0],
         ]);
 
         return redirect('/game');
