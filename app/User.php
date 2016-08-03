@@ -227,9 +227,9 @@ class User extends Authenticatable
         $nickname = strtolower(strtr(str_replace(' ', '', $this->name), $from, $to));
 
         $count = 1;
-        if ($this->where('username', $nickname)->select('id')->first()) {
+        if ($this->where('nickname', $nickname)->select('id')->first()) {
             $new_nickname = $nickname . $count;
-            while ($this->where('username', $new_nickname)->select('id')->first()) {
+            while ($this->where('nickname', $new_nickname)->select('id')->first()) {
                 $count++;
                 $new_nickname = $nickname . $count;
             }
