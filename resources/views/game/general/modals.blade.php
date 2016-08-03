@@ -235,11 +235,11 @@
           <h3 class="uk-panel-title"><i class="uk-icon-shopping-bag"> </i> {{ trans('game.bag') }}</h3>
           <ul class="uk-list bag bag-items">
               <li></li>
-              @forelse($bag as $item)
-              <li onclick="remove_item({{ $item->id }});" class="item-{{ $item->id }}">
-                  <span class="uk-badge uk-badge-success">{{ $item->amount }}</span>
+              @forelse($bag as $bag_item)
+              <li onclick="remove_item({{ $bag_item->item->id }});" class="item-{{ $bag_item->item->id }}">
+                  <span class="uk-badge uk-badge-success">{{ $bag_item->amount }}</span>
                   <figure class="uk-thumbnail">
-                      <img src="{{ url('/img/items') }}/{{ $item->img_url }}.png" alt="" data-uk-tooltip title="{{ $item->name }}">
+                      <img src="{{ url('/img/items') }}/{{ $bag_item->item->img_url }}.png" alt="" data-uk-tooltip title="{{ $bag_item->item->name }}">
                   </figure>
               </li>
               @empty {{ trans('game.empty-bag') }} @endforelse
@@ -301,7 +301,9 @@
                   <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
               </figure>
           </li>
-          @empty {{ trans('game.empty-insignas') }} @endforelse
+          @empty
+          {!! trans('game.empty-insignas') !!} 
+          @endforelse
       </ul>
   </li>
 </ul>
@@ -330,7 +332,8 @@
 
               @foreach ($avaliable_quests as $quest)
               <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
-              <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
+              <div class="uk-hidden" id="quest-description-{{$quest->id}}">{!! $quest->description !!}</div>
+              <div class="uk-hidden" id="quest-objetivos-{{$quest->id}}">{!! $quest->objetivos !!}</div>
               <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
               <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
               @endforeach
@@ -343,9 +346,9 @@
           <div class="uk-width-medium-2-3 uk-overflow-container">
               <div style="height: 160px; overflow-y: scroll">
                   <h3 class="quest-title">{{ $avaliable_quests->first()->title }}</h3>
-                  <p class="quest-description">{{ $avaliable_quests->first()->description }}</p>
+                  <p class="quest-description">{!! $avaliable_quests->first()->description !!}</p>
                   <h5><strong>Objetivos</strong></h5>
-                  <p class="quest-objetivos">{{ $avaliable_quests->first()->objetivos }}</p>
+                  <p class="quest-objetivos">{!! $avaliable_quests->first()->objetivos !!}</p>
               </div>
               <h3>{{ trans('game.quest-reward') }}</h3>
               <div class="uk-grid" data-uk-grid>

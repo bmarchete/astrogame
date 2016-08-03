@@ -133,7 +133,7 @@ function startIntro(){
         $('#tutorial-again').show();
     });
 }
-      
+
 function tutorial(done_or_again){
     $.ajax({
         url: '{{ url('/game/tutorial') . '/' }}' + done_or_again,
@@ -337,11 +337,13 @@ $(document).ready(function(){
 
         var quest_title = $("#quest-title-" + id).html();
         var quest_description = $("#quest-description-" + id).html();
+        var quest_objetivos = $("#quest-objetivos-" + id).html();
         var xp_reward = $("#xp-reward-" + id).html();
         var money_reward = $("#money-reward-" + id).html();
 
         $(".quest-title").html(quest_title);
         $(".quest-description").html(quest_description);
+        $(".quest-objetivos").html(quest_objetivos);
         $(".xp-reward").html(xp_reward);
         $(".money-reward").html(money_reward);
         $(".accept-quest").val(id);

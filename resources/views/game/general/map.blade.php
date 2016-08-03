@@ -1,20 +1,19 @@
-
 <div class="uk-container uk-container-center">
     <div class="uk-grid" data-uk-grid>
         <div class="uk-width-1-1 map">
             <h1>Mapa da Campanha</h1>
             <dl class="uk-description-list-line">
-                @foreach ($progress->keys as $chapter)
+                @for ($i = 0; $i < count($progress->keys); $i++)
                 <dt>
-                    <div class="uk-badge">1</div> {{ $chapter['title'] }}
+                    <div class="uk-badge">{{ $i + 1 }}</div> {{ $progress->keys[$i]['title'] }}
 
-                    @if($progress->current()->name == $chapter['name'])
+                    @if($chapter_current == $progress->keys[$i]['name'])
                     <strong> - VOCÊ ESTÁ AQUI </strong>
                     @endif
 
-                    <div class="uk-text-muted">{{ $chapter['description'] }}</div>
+                    <div class="uk-text-muted">{{ $progress->keys[$i]['description'] }}</div>
                 </dt>
-                @endforeach
+                @endfor
             </dl>
             </div>
     </div>

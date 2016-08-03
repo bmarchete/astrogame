@@ -68,6 +68,7 @@ return [
 	'completed-chapter' => 'Completed the :capitulo :capitulo-name. Win :xp XP',
 
 	// patentes
+	'patent' => 'Patent',
 	'patent1' => 'Aspirant',
 	'patent1-description' => 'Watches the space with only the eyes while in a field in the night.',
 	'patent2' => 'Night Watcher',

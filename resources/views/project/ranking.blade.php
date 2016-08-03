@@ -23,7 +23,7 @@ Ranking Global | Astrogame
                       </a>
                   </div>
                   <ul class="uk-list" style="display: inline-block;">
-                      <li># <strong>{{ $player->row}}</strong> &nbsp; <a href="{{ url('/player') . '/' . $player->id }}"><strong>{{ $player->name }}</strong></a> ({{ $player->patente($player->level) }})</li>
+                      <li># <strong>{{ $player->row}}</strong> &nbsp; <a href="{{ url('/player') . '/' . $player->id }}"><strong>{{ $player->name }}</strong></a> ({{ $player->patente() }})</li>
                       <li><i class="uk-icon-exclamation"></i> Level: {{ $player->level }} - ({{$player->xp}} XP)</li>
                   </ul>
               </li>

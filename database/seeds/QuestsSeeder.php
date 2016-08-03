@@ -40,6 +40,30 @@ class QuestsSeeder extends Seeder
             'min_level' => 1,
             'max_level' => 0,
         ],
+
+        [
+            'id' => 4,
+            'title' => 'Chame um amigo!',
+            'type' => 1,
+            'description' => 'Curtiu o projeto astrogame? Ajude ele a crescer convidando um amigo a entrar no jogo!',
+            'objetivos' => 'Responder ao quizz do projeto cosmos',
+            'xp_reward' => 100,
+            'money_reward' => 200,
+            'min_level' => 2,
+            'max_level' => 0,
+        ],
+
+        [
+            'id' => 5,
+            'title' => 'Apollo 11',
+            'type' => 1,
+            'description' => '<p>Tripulada pelos astronautas Neil Armstrong, Edwin \'Buzz\' Aldrin e Michael Collins, Apollo 11 foi a quinta missão tripulada do programa Apollo que conseguiu cumprir a missão proposta pelo Presidente John F. Kennedy em 25 de maio de 1961 que disse que antes do final daquela década conseguiria pousar um homem na Lua e trazê-lo de volta para a Terra com segurança.</p><p>A missão de você é conseguir assistir até o final da simulação criada pelo Filipe Dias Gianotto e ao final você irá ganhar uma insigna da missão Apollo 11!</p>',
+            'objetivos' => 'Assistir ao video simulação completo da Apollo 11.',
+            'xp_reward' => 500,
+            'money_reward' => 50,
+            'min_level' => 4,
+            'max_level' => 0,
+        ],
     ];
 
     /**
@@ -50,7 +74,7 @@ class QuestsSeeder extends Seeder
         foreach ($this->quests as $quest) {
             if (DB::table('quests')->where('title', $quest['title'])->get() == null) {
                 DB::table('quests')->insert($quest);
-                $this->command->info('Quest: '.e($quest['title']).' adicionado, ignorada.');
+                $this->command->info('Quest: '.e($quest['title']).' adicionado.');
             }
         }
     }

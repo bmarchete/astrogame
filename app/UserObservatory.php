@@ -48,13 +48,13 @@ class UserObservatory extends Model
     }
 
     public function magnitude_3(){
-        if(\App\UserBag::has_item(2)){ // tem o livro
+        if(auth()->user()->has_item(2)){ // tem o livro
             $this->planetarium['magnitude'] = 3;
         }
     }
 
     public function constellations(){
-        if(\App\UserBag::has_item(3)){ // tem o livro 2
+        if(auth()->user()->has_item(3)){ // tem o livro 2
             $this->planetarium['constellations'] = true;
             $this->planetarium['showstarlabels'] = true;
         }

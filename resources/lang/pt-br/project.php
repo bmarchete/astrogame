@@ -15,7 +15,7 @@ return [
 		'ranking' => 'Ranking',
 	],
 
-	'home-title' => 'Bem Vindo Aventureiro!',
+	'home-title' => 'Jogue e aprenda astronomia!',
 	'home-subtitle' => 'Preparado para explorar o universo?',
 	'home-description' => 'Entre em nossa plataforma interativa onde você irá explorar o Cosmos, conhecer sobre grandes nomes da astronomia e aprender sobre as estrelas, os planetas, o universo e tudo mais!',
 
@@ -74,7 +74,7 @@ return [
 	'termos-2' => 'termos de uso',
 
 	// contato
-	'contato' => 'Contato', 
+	'contato' => 'Contato',
 	'contato-title' => 'Entre em contato conosco',
 	'contato-description' => 'Críticas, sugestões, dúvidas, parcerias, nos mande o que quiser, menos SPAM!',
 	'your-name' => 'Seu nome',

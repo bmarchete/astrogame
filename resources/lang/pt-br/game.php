@@ -39,6 +39,7 @@ return [
 	'home' => 'Página Inicial',
 	'language' => 'Idioma',
 	'ranking' => 'Rank',
+	'empty-insignas' => 'Você não tem nenuma insigna ainda, jogue um pouco para conseguir algumas <i class="uk-icon-gamepad"></i>',
 
 	// items
 	'remove-item' => 'Você deseja remover este item de sua mochila?',
@@ -72,8 +73,8 @@ return [
 	'recent-activ' => 'Atividade recente',
 	'completed-chapter' => 'Completou o :capitulo :capitulo-name. Ganhou :xp XP',
 
-
 	// patentes
+	'patent' => 'Patente',
 	'patent1' => 'Aspirante',
 	'patent1-description' => 'Observa o espaço à olho nu, de um campo durante a noite',
 	'patent2' => 'Observador',

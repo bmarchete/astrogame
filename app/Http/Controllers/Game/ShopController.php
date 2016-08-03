@@ -25,7 +25,7 @@ class ShopController extends GameController
             return ['status_or_price' => false, 'msg' => 'Não é possível comprar esse item, pois não há dinheiro suficiente'];
         }
 
-        if (UserBag::user_has_item_amount($item->id) >= $item->max_stack) {
+        if ($user->has_item_amount($item->id) >= $item->max_stack) {
             return ['status_or_price' => false, 'msg' => 'Você não pode carregar mais desse item'];
         }
 
@@ -56,7 +56,7 @@ class ShopController extends GameController
     public function remove_item(ItemRequest $request)
     {
         $item_id = $request->id;
-        $item_return = UserBag::remove_item_from_bag($item_id, 1);
+        $item_return = $this->remove_item_from_bag($item_id, 1);
 
         return response()->json(['status' => true, 'msg' => 'Item removido!']);
     }
@@ -68,5 +68,17 @@ class ShopController extends GameController
         $history->texto = 'Comprou o <strong>'.$item->name.'</strong> por '.$item->price.'';
         $history->icon = 'shopping-cart';
         $history->save();
+    }
+
+    public function remove_item_from_bag($item_id, $amount)
+    {
+        $user_id = auth()->user()->id;
+
+        if (auth()->user()->has_item_amount($item_id) == $amount) {
+            // remove todos os items
+            return UserBag::where('item_id', $item_id)->where('user_id', $user_id)->delete();
+        }
+
+        UserBag::where('user_id', $user_id)->where('item_id', $item_id)->decrement('amount', $amount);
     }
 }

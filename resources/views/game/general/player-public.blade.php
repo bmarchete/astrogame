@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-{{ $player['name'] }} | {{ trans('project.title') }}
+{{ $player->name }} - {{ $player->patente() }} em Astrogame
 @stop
 
 @section('style')

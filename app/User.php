@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 use Image;
-use Log;
 use DB;
 use Cache;
 
@@ -51,14 +50,24 @@ class User extends Authenticatable
     ];
 
     /**
-     * função que checa se o usuário passou de level, se sim notifica ele
-     * deve ser chamada toda vez depois de gainXP()
-     *
-     * @return void
+     *  User Eloquent relations
      */
-    protected static function checkLevel()
+    public function insignas()
     {
+        return $this->hasMany('App\UserInsignas');
+    }
 
+    public function history()
+    {
+        return $this->hasMany('App\History');
+    }
+
+    public function config(){
+        return $this->hasMany('App\UserConfig');
+    }
+
+    public function user_bag(){
+        return $this->hasMany('App\UserBag');
     }
 
     /**
@@ -69,28 +78,29 @@ class User extends Authenticatable
      */
     public function gain_xp($xp)
     {
-        DB::table('users')->where('id', $this->id)->increment('xp', $xp);
         $this->xp += $xp;
 
         while($this->xp >= $this->xp_for_next_level()){
             $this->level += 1;
-            DB::table('users')->where('id', $this->id)->increment('level');
         }
+
+        $this->save();
     }
 
     public function gain_money($money){
-        DB::table('users')->where('id', $this->id)->increment('money', $money);
         $this->money += $money;
+        $this->save();
     }
 
     public function remove_money($money){
-      DB::table('users')->where('id', $this->id)->decrement('money', $money);
       $final = $this->money - $money;
       if($final > $this->money){
           $this->money = 0;
       } else {
           $this->money = $final;
       }
+
+      $this->save();
     }
 
     // pega o xp e transforma em porcentagem
@@ -135,23 +145,12 @@ class User extends Authenticatable
 
     public function desde()
     {
-        if (\App::isLocale('pt-br')) {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d/m/Y');
-        } else {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y');
-        }
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
+
+        return (\App::isLocale('pt-br')) ? $date->format('d/m/Y') : $date->format('d-m-Y');
     }
 
-    public function insignas()
-    {
-        return \App\Insignas::get();
-        // return $this->hasMany('App\UserInsignas');
-    }
 
-    public function history()
-    {
-        return $this->hasMany('App\History');
-    }
 
     public function makeAvatar($url = '')
     {
@@ -184,9 +183,7 @@ class User extends Authenticatable
         }
     }
 
-    public function config(){
-        return $this->hasMany('App\UserConfig');
-    }
+
 
     public function getConfig($config_key){
         return \App\UserConfig::getConfig($config_key, $this);
@@ -202,5 +199,24 @@ class User extends Authenticatable
             $this->save();
             return false;
         }
+    }
+
+    public function bag()
+    {
+        return $this->user_bag()->with('item')->select(DB::raw("SUM(amount) as 'amount', id, item_id, user_id"))
+                    ->groupBy('item_id')->get();
+    }
+
+    public function has_item($item_id)
+    {
+        $check_item = $this->user_bag()->select('id')->where('item_id', $item_id)->limit(1)->first();
+        return ($check_item) ? true : false;
+    }
+
+    public function has_item_amount($item_id)
+    {
+        $bag_item = $this->user_bag()->with('item')->select(DB::raw("SUM(amount) as 'amount'"))
+                         ->where('item_id', $item_id)->groupBy('item_id')->limit(1)->first();
+        return ($bag_item) ? $bag_item->amount : 0;
     }
 }
