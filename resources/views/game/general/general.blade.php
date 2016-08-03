@@ -13,6 +13,7 @@
                   '/vendor/uikit/css/components/tooltip.gradient.css',
                   '/vendor/uikit/css/components/datepicker.gradient.css',
                   '/vendor/uikit/css/components/form-file.gradient.css',
+                  '/vendor/introjs/introjs.min.css',
 
                   ])->withFullUrl() !!}
       @yield('style')
@@ -31,6 +32,7 @@
                               '/vendor/uikit/js/components/tooltip.min.js',
                               '/vendor/uikit/js/components/datepicker.min.js',
                               '/vendor/buzz/buzz.min.js',
+                              '/vendor/introjs/intro.min.js',
                               ])->withFullUrl() !!}
       {!! Html::script('/vendor/virtualsky/virtualsky.js') !!}
       @yield('javascript')

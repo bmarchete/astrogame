@@ -14,6 +14,7 @@ class UserConfig extends Model
         'effects_volume' => 50,
         'lang'           => 'pt-br',
         'private'        => false,
+        'tutorial'       => true,
     ];
 
     public static function getConfig($config_key, User $user)

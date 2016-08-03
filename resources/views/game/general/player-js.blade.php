@@ -40,7 +40,7 @@ function remove_item(item){
     UIkit.modal.confirm("{{ trans('game.remove-item') }}", function(){
             formData = new FormData();
             formData.append('id', item);
-            
+
             $.ajax({
              url: '{{ url('/game/remove_item')}}',
              dataType: 'json',
@@ -62,11 +62,86 @@ function remove_item(item){
     });
 
 }
+function startIntro(){
+        var intro = introJs();
+          intro.setOptions({
+            'showBullets': false,
+            'nextLabel': 'Próximo',
+            'prevLabel': 'Anterior',
+            'skipLabel': 'Sair do Tutorial',
+            'doneLabel': 'OK entendi :)',
+            steps: [
+              {
+                intro: "Bem vindo, nesse jogo você poderá aprender o básico sobre astronomia, mas antes vamos te guiar pelo jogo e mostrar o que você pode fazer nele!"
+              },
+
+              {
+                intro: "Acesso para <i class='uk-icon-user'></i> perfil, <i class='uk-icon-cog'></i> configurar sua conta, visualizar a quantidade de dinheiro diponível, patentes,  <i class='uk-icon-shopping-bag'></i> mochila e ranking!",
+                element: document.querySelector('.menu-jogador'),
+                position: 'right'
+              },
+
+              {
+                intro: "Aqui você pode ver qual capítulo você está e quais faltam completar",
+                element: document.querySelector('.menu-campanha'),
+                position: 'right'
+              },
+
+              {
+                intro: "Aqui você aceitar e realizar missões para ganhar mais <i class='uk-icon uk-icon-exclamation'></i> XP e <i class='uk-icon uk-icon-money'></i> dinheiro",
+                element: document.querySelector('.menu-missions'),
+                position: 'right'
+              },
+
+              {
+                intro: "Aqui você comprar itens com dinheiro adquirido nos capítulos e missões",
+                element: document.querySelector('.menu-loja'),
+                position: 'right'
+              },
+
+              {
+                intro: "Você pode visualizar as estrelas aqui",
+                element: document.querySelector('.menu-observatory'),
+                position: 'right'
+              },
+
+              {
+                intro: "Aqui você pode alterar o volume do som do jogo e idiomas",
+                element: document.querySelector('.menu-config'),
+                position: 'right'
+              },
+
+              {
+                intro: "Você pode nos enviar sugestões de novas fases, ideias de jogos, melhorias, erros que estão acontecendo no jogo, críticas, e qualquer outra ideia que vier a sua mente.",
+                element: document.querySelector('.menu-suggestions'),
+                position: 'right'
+              },
+
+              {
+                intro: "Para começar a jogar clique aqui!",
+                element: document.querySelector('#big-bang'),
+                position: 'top'
+              },
+
+            ]
+          });
+
+          intro.start();
+
+
+      }
 
 ////////////////////////////////////////////////////
 // document ready
 ///////////////////////////////////////////////////
 $(document).ready(function(){
+    startIntro();
+
+    introJs().oncomplete(function() {
+      alert("exit of introduction");
+      console.log('doasidjsaoidaso');
+    });
+
     @if (session()->has('notify'))
         @foreach (session()->get('notify') as $notify)
             UIkit.notify({message: '{!! $notify['text'] !!}', status: '{!! $notify['status'] !!}', pos:'top-right'});
