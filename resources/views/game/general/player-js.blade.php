@@ -4,47 +4,50 @@ function change_xp(xp){
 }
 function buy_item(item){
     UIkit.modal.confirm("{{ trans('game.buy-item') }}", function(){
+            formData = new FormData();
+            formData.append('id', item);
             $.ajax({
-             url: '{{ url('/game/buy_item')}}/' + item,
-             dataType: "json",
+             url: '{{ url('/game/buy_item')}}',
+             dataType: 'json',
+             method: 'POST',
+             processData: false,
+             contentType: false,
+             data: formData,
              success: function(data){
                 if(data.status_or_price == false){
                     UIkit.notify('<i class="uk-icon-close"> </i> ' + data.msg, {status:'danger', pos: 'top-right'});
                 } else {
-                    if(item == 1){ // luneta simples
-                        if (typeof buyTutorialHander == 'function'){
-                         buyTutorialHander();
-                        }
-                    }
-
-                    if(item == 2){ // guia das estrelas
-                        if (typeof buyTutorialLivroHandler == 'function'){
-                         buyTutorialLivroHandler();
-                        }
-                    }
-
                     UIkit.notify('<i class="uk-icon-check"> </i> ' + data.msg, {status:'success', pos: 'top-right'});
                     coin_effect.play();
 
                     var money_player = parseInt($('.money').html());
                     var money_final = money_player - data.status_or_price;
                     $('.money').html(money_final);
-                    $('.money').addClass('uk-animation-scale-down');
-
 
                     $(data.html).insertBefore(".bag-items li:first").hide().fadeIn(2000);
                 }
+             },
+             error: function(data){
+                for (var i = 0; i < data.responseJSON.id.length; i++) {
+                    UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
+                }
              }
           });
-
     });
 }
 
 function remove_item(item){
     UIkit.modal.confirm("{{ trans('game.remove-item') }}", function(){
+            formData = new FormData();
+            formData.append('id', item);
+            
             $.ajax({
-             url: '{{ url('/game/remove_item')}}/' + item,
-             dataType: "json",
+             url: '{{ url('/game/remove_item')}}',
+             dataType: 'json',
+             method: 'POST',
+             processData: false,
+             contentType: false,
+             data: formData,
              success: function(data){ //Se ocorrer tudo certo
                 if(data.status == false){
                     UIkit.notify(data.msg, {status:'danger', pos: 'top-right'});

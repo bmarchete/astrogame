@@ -49,8 +49,8 @@ Route::group(['middleware' => 'web'], function () {
 
 
 		// item
-		Route::get('/buy_item/{id}', 'ShopController@buy_item')->where('id', '[0-9-]+');
-		Route::get('/remove_item/{id}', 'ShopController@remove_item')->where('id', '[0-9-]+');
+		Route::post('/buy_item', 'ShopController@buy_item');
+		Route::post('/remove_item', 'ShopController@remove_item');
 
 		// general
 		Route::get('/music/{volume}', 'AccountController@change_volume_music')->where('volume', '[0-9-]+');
