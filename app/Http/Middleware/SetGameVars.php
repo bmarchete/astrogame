@@ -56,7 +56,6 @@ class SetGameVars
                        ->with('bag', UserBag::bag())
                        ->with('avaliable_quests', Quest::avaliable_quests())
                        ->with('accepted_quests', Quest::accepted_quests())
-                       ->with('patente', User::patente())
                        ->with('user_insignas', Insignas::all())
                        ->with('planetarium', $planet->planetarium)
                        ->with('progress', new UserProgres);

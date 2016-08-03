@@ -12,9 +12,9 @@ return [
 	'volume-sound' => 'Sound Effects',
 	'cursor' => 'Enable custom cursor',
 	'lang' => 'Language',
-	
+
 	// player-bar
-	'level' => 'Level',	
+	'level' => 'Level',
 	'astronaut' => 'Astronaut',
 	'quests' => 'Quests',
 	'exploration' => 'Exploration',
@@ -42,7 +42,7 @@ return [
 	'remove-item' => 'Do you want to remove this item from your bag?',
 	'buy-item' => 'Do you want do buy this item?',
 	'item-max' => 'Most you can load',
-	
+
 	// quests
 	'quest-avaliable' => 'Quests Avaliable',
 	'quest-accept' => 'Quests taken',
@@ -62,22 +62,26 @@ return [
 	'bug-repeat' => 'You already had send this suggestion!',
 	'bug-title' => 'Suggestions and Bug Report',
 	'bug-message' => 'Message',
-	
+
 	// profile public
 	'recent-activ' => 'Recent Activid',
 	'completed-chapter' => 'Completed the :capitulo :capitulo-name. Win :xp XP',
-	
-	// patentes
-	'patent1' => 'Observer',
-	'patent2' => 'Star Guard',
-	'patent3' => 'Residente',
-	'patent4' => 'Scientist',
-	'patent5' => 'Laboratory Boss',
-	'patent6' => 'Astronaut - Amador',
-	'patent7' => 'Astronaut - Pesquisador',
-	'patent8' => 'Astronaut - Líder de Módulo',
-	'patent9' => 'Astronaut- Chefe de estação',
-	'patent-gm' => 'Desastronauta Master',
 
-	
+	// patentes
+	'patent1' => 'Aspirant',
+	'patent1-description' => 'Watches the space with only the eyes while in a field in the night.',
+	'patent2' => 'Night Watcher',
+	'patent2-description' => 'You have in the beginning a simple telescope and after a while you may have also an observatory in your backyard.',
+	'patent3' => 'Apprentice',
+	'patent3-description' => 'Acts like an apprentice in a modest observatory while one astronomer narrate the chapter.',
+	'patent4' => 'Doctor',
+	'patent4-description' => 'You have now a larger and complete laboratory.',
+	'patent5' => 'Astronaut',
+	'patent5-description' => '',
+	'patent6' => 'Captain',
+	'patent6-description' => 'You are now a captain of one star ship!',
+	'patent-gm' => 'Desastronauta Master',
+	'patent-gm-description' => 'Game master and developers of the game',
+
+
 ];

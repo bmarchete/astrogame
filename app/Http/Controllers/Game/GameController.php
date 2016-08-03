@@ -48,7 +48,6 @@ class GameController extends Controller
                         ->where('id', $user->id)->first();
 
         return view('game.general.player-public', ['player' => $user,
-                                                   'player_patente' => User::patente($user->level),
                                                    'player_rank' => $ranking->rank,
                                                    'social' => (object) Share::load(url()->current(), 'Veja meu perfil no astrogame', url('/img/avatar.png'))->services('facebook', 'gplus', 'twitter', 'tumblr', 'pinterest')]);
     }

@@ -112,46 +112,24 @@ class User extends Authenticatable
         }
     }
 
-    // @return string
-    public static function patente($user_level = 0)
+    public function patente()
     {
-        // (1-3)  -> Observador
-        // (3-6)  -> Vigia das estrelas
-        // (6-9)  -> Residente (?)
-        // (9-10) -> Chefe de Laboratorio
-        // (10-11)-> Ciêntista
-        // (12)   -> Astronauta - Amador
-        // (13)   -> Astronauta - Pesquisador
-        // (14)   -> Astronauta - Líder de Módulo
-        // (15)   -> Astronauta - Chefe de estação
-        if (auth()->check() && auth()->user()->type == 3) {
+        if ($this->type == 3) {
             return trans('game.patent-gm');
         }
 
-        if (auth()->check() && $user_level == 0) {
-            $level = auth()->user()->level;
-        } else {
-            $level = $user_level;
-        }
-
-        if ($level < 3) {
+        if ($this->level <= 3) {
             return trans('game.patent1');
-        } else if ($level >= 3 && $level < 6) {
+        } else if ($this->level >= 4 && $this->level <= 6) {
             return trans('game.patent2');
-        } else if ($level >= 6 && $level < 9) {
+        } else if ($this->level >= 7 && $this->level <= 9) {
             return trans('game.patent3');
-        } else if ($level >= 9 && $level < 10) {
+        } else if ($this->level >= 10 && $this->level < 12) {
             return trans('game.patent4');
-        } else if ($level >= 10 && $level <= 11) {
+        } else if ($this->level >= 13 && $this->level <= 14) {
             return trans('game.patent5');
-        } else if ($level == 12) {
-            return trans('game.patent6');
-        } else if ($level == 13) {
-            return trans('game.patent7');
-        } else if ($level == 14) {
-            return trans('game.patent8');
         } else {
-            return trans('game.patent9');
+            return trans('game.patent6');
         }
     }
 

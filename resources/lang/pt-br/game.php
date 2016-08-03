@@ -74,16 +74,20 @@ return [
 
 
 	// patentes
-	'patent1' => 'Observador',
-	'patent2' => 'Vigia das estrelas',
-	'patent3' => 'Residente',
-	'patent4' => 'Ciêntista',
-	'patent5' => 'Chefe de Laboratorio',
-	'patent6' => 'Astronauta - Amador',
-	'patent7' => 'Astronauta - Pesquisador',
-	'patent8' => 'Astronauta - Líder de Módulo',
-	'patent9' => 'Astronauta- Chefe de estação',
+	'patent1' => 'Aspirante',
+	'patent1-description' => 'Observa o espaço à olho nu, de um campo durante a noite',
+	'patent2' => 'Observador',
+	'patent2-description' => 'Possui de início uma luneta simples e depois passa a ter um telescópio simples em um pequeno observatório em seu quintal',
+	'patent3' => 'Aprendiz',
+	'patent3-description' => 'Atua como um aprendiz em um laboratório modesto dirigido por um dos astrônomos que irão narrar o capítulo',
+	'patent4' => 'Doutor',
+	'patent4-description' => 'Possui agora um laboratório bem maior e mais completo',
+	'patent5' => 'Astronauta',
+	'patent5-description' => 'Ganha a oportunidade de ir até o espaço, onde irá trabalhar como astronauta em uma estação espacial',
+	'patent6' => 'Capitão',
+	'patent6-description' => 'É agora capitão de uma espação espacial',
 	'patent-gm' => 'Desastronauta Master',
+	'patent-gm-description' => 'Game master e desenvolvedor do jogo',
 
 	// user config
 	'name' => 'Nome',

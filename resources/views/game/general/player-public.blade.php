@@ -23,7 +23,7 @@
         <div class="uk-width-medium-2-6">
             <div class="uk-panel uk-panel-box uk-text-center">
                 <figure class="uk-thumbnail uk-border-circle" style="width: 120px">
-                    <img src="{{ $player->avatar() }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player_patente }} {{ $player->name }}">
+                    <img src="{{ $player->avatar() }}" alt="avatar" class="uk-border-circle avatar" data-uk-tooltip title="{{ $player->patente() }} {{ $player->name }}">
                 </figure>
                 <h3>{{ $player->name }}</h3>
 
@@ -35,7 +35,7 @@
 
 								<ul class="uk-list uk-list-striped uk-text-left">
                     <li><i class="uk-icon-heart"></i> {{ trans('game.level') }}: <strong>{{ $player->level }}</strong></li>
-                    <li><i class="uk-icon-bookmark"></i> {{ trans('game.patent') }}: <strong>{{ $player_patente }}</strong></li>
+                    <li><i class="uk-icon-bookmark"></i> {{ trans('game.patent') }}: <strong>{{ $player->patente() }}</strong></li>
                     <li><i class="uk-icon-money"></i> {{ trans('game.money')}}: <strong>{{ $player->money }}</strong></li>
                     <li><i class="uk-icon-calendar"></i> {{ trans('game.since')}}: <strong>{{ $player->desde() }}</strong></li>
                     <li><i class="uk-icon-star"></i> {{ trans('game.ranking')}}: <strong># {{ $player_rank }}</strong></li>

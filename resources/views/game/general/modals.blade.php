@@ -154,7 +154,7 @@
             </div>
             <div class="uk-width-medium-5-6">
                 <ul class="uk-list">
-                    <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ $patente }})</li>
+                    <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ auth()->user()->patente() }})</li>
                     <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>
                 </ul>
                 <div class="uk-margin-bottom">
@@ -249,47 +249,47 @@
   <li>
       <dl class="uk-description-list-line">
           <dt>
-              <strong>(0-3)</strong> Aspirante
+              <strong>Level (0-3)</strong> {{ trans('game.patent1')}}
               @if ($user_level <= 3)
               <div class="uk-badge uk-badge-warning">Você está aqui</div>
               @endif
 
-              <div class="uk-text-muted">Observa o espaço à olho nu, de um campo durante a noite</div>
+              <div class="uk-text-muted">{{ trans('game.patent1-description')}}</div>
           </dt>
           <dt>
-              <strong>(4-6)</strong> Observador
+              <strong>Level (4-6)</strong> {{ trans('game.patent2')}}
               @if ($user_level >= 4 && $user_level <= 6)
               <div class="uk-badge uk-badge-warning">Você está aqui</div>
               @endif
-              <div class="uk-text-muted">Possui de início uma luneta simples e depois passa a ter um telescópio simples em um pequeno observatório em seu quintal</div>
+              <div class="uk-text-muted">{{ trans('game.patent2-description')}}</div>
           </dt>
           <dt>
-              <strong>(7-9)</strong> Aprendiz
+              <strong>Level (7-9)</strong> {{ trans('game.patent3')}}
               @if ($user_level >= 7 && $user_level <= 9)
               <div class="uk-badge uk-badge-warning">Você está aqui</div>
               @endif
-              <div class="uk-text-muted">Atua como um aprendiz em um laboratório modesto dirigido por um dos astrônomos que irão narrar o capítulo</div>
+              <div class="uk-text-muted">{{ trans('game.patent3-description')}}</div>
           </dt>
           <dt>
-              <strong>(10-12)</strong> Doutor
+              <strong>Level (10-12)</strong> {{ trans('game.patent4')}}
               @if ($user_level >= 10 && $user_level <= 12)
               <div class="uk-badge uk-badge-warning">Você está aqui</div>
               @endif
-              <div class="uk-text-muted">Possui agora um laboratório bem maior e mais completo</div>
+              <div class="uk-text-muted">{{ trans('game.patent4-description')}}</div>
           </dt>
           <dt>
-              <strong>(13-14)</strong> Comissário
+              <strong>Level (13-14)</strong> {{ trans('game.patent5')}}
               @if ($user_level >= 13 && $user_level <= 14)
               <div class="uk-badge uk-badge-warning">Você está aqui</div>
               @endif
-              <div class="uk-text-muted">SEM TEXTO</div>
+              <div class="uk-text-muted">{{ trans('game.patent5-description')}}</div>
           </dt>
           <dt>
-              <strong>(15)</strong> Capitão
+              <strong>Level (15)</strong> {{ trans('game.patent6')}}
               @if ($user_level >= 15)
               <div class="uk-badge uk-badge-warning">Você está aqui</div>
               @endif
-              <div class="uk-text-muted">É agora capitão de uma espação espacial</div>
+              <div class="uk-text-muted">{{ trans('game.patent6-description')}}</div>
           </dt>
       </dl>
   </li>
