@@ -151,6 +151,7 @@
                       <input type="file" name="avatar" accept="image/*" id="avatar-file" data-uk-tooltip title="Alterar avatar">
                   </div>
                 </figure>
+                <a id="remove-avatar"><i class="uk-icon-trash"></i> Remover avatar</a>
             </div>
             <div class="uk-width-medium-5-6">
                 <ul class="uk-list">

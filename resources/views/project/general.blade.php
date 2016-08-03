@@ -134,10 +134,7 @@
                     <a class="uk-float-right uk-link uk-link-muted" href="#login" data-uk-modal>{{ trans('project.login-register') }}</a>
                 </div>
                 <div class="uk-form-row">
-                    <button type="submit" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
-                    <a class="action-button blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> {{ trans('project.facebook') }}</a>
-                    <a class="action-button red uk-width-1-1" href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google</a>
-
+                    <button type="submit" class="action-button red uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
                 </div>
             </form>
         </div>

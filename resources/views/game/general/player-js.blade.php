@@ -238,7 +238,7 @@ $(document).ready(function(){
                 if (data[i].status){
                     UIkit.notify("<i class='uk-icon-check'></i> " + data[i].text, {status:'success', pos: 'top-right'});
                     if(data[i].avatar){
-                        $(".avatar").attr('src', $(".avatar").attr('src') + '?' + Math.random());
+                        $(".avatar").attr('src', data[i].avatar + '?' + Math.random());
                     }
                     $("#old_password").val();
                     $("#new_password").val();
@@ -250,7 +250,16 @@ $(document).ready(function(){
         }
     });
 
-
+    $("#remove-avatar").click(function(){
+        $.ajax({
+            url: '{{ url('/game/remove_avatar')}}',
+            dataType: 'JSON',
+            success: function(data){
+                UIkit.notify({message: data.text, status: data.status, pos: 'top-right'});
+                $(".avatar").attr('src', data.avatar + '?' + Math.random());
+            }
+        });
+    });
 
     $("#avatar-file").change(function() {
         var file_avatar = $("#avatar-file")[0].files[0];
@@ -272,7 +281,7 @@ $(document).ready(function(){
                         pos: 'top-right'
                     });
                     if (data[0].avatar) {
-                        $(".avatar").attr('src', $(".avatar").attr('src') + '?' + Math.random());
+                        $(".avatar").attr('src', data[0].avatar + '?' + Math.random());
                     }
                 } else {
                     UIkit.notify("<i class='uk-icon-close'></i> " + data[0].text, {

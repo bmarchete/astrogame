@@ -57,6 +57,7 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('/effects/{volume}', 'AccountController@change_volume_effects')->where('volume', '[0-9-]+');
 		Route::get('/profile/{type}', 'AccountController@change_profile')->where('type', 'private|public');
 		Route::get('/tutorial/{tutorial}', 'AccountController@change_tutorial')->where('tutorial', 'done|again');
+		Route::get('/remove_avatar', 'AccountController@remove_avatar');
 		Route::post('/change_account', 'AccountController@change_account');
 
 		// chapters

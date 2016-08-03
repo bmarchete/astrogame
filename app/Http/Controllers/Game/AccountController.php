@@ -103,7 +103,7 @@ class AccountController extends GameController
         if($request->hasFile('avatar')){
             if(in_array(strtolower($avatar->getClientOriginalExtension()), $this->ext_avaliables)){
                 auth()->user()->makeAvatar(Input::file('avatar'));
-                $messages[] = ['status' => true, 'text' => 'Avatar alterado com sucesso', 'avatar' => true];
+                $messages[] = ['status' => true, 'text' => 'Avatar alterado com sucesso', 'avatar' => auth()->user()->avatar()];
             } else {
                 $messages[] = ['status' => false, 'text' => 'A foto deve ser em jpg, png, gif ou jpge'];
             }
@@ -111,5 +111,12 @@ class AccountController extends GameController
 
 
         return response()->json($messages);
+    }
+
+    public function remove_avatar(){
+        if(auth()->user()->remove_avatar()){
+            return ['status' => 'success', 'text' => '<i class="uk-icon-user"></i> Avatar removido', 'avatar' => auth()->user()->avatar()];
+        }
+
     }
 }

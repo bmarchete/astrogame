@@ -41,8 +41,6 @@
          <div class="uk-form-row">
             <div class="uk-button-group">
                <button type="submit" class="action-button yellow uk-width-1-1"><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</button>
-               <a class="action-button blue uk-width-1-1" href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> {{ trans('project.facebook') }}</a>
-               <a class="action-button red uk-width-1-1" href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google</a>
             </div>
          </div>
       </form>
