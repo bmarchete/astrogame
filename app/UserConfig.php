@@ -9,30 +9,30 @@ class UserConfig extends Model
     public $timestamps = false;
 
     public static $default = [
-        'music_volume'   => 50,
+        'music_volume' => 50,
         'effects_volume' => 50,
-        'lang'           => 'pt-br',
-        'private'        => false,
-        'tutorial'       => true,
+        'lang' => 'pt-br',
+        'private' => false,
+        'tutorial' => true,
     ];
 
     public static function getConfig($config_key, User $user)
     {
-        if(!array_key_exists($config_key, self::$default)){
+        if (!array_key_exists($config_key, self::$default)) {
             return false;
         }
 
-        $config = UserConfig::select('content')->where('user_id', $user->id)->where('key', $config_key)->limit(1)->first();
-        if($config){
-          return $config->content;
+        $config = self::select('content')->where('user_id', $user->id)->where('key', $config_key)->limit(1)->first();
+        if ($config) {
+            return $config->content;
         } else {
-          return self::$default[$config_key];
+            return self::$default[$config_key];
         }
     }
 
     public static function setConfig($config_key, $content)
     {
-        if(!array_key_exists($config_key, self::$default)){
+        if (!array_key_exists($config_key, self::$default)) {
             return false;
         }
 
@@ -40,13 +40,13 @@ class UserConfig extends Model
             return false;
         }
 
-        if(UserConfig::select('key')->where('user_id', auth()->user()->id)->where('key', $config_key)->limit(1)->first()){
-            UserConfig::where('user_id', auth()->user()->id)
+        if (self::select('key')->where('user_id', auth()->user()->id)->where('key', $config_key)->limit(1)->first()) {
+            self::where('user_id', auth()->user()->id)
                 ->where('key', $config_key)
                 ->limit(1)
                 ->update(['content' => $content]);
         } else {
-            UserConfig::insert(['key' => $config_key, 'content' => $content, 'user_id' => auth()->user()->id]);
+            self::insert(['key' => $config_key, 'content' => $content, 'user_id' => auth()->user()->id]);
         }
     }
 
@@ -65,8 +65,8 @@ class UserConfig extends Model
             }
             $content = session()->get('language');
             } */
-            $config          = new UserConfig;
-            $config->key     = $key;
+            $config = new self();
+            $config->key = $key;
             $config->content = $content;
             $config->user_id = $user_id;
             $config->save();
