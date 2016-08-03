@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Image;
 use Log;
 use DB;
+use Cache;
 
 class User extends Authenticatable
 {
@@ -211,5 +212,17 @@ class User extends Authenticatable
 
     public function getConfig($config_key){
         return \App\UserConfig::getConfig($config_key, $this);
+    }
+
+    public function isOnline() {
+        if(Cache::has('user-is-online-' . $this->id)){
+            $this->online = true;
+            $this->save();
+            return true;
+        } else {
+            $this->online = false;
+            $this->save();
+            return false;
+        }
     }
 }
