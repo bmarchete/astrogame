@@ -142,6 +142,13 @@ $(document).ready(function(){
       console.log('doasidjsaoidaso');
     });
 
+    @if (!session()->has('orientation'))
+      if(window.innerHeight > window.innerWidth){
+          UIkit.notify({message: '<i class="uk-icon-exclamation"></i> Recomendamos utilizar o modo <strong>paisagem</strong> para melhor visualização', status: 'warning', pos:'top-right'});
+          {{ session(['orientation' => true]) }}
+      }
+    @endif
+
     @if (session()->has('notify'))
         @foreach (session()->get('notify') as $notify)
             UIkit.notify({message: '{!! $notify['text'] !!}', status: '{!! $notify['status'] !!}', pos:'top-right'});
