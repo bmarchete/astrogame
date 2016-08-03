@@ -32,7 +32,7 @@ Route::group(['middleware' => 'web'], function () {
 		Route::post('/contato', 'ContactController@store');
 
 		// public profile
-		Route::get('/player/{id}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('id', '[0-9]+');
+		Route::get('/player/{nickname}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('nickname', '[a-zA-Z0-9]+');
 		Route::get('/ranking', 'HomeController@ranking');
 	});
 

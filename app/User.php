@@ -219,4 +219,22 @@ class User extends Authenticatable
                          ->where('item_id', $item_id)->groupBy('item_id')->limit(1)->first();
         return ($bag_item) ? $bag_item->amount : 0;
     }
+
+    public function generate_nickname(){
+        $from = 'áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ';
+        $to = 'aaaaeeiooouucAAAAEEIOOOUUC';
+
+        $nickname = strtolower(strtr(str_replace(' ', '', $this->name), $from, $to));
+
+        $count = 1;
+        if ($this->where('username', $nickname)->select('id')->first()) {
+            $new_nickname = $nickname . $count;
+            while ($this->where('username', $new_nickname)->select('id')->first()) {
+                $count++;
+                $new_nickname = $nickname . $count;
+            }
+        }
+        $this->nickname = isset($new_username) ? $new_nickname : $nickname;
+        return $this->nickname;
+    }
 }

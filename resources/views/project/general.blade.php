@@ -8,7 +8,7 @@
     <meta name="author" content="Eduardo Augusto Ramos">
     <title>@yield('title')</title>
 
-    {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css'])->withFullUrl() !!}
+    {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css', '/vendor/uikit/css/components/notify.gradient.css'])->withFullUrl() !!}
     @yield('style')
     <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
@@ -136,12 +136,12 @@
             </form>
         </div>
     </div>
-    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js'], ['async' => true])->withFullUrl() !!}
+    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js', '/vendor/uikit/js/components/notify.min.js'], ['defer' => true])->withFullUrl() !!}
     @yield('javascript')
 
     @if (isset($errors) && count($errors->all()) > 0 )
     <script>
-        $(document).ready(function(){
+        document.addEventListener("DOMContentLoaded", function(event) {
             UIkit.modal("#login").show();
         });
     </script>

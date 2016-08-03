@@ -5,6 +5,19 @@
 {!! Minify::stylesheet(['/vendor/uikit/css/components/tooltip.gradient.css'])->withFullURL() !!}
 @stop
 
+@section('javascript')
+<script >
+document.addEventListener("DOMContentLoaded", function(event) {
+@if (session()->has('notify'))
+    @foreach (session()->get('notify') as $notify)
+        UIkit.notify({message: '{!! $notify['text'] !!}', status: '{!! $notify['status'] !!}', pos:'top-right'});
+    @endforeach
+    {{ session()->forget('notify') }}
+@endif
+});
+</script>
+@stop
+
 @section('content')
 <div class="uk-container uk-margin-large-top uk-container-center uk-text-center-small">
     <div class="uk-grid" data-uk-grid-margin="">

@@ -55,6 +55,7 @@ class SocialLoginController extends Controller
         $user_db->provider_user_id = $user->getId();
         $user_db->gender = ($user->user['gender'] == 'male') ? 1 : 2;
         $user_db->password = bcrypt('temp'.rand(1, 100000).'temp');
+        $user_db->generate_nickname();
         $user_db->save();
 
         $user_db->makeAvatar($user->getAvatar());

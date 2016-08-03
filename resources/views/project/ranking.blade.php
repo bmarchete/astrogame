@@ -18,12 +18,12 @@ Ranking Global | Astrogame
               @forelse ($players as $player)
               <li>
                   <div class="uk-border-circle uk-hidden-small" style="width: 60px; display: inline-block">
-                      <a href="{{ url('/player') . '/' . $player->id }}">
+                      <a href="{{ url('/player') . '/' . $player->nickname }}">
                         <img src="{{ $player->avatar() }}" alt="{{ $player->name }} avatar" class="uk-border-circle avatar">
                       </a>
                   </div>
                   <ul class="uk-list" style="display: inline-block;">
-                      <li># <strong>{{ $player->row}}</strong> &nbsp; <a href="{{ url('/player') . '/' . $player->id }}"><strong>{{ $player->name }}</strong></a> ({{ $player->patente() }})</li>
+                      <li># <strong>{{ $player->row}}</strong> &nbsp; <a href="{{ url('/player') . '/' . $player->nickname }}"><strong>{{ $player->name }}</strong></a> ({{ $player->patente() }})</li>
                       <li><i class="uk-icon-exclamation"></i> Level: {{ $player->level }} - ({{$player->xp}} XP)</li>
                   </ul>
               </li>

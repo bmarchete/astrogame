@@ -163,7 +163,7 @@
                       <div class="uk-progress-bar" style="width: {{ $xp_bar }}%;"></div>
                   </div>
               </div>
-                <a href="{{ url('/player')}}/{{ auth()->user()->id }}">{{ trans('game.profile-public') }}</a>
+                <a href="{{ url('/player')}}/{{ auth()->user()->nickname }}">{{ trans('game.profile-public') }}</a>
             </div>
         </div>
     </li>
