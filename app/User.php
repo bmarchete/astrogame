@@ -235,6 +235,7 @@ class User extends Authenticatable
             }
         }
         $this->nickname = isset($new_username) ? $new_nickname : $nickname;
+        $this->save();
         return $this->nickname;
     }
 }
