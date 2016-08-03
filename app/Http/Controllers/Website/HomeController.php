@@ -46,7 +46,7 @@ class HomeController extends Controller
     {
         $players = Cache::remember('ranking', 5, function(){
             DB::statement(DB::raw('set @row:=0'));
-            return User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp')
+            return User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'nickname')
                       ->whereHas('config', function ($q) {
                           $q->where('key', 'private')->where('content', false);
                       })->limit(100)->orderBy('xp', 'DESC')->get();

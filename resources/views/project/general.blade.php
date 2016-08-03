@@ -101,6 +101,15 @@
             <h2>Registrar no Astrogame</h2>
             <br>
 
+            @if (isset($errors) && count($errors->all()) > 0 )
+                @foreach($errors->all() as $error)
+                <div class="uk-alert uk-alert-danger" data-uk-alert>
+                   <a href="#" class="uk-alert-close uk-close"></a>
+                   <p>{{ $error }}</p>
+                </div>
+                @endforeach
+            @endif
+
             <form class="uk-form uk-width-1-1 uk-container-center" method="POST" action="{{url('/register')}}">
                   {!! csrf_field() !!}
                 <div class="uk-form-row">
@@ -142,7 +151,11 @@
     @if (isset($errors) && count($errors->all()) > 0 )
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
-            UIkit.modal("#login").show();
+            @if(empty(old('name')))
+              UIkit.modal("#login").show();
+            @else
+              UIkit.modal("#register").show();
+            @endif
         });
     </script>
     @endif

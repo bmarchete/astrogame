@@ -31,6 +31,7 @@ Ranking Global | Astrogame
                 <p>Acho que ninguém começou a jogar ainda :(</p>
               @endforelse
             </ul>
+            <p class="uk-text-muted"><strong>Atenção:</strong> o ranking é atualizado a cada 5 minutos!</p>
         </div>
         <div class="uk-margin-top uk-grid" data-uk-grid>
             <div class="uk-container-center">
