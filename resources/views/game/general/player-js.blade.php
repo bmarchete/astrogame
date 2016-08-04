@@ -369,7 +369,7 @@ $(document).ready(function(){
             showdate: {{ $planetarium['showdate'] }},
             showplanets: {{ $planetarium['showplanets'] }},
             showplanetlabels:  {{ $planetarium['showplanetlabels'] }},
-            scalestars: 3,
+            scalestars: 2.5,
             live: true,
             magnitude: {{ $planetarium['magnitude'] }},
             cardinalpoints: true,

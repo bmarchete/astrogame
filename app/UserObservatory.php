@@ -9,9 +9,9 @@ class UserObservatory extends Model
     public $planetarium =
         [
         'showstars'        => 'true',
-        'showstarlabels'   => 'false',
-        'magnitude'        => '1',
-        'constellations'   => 'false',
+        'showstarlabels'   => 'true',
+        'magnitude'        => '5',
+        'constellations'   => 'true',
         'showplanets'      => 'true',
         'showplanetlabels' => 'true',
         'cardinalpoints'   => 'true',
