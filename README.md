@@ -17,3 +17,8 @@ https://astrogame.me
 ## TODO LIST
 - [ ] Adicionar mais itens
 - [ ] Adicionar XP para quem enviar sugestão
+- [ ] terminar observatório
+- [ ] request mudar posição para retrati android
+
+- Astrogame: Quest indique um amigo - XP
+créditos: https://www.scirra.com/forum/kenney-s-free-assets-20-000-assets_t93518
