@@ -143,6 +143,37 @@ function tutorial(done_or_again){
     });
 }
 
+function complete_quest(quest_id){
+    var formData = new FormData();
+    formData.append('id', quest_id);
+
+    $.ajax({
+         url: '{{ url('/game/quest_complete')}}',
+         dataType: 'json',
+         type: 'POST',
+         processData: false,
+         contentType: false,
+         data: formData,
+         success: function(data){
+            if(data.status){
+                UIkit.notify('<i class="uk-icon-exclamation"></i> Missão completada', {status: 'success', pos:'top-right'});
+
+                quest_effect.play();
+                setTimeout(function(){
+                    window.location = '{{ url('/game') }}';
+                }, 1000);
+            } else {
+                UIkit.notify('<i class="uk-icon-exclamation"></i> Erro ao completar a missão', {status: 'danger', pos:'top-right'});
+            }
+         },
+         error: function(data){
+            for (var i = 0; i < data.responseJSON.id.length; i++) {
+                UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
+            }
+         }
+      });
+}
+
 ////////////////////////////////////////////////////
 // document ready
 ///////////////////////////////////////////////////
@@ -320,10 +351,16 @@ $(document).ready(function(){
     // quest accept
     $(".accept-quest").click(function(){
         var quest_id = $(this).val();
-        //$(this).prop('disabled', true);
+        var formData = new FormData();
+        formData.append('id', quest_id);
+
         $.ajax({
-             url: '{{ url('/game/quest_accept')}}/' + quest_id,
-             dataType: "json",
+             url: '{{ url('/game/quest_accept')}}',
+             dataType: 'json',
+             type: 'POST',
+             processData: false,
+             contentType: false,
+             data: formData,
              success: function(data){
                 if(data.accepted){
                     UIkit.notify("<i class=\"uk-icon-exclamation\"> </i> {{ trans('game.quest-accepted') }}", {status:'success', pos: 'top-right'});
@@ -336,6 +373,11 @@ $(document).ready(function(){
 
                 } else {
                     UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
+                }
+             },
+             error: function(data){
+                for (var i = 0; i < data.responseJSON.id.length; i++) {
+                    UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
                 }
              }
           });

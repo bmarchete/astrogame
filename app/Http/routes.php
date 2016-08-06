@@ -42,11 +42,10 @@ Route::group(['middleware' => 'web'], function () {
 		Route::post('/report', 'ReportController@send');
 
 		// quests
-		Route::get('/quest_accept/{id}', 'QuestController@quest_accept')->where('id', '[0-9-]+');
-		Route::get('/quest_cancel/{id}', 'QuestController@quest_cancel')->where('id', '[0-9-]+');
+		Route::post('/quest_accept', 'QuestController@quest_accept');
+		Route::post('/quest_cancel', 'QuestController@quest_cancel');
+		Route::post('/quest_complete', 'QuestController@quest_complete');
 		Route::get('/quest/{id}', 'QuestController@quest')->where('id', '[0-9-]+');
-		Route::get('/quest_complete/{id}', 'QuestController@quest_complete')->where('id', '[0-9-]+');
-
 
 		// item
 		Route::post('/buy_item', 'ShopController@buy_item');
