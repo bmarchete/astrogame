@@ -23,7 +23,7 @@
                   <p class="uk-article-meta">{{ trans('blog.written')}} <i class="uk-icon-user"></i> {!! the_author_posts_link() !!} em {{ the_time(get_option( 'date_format' )) }} | {{ trans('blog.category') }} <i class="uk-icon-inbox"></i> <a href="{{ url('desastronautas/category/') }}">{{ the_category( ', ' ) }}</a> | <i class="uk-icon-tags"></i> {{ the_tags()}}</p>
 
                   @if(has_post_thumbnail())
-                    <figure class="uk-thumbnail">
+                    <figure class="uk-thumbnail" data-uk-scrollspy="{cls:'uk-animation-fade'}">>
                       {{ the_post_thumbnail() }}
                     </figure>
                   @endif
