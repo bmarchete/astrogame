@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Socialite;
+use Input;
 
 class SocialLoginController extends Controller
 {
@@ -25,6 +26,9 @@ class SocialLoginController extends Controller
      */
     protected function fallback($provider)
     {
+        if(!Input::has('code')){
+            return abort(404, 'Não foi encontrado código');
+        }
         $provider_id = ($provider == 'facebook') ? 1 : 2; // 2 = google
         $user = Socialite::with($provider)->user();
 
