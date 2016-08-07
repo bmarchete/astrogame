@@ -5,9 +5,9 @@ return [
 
     'title1' => 'Jogue e Aprenda',
 
-    'text1' => 'Nosso projeto foi idealizado com o intuito de facilitar e ampliar a divulgação de conhecimentos científicos relacionados a astrofísica e astronomia. É possível notar que a divulgação de material educacional relacionado às duas matérias se dá de forma carente e fraca, pois não há incentivo nas escolas e tão pouco para o público em geral.',
-    'text2' => 'Na internet encontramos grandes acervos de conteúdo de astronomia e astrofísica, porém esse material é de difícil absorção, pois muitas vezes se encontra de forma densa e complicada, tornando a leitura desses conteúdos muito maçante e cansativa, o que acaba por desestimular aqueles que possuem vontade de aprender sobre os temas.',
-    'text3' => 'Muitas vezes, os conteúdos apresentam imagens relacionadas ao que está sendo explicado, porém a leitura dessas imagens - embora as mesmas possuindo legenda - é complicada, pois é necessária uma boa interpretação por parte dos leitores, o que por falta de base, se torna praticamente impossível.',
+    'text1' => 'O astrogame foi idealizado com o intuito de facilitar e ampliar a divulgação de conhecimentos científicos relacionados a astrofísica e astronomia. A divulgação de material educacional relacionado essas matérias se dá de forma carente e fraca, pois não há incentivo nas escolas e muito pouco para o público em geral.',
+    'text2' => 'Na internet encontramos grandes acervos de conteúdo de astronomia e astrofísica, porém esse material é de difícil absorção, pois muitas vezes se encontra de forma densa e complicada, tornando a leitura desses conteúdos muito maçante e cansativa, o que acaba por desestimular aqueles que possuem vontade de aprender sobre esses temas.',
+    'text3' => 'Através do astrogame é possível aprender através do conceito de gamification ou ludificação, uma espécie de <i>e-learning</i>, onde você pode explorar diversos assuntos da astronomia completando missões, coletando itens e insignas e diversos outros mecanismos. <strong>Experimente agora, o jogo é grátis <i class="uk-icon-smile-o"></i></strong> ',
 
     'button1' => 'Entrar e Jogar!',
 
@@ -16,8 +16,8 @@ return [
     'text6' => 'Percebemos que boa parte do público jovem e infanto-juvenil demonstra um forte interesse em jogos, um exemplo disso é crescimento em grande escala do e-sport no cenário mundial, não só isso se pode notar também um grande aumento na quantidade de adultos que se interessam por jogos atualmente.',
     'text7' => 'Tendo em vista o grande interesse do público em jogos, decidimos que a plataforma desenvolvida seria em formato de um jogo. Onde os temas seriam abordados de maneira com que o conteúdo se tornasse dinâmico e fácil, tendo como principal foco, tornar as principais descobertas e teorias a respeito do cosmos, missões de exploração, onde cada fase seria modelada para tornar a respectiva teoria/descoberta algo divertido, onde o usuário aprendesse com ela e se divertisse ao mesmo tempo.',
 
-    'text8' => 'Com a implementação do projeto criaremos uma plataforma que possa oferecer conteúdo de alta qualidade em um formato de fácil compreensão e acessibilidade para que os diferentes públicos possam ter onde aprender de forma interativa e dinâmica, e se divertir enquanto tem acesso ao material.',
-    'text9' => 'Você pode baixar a versão final do .pdf Trabalho de Conclusão de Curso no link abaixo:',
+    'text8' => 'Com a implementação do projeto criamos uma plataforma que oferece conteúdo de alta qualidade em um formato de fácil compreensão e acessibilidade para que os diferentes públicos possam ter onde aprender de forma interativa e dinâmica, e se divertir enquanto tem acesso ao material.',
+    'text9' => 'Você pode baixar a versão final do .pdf Trabalho de Conclusão de Curso no link ao lado:',
 
     'button2' => 'Download do TCC',
 
@@ -41,11 +41,11 @@ return [
     'text17' => 'O percurso começa com pequenos stands explicando um pouco sobre cada conteúdo do COSMOS e termina num simulador, onde tudo o que foi exposto nas apresentações do percurso será reapresentado de uma forma resumida e visual, trazendo a sensação de submersão espacial dentro de um ambiente fechado e escuro. Neste simulador teremos a presença de uma pessoa que fará o papel de capitão da nave; pessoa que será responsável pelos visitantes e tudo o mais que ocorrer na sala. Não recomendado para claustrofóbicos, pessoas com medo do escuro, problemas cardíacos.',
 
     'title4' => 'Membros do Projeto Cosmos',
-    
+
     'depoimento1' => 'Foi um projeto muito diferente, nunca havia visto nada igual. Adorei!',
     'depoimento2' => 'Não sei dizer o que mais gostei no projeto, mas amei o simulador, foi surreal.',
     'depoimento3' => 'Ótimo projeto, com muitas pessoas dedicadas. Me fez gostar ainda mais do universo!',
     'depoimento4' => 'Foi uma oportunidade incrível trabalhar com essas pessoas, realizamos algo e estamos orgulhosos do mesmo.',
     'depoimento5' => 'Foi incrível, o ambiente estava totalmente submersivo. Estão de parabéns!',
-    
+
 ];
