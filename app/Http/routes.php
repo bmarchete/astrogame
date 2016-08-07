@@ -44,14 +44,14 @@ Route::group(['middleware' => 'web'], function () {
 
 	// website-game
 	Route::group(['middleware' => ['auth', 'game'], 'prefix' => 'game'], function () {
-		Route::get('/', 'ChapterController@index');
+		Route::get('/', 'GameController@index');
 		Route::post('/report', 'ReportController@send');
 
 		// quests
 		Route::post('/quest_accept', 'QuestController@quest_accept');
 		Route::post('/quest_cancel', 'QuestController@quest_cancel');
 		Route::post('/quest_complete', 'QuestController@quest_complete');
-		Route::get('/quest/{id}', 'QuestController@quest')->where('id', '[0-9-]+');
+		Route::get('/quest/{name}', 'QuestController@quest')->where('name', '[a-z_]+');
 
 		// item
 		Route::post('/buy_item', 'ShopController@buy_item');
@@ -64,13 +64,6 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('/tutorial/{tutorial}', 'AccountController@change_tutorial')->where('tutorial', 'done|again');
 		Route::get('/remove_avatar', 'AccountController@remove_avatar');
 		Route::post('/change_account', 'AccountController@change_account');
-
-		// chapters
-		Route::get('/chapter_complete/{key}', 'ChapterController@chapter_complete')->where('key', '[a-z-]+');
-		Route::get('/welcome', 'ChapterController@welcome');
-		Route::get('/tutorial', 'ChapterController@tutorial');
-		Route::get('/chapter1', 'ChapterController@chapter1');
-		Route::get('/chapter2', 'ChapterController@chapter2');
 
 	});
 

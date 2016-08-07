@@ -14,13 +14,15 @@ class CreateQuestsTable extends Migration
     {
         Schema::create('quests', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->unique();
             $table->string('title');
-            $table->smallInteger('type')->default(1); // (1 = campanha / 2 = diária / 3 = semanal / 4 = mensal / 5 = exploração livre)
+            $table->smallInteger('type')->default(1); // (1 = normal / 2 = chapter / 3 = diária)
             $table->text('description');
             $table->text('objetivos');
             $table->text('recompensas');
-            $table->integer('xp_reward');
-            $table->integer('money_reward');
+            $table->integer('xp_reward')->nullable();
+            $table->integer('money_reward')->nullable();
+            $table->integer('insigna_reward')->nullable();
             $table->integer('min_level')->default(1);
             $table->integer('max_level')->default(0);
         });

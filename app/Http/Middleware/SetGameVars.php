@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use App\UserConfig;
 use App\UserObservatory;
-use App\UserProgres;
 use App\Quest;
 use App\Insignas;
 use App\User;
@@ -38,9 +37,8 @@ class SetGameVars
             });
 
             $shop = ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => []];
-            $chapter = new UserProgres;
 
-            view()->composer('game.general.general', function ($view) use ($planet, $shop, $chapter) {
+            view()->composer('game.general.general', function ($view) use ($planet, $shop) {
                   $view->with('user_name', auth()->user()->nickname)
                        ->with('user_level', auth()->user()->level)
                        ->with('user_money', auth()->user()->money)
@@ -57,9 +55,7 @@ class SetGameVars
                        ->with('shop', $shop) // alterar isso daqui
                        ->with('avaliable_quests', Quest::avaliable_quests())
                        ->with('accepted_quests', Quest::accepted_quests())
-                       ->with('planetarium', $planet->planetarium)
-                       ->with('progress', $chapter)
-                       ->with('chapter_current', $chapter->current()->name);
+                       ->with('planetarium', $planet->planetarium);
             });
         }
 

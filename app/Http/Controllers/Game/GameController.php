@@ -10,6 +10,10 @@ use Share;
 // toda a magia vai acontecer aqui :)
 class GameController extends Controller
 {
+    public function index(){
+        return view('game.chapters.welcome');
+    }
+
     public function campaing_map()
     {
         return view('game.general.map');

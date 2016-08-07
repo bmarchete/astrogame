@@ -13,7 +13,7 @@ class BlogController extends Controller
         include_once( $plugin );
       }
     }
-    
+
     public function index(){
         $wordpress = new \WP_Query(array(
             'posts_per_page' => 20,
@@ -28,13 +28,30 @@ class BlogController extends Controller
 
     public function single($slug){
 
-        $post = new \WP_Query(array(
+        $query = new \WP_Query(array(
             'name' => $slug,
             'post_type' => 'any'
         ));
 
-        $post = $post->the_post();
+        if($query->have_posts()){
+          $query->the_post();
+          return view('blog.single');
+        } else {
+          return "post não encontrado";
+        }
 
-        return view('blog.single', ['post' => $post]);
+
+    }
+
+    public function category($category){
+
+    }
+
+    public function search($query){
+
+    }
+
+    public function author($author){
+
     }
 }

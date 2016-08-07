@@ -8,6 +8,7 @@ use App\Quest;
 use App\History;
 use App\User;
 use App\Http\Requests\QuestRequest;
+use Validator;
 
 class QuestController extends GameController
 {
@@ -47,7 +48,12 @@ class QuestController extends GameController
 
         if ($quest_user->complete_quest()) {
             $this->reward_user($quest_user, auth()->user());
-            $this->history_quest($quest_user->quest_info, auth()->user());
+
+            if($quest_user->quest_info->type == 2){
+                $this->history_quest_chapter($quest_user->quest_info, auth()->user());
+            } else {
+                $this->history_quest($quest_user->quest_info, auth()->user());
+            }
 
             session()->put('notify',
             [
@@ -83,43 +89,35 @@ class QuestController extends GameController
         $history->save();
     }
 
+
+    // @TODO: modal com as informações da quest no perfil
+    public function history_quest_chapter(Quest $quest, User $user)
+    {
+        $history = new History();
+        $history->user_id = $user->id;
+        $history->texto = "Completou o capítulo <strong>" . $quest->title . "</strong>";
+        $history->icon = "space-shuttle";
+        $history->save();
+    }
+
     // ========================================
     // quests
     public function quest(Request $request)
     {
-        $quest_id = $request->id;
-        if ($quest_id == 2) {
-            return $this->quest_palido_ponto_azul();
-        }
-
-        if ($quest_id == 3) {
-            return $this->quest_cosmos_quizz();
-        }
-
-        if ($quest_id == 5) {
-            return $this->quest_apollo_11();
-        }
-
-        session()->put('notify',
-        [
-            ['text' => '<i class="uk-icon-exclamation"></i> Nenhuma missão encontrada', 'status' => 'danger', 'timeout' => 0],
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255|exists:quests,name',
         ]);
 
-        return redirect('/game');
-    }
+        if(!$validator->fails()){
+            return view('game.quests.' . $request->name);
+        } else {
 
-    public function quest_palido_ponto_azul()
-    {
-        return view('game.quests.ponto_azul');
-    }
+            session()->put('notify',
+            [
+                ['text' => '<i class="uk-icon-exclamation"></i> Nenhuma missão encontrada', 'status' => 'danger', 'timeout' => 0],
+            ]);
 
-    public function quest_cosmos_quizz()
-    {
-        return view('game.quests.cosmos_quizz');
-    }
-
-    public function quest_apollo_11()
-    {
-        return view('game.quests.apollo_11');
+            return redirect('/game');
+        }
     }
 }
