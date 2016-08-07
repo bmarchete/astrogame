@@ -9,7 +9,11 @@
 */
 if(preg_match('|/blog|', $_SERVER['REQUEST_URI'])){
   define('WP_USE_THEMES', false);
-  require __DIR__.'/wp/wp-blog-header.php';
+  if(file_exists(__DIR__.'/blog_full_admin/wp-blog-header.php')){
+    require __DIR__.'/blog_full_admin/wp-blog-header.php';
+  } else {
+    exit('Erro ao inicializar o blog');
+  }
 }
 
 /**

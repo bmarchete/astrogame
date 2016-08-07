@@ -59,6 +59,6 @@
         "preferred-install": "dist"
     },
     "extra": {
-      "wordpress-install-dir": "public/wp"
+      "wordpress-install-dir": "public/blog_full_admin"
     }
 }
