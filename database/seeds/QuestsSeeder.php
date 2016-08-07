@@ -22,7 +22,7 @@ class QuestsSeeder extends Seeder
         [
             'id' => 2,
             'name' => 'capitulo_copernico',
-            'title' => 'Capítulo I - Copérnico',
+            'title' => 'Capítulo I - O Pai da Astronomia',
             'type' => 2, // chapter
             'description' => 'Copérnico, o Pai da Astronomia moderna, irá nos falar um pouco sobre a sua principal teoria, o Heliocentrismo!',
             'objetivos' => 'COMPLETAR O CAPÍTULO',
@@ -35,7 +35,7 @@ class QuestsSeeder extends Seeder
         [
             'id' => 3,
             'name' => 'capitulo_galileu',
-            'title' => 'Capítulo II - Galileu',
+            'title' => 'Capítulo II - A Arte da observação',
             'type' => 2, // chapter
             'description' => 'O primeiro passo na nossa grande aventura é a observação, e Galileu Galilei é a pessoa certa para nos orientar nessa etapa!',
             'objetivos' => 'COMPLETAR O CAPÍTULO',
@@ -48,7 +48,7 @@ class QuestsSeeder extends Seeder
         [
             'id' => 4,
             'name' => 'capitulo_kepler',
-            'title' => 'Capítulo III - Kepler',
+            'title' => 'Capítulo III - As Leis Fundamentais',
             'type' => 2, // chapter
             'description' => 'Kepler nos apresenta suas três leis fundamentais, vamos entender como funciona o movimento planetário!',
             'objetivos' => 'COMPLETAR O CAPÍTULO',
