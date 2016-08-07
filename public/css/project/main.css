@@ -192,6 +192,14 @@ h6 {
     background-color: #e74c3c;
     text-shadow: 0 -2px #bd3e31;
 }
+.disabled {
+    border: none;
+    border-bottom: 5px solid #3C3C3C;
+    background-color: #878787;
+    text-shadow: 0 -2px #3C3C3C;
+    cursor: no-drop;
+}
+
 .green {
     border-bottom: 5px solid #669644;
     background-color: #82bf56;
@@ -206,6 +214,10 @@ h6 {
     -webkit-transform: translate(0px, 5px);
     transform: translate(0px, 5px);
     border-bottom: 1px solid;
+}
+.disabled:active {
+    -webkit-transform: none;
+    transform: none;
 }
 .action-button[type=submit] {
     border-top: none;
