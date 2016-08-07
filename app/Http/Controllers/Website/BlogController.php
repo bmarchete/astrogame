@@ -58,7 +58,7 @@ class BlogController extends Controller
           'tag' => $tag,
         ));
 
-        return view('blog.loop', ['wordpress' => $wordpress, 'title' => get_category_by_slug($category)->name]);
+        return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Posts com ' . $tag]);
     }
 
     public function search(Request $request)
