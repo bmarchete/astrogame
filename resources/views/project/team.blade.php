@@ -38,9 +38,12 @@
         @endforeach
     </div>
 </div>
+<div class="white" style="padding: 30px 0">
 <div class="uk-grid uk-container uk-container-center" data-uk-grid-margin>
-    <div class="uk-width-1-1 uk-width-large-2-4">
-        <h1>{{ trans('project.team-about') }}</h1> {!! trans('project.team-text') !!}
+    <div class="uk-width-1-1 uk-width-large-2-4 uk-text-justify">
+        <h1>{{ trans('project.team-about') }}</h1>
+        {!! trans('project.team-text') !!}
+        <p><a href="{{ url('/blog')}}" class="uk-button ">Confira nosso blog <i class="uk-icon-external-link"></i></a></p>
     </div>
     <div class="uk-width-1-1 uk-width-large-2-4">
         <div class="uk-thumbnail uk-overlay-hover ">
@@ -50,5 +53,6 @@
             </figure>
         </div>
     </div>
+</div>
 </div>
 </div>@stop

@@ -199,7 +199,6 @@ h6 {
     text-shadow: 0 -2px #3C3C3C;
     cursor: no-drop;
 }
-
 .green {
     border-bottom: 5px solid #669644;
     background-color: #82bf56;
@@ -315,11 +314,12 @@ h6 {
 }
 .white {
     background: #ecf0f1;
+    color: #25292c;
 }
 .team {
     padding: 30px 0;
-    color: #ecf0f1;
-    background: url('../../img/spaceship-night.png') no-repeat bottom / cover;
+    color: #fff;
+    background: url('../../img/spaceship-night.png') no-repeat top / cover;
 }
 .ranking {
     background: #3498db url('../../img/liftoff.png') no-repeat right bottom fixed;
@@ -329,12 +329,32 @@ h6 {
     overflow-y: scroll;
     height: 500px;
 }
+.call-action {
+    padding: 40px 0;
+    background: #ecf0f1;
+}
+.call-action .text {
+    font-size: 40px;
+    margin-top: 20px;
+}
+.call-action .action-button {
+    float: none;
+    padding: 12px 50px;
+    margin: 0;
+}
 .footer {
-    padding-top: 50px;
+    padding-top: 15px;
     color: #7f8c8d;
 }
 .footer a {
     color: #ecf0f1;
+}
+.footer p {
+    color: #ecf0f1;
+}
+.footer h2 {
+    padding-top: 15px;
+    color: #fff;
 }
 .subfooter {
     background: #222629;

@@ -24,7 +24,7 @@
                   </figure>
               </div>
             </div>
-            <div class="uk-width-medium-1-2">
+            <div class="uk-width-medium-1-2 uk-margin-small">
                 <h1><i class="uk-icon uk-icon-child"></i> {{ trans('about.title1') }}</h1>
                 <p>{{ trans('about.text1') }}</p>
                 <p>{{ trans('about.text2') }}</p>
@@ -37,8 +37,8 @@
             </div>
         </div>
         <hr class="uk-grid-divider">
-        <div class="uk-grid uk-container-center" data-uk-grid>
-            <div class="uk-width-1-2 uk-text-justify">
+        <div class="uk-grid" data-uk-grid>
+            <div class="uk-width-medium-1-2 uk-text-justify">
                 <h2><i class="uk-icon uk-icon-book"></i> Sobre o Trabalho de Conclusão de Curso</h2>
                 <p>{{ trans('about.text4') }}</p>
                 <p>{{ trans('about.text5') }}</p>
