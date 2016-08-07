@@ -17,12 +17,6 @@
 
             <?php if ( $wordpress->have_posts() ) : while ( $wordpress->have_posts() ) : $wordpress->the_post(); ?>
               <article id="post-<?php the_ID(); ?>" <?php post_class(array('uk-article')); ?>>
-                @if(has_post_thumbnail())
-                  <figure class="uk-thumbnail">
-                    {{ the_post_thumbnail() }}
-                  </figure>
-                @endif
-
                 <?php
                 if (is_single()) {
                     the_title('<h1 class="uk-article-title">', '</h1>');
@@ -56,6 +50,14 @@
                         <?php the_tags('<span class="nst-tag-list uk-link-reset"><i class="uk-icon-tag"></i> ', ', ', '</span>'); ?>
                     <?php endif; ?>
                 </p>
+
+                @if(has_post_thumbnail())
+                  <a href="{{ the_permalink() }}">
+                  <figure class="uk-thumbnail">
+                    {{ the_post_thumbnail() }}
+                  </figure>
+                  </a>
+                @endif
 
                 <?php if (is_search()) : ?>
                     <div class="nst-entry-summary">

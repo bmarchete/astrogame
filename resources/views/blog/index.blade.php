@@ -54,9 +54,11 @@
                 </p>
 
                 @if(has_post_thumbnail())
+                  <a href="{{ the_permalink() }}">
                   <figure class="uk-thumbnail">
                     {{ the_post_thumbnail() }}
                   </figure>
+                  </a>
                 @endif
 
                 <?php if (is_search()) : ?>

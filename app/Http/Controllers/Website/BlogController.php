@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cache;
+use WP_Query;
 
 class BlogController extends Controller
 {
@@ -19,27 +21,32 @@ class BlogController extends Controller
 
     public function index()
     {
-        $wordpress = new \WP_Query(array(
-            'posts_per_page' => 20,
-            'order' => 'ASC',
-            'orderby' => 'post_title',
-        ));
-
-        $posts = $wordpress;
+        $wordpress = Cache::remember('blog_index', 5, function () {
+          return new WP_Query(
+            [
+              'posts_per_page' => 20,
+              'order' => 'ASC',
+              'orderby' => 'post_title',
+            ]);
+          }
+        );
 
         return view('blog.index', ['wordpress' => $wordpress]);
     }
 
     public function single($slug)
     {
-        $query = new \WP_Query(array(
-            'name' => $slug,
-            'post_type' => 'any',
-        ));
+        $query = Cache::remember('blog_slug_'.$slug, 5, function () use ($slug) {
+          return new WP_Query(
+            [
+              'name' => $slug,
+              'post_type' => 'any',
+            ]);
+          }
+        );
 
         if ($query->have_posts()) {
             $query->the_post();
-
 
             return view('blog.single');
         } else {
@@ -49,37 +56,34 @@ class BlogController extends Controller
 
     public function category($category)
     {
-        $wordpress = new \WP_Query(array(
-          'category' => $category,
-        ));
+        $wordpress = Cache::remember('blog_category'.$category, 5, function () use ($category) {
+            return new WP_Query(['category' => $category]);
+          }
+        );
 
         return view('blog.loop', ['wordpress' => $wordpress, 'title' => get_category_by_slug($category)->name]);
     }
 
     public function tag($tag)
     {
-        $wordpress = new \WP_Query(array(
-          'tag' => $tag,
-        ));
+        $wordpress = new WP_Query(['tag' => $tag]);
 
-        return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Posts com ' . $tag]);
+        return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Posts com '.$tag]);
     }
 
     public function search(Request $request)
     {
-        $query = $request->q;
-        $wordpress = new \WP_Query(array(
-          's' => $query,
-        ));
+        $wordpress = new WP_Query(['s' => $request->q]);
 
         return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Busca por '.$query]);
     }
 
     public function author($author)
     {
-        $wordpress = new \WP_Query(array(
-        'author' => $author,
-      ));
+        $wordpress = Cache::remember('blog_author'.$author, 5, function () use ($author) {
+            return new WP_Query(['author' => $author]);
+          }
+        );
 
         return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Posts de '.get_user_by('slug', $author)->data->display_name]);
     }
