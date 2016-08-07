@@ -26,9 +26,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             <h2>{{ trans('project.home-subtitle')}}</h2>
             <p class="uk-text-muted">{{ trans('project.home-description')}}</p>
             @if (!auth()->check())
-            <p><a class="action-button shadow animate green" href="#login" data-uk-modal=""><i class="uk-icon uk-icon-rocket"></i> {{ trans('project.enter') }}</a></p>
+              @if (env('ASTROGAME_LOGIN'))
+                <p><a class="action-button green" href="#login" data-uk-modal=""><i class="uk-icon uk-icon-rocket"></i> {{ trans('project.enter') }}</a></p>
+              @else
+                <p><button class="action-button disabled" disabled data-uk-tooltip="{pos:'bottom'}" title="Aguarde, logo sairá quentinho do forno um jogo incrível!"><i class="uk-icon uk-icon-close"></i> Login Indisponível</button></p>
+              @endif
             @else
-            <p><a class="action-button shadow animate red" href="{{url('/game')}}"><i class="uk-icon uk-icon-gamepad"></i> {{trans('project.jogar')}}</a></p>
+            <p><a class="action-button red" href="{{url('/game')}}"><i class="uk-icon uk-icon-gamepad"></i> {{trans('project.jogar')}}</a></p>
             @endif
         </div>
 

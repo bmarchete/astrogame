@@ -15,7 +15,9 @@
 
 Route::group(['middleware' => 'web'], function () {
 	// auth
-	Route::auth();
+	if(env('ASTROGAME_LOGIN')){
+		Route::auth();
+	}
 
 	Route::group(['middleware' => 'website'], function(){
 		// website-projeto

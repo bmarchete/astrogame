@@ -18,7 +18,11 @@ class SocialLoginController extends Controller
      */
     public function login($provider)
     {
-        return Socialite::with($provider)->redirect();
+        if(env('ASTROGAME_LOGIN')){
+            return Socialite::with($provider)->redirect();
+        } else {
+            return abort(404, 'Login Desativado');
+        }
     }
 
     /**

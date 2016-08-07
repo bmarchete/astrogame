@@ -58,6 +58,7 @@
     @yield('content')
     @include('project.footer')
 
+    @if (env('ASTROGAME_LOGIN'))
     <div id="login" class="uk-modal">
         <div class="uk-modal-dialog">
             <a href="" class="uk-modal-close uk-close"></a>
@@ -141,6 +142,8 @@
             </form>
         </div>
     </div>
+    @endif
+
     {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js', '/vendor/uikit/js/components/notify.min.js'], ['defer' => true])->withFullUrl() !!}
     @yield('javascript')
 
