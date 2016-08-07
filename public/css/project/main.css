@@ -288,8 +288,15 @@ h6 {
     width: 500px;
 }
 .thumbnav {
-    padding: 40px 0;
+    padding: 20px 0 15px;
+}
+.thumbnav h1 {
     color: #fff;
+    padding-top: 25px;
+}
+.thumbnav-blog {
+    padding-bottom: 50px;
+    background: url('../../img/desastronautas.jpg') no-repeat top right fixed;
 }
 .about {
     background: #ecf0f1;

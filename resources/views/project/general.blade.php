@@ -15,6 +15,7 @@
 
 </head>
 <body>
+  <div id="top"></div>
   <nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
           <a class="uk-navbar-brand uk-hidden-small uk-logo" href="{{ url('/') }}"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
@@ -23,10 +24,11 @@
             <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
             <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
             <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
+            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}">{{ trans('project.navbar.blog') }}</a></li>
             <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
           </ul>
           <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas="" href="#offcanvas"></a>
-          <div class="uk-navbar-center uk-visible-small">
+          <div class="uk-navbar-center uk-visible-small" >
               <a href="{{ url('/')}}">
                   <img alt="astrogame logo" class='logo' src="{{url('img/logo-full.png')}}">
               </a>

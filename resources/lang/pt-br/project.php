@@ -13,6 +13,7 @@ return [
 		'equipe' => 'Equipe',
 		'contato' => 'Contato',
 		'ranking' => 'Ranking',
+		'blog' => 'Blog',
 	],
 
 	'home-title' => 'Jogue e aprenda astronomia!',

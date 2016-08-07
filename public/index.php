@@ -1,4 +1,16 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| Wordpress
+|--------------------------------------------------------------------------
+|
+| Integrate Wordpress with Laravel core
+|
+*/
+if(preg_match('|/blog|', $_SERVER['REQUEST_URI'])){
+  define('WP_USE_THEMES', false);
+  require __DIR__.'/wp/wp-blog-header.php';
+}
 
 /**
  * Laravel - A PHP Framework For Web Artisans

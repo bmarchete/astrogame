@@ -34,6 +34,10 @@ Route::group(['middleware' => 'web'], function () {
 		// public profile
 		Route::get('/player/{nickname}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('nickname', '[a-zA-Z0-9]+');
 		Route::get('/ranking', 'HomeController@ranking');
+
+		// blog
+		Route::get('/blog', 'BlogController@index');
+		Route::get('/blog/{slug}', 'BlogController@single')->where('id', '[a-zA-z-]+');
 	});
 
 	// website-game
