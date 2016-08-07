@@ -12,6 +12,9 @@ class BlogController extends Controller
             include_once $plugin;
         }
 
+        view()->composer('project.general', function ($view) {
+            $view->with('page', 'blog');
+        });
     }
 
     public function index()
@@ -36,6 +39,7 @@ class BlogController extends Controller
 
         if ($query->have_posts()) {
             $query->the_post();
+
 
             return view('blog.single');
         } else {

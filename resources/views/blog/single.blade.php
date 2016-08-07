@@ -13,11 +13,6 @@
     <div class="uk-grid uk-margin-large-top" data-uk-grid-margin>
         <div class="uk-width-medium-4-6">
           <article id="post-<?php the_ID(); ?>" <?php post_class(array('uk-article')); ?>>
-            @if(has_post_thumbnail())
-              <figure class="uk-thumbnail">
-                {{ the_post_thumbnail() }}
-              </figure>
-            @endif
 
             <?php
             if (is_single()) {
@@ -52,6 +47,13 @@
                     <?php the_tags('<span class="nst-tag-list uk-link-reset"><i class="uk-icon-tag"></i> ', ', ', '</span>'); ?>
                 <?php endif; ?>
             </p>
+
+            @if(has_post_thumbnail())
+              <figure class="uk-thumbnail">
+                {{ the_post_thumbnail() }}
+              </figure>
+            @endif
+
 
             <?php if (is_search()) : ?>
                 <div class="nst-entry-summary">
