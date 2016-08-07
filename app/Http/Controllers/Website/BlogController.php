@@ -11,6 +11,7 @@ class BlogController extends Controller
         foreach (wp_get_active_and_valid_plugins() as $plugin) {
             include_once $plugin;
         }
+
     }
 
     public function index()

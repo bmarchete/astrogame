@@ -10,7 +10,7 @@
 <div class="white">
 <div class="uk-container uk-container-center blog">
     <div class="uk-grid uk-margin-large-top" data-uk-grid-margin>
-        <div class="uk-width-medium-3-4">
+        <div class="uk-width-medium-4-6">
             @if (!$wordpress->have_posts())
               <p>Não encontramos nenhum post relacionado :(</p>
             @else
@@ -34,7 +34,7 @@
         @endif
     </div>
 
-    <div class="uk-width-medium-1-4">
+    <div class="uk-width-medium-2-6">
         @include('blog.sidebar')
     </div>
 </div>
