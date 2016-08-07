@@ -1,27 +1,31 @@
 @extends('project.general')
 @section('title') {{ the_title() }} - Astrogame Blog @stop
 @section('content')
-<div class="blog">
-<div class="thumbnav">
+<div class="thumbnav thumbnav-blog">
     <div class="uk-container uk-container-center">
         <h1>{{ the_title() }}</h1>
     </div>
 </div>
+
 <div class="white">
-<div class="uk-container uk-container-center uk-margin-large-top blog">
+<div class="uk-container uk-container-center">
     <div class="uk-grid uk-margin-large-top" data-uk-grid-margin>
         <div class="uk-width-medium-3-4">
           <article class="uk-article" id="post-{{ the_ID() }}">
-              <h1 class="uk-article-title">{{ the_title() }}</h1>
-              <p class="uk-article-meta">{{ trans('blog.written')}} {!! the_author_posts_link() !!} em {{ the_date() }}. {{ trans('blog.category') }} <a href="{{ url('desastronautas/category/') }}">{{ the_category( ', ' ) }}</a></p>
+              <h1 class="uk-article-title">
+                <a href="{{ url('blog/' . get_post_field('post_name', get_post()) ) }}">{{ the_title() }}</a>
+              </h1>
+              <p class="uk-article-meta">{{ trans('blog.written')}} <i class="uk-icon-user"></i> {!! the_author_posts_link() !!} em {{ the_time(get_option( 'date_format' )) }} | {{ trans('blog.category') }} <i class="uk-icon-inbox"></i> <a href="{{ url('desastronautas/category/') }}">{{ the_category( ', ' ) }}</a> | <i class="uk-icon-tags"></i> {{ the_tags()}}</p>
+
+              @if(has_post_thumbnail())
+                <figure class="uk-thumbnail">
+                  {{ the_post_thumbnail() }}
+                </figure>
+              @endif
+
               {!! the_content() !!}
-              <p>
-                  <a class="uk-button uk-button-primary" href="{{ the_permalink() }}">Continuar lendo</a>
-              </p>
           </article>
           <hr class="uk-grid-divider">
-
-          
 
           <div id="disqus_thread"></div>
             <script>
