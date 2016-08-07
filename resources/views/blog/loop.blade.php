@@ -1,9 +1,9 @@
 @extends('project.general')
-@section('title') Astrogame Blog @stop
+@section('title') {{ $title }} @stop
 @section('content')
 <div class="thumbnav thumbnav-blog">
     <div class="uk-container uk-container-center">
-        <h1>Desastronautas</h1>
+        <h1>{{ $title }}</h1>
     </div>
 </div>
 

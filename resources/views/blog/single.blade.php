@@ -51,7 +51,7 @@
     </div>
 
     <div class="uk-width-medium-1-4">
-
+        @include('blog.sidebar')
     </div>
 </div>
 </div>
