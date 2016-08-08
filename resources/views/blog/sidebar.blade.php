@@ -1,3 +1,14 @@
+@section('javascript')
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+@stop
+
 <aside class="uk-panel uk-panel-box">
     <form role="search" method="get" class="uk-form" action="{{ url('/blog/search')}}" data-uk-search>
         <div class="uk-form-icon uk-display-block uk-margin-bottom">
@@ -23,9 +34,9 @@
         <h3 class="uk-panel-title">Categorias</h3>
         <ul class="uk-list-line" style="list-style: none; margin: 0; padding: 0">
             <?php $categories = get_categories(); ?>
-            <?php foreach ($categories as $category): ?>
-            <li><a href="<?= url('/blog/category').'/'.$category->slug ?>" rel="bookmark"><?= $category->name ?></a></li>
-            <?php endforeach; ?>
+            @foreach ($categories as $category)
+              <li><a href="{{ url('/blog/category').'/'.$category->slug }}" rel="bookmark">{{ $category->name }}</a></li>
+            @endforeach
         </ul>
     </div>
 
@@ -38,8 +49,6 @@
 
     <div class="uk-panel uk-margin-large-top">
         <h3 class="uk-panel-title">Social</h3>
-        <figure class="uk-thumbnail">
-            <img src="{{ url('img/large-box.png')}}" alt="">
-        </figure>
+        <div class="fb-page" data-href="https://www.facebook.com/cosmosexpoete" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
     </div>
 </aside>

@@ -38,7 +38,7 @@ class BlogController extends Controller
           }
         );
 
-        return view('blog.index', ['wordpress' => $wordpress]);
+        return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Desastronautas']);
     }
 
     public function single($slug)
@@ -68,21 +68,21 @@ class BlogController extends Controller
           }
         );
 
-        return view('blog.loop', ['wordpress' => $wordpress, 'title' => get_category_by_slug($category)->name]);
+        return view('blog.index', ['wordpress' => $wordpress, 'title' => get_category_by_slug($category)->name]);
     }
 
     public function tag($tag)
     {
         $wordpress = new WP_Query(['tag' => $tag]);
 
-        return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Posts com '.$tag]);
+        return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Posts com '.$tag]);
     }
 
     public function search(Request $request)
     {
         $wordpress = new WP_Query(['s' => $request->s]);
 
-        return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Busca por '.$query]);
+        return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Busca por '.$query]);
     }
 
     public function author($author)
@@ -92,6 +92,6 @@ class BlogController extends Controller
           }
         );
 
-        return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Posts de '.get_user_by('slug', $author)->data->display_name]);
+        return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Posts de '.get_user_by('slug', $author)->data->display_name]);
     }
 }
