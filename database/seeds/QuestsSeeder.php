@@ -61,9 +61,9 @@ class QuestsSeeder extends Seeder
         [
             'id' => 5,
             'name' => 'capitulo_hubble',
-            'title' => 'Capítulo IV - Hubble',
+            'title' => 'Capítulo IV - O astrônomo, não o telescópio',
             'type' => 2, // chapter
-            'description' => 'Kepler nos apresenta suas três leis fundamentais, vamos entender como funciona o movimento planetário!',
+            'description' => 'As galáxias são espetaculares, não é mesmo? Que tal aprender mais sobre elas com a ajuda do famoso Hubble!',
             'objetivos' => 'COMPLETAR O CAPÍTULO',
             'xp_reward' => 2500,
             'money_reward' => 1000,
@@ -76,7 +76,7 @@ class QuestsSeeder extends Seeder
             'name' => 'capitulo_carl_sagan',
             'title' => 'Capítulo V - Carl Sagan',
             'type' => 2, // chapter
-            'description' => 'Kepler nos apresenta suas três leis fundamentais, vamos entender como funciona o movimento planetário!',
+            'description' => 'Carl Sagan precisa de sua ajuda para construir a nave espacial Voyager e começar a explorar o universo!',
             'objetivos' => 'COMPLETAR O CAPÍTULO',
             'xp_reward' => 2500,
             'money_reward' => 1000,

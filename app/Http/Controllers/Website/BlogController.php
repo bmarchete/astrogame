@@ -14,8 +14,15 @@ class BlogController extends Controller
             include_once $plugin;
         }
 
+        $recentPosts = new WP_Query();
+        $recentPosts->query('showposts=10');
+
         view()->composer('project.general', function ($view) {
             $view->with('page', 'blog');
+        });
+
+        view()->composer('blog.sidebar', function ($view) use ($recentPosts) {
+            $view->with('recentPosts', $recentPosts);
         });
     }
 
@@ -73,7 +80,7 @@ class BlogController extends Controller
 
     public function search(Request $request)
     {
-        $wordpress = new WP_Query(['s' => $request->q]);
+        $wordpress = new WP_Query(['s' => $request->s]);
 
         return view('blog.loop', ['wordpress' => $wordpress, 'title' => 'Busca por '.$query]);
     }

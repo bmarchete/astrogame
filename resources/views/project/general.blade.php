@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Entre em nossa plataforma interativa onde você irá explorar o Cosmos, conhecer sobre grandes nomes da astronomia e aprender sobre as estrelas, os planetas, o universo e tudo mais!">
-    <meta name="author" content="Eduardo Augusto Ramos">
+    <meta name="description" content="Astrogame é um jogo online onde é possível aprender astronomia através do conceito de gamification, estudando de forma lúcida e divertida com jogos no estilo plataforma, puzzle, point-and-click e outros">
+    <meta name="keywords" content="astrogame, astronomia, jogo, gamification, gratis, online, cosmos, astrofísica, etec, tcc, emia, universo">
+    
     <title>@yield('title')</title>
 
     {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css', '/vendor/uikit/css/components/notify.gradient.css'])->withFullUrl() !!}
