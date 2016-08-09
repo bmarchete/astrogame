@@ -66,7 +66,7 @@
                     </figure>
                 </div>
             </div>
-            <div class="uk-width-large-1-2">
+            <div class="uk-width-large-1-2 uk-margin-top">
                 <div class="uk-text-center">
                   <img src="{{ url('img/logo-cosmos.png') }}" alt="Projeto Cosmos Logo" width="200">
                 </div>
@@ -146,15 +146,39 @@
                     <li>YASMIN MENEZES</li>
                 </ul>
             </div>
-            <div class="uk-width-large-1-2" data-uk-scrollspy="{cls:'uk-animation-fade'}">
+            <div class="uk-width-large-1-2 uk-margin-top" data-uk-scrollspy="{cls:'uk-animation-fade'}">
                 <div class="uk-slidenav-position" data-uk-slideshow="{autoplay:true}">
                     <ul class="uk-slideshow">
-                        <li><img src="{{ url('img/history/equipe_completa.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/equipe_com_patrocinador.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/equipe.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/equipe_2.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/equipe_5.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/equipe_6.jpg') }}" alt=""></li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/equipe_completa.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/equipe_com_patrocinador.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/equipe.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/equipe_2.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/equipe_5.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/equipe_6.jpg') }}" alt="">
+                          </figure>
+                        </li>
                     </ul>
                     <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)"></a>
                     <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)"></a>
@@ -165,26 +189,82 @@
             <div class="uk-width-large-1-2" data-uk-scrollspy="{cls:'uk-animation-fade'}">
                 <div class="uk-slidenav-position" data-uk-slideshow="{autoplay:true}">
                     <ul class="uk-slideshow">
-                        <li><img src="{{ url('img/history/nebulosa.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/buraco_negro.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/visitacao1.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/visitacao2.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/lousa.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/simluador_cinema.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/simluador_interno.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/simluador_projetor.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/simluador2.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/lousa.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/planetario.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/planetario_claro.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/equipe_stands.jpg') }}" alt=""></li>
-                        <li><img src="{{ url('img/history/disco_da_voayger.jpg') }}" alt=""></li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/nebulosa.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/buraco_negro.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/visitacao1.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/visitacao2.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/lousa.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/simluador_cinema.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/simluador_interno.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/simluador_projetor.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/simluador2.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/lousa.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/planetario.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/planetario_claro.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/equipe_stands.jpg') }}" alt="">
+                          </figure>
+                        </li>
+                        <li>
+                          <figure class="uk-thumbnail">
+                            <img src="{{ url('img/history/disco_da_voayger.jpg') }}" alt="">
+                          </figure>
+                        </li>
                     </ul>
                     <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)"></a>
                     <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)"></a>
                 </div>
             </div>
-            <div class="uk-width-large-1-2">
+            <div class="uk-width-large-1-2 uk-margin-top">
                 @for ($i = 1; $i <= 4; $i++) <blockquote>
                     <p>{{ trans('about.depoimento' . $i )}}</p>
                     <small>{{ trans('about.depoimento_author' . $i )}}</small>

@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="thumbnav thumbnav-blog">
-    <div class="uk-container uk-container-center">
+    <div class="uk-container uk-container-center uk-text-center-small">
         <h1>{{ the_title() }}</h1>
     </div>
 </div>
@@ -11,8 +11,8 @@
 <div class="white">
 <div class="uk-container uk-container-center">
     <div class="uk-grid uk-margin-large-top" data-uk-grid-margin>
-        <div class="uk-width-medium-4-6 uk-panel uk-panel-box">
-
+        <div class="uk-width-medium-4-6">
+          <div class="uk-panel uk-panel-box">
           @include('blog.post')
 
           <hr class="uk-grid-divider">
@@ -38,6 +38,7 @@
             })();
             </script>
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
     </div>
 
     <div class="uk-width-medium-2-6">

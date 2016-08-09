@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 @stop
 
 @section('content')
-<div class="uk-container uk-margin-large-top uk-container-center uk-text-center-small">
+<div class="uk-container uk-margin-large-top uk-container-center">
     <div class="uk-grid" data-uk-grid-margin="">
-        <div class="uk-vertical-align-middle uk-width-medium-3-6 uk-margin-large-top welcome">
+        <div class="uk-vertical-align-middle uk-width-medium-3-6 welcome">
             <h1>{{trans('project.home-title')}}</h1>
             <h2>{{ trans('project.home-subtitle')}}</h2>
             <p class="uk-text-muted">{{ trans('project.home-description')}}</p>
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             @endif
         </div>
 
-        <div class="uk-width-medium-3-6 uk-hidden-small">
-            <div class="astronaut uk-animation-hover uk-animation-shake" data-uk-tooltip title="That's one small step for a man, one giant leap for mankind."></div>
+        <div class="uk-width-medium-3-6">
+            <img src="{{ url('img/astronaut.png') }}" class="astronaut uk-animation-hover uk-animation-shake" data-uk-tooltip title="That's one small step for a man, one giant leap for mankind.">
         </div>
     </div>
 </div>

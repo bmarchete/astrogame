@@ -43,7 +43,7 @@
   <div class="uk-offcanvas" id="offcanvas">
       <div class="uk-offcanvas-bar">
           <ul class="uk-nav uk-nav-offcanvas">
-            <li @if ($page=='index' ) class="uk-active" @endif>
+            <li @if ($page=='home') class="uk-active" @endif>
                 <a href="{{ URL('/') }}"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
             </li>
             <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
