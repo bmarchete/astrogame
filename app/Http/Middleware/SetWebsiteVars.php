@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\User;
+use Cache;
 
 class SetWebsiteVars
 {
@@ -26,6 +28,26 @@ class SetWebsiteVars
             $view->with('page', $uri);
         });
 
+        if($uri == 'ranking'){
+            $this->getOnlineUsersCount();
+        }
+
         return $next($request);
+    }
+
+    private function getOnlineUsersCount()
+    {
+      view()->composer('project.ranking', function ($view) {
+              $users = User::select('id')->where('online', 1)->get();
+              $onlineUsersCount = 0;
+
+              foreach ($users as $user) {
+                  if (Cache::has('user-is-online-'.$user->id)) {
+                      ++$onlineUsersCount;
+                  }
+              }
+
+              $view->with(['onlineUsers' => $onlineUsersCount]);
+      });
     }
 }

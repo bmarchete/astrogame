@@ -13,7 +13,13 @@ Ranking Global | Astrogame
   <div class="uk-container uk-container-center">
     <div class="uk-width-large-3-6 uk-container-center">
         <div class="uk-panel uk-panel-box">
-            <h2 class="uk-text-center"><i class="uk-icon uk-icon-cubes"></i> Ranking Global</h2>
+            <h2 class="uk-text-center"><i class="uk-icon uk-icon-cubes"></i> Ranking Global
+            @if($onlineUsers > 1)
+              <span class="uk-panel-badge uk-badge uk-badge-success">{{$onlineUsers}} jogadores online</span>
+            @elseif ($onlineUsers == 1)
+              <span class="uk-panel-badge uk-badge uk-badge-success">1 jogador solitário online</span>
+            @endif
+            </h2>
             <ul class="uk-list uk-list-striped ranking-list">
               @forelse ($players as $player)
               <li>
