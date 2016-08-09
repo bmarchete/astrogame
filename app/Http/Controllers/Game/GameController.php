@@ -11,7 +11,7 @@ use Share;
 class GameController extends Controller
 {
     public function index(){
-        return view('game.chapters.welcome');
+        return view('game.welcome');
     }
 
     public function campaing_map()

@@ -15,7 +15,8 @@
         "msurguy/honeypot": "dev-master",
         "greggilbert/recaptcha": "^2.1",
         "chencha/share": "^5.2",
-        "johnpbloch/wordpress": "^4.5"
+        "johnpbloch/wordpress": "^4.5",
+        "libern/qr-code-reader": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -59,6 +60,6 @@
         "preferred-install": "dist"
     },
     "extra": {
-      "wordpress-install-dir": "public/blog_full_admin"
+      "wordpress-install-dir": "public/blog"
     }
 }

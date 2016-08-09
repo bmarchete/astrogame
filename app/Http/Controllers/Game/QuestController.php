@@ -104,7 +104,8 @@ class QuestController extends GameController
     // quests
     public function quest(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+
+        $validator = Validator::make(['name' => $request->name], [
             'name' => 'required|max:255|exists:quests,name',
         ]);
 

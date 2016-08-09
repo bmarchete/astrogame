@@ -21,8 +21,8 @@ class QuestsSeeder extends Seeder
 
         [
             'id' => 2,
-            'name' => 'capitulo_copernico',
-            'title' => 'Capítulo I - O Pai da Astronomia',
+            'name' => 'capitulo_copernico_primeira_missao',
+            'title' => 'Capítulo I - O Pai da Astronomia - Alinhar as orbitas do planeta',
             'type' => 2, // chapter
             'description' => 'Copérnico, o Pai da Astronomia moderna, irá nos falar um pouco sobre a sua principal teoria, o Heliocentrismo!',
             'objetivos' => 'COMPLETAR O CAPÍTULO',

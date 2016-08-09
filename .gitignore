@@ -15,4 +15,4 @@ Thumbs.db
 *.ogv
 *.webm
 composer.lock
-/public/blog_full_admin
+/public/blog
