@@ -90,7 +90,7 @@ return [
 	'team' => 'Equipe Desastronautas',
 	'team-pre-text' => 'Equipe fundadora e desenvolvedora do jogo',
 	'team-about' => 'Desastronautas',
-	'team-text' => '<p>Somos um grupo de amigos do terceiro ano do Ensino médio Integrado à Informática para Internet do Centro Paula Souza ETEC Pedro Ferreira Alves de Mogi Mirim. Humanoides, mochileiros, nerds, aspirantes dos mistérios do Cosmos, amantes da tecnologia e maratonistas – de séries. </p><p>O grupo surgiu a partir da necessidade de se formar equipes para o TCC, e decidimos, portanto, que em nosso tema - depois de várias e várias discussões - abordaríamos a Astrologia e Cosmologia pois, assim como Carl Sagan, acreditamos que somos uma parte deste Cosmo, nascidos dele, nossos destinos irremediavelmente ligado a ele. </p>',
+	'team-text' => '<p>Somos um grupo de amigos do terceiro ano do Ensino médio Integrado à Informática para Internet do Centro Paula Souza ETEC Pedro Ferreira Alves de Mogi Mirim. Humanoides, mochileiros, nerds, aspirantes dos mistérios do Cosmos, amantes da tecnologia e maratonistas – de séries. </p><p>O grupo surgiu a partir da necessidade de se formar equipes para o TCC, e decidimos, portanto, que em nosso tema - depois de várias e várias discussões - abordaríamos a Astronomia e Cosmologia pois, assim como Carl Sagan, acreditamos que somos uma parte deste Cosmo, nascidos dele, nossos destinos irremediavelmente ligado a ele. </p>',
 	'team-figcaption' => 'Desastronautas reunidos!',
 
 	// about
