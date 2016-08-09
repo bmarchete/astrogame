@@ -336,6 +336,9 @@ h6 {
     color: #fff;
     background: url('../../img/spaceship-night.png') no-repeat top / cover;
 }
+.team a {
+    color: #fff;
+}
 .ranking {
     background: #3498db url('../../img/liftoff.png') no-repeat right bottom fixed;
     padding: 40px 0;

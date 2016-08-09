@@ -32,7 +32,7 @@
                     </figcaption>
                 </figure>
             </div>
-            <h2 class="uk-margin-top">{{ $member->name }}</h2>
+            <h2 class="uk-margin-top"><a href="{{ url('/blog/author') . '/' . $member->blog }}">{{ $member->name }}</a></h2>
             <p class="uk-text-large">{{ $member->description }}</p>
         </div>
         @endforeach

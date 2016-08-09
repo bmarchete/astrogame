@@ -63,6 +63,7 @@ class HomeController extends Controller
     public function equipe()
     {
         $team = [(object) [
+            'blog' => 'eduardo',
             'name' => 'Eduardo Ramos',
             'img' => 'img/team/edu.jpg',
             'description' => 'Programador, roteirista, front-end, designer, sysadmin e mochileiro',
@@ -73,6 +74,7 @@ class HomeController extends Controller
             ],
 
             (object) [
+                'blog' => 'adriano',
                 'name' => 'Adriano Faboci',
                 'img' => 'img/team/adriano.jpg',
                 'description' => 'Game designer, roteirista e mochileiro',
@@ -81,6 +83,7 @@ class HomeController extends Controller
               ],
 
             (object) [
+                'blog' => 'brenda',
                 'name' => 'Brenda Conttessotto',
                 'img' => 'img/team/bre.jpg',
                 'description' => 'Escritora e mochileira',
@@ -90,6 +93,7 @@ class HomeController extends Controller
                 ],
 
             (object) [
+                'blog' => 'lais',
                 'name' => 'Laís Vitória',
                 'img' => 'img/team/lais.jpg',
                 'description' => 'Artista, roteirista, escritora, designer e mochileira',
@@ -99,6 +103,7 @@ class HomeController extends Controller
               ],
 
             (object) [
+                'blog' => 'gabriel',
                 'name' => 'Gabriel Ferreira',
                 'img' => 'img/team/gabriel.jpg',
                 'description' => 'Escritor, roteirista e mochileiro',
