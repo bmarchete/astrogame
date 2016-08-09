@@ -59,7 +59,7 @@ return [
 	'register' => 'Criar Conta',
 
 	// footer
-	'made-by' => 'Feito com <i class="uk-icon-heart"></i> e <i class="uk-icon-coffee"></i> pelo 3º EMIA (2016)',
+	'made-by' => 'Feito com <i class="uk-icon-heart" title="Amor" data-uk-tooltip="{pos:\'top\'}"></i> e <i class="uk-icon-coffee" title="Café" data-uk-tooltip></i> pelo 3º EMIA (2016)',
 	'termos' => 'Termos de Uso',
 	'politica' => 'Política de Privacidade',
 	'credits' => 'Créditos',
