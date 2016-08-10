@@ -10,6 +10,7 @@ use App\Insignas;
 use App\User;
 use App\Item;
 use Cache;
+use DB;
 
 class SetGameVars
 {
@@ -28,17 +29,11 @@ class SetGameVars
             $planet = new UserObservatory(); // melhor isso daqui
             $planet->get_users_planetarium();
 
-            $telescopios = Cache::rememberForever('telescopios', function(){
-                return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();
-            });
+            $insignas = $this->insignas();
+            $shop = $this->shop_items();
+            $ranking = $this->ranking();
 
-            $livros = Cache::rememberForever('livros', function(){
-                return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Guia%')->get();
-            });
-
-            $shop = ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => []];
-
-            view()->composer('game.general.general', function ($view) use ($planet, $shop) {
+            view()->composer('game.general.general', function ($view) use ($planet, $insignas, $shop, $ranking) {
                   $view->with('user_name', auth()->user()->nickname)
                        ->with('user_level', auth()->user()->level)
                        ->with('user_money', auth()->user()->money)
@@ -52,7 +47,9 @@ class SetGameVars
                        ->with('lang', session()->get('language', 'pt-br'))
                        ->with('bag', auth()->user()->bag())
                        ->with('user_insignas', auth()->user()->insignas)
-                       ->with('shop', $shop) // alterar isso daqui
+                       ->with('all_insignas', $insignas)
+                       ->with('ranking', $ranking)
+                       ->with('shop', $shop)
                        ->with('avaliable_quests', Quest::avaliable_quests())
                        ->with('accepted_quests', Quest::accepted_quests())
                        ->with('planetarium', $planet->planetarium);
@@ -63,6 +60,30 @@ class SetGameVars
     }
 
     public function shop_items(){
+        $telescopios = Cache::rememberForever('telescopios', function(){
+            return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();
+        });
 
+        $livros = Cache::rememberForever('livros', function(){
+            return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Guia%')->get();
+        });
+
+        return ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => []];
+    }
+
+    public function ranking(){
+        return Cache::remember('ranking', 5, function(){
+            DB::statement(DB::raw('set @row:=0'));
+            return User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'nickname')
+                      ->whereHas('config', function ($q) {
+                          $q->where('key', 'private')->where('content', false);
+                      })->limit(100)->orderBy('xp', 'DESC')->get();
+        });
+    }
+
+    public function insignas(){
+        return Cache::rememberForever('insignas', function(){
+          return Insignas::all();
+        });
     }
 }

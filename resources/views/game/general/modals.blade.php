@@ -106,7 +106,7 @@
 </div>
 
 <!-- insignas details modal -->
-@forelse($user_insignas as $insigna)
+@forelse($all_insignas as $insigna)
 <div id="insigna-{{ $insigna->id }}" class="uk-modal">
     <div class="uk-modal-dialog">
         <a href="#" class="uk-modal-close uk-close"></a>
@@ -119,7 +119,11 @@
                 </figure>
             </div>
             <div class="uk-width-3-4">
+                <h3>Descrição</h3>
                 <p>{{ $insigna->reason }}</p>
+
+                <h3>Como conseguir?</h3>
+                <p>{{ $insigna->how }}</p>
             </div>
         </div>
 
@@ -306,16 +310,46 @@
   </li>
   <li>
       <ul class="uk-list insignas" style="overflow-y: scroll; height: 400px">
-          @forelse($user_insignas as $insigna)
+          @forelse($all_insignas as $insigna)
+          @if(auth()->user()->insignas->contains($insigna))
           <li>
               <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
                   <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
               </figure>
           </li>
+          @else
+          <li>
+              <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px; filter: grayscale(100%);">
+                  <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="Como eu consigo essa insigna?">
+              </figure>
+          </li>
+
+          @endif
           @empty
           {!! trans('game.empty-insignas') !!}
           @endforelse
       </ul>
+      <p><i class="uk-icon-exclamation-circle"></i> Uma insigna cinza significa que você ainda não conquistou ela ainda!</p>
+  </li>
+  <li>
+    <h4>Ranking Global</h4>
+    <ul class="uk-list uk-list-striped ranking-list">
+      @forelse ($ranking as $player)
+      <li>
+          <div class="uk-border-circle uk-hidden-small" style="width: 60px; display: inline-block">
+              <a href="{{ url('/player') . '/' . $player->nickname }}">
+                <img src="{{ $player->avatar() }}" alt="{{ $player->name }} avatar" class="uk-border-circle avatar">
+              </a>
+          </div>
+          <ul class="uk-list" style="display: inline-block;">
+              <li># <strong>{{ $player->row}}</strong> &nbsp; <a href="{{ url('/player') . '/' . $player->nickname }}"><strong>{{ $player->name }}</strong></a> ({{ $player->patente() }})</li>
+              <li><i class="uk-icon-exclamation"></i> Level: {{ $player->level }} - ({{$player->xp}} XP)</li>
+          </ul>
+      </li>
+      @empty
+        <p>Acho que ninguém começou a jogar ainda :(</p>
+      @endforelse
+    </ul>
   </li>
 </ul>
 </div>
@@ -369,7 +403,7 @@
                       <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $avaliable_quests->first()->xp_reward }}</span> XP</span>
                   </div>
                   <div class="uk-width-2-4 uk-text-right">
-                      <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->name }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
+                      <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->id }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
                   </div>
               </div>
           </div>

@@ -367,10 +367,8 @@ $(document).ready(function(){
                     UIkit.notify("<i class=\"uk-icon-exclamation\"> </i> {{ trans('game.quest-accepted') }}", {status:'success', pos: 'top-right'});
                     quest_effect.play();
                     $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
+                    window.location = '{{ url('/game/quest') }}' + '/' + quest_name;
 
-                    if(quest_id > 1) { // ponto pálido
-                        window.location = '{{ url('/game/quest') }}' + '/' + quest_name;
-                    }
 
                 } else {
                     UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})

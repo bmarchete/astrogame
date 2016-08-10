@@ -3,6 +3,14 @@
 {{ trans('chapters.welcome.title') }} | {{ trans('project.title') }}
 @stop
 
+@section('style')
+<style>
+canvas, canvas * {
+	image-rendering: optimizeSpeed
+}
+</style>
+@stop
+
 @section('javascript')
 {!! Minify::javascript(['/js/chapters/general.js'])->withFullURL() !!}
 {!! Minify::javascript(['/construct/welcome/c2runtime.js'])->withFullURL() !!}">
