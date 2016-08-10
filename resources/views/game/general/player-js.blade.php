@@ -351,6 +351,7 @@ $(document).ready(function(){
     // quest accept
     $(".accept-quest").click(function(){
         var quest_id = $(this).val();
+        var quest_name = $('quest-name-' + quest_id).html();
         var formData = new FormData();
         formData.append('id', quest_id);
 
@@ -368,7 +369,7 @@ $(document).ready(function(){
                     $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
 
                     if(quest_id > 1) { // ponto pálido
-                        window.location = '{{ url('/game/quest') }}' + '/' + quest_id;
+                        window.location = '{{ url('/game/quest') }}' + '/' + quest_name;
                     }
 
                 } else {
@@ -387,6 +388,7 @@ $(document).ready(function(){
         var id = $(this).val();
 
         var quest_title = $("#quest-title-" + id).html();
+        var quest_name = $("#quest-name-" + id).html();
         var quest_description = $("#quest-description-" + id).html();
         var quest_objetivos = $("#quest-objetivos-" + id).html();
         var xp_reward = $("#xp-reward-" + id).html();
@@ -397,7 +399,7 @@ $(document).ready(function(){
         $(".quest-objetivos").html(quest_objetivos);
         $(".xp-reward").html(xp_reward);
         $(".money-reward").html(money_reward);
-        $(".accept-quest").val(id);
+        $(".accept-quest").attr('href', '{{ url('/game/quest')}}' + '/' + quest_name);
     });
 
     var planetarium = $.virtualsky({

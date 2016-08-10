@@ -56,7 +56,7 @@ Route::group(['middleware' => 'web'], function () {
 		Route::post('/quest_accept', 'QuestController@quest_accept');
 		Route::post('/quest_cancel', 'QuestController@quest_cancel');
 		Route::post('/quest_complete', 'QuestController@quest_complete');
-		Route::get('/quest/{name}', 'QuestController@quest')->where('name', '[a-z_]+');
+		Route::get('/quest/{name}', 'QuestController@quest')->where('name', '[a-zA-Z0-9_]+');
 
 		// item
 		Route::post('/buy_item', 'ShopController@buy_item');

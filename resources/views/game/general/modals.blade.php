@@ -343,6 +343,7 @@
 
               @foreach ($avaliable_quests as $quest)
               <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
+              <div class="uk-hidden" id="quest-name-{{$quest->id}}">{{ $quest->name }}</div>
               <div class="uk-hidden" id="quest-description-{{$quest->id}}">{!! $quest->description !!}</div>
               <div class="uk-hidden" id="quest-objetivos-{{$quest->id}}">{!! $quest->objetivos !!}</div>
               <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
@@ -368,7 +369,7 @@
                       <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $avaliable_quests->first()->xp_reward }}</span> XP</span>
                   </div>
                   <div class="uk-width-2-4 uk-text-right">
-                      <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->id }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
+                      <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->name }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
                   </div>
               </div>
           </div>
@@ -385,6 +386,7 @@
 
               @foreach ($accepted_quests as $quest)
                 <div class="uk-hidden" id="quest-title-{{$quest->id}}">{{ $quest->title }}</div>
+                <div class="uk-hidden" id="quest-name-{{$quest->id}}">{{ $quest->name }}</div>
                 <div class="uk-hidden" id="quest-description-{{$quest->id}}">{{ $quest->description }}</div>
                 <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
                 <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
@@ -398,8 +400,10 @@
 
           <div class="uk-width-medium-2-3 uk-overflow-container">
               <div style="height: 160px; overflow-y: scroll">
-                  <h3 class="quest-title">{{ $accepted_quests->first()->title }}</h3>
-                  <p class="quest-description">{{ $accepted_quests->first()->description }}</p>
+                <h3 class="quest-title">{{ $accepted_quests->first()->title }}</h3>
+                <p class="quest-description">{!! $accepted_quests->first()->description !!}</p>
+                <h5><strong>Objetivos</strong></h5>
+                <p class="quest-objetivos">{!! $accepted_quests->first()->objetivos !!}</p>
               </div>
               <h3>{{ trans('game.quest-reward') }}</h3>
               <div class="uk-grid" data-uk-grid>
@@ -408,7 +412,7 @@
                       <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $accepted_quests->first()->xp_reward }}</span> XP</span>
                   </div>
                   <div class="uk-width-2-4 uk-text-right">
-                      <a href="{{ URL('/game/quest') . '/' . $accepted_quests->first()->id }}" class="uk-button uk-button-danger accept-quest">Retornar a missão <i class="uk-icon-external-link"></i></a>
+                      <a href="{{ URL('/game/quest') . '/' . $accepted_quests->first()->name }}" class="uk-button uk-button-danger accept-quest">Retornar a missão <i class="uk-icon-external-link"></i></a>
                   </div>
               </div>
           </div>
