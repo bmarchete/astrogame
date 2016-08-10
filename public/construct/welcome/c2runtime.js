@@ -3635,9 +3635,9 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 			xhr = new ActiveXObject("Microsoft.XMLHTTP");
 		else
 			xhr = new XMLHttpRequest();
-		var datajs_filename = "construct/welcome/data.js";
+		var datajs_filename = "../../construct/welcome/data.js";
 		if (this.isWindows8App || this.isWindowsPhone8 || this.isWindowsPhone81 || this.isWindows10)
-			datajs_filename = "construct/welcome/data.json";
+			datajs_filename = "../../construct/welcome/data.json";
 		xhr.open("GET", datajs_filename, true);
 		var supportsJsonResponse = false;
 		if (!this.isDomFree && ("response" in xhr) && ("responseType" in xhr))

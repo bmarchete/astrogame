@@ -156,7 +156,7 @@ class QuestsSeeder extends Seeder
     public function run()
     {
         foreach ($this->quests as $quest) {
-            if (DB::table('quests')->where('title', $quest['title'])->get() == null) {
+            if (DB::table('quests')->where('id', $quest['id'])->get() == null) {
                 DB::table('quests')->insert($quest);
                 $this->command->info('Quest: '.e($quest['title']).' adicionado.');
             }
