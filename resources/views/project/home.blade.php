@@ -79,7 +79,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 <p>{{ trans('project.home-text.text4') }}</p>
                 <p>{{ trans('project.home-text.text5') }}</p>
                 <p>{{ trans('project.home-text.text6') }}</p>
-                <a class="action-button blue" href="#login" data-uk-modal><i class="uk-icon uk-icon-gamepad"></i> {{ trans('project.play') }}</a>
+
+                @if(auth()->check())
+                  <a class="action-button red" href="{{ url('/game')}}" data-uk-modal><i class="uk-icon uk-icon-gamepad"></i> {{ trans('project.jogar') }}</a>
+                @else
+                  <a class="action-button blue" href="#login" data-uk-modal><i class="uk-icon uk-icon-gamepad"></i> {{ trans('project.play') }}</a>
+                @endif
                 @if (session()->get('language', 'pt-br') == 'pt-br')
                     <a class="action-button red" href="{{ url('lang/en')}}"><i class="uk-icon uk-icon-language"></i> Available in English</a>
                 @else

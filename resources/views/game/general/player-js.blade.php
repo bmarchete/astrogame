@@ -73,53 +73,65 @@ function startIntro(){
       'doneLabel': 'OK entendi :)',
       steps: [
         {
-          intro: "Bem vindo, nesse jogo você poderá aprender o básico sobre astronomia, mas antes vamos te guiar pelo jogo e mostrar o que você pode fazer nele!"
+          intro: '{{ trans('tutorial.tuto1')}}'
         },
 
         {
-          intro: "Acesso para <i class='uk-icon-user'></i> perfil, <i class='uk-icon-cog'></i> configurar sua conta, visualizar a quantidade de dinheiro diponível, patentes,  <i class='uk-icon-shopping-bag'></i> mochila e ranking!",
+          intro: '{{ trans('tutorial.tuto2')}}',
           element: document.querySelector('.menu-jogador'),
           position: 'right'
         },
 
         {
-          intro: "Aqui você pode ver qual capítulo você está e quais faltam completar",
+          intro: '{{ trans('tutorial.tuto3')}}',
           element: document.querySelector('.menu-campanha'),
           position: 'right'
         },
 
         {
-          intro: "Aqui você aceitar e realizar missões para ganhar mais <i class='uk-icon uk-icon-exclamation'></i> XP e <i class='uk-icon uk-icon-money'></i> dinheiro",
+          intro: '{{ trans('tutorial.tuto4')}}',
           element: document.querySelector('.menu-missions'),
           position: 'right'
         },
 
         {
-          intro: "Aqui você comprar itens com dinheiro adquirido nos capítulos e missões",
+          intro: '{{ trans('tutorial.tuto5')}}',
           element: document.querySelector('.menu-loja'),
           position: 'right'
         },
 
         {
-          intro: "Você pode visualizar as estrelas aqui",
+          intro: '{{ trans('tutorial.tuto6')}}',
           element: document.querySelector('.menu-observatory'),
           position: 'right'
         },
 
         {
-          intro: "Aqui você pode alterar o volume do som do jogo e idiomas",
+          intro: '{{ trans('tutorial.tuto7')}}',
           element: document.querySelector('.menu-config'),
           position: 'right'
         },
 
         {
-          intro: "Você pode nos enviar sugestões de novas fases, ideias de jogos, melhorias, erros que estão acontecendo no jogo, críticas, e qualquer outra ideia que vier a sua mente.",
+          intro: '{{ trans('tutorial.tuto8')}}',
           element: document.querySelector('.menu-suggestions'),
           position: 'right'
         },
 
         {
-          intro: "Para começar a jogar clique aqui!",
+          intro: '{{ trans('tutorial.tuto9')}}',
+          element: document.querySelector('.menu-home'),
+          position: 'top'
+        },
+
+        {
+          intro: '{{ trans('tutorial.tuto10')}}',
+          element: document.querySelector('.menu-logout'),
+          position: 'top'
+        },
+
+        {
+          intro: '{{ trans('tutorial.tuto11')}}',
           element: document.querySelector('#big-bang'),
           position: 'top'
         },
@@ -127,11 +139,17 @@ function startIntro(){
       ]
     });
 
-    intro.start().onexit(function() {
-        tutorial('done');
-        $('#tutorial-done').hide();
-        $('#tutorial-again').show();
+    intro.start().onexit(function(){
+      complete_tutorial();
+    }).oncomplete(function(){
+      complete_tutorial();
     });
+}
+
+function complete_tutorial(){
+      tutorial('done');
+      $('#tutorial-done').hide();
+      $('#tutorial-again').show();
 }
 
 function tutorial(done_or_again){

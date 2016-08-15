@@ -5,9 +5,9 @@ return [
 
     'title1' => 'Jogue e Aprenda',
 
-    'text1' => 'O astrogame foi idealizado com o intuito de facilitar e ampliar a divulgação de conhecimentos científicos relacionados a astrofísica e astronomia. A divulgação de material educacional relacionado essas matérias se dá de forma carente e fraca, pois não há incentivo nas escolas e muito pouco para o público em geral.',
+    'text1' => 'O astrogame foi idealizado com o intuito de facilitar e ampliar a divulgação de conhecimentos científicos relacionados a astrofísica e astronomia. A divulgação de material educacional relacionado a essas matérias se dá de forma carente e fraca, pois não há incentivo nas escolas e tampouco para o público em geral.',
     'text2' => 'Na internet encontramos grandes acervos de conteúdo de astronomia e astrofísica, porém esse material é de difícil absorção, pois muitas vezes se encontra de forma densa e complicada, tornando a leitura desses conteúdos muito maçante e cansativa, o que acaba por desestimular aqueles que possuem vontade de aprender sobre esses temas.',
-    'text3' => 'Através do astrogame é possível aprender através do conceito de gamification ou ludificação, uma espécie de <i>e-learning</i>, onde você pode explorar diversos assuntos da astronomia completando missões, coletando itens e insignas e diversos outros mecanismos. <strong>Experimente agora, o jogo é grátis <i class="uk-icon-smile-o"></i></strong> ',
+    'text3' => 'Através do astrogame é possível aprender por meio do conceito de gamification ou ludificação, uma espécie de <i>e-learning</i>, onde você pode explorar diversos assuntos da astronomia completando missões, coletando itens e insignas e diversos outros mecanismos. <strong>Experimente agora, o jogo é grátis <i class="uk-icon-smile-o"></i></strong> ',
 
     'button1' => 'Entrar e Jogar!',
 
