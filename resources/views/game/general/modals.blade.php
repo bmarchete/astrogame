@@ -403,7 +403,7 @@
                       <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $avaliable_quests->first()->xp_reward }}</span> XP</span>
                   </div>
                   <div class="uk-width-2-4 uk-text-right">
-                      <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->id }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
+                      <button class="uk-button uk-button-success accept-quest" value="{{ $avaliable_quests->first()->name }}">{{ trans('game.quest-get') }} <i class="uk-icon-exclamation"></i></button>
                   </div>
               </div>
           </div>

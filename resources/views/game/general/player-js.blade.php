@@ -226,7 +226,6 @@ $(document).ready(function(){
           {{ session(['orientation' => true]) }}
       }
     @endif
-    screen.orientation.lock('landscape');
 
     @if (session()->has('notify'))
         @foreach (session()->get('notify') as $notify)
