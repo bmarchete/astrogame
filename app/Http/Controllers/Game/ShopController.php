@@ -21,7 +21,7 @@ class ShopController extends GameController
             return ['status_or_price' => false, 'msg' => 'Não é possível comprar esse item devido ao seu level'];
         }
 
-        if ($user->money <= $item->price) {
+        if ($user->money < $item->price) {
             return ['status_or_price' => false, 'msg' => 'Não é possível comprar esse item, pois não há dinheiro suficiente'];
         }
 
