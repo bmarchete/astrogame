@@ -121,13 +121,13 @@ function startIntro(){
         {
           intro: '{{ trans('tutorial.tuto9')}}',
           element: document.querySelector('.menu-home'),
-          position: 'top'
+          position: 'right'
         },
 
         {
           intro: '{{ trans('tutorial.tuto10')}}',
           element: document.querySelector('.menu-logout'),
-          position: 'top'
+          position: 'right'
         },
 
         {
@@ -161,9 +161,9 @@ function tutorial(done_or_again){
     });
 }
 
-function complete_quest(quest_id){
+function complete_quest(quest_name){
     var formData = new FormData();
-    formData.append('id', quest_id);
+    formData.append('name', quest_name);
 
     $.ajax({
          url: '{{ url('/game/quest_complete')}}',
@@ -181,7 +181,7 @@ function complete_quest(quest_id){
                     window.location = '{{ url('/game') }}';
                 }, 1000);
             } else {
-                UIkit.notify('<i class="uk-icon-exclamation"></i> Erro ao completar a missão', {status: 'danger', pos:'top-right'});
+                UIkit.notify('<i class="uk-icon-exclamation"></i> ' + data.text, {status: 'danger', pos:'top-right'});
             }
          },
          error: function(data){
@@ -221,6 +221,7 @@ $(document).ready(function(){
           {{ session(['orientation' => true]) }}
       }
     @endif
+    screen.orientation.lock('landscape');
 
     @if (session()->has('notify'))
         @foreach (session()->get('notify') as $notify)

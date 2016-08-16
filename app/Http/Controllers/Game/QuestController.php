@@ -38,9 +38,13 @@ class QuestController extends GameController
         return response()->json(['canceled' => $status]);
     }
 
-    public function quest_complete(QuestRequest $request)
+    public function quest_complete(Request $request)
     {
-        $quest_id = $request->id;
+        $quest = Quest::select('id')->where('name', $request->name)->limit(1)->first();
+        if(!$quest){
+            return response()->json(['status' => false, 'text' => 'Nenhuma quest com esse nome encontrada']);
+        }
+        $quest_id = $quest->id;
 
         $quest_user = new UsersQuest();
         $quest_user->quest_id = $quest_id;
