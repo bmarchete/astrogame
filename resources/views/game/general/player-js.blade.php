@@ -420,7 +420,8 @@ $(document).ready(function(){
         $(".quest-objetivos").html(quest_objetivos);
         $(".xp-reward").html(xp_reward);
         $(".money-reward").html(money_reward);
-        $(".accept-quest").attr('href', '{{ url('/game/quest')}}' + '/' + quest_name);
+        $(".return-quest").attr('href', '{{ url('/game/quest')}}' + '/' + quest_name);
+        $(".accept-quest").val(id);
     });
 
     var planetarium = $.virtualsky({
