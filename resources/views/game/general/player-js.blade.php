@@ -161,35 +161,40 @@ function tutorial(done_or_again){
     });
 }
 
+var completed_quest = false;
 function complete_quest(quest_name){
-    var formData = new FormData();
-    formData.append('name', quest_name);
+    if(window.completed_quest == false){
+      var formData = new FormData();
+      formData.append('name', quest_name);
 
-    $.ajax({
-         url: '{{ url('/game/quest_complete')}}',
-         dataType: 'json',
-         type: 'POST',
-         processData: false,
-         contentType: false,
-         data: formData,
-         success: function(data){
-            if(data.status){
-                UIkit.notify('<i class="uk-icon-exclamation"></i> Missão completada', {status: 'success', pos:'top-right'});
+      $.ajax({
+           url: '{{ url('/game/quest_complete')}}',
+           dataType: 'json',
+           type: 'POST',
+           processData: false,
+           contentType: false,
+           data: formData,
+           success: function(data){
+              if(data.status){
+                  UIkit.notify('<i class="uk-icon-exclamation"></i> Missão completada', {status: 'success', pos:'top-right'});
 
-                quest_effect.play();
-                setTimeout(function(){
-                    window.location = '{{ url('/game') }}';
-                }, 1000);
-            } else {
-                UIkit.notify('<i class="uk-icon-exclamation"></i> ' + data.text, {status: 'danger', pos:'top-right'});
-            }
-         },
-         error: function(data){
-            for (var i = 0; i < data.responseJSON.id.length; i++) {
-                UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
-            }
-         }
-      });
+                  quest_effect.play();
+                  setTimeout(function(){
+                      window.location = '{{ url('/game') }}';
+                  }, 1000);
+              } else {
+                  UIkit.notify('<i class="uk-icon-exclamation"></i> ' + data.text, {status: 'danger', pos:'top-right'});
+              }
+           },
+           error: function(data){
+              for (var i = 0; i < data.responseJSON.id.length; i++) {
+                  UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
+              }
+           }
+        });
+      }
+
+      completed_quest = true;
 }
 
 ////////////////////////////////////////////////////
