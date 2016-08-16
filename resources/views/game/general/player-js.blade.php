@@ -374,7 +374,7 @@ $(document).ready(function(){
     // quest accept
     $(".accept-quest").click(function(){
         var quest_id = $(this).val();
-        var quest_name = $('quest-name-' + quest_id).html();
+        var quest_name = $('#quest-name-' + quest_id).html();
         var formData = new FormData();
         formData.append('id', quest_id);
 
