@@ -217,3 +217,7 @@ a:hover {
 		color: #000 !important;
 		text-shadow: none !important;
 }
+
+canvas, canvas * {
+	image-rendering: optimizeSpeed
+}
