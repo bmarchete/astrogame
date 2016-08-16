@@ -8,7 +8,6 @@ use App\Quest;
 use App\History;
 use App\User;
 use App\Http\Requests\QuestRequest;
-use Validator;
 
 class QuestController extends GameController
 {
@@ -41,7 +40,7 @@ class QuestController extends GameController
     public function quest_complete(Request $request)
     {
         $quest = Quest::select('id')->where('name', $request->name)->limit(1)->first();
-        if(!$quest){
+        if (!$quest) {
             return response()->json(['status' => false, 'text' => 'Nenhuma quest com esse nome encontrada']);
         }
         $quest_id = $quest->id;
@@ -53,7 +52,7 @@ class QuestController extends GameController
         if ($quest_user->complete_quest()) {
             $this->reward_user($quest_user, auth()->user());
 
-            if($quest_user->quest_info->type == 2){
+            if ($quest_user->quest_info->type == 2) {
                 $this->history_quest_chapter($quest_user->quest_info, auth()->user());
             } else {
                 $this->history_quest($quest_user->quest_info, auth()->user());
@@ -65,16 +64,16 @@ class QuestController extends GameController
                 ['text' => '<i class="uk-icon-money"></i> Ganhou: '.$quest_user->quest_info->money_reward.' de dinheiro', 'status' => 'warning', 'timeout' => 3000],
                 ['text' => '<i class="uk-icon-arrow-up"></i> Ganhou: '.$quest_user->quest_info->xp_reward.' de XP ', 'status' => 'warning', 'timeout' => 3000],
             ]);
+
             return response()->json(['status' => true]);
         } else {
             session()->put('notify',
             [
-              ['text' => '<i class="uk-icon-exclamation"></i> Erro ao completar a missão ' . $quest_user->quest_info->title, 'status' => 'danger', 'timeout' => 4000],
+              ['text' => '<i class="uk-icon-exclamation"></i> Erro ao completar a missão '.$quest_user->quest_info->title, 'status' => 'danger', 'timeout' => 4000],
             ]);
+
             return response()->json(['status' => false]);
         }
-
-
     }
 
     public function reward_user(UsersQuest $user_quest, User $user)
@@ -93,30 +92,20 @@ class QuestController extends GameController
         $history->save();
     }
 
-
     // @TODO: modal com as informações da quest no perfil
     public function history_quest_chapter(Quest $quest, User $user)
     {
         $history = new History();
         $history->user_id = $user->id;
-        $history->texto = "Completou o capítulo <strong>" . $quest->title . "</strong>";
-        $history->icon = "space-shuttle";
+        $history->texto = 'Completou o capítulo <strong>'.$quest->title.'</strong>';
+        $history->icon = 'space-shuttle';
         $history->save();
     }
 
-    // ========================================
-    // quests
     public function quest(Request $request)
     {
-
-        $validator = Validator::make(['name' => $request->name], [
-            'name' => 'required|max:255|exists:quests,name',
-        ]);
-
-        if(!$validator->fails()){
-            return view('game.quests.' . $request->name);
-        } else {
-
+        $quest = Quest::select('id')->where('name', $request->name)->limit(1)->first();
+        if (!$quest) {
             session()->put('notify',
             [
                 ['text' => '<i class="uk-icon-exclamation"></i> Nenhuma missão encontrada', 'status' => 'danger', 'timeout' => 0],
@@ -124,5 +113,17 @@ class QuestController extends GameController
 
             return redirect('/game');
         }
+
+        $quest_user = UsersQuest::select('id')->where('user_id', auth()->user()->id)->where('quest_id', $quest->id)->where('completed', true)->first();
+        if ($quest_user) { // usuário já completou a quest
+          session()->put('notify',
+          [
+              ['text' => '<i class="uk-icon-exclamation"></i> Você já completou essa quest', 'status' => 'danger', 'timeout' => 0],
+          ]);
+
+            return redirect('/game');
+        }
+
+        return view('game.quests.'.$request->name);
     }
 }
