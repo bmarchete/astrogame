@@ -73,11 +73,7 @@
                 <p>
                     <strong><a href="http://www.pfalves.com.br/">ETEC Pedro Ferreira Alves</a></strong>
                     <br>Mogi Mirim, São Paulo
-                    <br>Brazil
-                </p>
-                <p>
-                    <a href="mailto:eduardo@astrogame.me">eduardo@astrogame.me</a>
-                    <br>
+                    <br>Brasil
                 </p>
             </div>
 
