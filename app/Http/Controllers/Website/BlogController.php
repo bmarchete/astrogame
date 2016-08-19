@@ -10,16 +10,20 @@ class BlogController extends Controller
 {
     public function __construct()
     {
-        $recentPosts = new WP_Query();
-        $recentPosts->query('showposts=10');
+        if(class_exists('WP_Query')){
+          $recentPosts = new WP_Query();
+          $recentPosts->query('showposts=10');
 
-        view()->composer('project.general', function ($view) {
-            $view->with('page', 'blog');
-        });
+          view()->composer('project.general', function ($view) {
+              $view->with('page', 'blog');
+          });
 
-        view()->composer('blog.sidebar', function ($view) use ($recentPosts) {
-            $view->with('recentPosts', $recentPosts);
-        });
+          view()->composer('blog.sidebar', function ($view) use ($recentPosts) {
+              $view->with('recentPosts', $recentPosts);
+          });
+        } else {
+            echo 'Blog não instalado corretamente';
+        }
     }
 
     public function index()
