@@ -16,7 +16,7 @@
         "greggilbert/recaptcha": "^2.1",
         "chencha/share": "^5.2",
         "johnpbloch/wordpress": "^4.5",
-        "libern/qr-code-reader": "^1.0"
+        "simplesoftwareio/simple-qrcode": "^1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
