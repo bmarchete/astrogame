@@ -35,7 +35,7 @@ return [
 	'insignas' => 'Insignas',
 	'profile-public' => 'Ver meu perfil público',
 	'since' => 'Desde',
-	'money' => 'Dinheiro',
+	'money' => 'Astrocoins',
 	'home' => 'Página Inicial',
 	'language' => 'Idioma',
 	'ranking' => 'Rank',

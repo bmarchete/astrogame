@@ -22,7 +22,7 @@ class ShopController extends GameController
         }
 
         if ($user->money < $item->price) {
-            return ['status_or_price' => false, 'msg' => 'Não é possível comprar esse item, pois não há dinheiro suficiente'];
+            return ['status_or_price' => false, 'msg' => 'Não é possível comprar esse item, pois não há astrocoins suficiente'];
         }
 
         if ($user->has_item_amount($item->id) >= $item->max_stack) {

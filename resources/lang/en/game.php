@@ -34,7 +34,7 @@ return [
 	'insignas' => 'Insignas',
 	'profile-public' => 'View my public profile',
 	'since' => 'Since',
-	'money' => 'Money',
+	'money' => 'Astrocoins',
 	'language' => 'Language',
 	'home' => 'Home Page',
 

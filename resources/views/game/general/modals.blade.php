@@ -160,7 +160,7 @@
             <div class="uk-width-medium-5-6">
                 <ul class="uk-list">
                     <li><i class="uk-icon-medium uk-icon-level-up level" data-uk-tooltip title="{{ trans('game.level') }}"></i> {{ $user_level }} ({{ auth()->user()->patente() }})</li>
-                    <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Dinheiro pan-galáctico"></i> DG {{ $user_money }}</li>
+                    <li><i class="uk-icon-medium uk-icon-money" data-uk-tooltip title="Astrocoins"></i> DG {{ $user_money }}</li>
                 </ul>
                 <div class="uk-margin-bottom">
                   XP: {{ $xp_bar }}% ({{ $user_xp }} XP)

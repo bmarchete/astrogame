@@ -19,7 +19,7 @@ class PlayerMoney extends Command
      *
      * @var string
      */
-    protected $description = 'Muda a quantidade de dinheiro de um usuario';
+    protected $description = 'Muda a quantidade de astrocoins de um usuario';
 
     /**
      * Create a new command instance.
@@ -42,7 +42,7 @@ class PlayerMoney extends Command
         $money = $this->argument('money');
 
         $user = User::where('email', $email)->get()->first();
-        
+
         if(!$user){
             return $this->error("[ERRO] $email nao esta associado com nenhuma conta");
         }
