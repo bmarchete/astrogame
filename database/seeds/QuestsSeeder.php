@@ -7,7 +7,6 @@ class QuestsSeeder extends Seeder
     public $quests = [
 
         [
-            'id' => 1,
             'name' => 'primeira_missao',
             'title' => 'Primeira Missão!',
             'type' => 2, // chapter
@@ -20,7 +19,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 2,
             'name' => 'capitulo_copernico_primeira_missao',
             'title' => 'Capítulo I - O Pai da Astronomia - Alinhar as orbitas do planeta',
             'type' => 2, // chapter
@@ -33,7 +31,18 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 3,
+            'name' => 'capitulo_copernico_quizz',
+            'title' => 'Capítulo I - Quizz',
+            'type' => 2,
+            'description' => 'DESCRIÇÃO',
+            'objetivos' => 'COMPLETAR O QUIZZ',
+            'xp_reward' => 3000,
+            'money_reward' => 1000,
+            'min_level' => 1,
+            'max_level' => 0,
+        ],
+
+        [
             'name' => 'capitulo_galileu',
             'title' => 'Capítulo II - A Arte da observação',
             'type' => 2, // chapter
@@ -46,7 +55,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 4,
             'name' => 'capitulo_kepler',
             'title' => 'Capítulo III - As Leis Fundamentais',
             'type' => 2, // chapter
@@ -59,7 +67,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 5,
             'name' => 'capitulo_hubble',
             'title' => 'Capítulo IV - O astrônomo, não o telescópio',
             'type' => 2, // chapter
@@ -72,7 +79,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 6,
             'name' => 'capitulo_carl_sagan',
             'title' => 'Capítulo V - Carl Sagan',
             'type' => 2, // chapter
@@ -85,7 +91,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 7,
             'name' => 'missao_palido_ponto_azul',
             'title' => 'Pequena pálida missão!',
             'type' => 1,
@@ -98,7 +103,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 8,
             'name' => 'missao_projeto_cosmos',
             'title' => 'Projeto Cosmos',
             'type' => 1,
@@ -111,7 +115,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 9,
             'name' => 'missao_amigo',
             'title' => 'Chame um amigo!',
             'type' => 1,
@@ -124,7 +127,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 10,
             'name' => 'missao_apollo_11',
             'title' => 'Apollo 11',
             'type' => 1,
@@ -137,7 +139,6 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'id' => 11,
             'name' => 'missao_cosmos_quizz',
             'title' => 'Projeto Cosmos Quizz',
             'type' => 1,
@@ -156,7 +157,7 @@ class QuestsSeeder extends Seeder
     public function run()
     {
         foreach ($this->quests as $quest) {
-            if (DB::table('quests')->where('id', $quest['id'])->get() == null) {
+            if (DB::table('quests')->where('name', $quest['name'])->get() == null) {
                 DB::table('quests')->insert($quest);
                 $this->command->info('Quest: '.e($quest['title']).' adicionado.');
             }
