@@ -8,7 +8,6 @@ Projeto Cosmos Quizz | {{ trans('project.title') }}
 {!! Minify::javascript(['/construct/quest_cosmos/c2runtime.js'])->withFullURL() !!}">
 <script>
 $(document).ready(function(){
-		$("#c2canvasdiv").show();
 		cr_createRuntime("c2canvas");
 });
 </script>
