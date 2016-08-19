@@ -10,19 +10,18 @@ use Cache;
 
 class User extends Authenticatable
 {
-
     public $level_xp =
         [
         // level => xp_for_next_level
-        1  => 400,
-        2  => 900,
-        3  => 1400,
-        4  => 2100,
-        5  => 2800,
-        6  => 3600,
-        7  => 4500,
-        8  => 5400,
-        9  => 6500,
+        1 => 400,
+        2 => 900,
+        3 => 1400,
+        4 => 2100,
+        5 => 2800,
+        6 => 3600,
+        7 => 4500,
+        8 => 5400,
+        9 => 6500,
         10 => 7600,
         11 => 8700,
         12 => 9800,
@@ -50,7 +49,7 @@ class User extends Authenticatable
     ];
 
     /**
-     *  User Eloquent relations
+     *  User Eloquent relations.
      */
     public function insignas()
     {
@@ -62,63 +61,66 @@ class User extends Authenticatable
         return $this->hasMany('App\History');
     }
 
-    public function config(){
+    public function config()
+    {
         return $this->hasMany('App\UserConfig');
     }
 
-    public function user_bag(){
+    public function user_bag()
+    {
         return $this->hasMany('App\UserBag');
     }
 
     /**
-     * Função para aumentar pontos de xp do jogador
+     * Função para aumentar pontos de xp do jogador.
+     *
      *  @TODO: REFACTOR
+     *
      * @param int xp
-     * @return void
      */
     public function gain_xp($xp)
     {
         $this->xp += $xp;
 
-        while($this->xp >= $this->xp_for_next_level()){
+        while ($this->xp >= $this->xp_for_next_level()) {
             $this->level += 1;
         }
 
         $this->save();
     }
 
-    public function gain_money($money){
+    public function gain_money($money)
+    {
         $this->money += $money;
         $this->save();
     }
 
-    public function remove_money($money){
-      $final = $this->money - $money;
-      if($final > $this->money){
-          $this->money = 0;
-      } else {
-          $this->money = $final;
-      }
+    public function remove_money($money)
+    {
+        $final = $this->money - $money;
+        if ($final > $this->money) {
+            $this->money = 0;
+        } else {
+            $this->money = $final;
+        }
 
-      $this->save();
+        $this->save();
     }
 
     // pega o xp e transforma em porcentagem
     public function xp_bar()
     {
         $porcent = ($this->xp * 100) / $this->xp_for_next_level();
+
         return round($porcent);
     }
 
     public function xp_for_next_level()
     {
-        $counter = count($this->level_xp);
-        $max = $counter + 1;
-
-        if( ($this->level + 1) >= $max){
-            return $this->level_xp[$counter];
+        if(isset($this->level_xp[$this->level + 1])){
+          return $this->level_xp[$this->level + 1];
         } else {
-            return $this->level_xp[$this->level + 1];
+          return $this->level_xp[15];
         }
     }
 
@@ -130,13 +132,13 @@ class User extends Authenticatable
 
         if ($this->level <= 3) {
             return trans('game.patent1');
-        } else if ($this->level >= 4 && $this->level <= 6) {
+        } elseif ($this->level >= 4 && $this->level <= 6) {
             return trans('game.patent2');
-        } else if ($this->level >= 7 && $this->level <= 9) {
+        } elseif ($this->level >= 7 && $this->level <= 9) {
             return trans('game.patent3');
-        } else if ($this->level >= 10 && $this->level < 12) {
+        } elseif ($this->level >= 10 && $this->level < 12) {
             return trans('game.patent4');
-        } else if ($this->level >= 13 && $this->level <= 14) {
+        } elseif ($this->level >= 13 && $this->level <= 14) {
             return trans('game.patent5');
         } else {
             return trans('game.patent6');
@@ -150,59 +152,63 @@ class User extends Authenticatable
         return (\App::isLocale('pt-br')) ? $date->format('d/m/Y') : $date->format('d-m-Y');
     }
 
-
-
     public function makeAvatar($url = '')
     {
-        $path   = public_path('users/avatar/' . sha1($this->nickname . env('APP_KEY')) . '.jpg');
-        $width  = 1000;
+        $path = public_path('users/avatar/'.sha1($this->nickname.env('APP_KEY')).'.jpg');
+        $width = 1000;
         $height = 1000;
 
         // caso já existir um avatar no lugar
-        if(file_exists($path)){
+        if (file_exists($path)) {
             unlink($path);
         }
 
         if (!empty($url)) {
             try {
                 $avatar = Image::make($url)->fit($width, $height)->save($path);
-
             } catch (Exception $e) {
                 // default avatar
             }
         }
     }
 
-    public function avatar(){
-        $path = 'users/avatar/' . sha1($this->nickname . env('APP_KEY')) . '.jpg';
+    public function avatar()
+    {
+        $path = 'users/avatar/'.sha1($this->nickname.env('APP_KEY')).'.jpg';
         $default = 'img/avatar.png';
-        if(file_exists(public_path($path))){
+        if (file_exists(public_path($path))) {
             return url($path);
         } else {
             return url($default);
         }
     }
 
-    public function remove_avatar(){
-        $path = 'users/avatar/' . sha1($this->nickname . env('APP_KEY')) . '.jpg';
-        if(file_exists(public_path($path))){
+    public function remove_avatar()
+    {
+        $path = 'users/avatar/'.sha1($this->nickname.env('APP_KEY')).'.jpg';
+        if (file_exists(public_path($path))) {
             return unlink($path);
         }
+
         return true;
     }
 
-    public function getConfig($config_key){
+    public function getConfig($config_key)
+    {
         return \App\UserConfig::getConfig($config_key, $this);
     }
 
-    public function isOnline() {
-        if(Cache::has('user-is-online-' . $this->id)){
+    public function isOnline()
+    {
+        if (Cache::has('user-is-online-'.$this->id)) {
             $this->online = true;
             $this->save();
+
             return true;
         } else {
             $this->online = false;
             $this->save();
+
             return false;
         }
     }
@@ -216,6 +222,7 @@ class User extends Authenticatable
     public function has_item($item_id)
     {
         $check_item = $this->user_bag()->select('id')->where('item_id', $item_id)->limit(1)->first();
+
         return ($check_item) ? true : false;
     }
 
@@ -223,10 +230,12 @@ class User extends Authenticatable
     {
         $bag_item = $this->user_bag()->with('item')->select(DB::raw("SUM(amount) as 'amount'"))
                          ->where('item_id', $item_id)->groupBy('item_id')->limit(1)->first();
+
         return ($bag_item) ? $bag_item->amount : 0;
     }
 
-    public function generate_nickname(){
+    public function generate_nickname()
+    {
         $from = 'áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ';
         $to = 'aaaaeeiooouucAAAAEEIOOOUUC';
 
@@ -234,14 +243,32 @@ class User extends Authenticatable
 
         $count = 1;
         if ($this->where('nickname', $nickname)->select('id')->first()) {
-            $new_nickname = $nickname . $count;
+            $new_nickname = $nickname.$count;
             while ($this->where('nickname', $new_nickname)->select('id')->first()) {
-                $count++;
-                $new_nickname = $nickname . $count;
+                ++$count;
+                $new_nickname = $nickname.$count;
             }
         }
         $this->nickname = isset($new_username) ? $new_nickname : $nickname;
         $this->save();
+
         return $this->nickname;
+    }
+
+    public function add_item($item_id, $amount = 1)
+    {
+        $bag_slot = new \App\UserBag();
+        $bag_slot->user_id = $this->id;
+        $bag_slot->item_id = $item_id;
+        $bag_slot->amount = $amount;
+        $bag_slot->save();
+    }
+
+    public function add_insigna($insina_id)
+    {
+        $insigna_slot = new \App\UserInsignas();
+        $insigna_slot->user_id = $this->id;
+        $insigna_slot->insigna_id = $insina_id;
+        $insigna_slot->save();
     }
 }
