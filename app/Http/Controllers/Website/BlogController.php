@@ -10,10 +10,6 @@ class BlogController extends Controller
 {
     public function __construct()
     {
-        foreach (wp_get_active_and_valid_plugins() as $plugin) {
-            include_once $plugin;
-        }
-
         $recentPosts = new WP_Query();
         $recentPosts->query('showposts=10');
 
