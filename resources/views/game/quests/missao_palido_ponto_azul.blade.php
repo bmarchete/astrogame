@@ -4,7 +4,6 @@ Pequeno pálido ponto azul | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/chapters/general.js'])->withFullURL() !!}
 {!! Minify::javascript(['/construct/quest_ponto/c2runtime.js'])->withFullURL() !!}">
 <script>
 $(document).ready(function(){
@@ -15,6 +14,6 @@ $(document).ready(function(){
 
 @section('content')
 <div id="c2canvasdiv">
-		<canvas id="c2canvas"></canvas>
+		<canvas id="c2canvas" width="1280" height="720"></canvas>
 </div>
 @stop

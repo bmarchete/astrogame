@@ -141,7 +141,7 @@ class QuestsSeeder extends Seeder
             'name' => 'missao_cosmos_quizz',
             'title' => 'Projeto Cosmos Quizz',
             'type' => 1,
-            'description' => '',
+            'description' => 'Você visitou o projeto cosmos durante a expoete 2015? Teste seus conhecimentos sobre os diversos assuntos abordados nos stands do projeto com o mesmo quiz do percuso do Cosmos!',
             'objetivos' => 'Responder corretamente todas as questões do quizz do projeto cosmos',
             'xp_reward' => 500,
             'money_reward' => 50,

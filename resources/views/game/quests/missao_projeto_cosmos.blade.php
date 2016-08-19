@@ -1,13 +1,13 @@
 @extends('game.general.general')
 @section('title')
-{{ trans('chapters.welcome.title') }} | {{ trans('project.title') }}
+Video Projeto Cosmos | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/primeira_missao/c2runtime.js'])->withFullURL() !!}">
+{!! Minify::javascript(['/construct/missao_projeto_cosmos_video/c2runtime.js'])->withFullURL() !!}">
 <script>
 $(document).ready(function(){
-	cr_createRuntime("c2canvas");
+		cr_createRuntime("c2canvas");
 });
 </script>
 @stop

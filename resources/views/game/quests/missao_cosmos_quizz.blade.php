@@ -4,7 +4,6 @@ Projeto Cosmos Quizz | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/chapters/general.js'])->withFullURL() !!}
 {!! Minify::javascript(['/construct/quest_cosmos/c2runtime.js'])->withFullURL() !!}">
 <script>
 $(document).ready(function(){
