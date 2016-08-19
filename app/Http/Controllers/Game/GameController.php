@@ -55,4 +55,8 @@ class GameController extends Controller
                                                    'player_rank' => $ranking->rank,
                                                    'social' => (object) Share::load(url()->current(), 'Veja meu perfil no astrogame', url('/img/avatar.png'))->services('facebook', 'gplus', 'twitter', 'tumblr', 'pinterest'), ]);
     }
+
+    public function construct_logo(){
+      return response()->file(public_path('img/loading-logo.png'));
+    }
 }

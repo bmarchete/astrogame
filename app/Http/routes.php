@@ -45,6 +45,8 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('/blog/tag/{tag}', 'BlogController@tag')->where('tag', '[a-zA-z-]+');
 		Route::get('/blog/search', 'BlogController@search');
 
+		// construct fix
+		Route::get('/game/quest/loading-logo.png', 'GameController@construct_logo');
 	});
 
 	// website-game
