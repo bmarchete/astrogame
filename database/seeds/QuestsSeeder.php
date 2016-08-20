@@ -55,7 +55,7 @@ class QuestsSeeder extends Seeder
         ],
 
         [
-            'name' => 'capitulo_kepler',
+            'name' => 'capitulo_kepler_primeira_missao',
             'title' => 'Capítulo III - As Leis Fundamentais',
             'type' => 2, // chapter
             'description' => 'Kepler nos apresenta suas três leis fundamentais, vamos entender como funciona o movimento planetário!',
