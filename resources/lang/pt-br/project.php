@@ -42,6 +42,7 @@ return [
 		'text6' => 'O objetivo é suprir o déficit atual de informações acessíveis e de simples entendimento para estudantes e interessados em geral sobre astronomia.',
 
 		'text7' => 'Olá peregrino, você me conhece? Desculpe meus modos, nem me apresento, meu nome é Galileu Galiei, contribuí muito para diversos assuntos relacionados a astronomia e estou dentro do astrogame para ajudar em suas descobertas, clique no link para entrar no jogo!',
+		'text8' => 'Olá peregrino, você me conhece? Desculpe meus modos, nem me apresento, meu nome é Galileu Galiei, contribuí muito para diversos assuntos relacionados a astronomia e estou dentro do astrogame para ajudar em suas descobertas, clique no link para entrar no jogo!',
 
 	],
 

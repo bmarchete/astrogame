@@ -64,4 +64,13 @@ class UsersQuest extends Model
             return false;
         }
     }
+
+    public static function is_quest_completed($quest_id, User $user)
+    {
+        if (self::select('user_id')->where('quest_id', $quest_id)->where('user_id', $user->id)->where('completed', true)->first()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

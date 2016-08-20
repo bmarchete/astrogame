@@ -41,13 +41,6 @@
     </div>
 
     <div class="uk-panel uk-margin-large-top">
-        <h3 class="uk-panel-title">Anúncios</h3>
-        <figure class="uk-thumbnail">
-            <img src="{{ url('img/large-box.png')}}" alt="">
-        </figure>
-    </div>
-
-    <div class="uk-panel uk-margin-large-top">
         <h3 class="uk-panel-title">Social</h3>
         <div class="fb-page" data-href="https://www.facebook.com/cosmosexpoete" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
     </div>
