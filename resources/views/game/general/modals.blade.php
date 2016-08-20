@@ -321,7 +321,7 @@
           </li>
           @else
           <li>
-              <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px; filter: grayscale(100%);">
+              <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle gray" style="width: 100px">
                   <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="Como eu consigo essa insigna?">
               </figure>
           </li>

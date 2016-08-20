@@ -221,3 +221,8 @@ a:hover {
 canvas, canvas * {
 	image-rendering: optimizeSpeed
 }
+
+.gray {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(1);
+}
