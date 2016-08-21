@@ -47,4 +47,7 @@ return [
         'redirect' => env('GOOGLE_REDIRECT'),
     ],
 
+    'sendgrid' => [
+        'api_key' => env('SENDGRID_API_KEY')
+    ],
 ];

@@ -26,9 +26,9 @@ class ContactRequest extends Request
         return [
           'name' => 'required|max:255',
           'email' => 'required|email|max:255',
-          'mensagem' => 'required|min:6',
+          'mensagem' => 'required|min:10|max:65535',
           'form_name' => 'honeypot',
-          'form_time' => 'required|honeytime:5',
+          'form_time' => 'required|honeytime:15',
         ];
     }
 }

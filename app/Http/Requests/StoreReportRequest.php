@@ -23,6 +23,8 @@ class StoreReportRequest extends Request
     {
         return [
             'text' => 'required|min:10|max:65535',
+            'form_name' => 'honeypot',
+            'form_time' => 'required|honeytime:15',
         ];
     }
 }

@@ -6,10 +6,10 @@
 <body>
     <h2>Contato do Astrogame</h2>
     <div>
-        <p>Nome: {{ $request->name }}</p>
-        <p>Email: {{ $request->email }}</p>
+        <p>Nome: {{ $name }}</p>
+        <p>Email: {{ $email }}</p>
         <p>Mensagem:</p>
-        <p>{{ $request->mensagem }}</p>
+        <p>{{ $mensagem }}</p>
     </div>
 </body>
 </html>

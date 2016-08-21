@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1c7d956f6d6e7c46a28f66092c792f43",
-    "content-hash": "7b085897349f3860c552a6659f0df2f6",
+    "hash": "a85d2ec1511292814266d387bb6fb032",
+    "content-hash": "9e1bb0c4b3cff315b6f35e1bd230f95b",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1777,6 +1777,48 @@
                 "shell"
             ],
             "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "s-ichikawa/laravel-sendgrid-driver",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/s-ichikawa/laravel-sendgrid-driver.git",
+                "reference": "44ae99ad730066c58242f167ae4d1790cb0b091e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/s-ichikawa/laravel-sendgrid-driver/zipball/44ae99ad730066c58242f167ae4d1790cb0b091e",
+                "reference": "44ae99ad730066c58242f167ae4d1790cb0b091e",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": ">=5.1",
+                "illuminate/mail": "~5.1"
+            },
+            "require-dev": {
+                "illuminate/container": "~5.1.0",
+                "illuminate/filesystem": "~5.1.0",
+                "phpunit/phpunit": ">=4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sichikawa\\LaravelSendgridDriver\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "shingo.ichikawa",
+                    "email": "ichikawa.shingo.0829@gmail.com"
+                }
+            ],
+            "description": "This liblary can add sendgrid driver into the laravel's mail configure.",
+            "time": "2016-08-16 15:01:43"
         },
         {
             "name": "simplesoftwareio/simple-qrcode",

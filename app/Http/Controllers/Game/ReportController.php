@@ -3,22 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReportRequest;
-use App\Bug;
+use Mail;
 
 class ReportController extends Controller
 {
     public function send(StoreReportRequest $request)
     {
-        $user_id = auth()->user()->id;
+        $data = ['name' => auth()->user()->name, 'email' => auth()->user()->email, 'text' => $request->text];
+        $mail = Mail::send('emails.contact', $data, function ($message) use ($data) {
+            $message->from('eduardo@astrogame.me', 'Astrogame');
+            $message->subject('Bug Report do Astrogame ' . $data['name']);
+            $message->to('eduardo.auramos@gmail.com');
+        });
 
-        if (Bug::where('text', $request->text)->where('user_id', $user_id)->limit(1)->first()) {
-            return response()->json(['status' => false, 'text' => trans('game.bug-repeat')]);
-        }
-
-        $bug_report = new Bug();
-        $bug_report->user_id = $user_id;
-        $bug_report->text = $request->text;
-        if ($bug_report->save()) {
+        if ($mail) {
             return response()->json(['status' => true, 'text' => trans('game.bug-success')]);
         } else {
             return response()->json(['status' => false, 'text' => trans('game.bug-fail')]);

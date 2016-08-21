@@ -5,12 +5,7 @@
 @section('content')
 <div class="uk-vertical-align uk-margin-large-top uk-text-center uk-height-1-1 login-section">
    <div class="uk-vertical-align-middle uk-margin-large-top" style="width: 350px;">
-      <div class="uk-panel uk-panel-box">
-        <p>Devido a problemas com SPAM, você deve mandar um <a href="{{ url('contato') }}">contato</a> para nós enviarmos o link para redefinir sua senha.</p>
-      </div>
-<?php /*
       <form class="uk-panel uk-panel-box uk-form" role="form" method="POST" action="{{ url('/password/email') }}">
-
          {!! csrf_field() !!}
          @if (session('status'))
          <div class="uk-alert uk-alert-success" data-uk-alert>
@@ -32,7 +27,6 @@
                <i class="uk-icon-envelope"></i> {{ trans('passwords.send') }} </button>
          </div>
       </form>
-*/ ?>
    </div>
 </div>
 @endsection

@@ -137,7 +137,7 @@ return [
         Illuminate\Filesystem\FilesystemServiceProvider::class,
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
-        Illuminate\Mail\MailServiceProvider::class,
+      //  Illuminate\Mail\MailServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
@@ -167,6 +167,8 @@ return [
         Msurguy\Honeypot\HoneypotServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         Chencha\Share\ShareServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Sichikawa\LaravelSendgridDriver\MailServiceProvider::class,
     ],
 
     /*
@@ -214,15 +216,16 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // vendor
-        'Form'      => Collective\Html\FormFacade::class,
-        'Html'      => Collective\Html\HtmlFacade::class,
-        'Input'     => Illuminate\Support\Facades\Input::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Minify'    => Devfactory\Minify\Facades\MinifyFacade::class,
-        'Image'     => Intervention\Image\Facades\Image::class,
-        'Honeypot'  => Msurguy\Honeypot\HoneypotFacade::class,
+        'Minify' => Devfactory\Minify\Facades\MinifyFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Honeypot' => Msurguy\Honeypot\HoneypotFacade::class,
         'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
-        'Share'     => Chencha\Share\ShareFacade::class,
+        'Share' => Chencha\Share\ShareFacade::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
     ],
 
 ];

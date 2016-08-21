@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->integer('money')->default(0);
             $table->boolean('online')->default(false);
             $table->integer('total_time')->default(0);
-            $table->boolean('confirmed')->default(true);
+            $table->boolean('confirmed')->default(false);
             $table->string('confirm_code')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
