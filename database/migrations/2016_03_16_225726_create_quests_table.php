@@ -18,8 +18,8 @@ class CreateQuestsTable extends Migration
             $table->string('title');
             $table->smallInteger('type')->default(1); // (1 = normal / 2 = chapter / 3 = diária)
             $table->text('description');
-            $table->text('objetivos');
-            $table->text('recompensas');
+            $table->text('objetivos')->nullable();
+            $table->text('recompensas')->nullable();
             $table->integer('xp_reward')->nullable();
             $table->integer('money_reward')->nullable();
             $table->integer('insigna_reward')->nullable();
