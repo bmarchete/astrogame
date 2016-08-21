@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\UsersQuest;
+use App\Models\User;
+use App\Models\QuestLog;
 use Illuminate\Http\Request;
 use DB;
 use Share;
@@ -12,7 +12,7 @@ use Share;
 class GameController extends Controller
 {
     public function index(){
-        $completed = UsersQuest::is_quest_completed(1, auth()->user());
+        $completed = QuestLog::is_quest_completed(1, auth()->user());
         return view('game.welcome', ['completed' => $completed]);
     }
 

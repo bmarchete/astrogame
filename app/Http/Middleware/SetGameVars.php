@@ -3,12 +3,12 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\UserConfig;
-use App\UserObservatory;
-use App\Quest;
-use App\Insignas;
-use App\User;
-use App\Item;
+use App\Models\Config;
+use App\Models\Observatory;
+use App\Models\Quest;
+use App\Models\Insignas;
+use App\Models\User;
+use App\Models\Item;
 use Cache;
 use DB;
 
@@ -26,7 +26,7 @@ class SetGameVars
     {
         // game vars
         if(auth()->check()){
-            $planet = new UserObservatory(); // melhor isso daqui
+            $planet = new Observatory(); // melhor isso daqui
             $planet->get_users_planetarium();
 
             $insignas = $this->insignas();

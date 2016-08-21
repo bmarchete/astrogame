@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserBagsTable extends Migration
+class CreateInsignaLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateUserBagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_bags', function (Blueprint $table) {
+        Schema::create('insigna_logs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('insigna_id')->unsigned();
+            $table->foreign('insigna_id')->references('id')->on('insignas')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('item_id')->unsigned();
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
-            $table->integer('amount')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateUserBagsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_bags');
+        Schema::drop('user_insignas');
     }
 }

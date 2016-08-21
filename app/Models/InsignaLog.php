@@ -1,22 +1,22 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Insignas;
+use App\Models\Insignas;
 
-class UserInsignas extends Model
+class InsignaLog extends Model
 {
     public function insigna(){
-        return $this->belongsTo('App\Insignas');
+        return $this->belongsTo('App\Models\Insignas');
     }
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function history_insigna(User $user, Insignas $insigna){
-        $history = new \App\History;
+        $history = new \App\Models\History;
         $history->user_id = $user->id;
         $history->texto = 'Ganhou a insigna <strong>' . $insigna->name . '</strong>';
         $history->icon  = 'gear';

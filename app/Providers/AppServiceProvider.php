@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Events\RegisterUser;
-use App\User;
+use App\Models\User;
 
 class AppServiceProvider extends ServiceProvider
 {

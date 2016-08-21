@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserObservatoriesTable extends Migration
+class CreateObservatoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateUserObservatoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_observatories', function (Blueprint $table) {
+        Schema::create('observatories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('key');
             $table->string('value');

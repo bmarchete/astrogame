@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersQuestsTable extends Migration
+class CreateQuestLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateUsersQuestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_quests', function (Blueprint $table) {
+        Schema::create('quest_logs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quest_id')->unsigned();
             $table->foreign('quest_id')->references('id')->on('quests')->onDelete('cascade');

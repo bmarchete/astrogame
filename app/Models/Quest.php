@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class Quest extends Model
     {
         $quests = Quest::whereNotIn('id', function ($query) {
             $query->select('quest_id')
-                ->from('users_quests')
+                ->from('quest_logs')
                 ->where('user_id', auth()->user()->id);
         })
             ->select(['quests.id', 'name', 'title', 'type', 'description', 'objetivos', 'recompensas', 'min_level', 'max_level', 'xp_reward', 'money_reward'])
@@ -29,10 +29,10 @@ class Quest extends Model
     {
         $user_id = auth()->user()->id;
 
-        $quests = Quest::join('users_quests', 'quests.id', '=', 'users_quests.quest_id')
+        $quests = Quest::join('quest_logs', 'quests.id', '=', 'quest_logs.quest_id')
             ->select(['quests.id', 'name', 'title', 'type', 'description', 'objetivos', 'recompensas', 'min_level', 'max_level', 'xp_reward', 'money_reward'])
-            ->where('users_quests.user_id', $user_id)
-            ->where('users_quests.completed', false)
+            ->where('quest_logs.user_id', $user_id)
+            ->where('quest_logs.completed', false)
             ->get();
 
         return $quests;

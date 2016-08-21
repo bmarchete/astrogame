@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\RegisterUser;
-use App\UserConfig;
+use App\Models\Config;
 use DB;
 use Mail;
 
@@ -32,7 +32,7 @@ class RegisterUsers
         $event->user->makeAvatar();
 
         // instala configurações básicas de usuário
-        UserConfig::installConfig($event->user->id);
+        Config::installConfig($event->user->id);
 
         // autentica caso não estiver autenticado
         auth()->login($event->user, true);

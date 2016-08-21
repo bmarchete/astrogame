@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\UserConfig;
+use App\Models\User;
+use App\Models\Config;
 use Hash;
 use Illuminate\Http\Request;
 use Input;
@@ -18,7 +18,7 @@ class AccountController extends GameController
         if ($volume > 100 || $volume < 0) {
             return 'Não é possível fazer isso';
         }
-        UserConfig::setConfig('music_volume', $volume);
+        Config::setConfig('music_volume', $volume);
     }
 
     public function change_volume_effects(Request $request)
@@ -27,23 +27,23 @@ class AccountController extends GameController
         if ($volume > 100 || $volume < 0) {
             return 'Não é possível fazer isso';
         }
-        UserConfig::setConfig('effects_volume', $volume);
+        Config::setConfig('effects_volume', $volume);
     }
 
     public function change_profile(Request $request){
         if($request->type == 'public'){
-            UserConfig::setConfig('private', false);
+            Config::setConfig('private', false);
         } else if($request->type == 'private'){
-            UserConfig::setConfig('private', true);
+            Config::setConfig('private', true);
         }
     }
 
     public function change_tutorial(Request $request){
         if($request->tutorial == 'done'){
-            UserConfig::setConfig('tutorial', false);
+            Config::setConfig('tutorial', false);
             return response()->json(['text' => 'Modo tutorial desativado', 'status' => 'danger']);
         } else if($request->tutorial == 'again') {
-            UserConfig::setConfig('tutorial', true);
+            Config::setConfig('tutorial', true);
             return response()->json(['text' => 'Modo tutorial ativado', 'status' => 'success']);
         }
     }

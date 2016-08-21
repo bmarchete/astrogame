@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\UserConfig;
+use App\Models\Config;
 use Illuminate\Http\Request;
 use DB;
-use App\User;
+use App\Models\User;
 use Cache;
 
 class HomeController extends Controller
@@ -158,7 +158,7 @@ class HomeController extends Controller
             session()->put('language', $lang);
 
             if (auth()->check()) {
-                UserConfig::setConfig('lang', $lang);
+                Config::setConfig('lang', $lang);
             }
         } else {
             exit('Essa linguagem não é suportada.');

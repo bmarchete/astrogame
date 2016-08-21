@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserInsignasTable extends Migration
+class CreateConfigsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateUserInsignasTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_insignas', function (Blueprint $table) {
+        Schema::create('configs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('insigna_id')->unsigned();
-            $table->foreign('insigna_id')->references('id')->on('insignas')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
+            $table->string('key', 100);
+            $table->string('content', 255);
         });
     }
 
@@ -29,6 +28,6 @@ class CreateUserInsignasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_insignas');
+        Schema::drop('user_configs');
     }
 }

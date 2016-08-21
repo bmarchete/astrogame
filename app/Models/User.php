@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 use Image;
 use DB;
 use Cache;
+use App\Models\Config;
 
 class User extends Authenticatable
 {
@@ -53,22 +54,22 @@ class User extends Authenticatable
      */
     public function insignas()
     {
-        return $this->hasMany('App\UserInsignas');
+        return $this->hasMany('App\Models\InsignaLog');
     }
 
     public function history()
     {
-        return $this->hasMany('App\History');
+        return $this->hasMany('App\Models\History');
     }
 
     public function config()
     {
-        return $this->hasMany('App\UserConfig');
+        return $this->hasMany('App\Models\Config');
     }
 
     public function user_bag()
     {
-        return $this->hasMany('App\UserBag');
+        return $this->hasMany('App\Models\Bag');
     }
 
     /**
@@ -195,7 +196,7 @@ class User extends Authenticatable
 
     public function getConfig($config_key)
     {
-        return \App\UserConfig::getConfig($config_key, $this);
+        return Config::getConfig($config_key, $this);
     }
 
     public function isOnline()
@@ -257,7 +258,7 @@ class User extends Authenticatable
 
     public function add_item($item_id, $amount = 1)
     {
-        $bag_slot = new \App\UserBag();
+        $bag_slot = new \App\Models\Bag();
         $bag_slot->user_id = $this->id;
         $bag_slot->item_id = $item_id;
         $bag_slot->amount = $amount;
@@ -266,7 +267,7 @@ class User extends Authenticatable
 
     public function add_insigna($insina_id)
     {
-        $insigna_slot = new \App\UserInsignas();
+        $insigna_slot = new \App\Models\InsignaLog();
         $insigna_slot->user_id = $this->id;
         $insigna_slot->insigna_id = $insina_id;
         $insigna_slot->save();

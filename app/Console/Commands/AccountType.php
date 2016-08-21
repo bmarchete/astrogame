@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\User;
+use App\Models\User;
 
 class AccountType extends Command
 {
@@ -47,7 +47,7 @@ class AccountType extends Command
         }
 
         $user = User::where('email', $email)->get()->first();
-        
+
         if(!$user){
             return $this->error("[ERRO] $email nao esta associado com nenhuma conta");
         }

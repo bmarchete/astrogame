@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
-use App\UserBag;
-use App\History;
+use App\Models\Item;
+use App\Models\Bag;
+use App\Models\History;
 use Illuminate\Http\Request;
 use App\Http\Requests\ItemRequest;
 
@@ -32,13 +32,13 @@ class ShopController extends GameController
         $user->decrement('money', $item->price);
         $user->save();
 
-        $item_on_bag = UserBag::where('user_id', $user->id)->where('item_id', $item->id)->limit(1)->first();
+        $item_on_bag = Bag::where('user_id', $user->id)->where('item_id', $item->id)->limit(1)->first();
         if ($item_on_bag) {
             // aumenta a quantidade de items
-            UserBag::where('user_id', $user->id)->where('item_id', $item->id)->increment('amount', 1);
+            Bag::where('user_id', $user->id)->where('item_id', $item->id)->increment('amount', 1);
         } else {
             // insere um novo registro
-            UserBag::insert(['user_id' => $user->id, 'item_id' => $item->id]);
+            Bag::insert(['user_id' => $user->id, 'item_id' => $item->id]);
         }
 
         $this->history_item($user, $item);
@@ -76,9 +76,9 @@ class ShopController extends GameController
 
         if (auth()->user()->has_item_amount($item_id) == $amount) {
             // remove todos os items
-            return UserBag::where('item_id', $item_id)->where('user_id', $user_id)->delete();
+            return Bag::where('item_id', $item_id)->where('user_id', $user_id)->delete();
         }
 
-        UserBag::where('user_id', $user_id)->where('item_id', $item_id)->decrement('amount', $amount);
+        Bag::where('user_id', $user_id)->where('item_id', $item_id)->decrement('amount', $amount);
     }
 }

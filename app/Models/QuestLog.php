@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UsersQuest extends Model
+class QuestLog extends Model
 {
 
     private function user_quest_exists()
@@ -53,7 +53,7 @@ class UsersQuest extends Model
 
     public function quest_info()
     {
-        return $this->belongsTo('App\Quest', 'quest_id');
+        return $this->belongsTo('App\Models\Quest', 'quest_id');
     }
 
     public static function is_quest_taken($quest_id, User $user)

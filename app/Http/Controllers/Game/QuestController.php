@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\UsersQuest;
-use App\Quest;
-use App\History;
-use App\User;
+use App\Models\QuestLog;
+use App\Models\Quest;
+use App\Models\History;
+use App\Models\User;
 use App\Http\Requests\QuestRequest;
 
 class QuestController extends GameController
@@ -15,7 +15,7 @@ class QuestController extends GameController
     {
         $quest_id = $request->id;
 
-        $quest_user = new UsersQuest();
+        $quest_user = new QuestLog();
         $quest_user->quest_id = $quest_id;
         $quest_user->user_id = auth()->user()->id;
 
@@ -28,7 +28,7 @@ class QuestController extends GameController
     {
         $quest_id = $request->id;
 
-        $quest_user = new UsersQuest();
+        $quest_user = new QuestLog();
         $quest_user->quest_id = $quest_id;
         $quest_user->user_id = auth()->user()->id;
 
@@ -45,7 +45,7 @@ class QuestController extends GameController
         }
         $quest_id = $quest->id;
 
-        $quest_user = new UsersQuest();
+        $quest_user = new QuestLog();
         $quest_user->quest_id = $quest_id;
         $quest_user->user_id = auth()->user()->id;
 
@@ -76,7 +76,7 @@ class QuestController extends GameController
         }
     }
 
-    public function reward_user(UsersQuest $user_quest, User $user)
+    public function reward_user(QuestLog $user_quest, User $user)
     {
         $user->gain_xp($user_quest->quest_info->xp_reward);
         $user->gain_money($user_quest->quest_info->money_reward);
@@ -114,7 +114,7 @@ class QuestController extends GameController
             return redirect('/game');
         }
 
-        $quest_user = UsersQuest::select('id')->where('user_id', auth()->user()->id)->where('quest_id', $quest->id)->where('completed', true)->first();
+        $quest_user = QuestLog::select('id')->where('user_id', auth()->user()->id)->where('quest_id', $quest->id)->where('completed', true)->first();
         if ($quest_user) { // usuário já completou a quest
           session()->put('notify',
           [
