@@ -7,8 +7,6 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <title>@yield('title')</title>
-
     {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css', '/vendor/uikit/css/components/notify.gradient.css'])->withFullUrl() !!}
     @yield('style')
     <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
@@ -40,21 +38,21 @@
   <div class="uk-offcanvas" id="offcanvas">
       <div class="uk-offcanvas-bar">
           <ul class="uk-nav uk-nav-offcanvas">
-            <li @if ($page=='home') class="uk-active" @endif>
+            <li>
                 <a href="{{ URL('/') }}"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
             </li>
-            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
-            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
-            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}"><i class="uk-icon-pencil"></i> {{ trans('project.navbar.blog') }}</a></li>
-            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
-            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
+            <li><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
+            <li><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
+            <li class="uk-active"><a href="{{ URL('/blog') }}"><i class="uk-icon-pencil"></i> {{ trans('project.navbar.blog') }}</a></li>
+            <li><a href="{{ URL('/ranking') }}"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
+            <li><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
 
             <li class="uk-nav-divider"></li>
 
             <li><a href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook Login</a></li>
             <li><a href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google Login</a></li>
-            <li @if ($page=='login') class="uk-active" @endif><a href="#login" data-uk-modal=""><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
-            <li @if ($page=='register') class="uk-active" @endif><a href="#register" data-uk-modal=""><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
+            <li><a href="#login" data-uk-modal=""><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
+            <li><a href="#register" data-uk-modal=""><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
           </ul>
       </div>
   </div>
@@ -83,6 +81,6 @@
       ga('send', 'pageview');
   </script>
 
-  @yield('footer')
+  {!! wp_footer() !!}
 </body>
 </html>
