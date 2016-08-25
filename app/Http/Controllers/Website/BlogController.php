@@ -82,7 +82,7 @@ class BlogController extends Controller
     {
         $wordpress = new WP_Query(['s' => $request->s]);
 
-        return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Busca por '.$query]);
+        return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Busca por '.$request->s]);
     }
 
     public function author($author)
