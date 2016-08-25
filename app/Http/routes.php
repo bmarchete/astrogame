@@ -41,6 +41,7 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('/blog', 'BlogController@index');
 		Route::get('/blog/{slug}', 'BlogController@single')->where('slug', '[a-zA-z-]+');
 		Route::get('/blog/{slug}', 'BlogController@single')->where('slug', '((?![search|wp\-admin])[A-Za-z0-9-]+)');
+		Route::get('/blog/{slug}', 'BlogController@single')->where('slug', '((?![search])[A-Za-z0-9-]+)');
 		Route::get('/blog/category/{category}', 'BlogController@category')->where('category', '[a-zA-z-]+');
 		Route::get('/blog/author/{author}', 'BlogController@author')->where('author', '[a-zA-z-]+');
 		Route::get('/blog/tag/{tag}', 'BlogController@tag')->where('tag', '[a-zA-z-]+');
