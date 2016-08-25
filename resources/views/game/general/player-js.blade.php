@@ -360,7 +360,9 @@ $(document).ready(function(){
                }
            },
            error: function(data){
-                UIkit.notify("<i class='uk-icon-close'></i> " + data.responseJSON.text[0], {status:'danger', pos: 'top-right'});
+             for(var erro in data.responseJSON){
+                UIkit.notify("<i class='uk-icon-close'></i> " + data.responseJSON[erro][0], {status: 'danger', pos:'top-right'});
+             }
            }
        });
 

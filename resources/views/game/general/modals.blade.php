@@ -46,6 +46,7 @@
 <!-- bug report modal -->
 <form id="bug-report" method="POST" action="{{ URL('/game/report') }}" class="uk-form">
     {!! csrf_field() !!}
+    {!! Honeypot::generate('form_name', 'form_time') !!}
     <div id="bug-report-modal" class="uk-modal">
         <div class="uk-modal-dialog">
             <a href="" class="uk-modal-close uk-close"></a>
