@@ -22,12 +22,12 @@
       <div class="uk-container uk-container-center">
           <a class="uk-navbar-brand uk-hidden-small uk-logo" href="{{ url('/') }}"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
           <ul class="uk-navbar-nav uk-hidden-small">
-            <li @if ($page=='home') class="uk-active" @endif><a href="{{ URL('/') }}">{{ trans('project.navbar.home') }}</a></li>
-            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
-            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
-            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
-            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}">{{ trans('project.navbar.blog') }}</a></li>
-            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
+            <li><a href="{{ URL('/') }}">{{ trans('project.navbar.home') }}</a></li>
+            <li><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
+            <li><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
+            <li><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
+            <li class="uk-active"><a href="{{ URL('/blog') }}">{{ trans('project.navbar.blog') }}</a></li>
+            <li><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
           </ul>
           <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas="" href="#offcanvas"></a>
           <div class="uk-navbar-center uk-visible-small" >
