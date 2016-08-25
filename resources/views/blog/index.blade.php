@@ -1,6 +1,4 @@
-@extends('project.general')
-@section('title') Astrogame Blog
-@stop
+@extends('blog.base')
 @section('content')
 <div class="thumbnav thumbnav-blog">
     <div class="uk-container uk-container-center uk-text-center-small">

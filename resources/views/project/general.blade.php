@@ -18,6 +18,7 @@
     <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
 
+    @yield('head')
 </head>
 <body>
   <div id="top"></div>
@@ -183,5 +184,7 @@
       ga('create', 'UA-81244880-1', 'auto');
       ga('send', 'pageview');
   </script>
+
+  @yield('footer')
 </body>
 </html>

@@ -1,5 +1,4 @@
-@extends('project.general')
-@section('title') {{ the_title() }} - Astrogame Blog @stop
+@extends('blog.base')
 
 @section('content')
 <div class="thumbnav thumbnav-blog">
