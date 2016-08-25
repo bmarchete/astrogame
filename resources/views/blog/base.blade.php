@@ -5,9 +5,9 @@
 @stop
 
 @section('head')
-{!! get_header() !!}
+{!! wp_head() !!}
 @stop
 
 @section('footer')
-{!! get_footer() !!}
+{!! wp_footer() !!}
 @stop
