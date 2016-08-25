@@ -4,7 +4,7 @@
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/primeira_missao/c2runtime.js'])->withFullURL() !!}">
+{!! Minify::javascript(['/construct/primeira_missao/c2runtime.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
 	cr_createRuntime("c2canvas");

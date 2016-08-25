@@ -1,10 +1,10 @@
 @extends('game.general.general')
 @section('title')
-O Pai da Astronomia | {{ trans('project.title') }}
+Capítulo I - O Sistema Solar | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/capitulo_copernico_primeira_missao/c2runtime.js'])->withFullURL() !!}">
+{!! Minify::javascript(['/construct/capitulo_copernico_primeira_missao/c2runtime.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
 		cr_createRuntime("c2canvas");

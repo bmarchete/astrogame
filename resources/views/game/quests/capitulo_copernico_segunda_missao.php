@@ -1,10 +1,10 @@
 @extends('game.general.general')
 @section('title')
-Capítulo I - Quizz | {{ trans('project.title') }}
+O Pai da Astronomia - Quizz | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/capitulo_copernico_quizz/c2runtime.js'])->withFullURL() !!}">
+{!! Minify::javascript(['/construct/capitulo_copernico_quizz/c2runtime.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
 		cr_createRuntime("c2canvas");

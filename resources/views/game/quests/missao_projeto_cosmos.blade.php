@@ -4,7 +4,7 @@ Video Projeto Cosmos | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/missao_projeto_cosmos_video/c2runtime.js'])->withFullURL() !!}">
+{!! Minify::javascript(['/construct/missao_projeto_cosmos_video/c2runtime.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
 		cr_createRuntime("c2canvas");

@@ -4,7 +4,7 @@ Pequeno pálido ponto azul | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/quest_ponto/c2runtime.js'])->withFullURL() !!}">
+{!! Minify::javascript(['/construct/quest_ponto/c2runtime.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
 		cr_createRuntime("c2canvas");

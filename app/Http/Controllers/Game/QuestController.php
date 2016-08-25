@@ -123,7 +123,12 @@ class QuestController extends GameController
 
             return redirect('/game');
         }
+        $view = 'game.quests.'.$request->name;
 
-        return view('game.quests.'.$request->name);
+        if (view()->exists($view)) {
+            return view($view);
+        } else {
+            return view('game.quests.soon');
+        }
     }
 }

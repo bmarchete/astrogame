@@ -4,7 +4,7 @@ Apollo 11 | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/apollo_11/c2runtime.js'])->withFullURL() !!}">
+{!! Minify::javascript(['/construct/apollo_11/c2runtime.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
 		cr_createRuntime("c2canvas");
