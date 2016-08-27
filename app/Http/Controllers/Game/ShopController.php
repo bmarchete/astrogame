@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Bag;
-use App\Models\History;
 use Illuminate\Http\Request;
 use App\Http\Requests\ItemRequest;
 
@@ -41,8 +40,6 @@ class ShopController extends GameController
             Bag::insert(['user_id' => $user->id, 'item_id' => $item->id]);
         }
 
-        $this->history_item($user, $item);
-
         $item_return = ['status_or_price' => $item->price, 'msg' => $item->name.' comprado',
             'item' => $item,
             // checar se já tem esse item, evitar apenas mudança de quantidade
@@ -59,15 +56,6 @@ class ShopController extends GameController
         $item_return = $this->remove_item_from_bag($item_id, 1);
 
         return response()->json(['status' => true, 'msg' => 'Item removido!']);
-    }
-
-    public function history_item($user, Item $item)
-    {
-        $history = new History();
-        $history->user_id = $user->id;
-        $history->texto = 'Comprou o <strong>'.$item->name.'</strong> por '.$item->price.'';
-        $history->icon = 'shopping-cart';
-        $history->save();
     }
 
     public function remove_item_from_bag($item_id, $amount)

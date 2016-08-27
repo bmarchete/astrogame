@@ -14,21 +14,21 @@ class User extends Authenticatable
     public $level_xp =
         [
         // level => xp_for_next_level
-        1 => 400,
-        2 => 900,
-        3 => 1400,
-        4 => 2100,
-        5 => 2800,
-        6 => 3600,
-        7 => 4500,
-        8 => 5400,
-        9 => 6500,
-        10 => 7600,
-        11 => 8700,
-        12 => 9800,
-        13 => 11000,
-        14 => 12300,
-        15 => 13600,
+        1 => 6000,
+        2 => 10000,
+        3 => 12000,
+        4 => 15000,
+        5 => 20000,
+        6 => 25000,
+        7 => 30000,
+        8 => 35000,
+        9 => 40000,
+        10 => 45000,
+        11 => 50000,
+        12 => 55000,
+        13 => 60000,
+        14 => 65000,
+        15 => 70000,
     ];
 
     /**
@@ -265,11 +265,13 @@ class User extends Authenticatable
         $bag_slot->save();
     }
 
-    public function add_insigna($insina_id)
+    public function gain_insigna($insina_id)
     {
-        $insigna_slot = new \App\Models\InsignaLog();
-        $insigna_slot->user_id = $this->id;
-        $insigna_slot->insigna_id = $insina_id;
-        $insigna_slot->save();
+        if(\App\Models\Insignas::where('id', $insina_id)->first()){
+          $insigna_slot = new \App\Models\InsignaLog();
+          $insigna_slot->user_id = $this->id;
+          $insigna_slot->insigna_id = $insina_id;
+          $insigna_slot->save();
+        }
     }
 }

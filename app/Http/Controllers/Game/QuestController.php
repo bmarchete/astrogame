@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\QuestLog;
 use App\Models\Quest;
-use App\Models\History;
 use App\Models\User;
 use App\Http\Requests\QuestRequest;
 
@@ -52,12 +51,6 @@ class QuestController extends GameController
         if ($quest_user->complete_quest()) {
             $this->reward_user($quest_user, auth()->user());
 
-            if ($quest_user->quest_info->type == 2) {
-                $this->history_quest_chapter($quest_user->quest_info, auth()->user());
-            } else {
-                $this->history_quest($quest_user->quest_info, auth()->user());
-            }
-
             session()->put('notify',
             [
                 ['text' => '<i class="uk-icon-exclamation"></i> Missão: '.$quest_user->quest_info->title.' completada', 'status' => 'success', 'timeout' => 3000],
@@ -80,26 +73,7 @@ class QuestController extends GameController
     {
         $user->gain_xp($user_quest->quest_info->xp_reward);
         $user->gain_money($user_quest->quest_info->money_reward);
-        // @TODO: $user->gain_insigna($user_quest->quest_info->insigna_reward);
-    }
-
-    public function history_quest(Quest $quest, User $user)
-    {
-        $history = new History();
-        $history->user_id = $user->id;
-        $history->texto = 'Completou a quest <strong>'.$quest->title.'</strong> e ganhou '.$quest->xp_reward.' pontos de XP';
-        $history->icon = 'exclamation';
-        $history->save();
-    }
-
-    // @TODO: modal com as informações da quest no perfil
-    public function history_quest_chapter(Quest $quest, User $user)
-    {
-        $history = new History();
-        $history->user_id = $user->id;
-        $history->texto = 'Completou o capítulo <strong>'.$quest->title.'</strong>';
-        $history->icon = 'space-shuttle';
-        $history->save();
+        $user->gain_insigna($user_quest->quest_info->insigna_reward);
     }
 
     public function quest(Request $request)
