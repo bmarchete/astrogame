@@ -1,3 +1,9 @@
+@if ($ajax)
+  <div id="new-title" class="uk-hidden">@yield('title')</div>
+  @yield('style')
+  @yield('script')
+  @yield('content')
+@else
 <!DOCTYPE html>
 <html dir="ltr" lang="{{ \Lang::getLocale() }}">
 <head>
@@ -13,7 +19,7 @@
 
     <title>@yield('title')</title>
 
-    {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css', '/vendor/uikit/css/components/notify.gradient.css'])->withFullUrl() !!}
+    {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css', '/vendor/uikit/css/components/notify.gradient.css', '/vendor/loadingbar/loadingbar.css'])->withFullUrl() !!}
     @yield('style')
     <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
@@ -24,18 +30,18 @@
   <div id="top"></div>
   <nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
-          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="{{ url('/') }}"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
+          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="{{ url('/') }}" class="ajax-link"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
           <ul class="uk-navbar-nav uk-hidden-small">
-            <li @if ($page=='home') class="uk-active" @endif><a href="{{ URL('/') }}">{{ trans('project.navbar.home') }}</a></li>
-            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
-            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
-            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
-            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}">{{ trans('project.navbar.blog') }}</a></li>
-            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
+            <li @if ($page=='home') class="uk-active" @endif><a href="{{ URL('/') }}" class="ajax-link">{{ trans('project.navbar.home') }}</a></li>
+            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}" class="ajax-link">{{ trans('project.navbar.sobre') }}</a></li>
+            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}" class="ajax-link">{{ trans('project.navbar.equipe') }}</a></li>
+            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}" class="ajax-link">{{ trans('project.navbar.ranking') }}</a></li>
+            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}" class="ajax-link">{{ trans('project.navbar.blog') }}</a></li>
+            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}" class="ajax-link">{{ trans('project.navbar.contato') }}</a></li>
           </ul>
           <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas="" href="#offcanvas"></a>
           <div class="uk-navbar-center uk-visible-small" >
-              <a href="{{ url('/')}}">
+              <a href="{{ url('/')}}" class="ajax-link">
                   <img alt="astrogame logo" class='logo' src="{{url('img/logo-full.png')}}">
               </a>
           </div>
@@ -45,13 +51,13 @@
       <div class="uk-offcanvas-bar">
           <ul class="uk-nav uk-nav-offcanvas">
             <li @if ($page=='home') class="uk-active" @endif>
-                <a href="{{ URL('/') }}"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
+                <a href="{{ URL('/') }}" class="ajax-link"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
             </li>
-            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
-            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
-            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}"><i class="uk-icon-pencil"></i> {{ trans('project.navbar.blog') }}</a></li>
-            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
-            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
+            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}" class="ajax-link"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
+            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}" class="ajax-link"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
+            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}" class="ajax-link"><i class="uk-icon-pencil"></i> {{ trans('project.navbar.blog') }}</a></li>
+            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}" class="ajax-link"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
+            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}" class="ajax-link"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
 
             <li class="uk-nav-divider"></li>
 
@@ -62,7 +68,9 @@
           </ul>
       </div>
   </div>
-    @yield('content')
+    <div id="content_holder">
+      @yield('content')
+    </div>
     @include('project.footer')
 
     @if (env('ASTROGAME_LOGIN'))
@@ -151,7 +159,7 @@
     </div>
     @endif
 
-    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js', '/vendor/uikit/js/components/notify.min.js'], ['defer' => true])->withFullUrl() !!}
+    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js', '/vendor/uikit/js/components/notify.min.js', '/vendor/loadingbar/loadingbar.min.js'], ['defer' => true])->withFullUrl() !!}
     @yield('javascript')
 
     <div id="fb-root"></div>
@@ -188,3 +196,4 @@
   @yield('footer')
 </body>
 </html>
+@endif

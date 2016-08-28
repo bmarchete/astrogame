@@ -8,10 +8,10 @@
 
             <div class="uk-width-1-2 uk-width-medium-1-10 uk-margin-top">
                 <ul class="uk-list-space uk-margin-top" style="list-style: none; margin-left: 0; padding-left: 0">
-                    <li><a href="{{ url('/home') }}"><i class="uk-icon-home"></i> Home</a></li>
-                    <li><a href="{{ url('/blog') }}"><i class="uk-icon-pencil"></i> Blog</a></li>
-                    <li><a href="{{ url('/equipe') }}"><i class="uk-icon-users"></i> Equipe</a></li>
-                    <li><a href="{{ url('/ranking') }}"><i class="uk-icon-cubes"></i> Ranking</a></li>
+                    <li><a href="{{ url('/home') }}" class="ajax-link"><i class="uk-icon-home"></i> Home</a></li>
+                    <li><a href="{{ url('/blog') }}" class="ajax-link"><i class="uk-icon-pencil"></i> Blog</a></li>
+                    <li><a href="{{ url('/equipe') }}" class="ajax-link"><i class="uk-icon-users"></i> Equipe</a></li>
+                    <li><a href="{{ url('/ranking') }}" class="ajax-link"><i class="uk-icon-cubes"></i> Ranking</a></li>
                 </ul>
             </div>
 
@@ -25,9 +25,9 @@
 
             <div class="uk-width-medium-2-10 uk-margin-top">
                 <ul class="uk-list-space uk-margin-top" style="list-style: none; margin-left: 0; padding-left: 0">
-                    <li><a href="{{ url('/politica') }}"><i class="uk-icon-paperclip"></i> {{ trans('project.politica') }}</a></li>
-                    <li><a href="{{ url('/termos') }}"><i class="uk-icon-gavel"></i> {{ trans('project.termos') }}</a></li>
-                    <li><a href="{{ url('/credits') }}"><i class="uk-icon-user"></i> {{ trans('project.credits')}}</a></li>
+                    <li><a href="{{ url('/politica') }}" class="ajax-link"><i class="uk-icon-paperclip"></i> {{ trans('project.politica') }}</a></li>
+                    <li><a href="{{ url('/termos') }}" class="ajax-link"><i class="uk-icon-gavel"></i> {{ trans('project.termos') }}</a></li>
+                    <li><a href="{{ url('/credits') }}" class="ajax-link"><i class="uk-icon-user"></i> {{ trans('project.credits')}}</a></li>
                 </ul>
             </div>
 
