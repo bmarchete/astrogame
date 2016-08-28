@@ -63,6 +63,7 @@ h6 {
 }
 .uk-navbar-nav {
     float: right;
+    margin-top: -1px;
 }
 .uk-navbar-nav li {
     padding: 30px 5px;
