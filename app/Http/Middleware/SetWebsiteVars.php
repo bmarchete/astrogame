@@ -23,7 +23,7 @@ class SetWebsiteVars
         } else {
             $uri = 'home';
         }
-        
+
         if($request->ajax()){
             $ajax = true;
         } else {
@@ -33,7 +33,11 @@ class SetWebsiteVars
         view()->composer('project.general', function ($view) use ($uri, $ajax) {
             $view->with('page', $uri)
                  ->with('ajax', $ajax);
+        });
 
+        view()->composer('blog.base', function ($view) use ($uri, $ajax) {
+            $view->with('page', $uri)
+                 ->with('ajax', $ajax);
         });
 
         if($uri == 'ranking'){

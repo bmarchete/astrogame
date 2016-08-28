@@ -1,3 +1,9 @@
+@if ($ajax)
+  <div id="new-title" class="uk-hidden">@yield('title')</div>
+  @yield('style')
+  @yield('script')
+  @yield('content')
+@else
 <!DOCTYPE html>
 <html dir="ltr" lang="{{ \Lang::getLocale() }}">
 <head>
@@ -18,18 +24,18 @@
   <div id="top"></div>
   <nav class="uk-navbar uk-navbar-attached">
       <div class="uk-container uk-container-center">
-          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="{{ url('/') }}"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
+          <a class="uk-navbar-brand uk-hidden-small uk-logo" href="{{ url('/') }}" class="ajax-link"><img alt="astrogame logo" class='logo' src="{{ url('img/logo-full.png') }}"></a>
           <ul class="uk-navbar-nav uk-hidden-small">
-            <li><a href="{{ URL('/') }}">{{ trans('project.navbar.home') }}</a></li>
-            <li><a href="{{ URL('/sobre') }}">{{ trans('project.navbar.sobre') }}</a></li>
-            <li><a href="{{ URL('/equipe') }}">{{ trans('project.navbar.equipe') }}</a></li>
-            <li><a href="{{ URL('/ranking') }}">{{ trans('project.navbar.ranking') }}</a></li>
-            <li class="uk-active"><a href="{{ URL('/blog') }}">{{ trans('project.navbar.blog') }}</a></li>
-            <li><a href="{{ URL('/contato') }}">{{ trans('project.navbar.contato') }}</a></li>
+            <li @if ($page=='home') class="uk-active" @endif><a href="{{ URL('/') }}" class="ajax-link">{{ trans('project.navbar.home') }}</a></li>
+            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}" class="ajax-link">{{ trans('project.navbar.sobre') }}</a></li>
+            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}" class="ajax-link">{{ trans('project.navbar.equipe') }}</a></li>
+            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}" class="ajax-link">{{ trans('project.navbar.ranking') }}</a></li>
+            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}" class="ajax-link">{{ trans('project.navbar.blog') }}</a></li>
+            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}" class="ajax-link">{{ trans('project.navbar.contato') }}</a></li>
           </ul>
           <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas="" href="#offcanvas"></a>
           <div class="uk-navbar-center uk-visible-small" >
-              <a href="{{ url('/')}}">
+              <a href="{{ url('/')}}" class="ajax-link">
                   <img alt="astrogame logo" class='logo' src="{{url('img/logo-full.png')}}">
               </a>
           </div>
@@ -38,21 +44,21 @@
   <div class="uk-offcanvas" id="offcanvas">
       <div class="uk-offcanvas-bar">
           <ul class="uk-nav uk-nav-offcanvas">
-            <li>
-                <a href="{{ URL('/') }}"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
+            <li @if ($page=='home') class="uk-active" @endif>
+                <a href="{{ URL('/') }}" class="ajax-link"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a>
             </li>
-            <li><a href="{{ URL('/sobre') }}"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
-            <li><a href="{{ URL('/equipe') }}"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
-            <li class="uk-active"><a href="{{ URL('/blog') }}"><i class="uk-icon-pencil"></i> {{ trans('project.navbar.blog') }}</a></li>
-            <li><a href="{{ URL('/ranking') }}"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
-            <li><a href="{{ URL('/contato') }}"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
+            <li @if ($page=='sobre') class="uk-active" @endif><a href="{{ URL('/sobre') }}" class="ajax-link"><i class="uk-icon-gamepad"></i> {{ trans('project.navbar.sobre') }}</a></li>
+            <li @if ($page=='equipe') class="uk-active" @endif><a href="{{ URL('/equipe') }}" class="ajax-link"><i class="uk-icon-group"></i> {{ trans('project.navbar.equipe') }}</a></li>
+            <li @if ($page=='blog') class="uk-active" @endif><a href="{{ URL('/blog') }}" class="ajax-link"><i class="uk-icon-pencil"></i> {{ trans('project.navbar.blog') }}</a></li>
+            <li @if ($page=='ranking') class="uk-active" @endif><a href="{{ URL('/ranking') }}" class="ajax-link"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
+            <li @if ($page=='contato') class="uk-active" @endif><a href="{{ URL('/contato') }}" class="ajax-link"><i class="uk-icon-paper-plane-o"></i> {{ trans('project.navbar.contato') }}</a></li>
 
             <li class="uk-nav-divider"></li>
 
             <li><a href="{{ URL('/login/facebook') }}"><i class="uk-icon-facebook"></i> Facebook Login</a></li>
             <li><a href="{{ URL('/login/google') }}"><i class="uk-icon-google"></i> Google Login</a></li>
-            <li><a href="#login" data-uk-modal=""><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
-            <li><a href="#register" data-uk-modal=""><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
+            <li @if ($page=='login') class="uk-active" @endif><a href="#login" data-uk-modal=""><i class="uk-icon-sign-in"></i> {{ trans('project.login') }}</a></li>
+            <li @if ($page=='register') class="uk-active" @endif><a href="#register" data-uk-modal=""><i class="uk-icon-user-plus"></i> {{ trans('project.cadastrar') }}</a></li>
           </ul>
       </div>
   </div>
@@ -84,3 +90,4 @@
   {!! wp_footer() !!}
 </body>
 </html>
+@endif
