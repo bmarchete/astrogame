@@ -23,9 +23,17 @@ class SetWebsiteVars
         } else {
             $uri = 'home';
         }
+        
+        if($request->ajax()){
+            $ajax = true;
+        } else {
+            $ajax = false;
+        }
 
-        view()->composer('project.general', function ($view) use ($uri) {
-            $view->with('page', $uri);
+        view()->composer('project.general', function ($view) use ($uri, $ajax) {
+            $view->with('page', $uri)
+                 ->with('ajax', $ajax);
+
         });
 
         if($uri == 'ranking'){
