@@ -22,7 +22,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::group(['middleware' => 'website'], function(){
 		// website-projeto
 		Route::get('/', 'HomeController@index');
-		Route::get('/home', 'HomeController@home');
+		Route::get('/home', 'HomeController@index');
 		Route::get('/sobre', 'HomeController@sobre');
 		Route::get('/equipe', 'HomeController@equipe');
 		Route::get('/termos', 'HomeController@termos');

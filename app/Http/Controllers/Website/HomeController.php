@@ -19,15 +19,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (auth()->check()) {
-            return redirect('/game');
-        }
-
-        return $this->home();
-    }
-
-    public function home()
-    {
         return view('project.home');
     }
 
