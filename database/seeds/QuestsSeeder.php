@@ -9,7 +9,7 @@ class QuestsSeeder extends Seeder
         [
             'name' => 'primeira_missao',
             'title' => 'Bem-vindo ao Astrogame!',
-            'type' => 2
+            'type' => 2,
             'description' => 'Mais uma vez, seja bem vindo ao Astrogame, sua primeira missão é concluir o capítulo de boas vindas assistindo a todos os videos que ir�o aparecer na tela, é rápido e não vai demorar, curta o show do cosmos!',
             'objetivos' => 'Ver tudo sem pular e curtir as belas imagens do universo!',
             'xp_reward' => 500,
@@ -94,7 +94,7 @@ class QuestsSeeder extends Seeder
             'name' => 'capitulo_kepler_primeira_missao',
             'title' => 'As órbitas são elípticas, não redondas!',
             'type' => 2,
-            'description' => 'Kepler apresenta a sua primeira Lei Fundamental, a lei das �rbitas',
+            'description' => 'Kepler apresenta a sua primeira Lei Fundamental, a lei das órbitas',
             'objetivos' => 'Complete o minigame',
             'xp_reward' => 3000,
             'money_reward' => 100,

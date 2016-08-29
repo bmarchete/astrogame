@@ -102,7 +102,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         <span class="bubble-carl">{{ trans('project.home-text.text8') }}</span>
                     </div>
                     <div class="uk-width-medium-1-1 uk-container-center">
-                        <img class="carl-img uk-animation-hover uk-animation-shake" alt="Carl Sagan avatar" src="{{ url('/img/char/carl.png')}}" data-uk-modal="{target:'#galileu'}">
+                        <a href="{{ url('/blog/carl-sagan')}}">
+                          <img class="carl-img uk-animation-hover uk-animation-shake" alt="Carl Sagan avatar" src="{{ url('/img/char/carl.png')}}">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -114,32 +116,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         <span class="bubble">{{ trans('project.home-text.text7') }}</span>
                     </div>
                     <div class="uk-width-medium-1-1 uk-container-center">
-                        <img class="galileu-img uk-animation-hover uk-animation-shake" alt="Galileu Galilei avatar" src="{{ url('/img/char/galileu.png')}}" data-uk-modal="{target:'#galileu'}">
+                        <a href="{{ url('/blog/galileu')}}">
+                          <img class="galileu-img uk-animation-hover uk-animation-shake" alt="Galileu Galilei avatar" src="{{ url('/img/char/galileu.png')}}">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
-</div>
-
-<div id="galileu" class="uk-modal">
-    <div class="uk-modal-dialog">
-        <a href="" class="uk-modal-close uk-close"></a>
-        <p>Biografia do Galileu</p>
-    </div>
-</div>
-
-<div id="carl-sagan" class="uk-modal">
-    <div class="uk-modal-dialog">
-        <a href="" class="uk-modal-close uk-close"></a>
-        <h2>Carl Sagan</h2>
-        <img src="{{ url('') }}" alt="Carl Sagan retrato" title="Carl Sagan">
-        <p>Carl Sagan foi um importante divulgador cientifico, sendo considerado como um dos maiores se não o maior! Nascido em Nova York em 9 de novembro de 1960 ,  teve uma vida voltada à ciência e também a divulgação do incrível universo que temos a nossa volta.</p>
-        <p>Considerado um dos cientistas mais geniais, possuía uma capacidade impar de se comunicar, sendo assim, dominava não só os campos intelectuais, mas também os sociais. Essa característica, outrora iria culminar em um dos programas científicos que se tornariam mais populares na televisão, Cosmos, onde Carl Sagan guiava o telespectador por uma viagem a pontos incríveis do universo. </p>
-        <p>Seus trabalhos somam pelo menos 600 publicações, entre livros de ciências até livro de ficção cientifica.  Trabalhou também como conselheiro da NASA, chegando a chefiar os projetos Mariner e Viking, um dos seus pontos de grande impacto na cultura popular, foi seu discurso sobre o pálido ponto azul.</p>
-        <p>Foi muito importante no campo da exobiologia, onde se aborda a pesquisa sobre vida extraterrestre, sendo um dos principais divulgadores desse campo. Não só na pesquisa, mas também na comunicação com outras raças. No projeto Voyage, por exemplo, Sagan chefiou um comitê que selecionou 115 imagens e sons naturais da terra, como baleias, e imagens representando a fisiologia humana, que foram gravadas em um disco de ouro, para que se uma raça extraterrestre, encontrasse, pudesse obter alguns dados sobre nosso planeta natal, incluindo informações para a construção de uma vitrola.</p>
-        <p>Infelizmente, Carl Sagan veio a falecer decorrente de uma Pneumonia aos seus 62 anos, sendo que sua morte foi sentida por muitos, pois a ciência não só perdeu um grande cientista, mas o mundo todo perdeu um grande comunicador. </p>  
     </div>
 </div>
 

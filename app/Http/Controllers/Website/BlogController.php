@@ -28,29 +28,23 @@ class BlogController extends Controller
 
     public function index()
     {
-        $wordpress = Cache::remember('blog_index', 5, function () {
-          return new WP_Query(
+        $wordpress = new WP_Query(
             [
               'posts_per_page' => 20,
               'order' => 'ASC',
               'orderby' => 'post_title',
             ]);
-          }
-        );
 
         return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Desastronautas']);
     }
 
     public function single($slug)
     {
-        $query = Cache::remember('blog_slug_'.$slug, 5, function () use ($slug) {
-          return new WP_Query(
+        $query = new WP_Query(
             [
               'name' => $slug,
               'post_type' => 'any',
             ]);
-          }
-        );
 
         if ($query->have_posts()) {
             $query->the_post();
@@ -63,10 +57,7 @@ class BlogController extends Controller
 
     public function category($category)
     {
-        $wordpress = Cache::remember('blog_category'.$category, 5, function () use ($category) {
-            return new WP_Query(['category' => $category]);
-          }
-        );
+        $wordpress = new WP_Query(['category' => $category]);
 
         return view('blog.index', ['wordpress' => $wordpress, 'title' => get_category_by_slug($category)->name]);
     }
@@ -87,10 +78,7 @@ class BlogController extends Controller
 
     public function author($author)
     {
-        $wordpress = Cache::remember('blog_author'.$author, 5, function () use ($author) {
-            return new WP_Query(['author' => $author]);
-          }
-        );
+        $wordpress = new WP_Query(['author' => $author]);
 
         return view('blog.index', ['wordpress' => $wordpress, 'title' => 'Posts de '.get_user_by('slug', $author)->data->display_name]);
     }

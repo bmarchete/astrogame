@@ -16,7 +16,8 @@ class Error404Fixer
     public function handle($request, Closure $next)
     {
         view()->composer('project.general', function ($view) {
-            $view->with('page', 'home');
+            $view->with('page', 'home')
+                 ->with('ajax', false);
         });
 
         return $next($request);

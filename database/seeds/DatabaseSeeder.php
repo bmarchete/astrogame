@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
         if (env('APP_ENV') == 'local') {
             $confirm = $this->command->confirm('Deseja rodar os test seeders?');
             if ($confirm) {
-                factory(App\User::class, 20)->create()->each(function ($user) {
-                    factory(App\History::class, 10)->create(['user_id' => $user->id]);
-                    factory(App\UsersQuest::class, 2)->create(['user_id' => $user->id]);
-                    factory(App\UserBag::class, 5)->create(['user_id' => $user->id]);
-                    factory(App\UserInsignas::class, 10)->create(['user_id' => $user->id]);
+                factory(App\Models\User::class, 20)->create()->each(function ($user) {
+                    factory(App\Models\History::class, 15)->create(['user_id' => $user->id]);
+                    factory(App\Models\QuestLog::class, 2)->create(['user_id' => $user->id]);
+                    factory(App\Models\Bag::class, 5)->create(['user_id' => $user->id]);
+                    factory(App\Models\InsignaLog::class, 10)->create(['user_id' => $user->id]);
                 });
                 $this->command->info('Adicionado 20 users aleatorios com history, quests, bag e insignas');
             }
