@@ -34,13 +34,11 @@ Route::group(['middleware' => 'web'], function () {
 		Route::post('/contato', 'ContactController@store');
 
 		// public profile
-		Route::get('/player/{nickname}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('nickname', '[a-zA-Z0-9]+');
+		Route::get('/player/{nickname}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('nickname', '[a-zA-Z0-9_.]+');
 		Route::get('/ranking', 'HomeController@ranking');
 
 		// blog
 		Route::get('/blog', 'BlogController@index');
-		Route::get('/blog/{slug}', 'BlogController@single')->where('slug', '[a-zA-z-]+');
-		Route::get('/blog/{slug}', 'BlogController@single')->where('slug', '((?![search|wp\-admin])[A-Za-z0-9-]+)');
 		Route::get('/blog/{slug}', 'BlogController@single')->where('slug', '((?![search])[A-Za-z0-9-]+)');
 		Route::get('/blog/category/{category}', 'BlogController@category')->where('category', '[a-zA-z-]+');
 		Route::get('/blog/author/{author}', 'BlogController@author')->where('author', '[a-zA-z-]+');
