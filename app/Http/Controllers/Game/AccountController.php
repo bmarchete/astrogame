@@ -4,14 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Config;
-use Hash;
 use Illuminate\Http\Request;
 use Input;
+use Hash;
 
 class AccountController extends GameController
 {
+    /**
+     * Extensões disponíveis para envio de avatares
+     * @var array
+     */
     public $ext_avaliables = ['png', 'jpg', 'jpge', 'gif'];
 
+    /**
+     * Altera o volume da música do usuário
+     * @param  Request $request | precisa de um $volume entre 0 e 100
+     * @return void
+     */
     public function change_volume_music(Request $request)
     {
         $volume = $request->volume;
@@ -21,6 +30,11 @@ class AccountController extends GameController
         Config::setConfig('music_volume', $volume);
     }
 
+    /**
+     * Altera o volume dos efeitos de um usuário
+     * @param  Request $request | precisa de um $volume entre 0 e 100
+     * @return void
+     */
     public function change_volume_effects(Request $request)
     {
         $volume = $request->volume;
@@ -30,6 +44,11 @@ class AccountController extends GameController
         Config::setConfig('effects_volume', $volume);
     }
 
+    /**
+     * Altera o modo do perfil do usuário para privado ou público
+     * @param  Request $request | precisa de um $type (public|private)
+     * @return void
+     */
     public function change_profile(Request $request){
         if($request->type == 'public'){
             Config::setConfig('private', false);
@@ -48,6 +67,11 @@ class AccountController extends GameController
         }
     }
 
+    /**
+     * Função para alterar todas as configurações principais da conta de um usuário
+     * @param  Request $request | (name|email|nickname|old_password|new_password|avatar)
+     * @return json | mensagens dentro de uma json array
+     */
     public function change_account(Request $request)
     {
         // falta um validator
@@ -113,10 +137,13 @@ class AccountController extends GameController
         return response()->json($messages);
     }
 
+    /**
+     * Remove o avatar de um usuário por GET
+     * @return json
+     */
     public function remove_avatar(){
         if(auth()->user()->remove_avatar()){
-            return ['status' => 'success', 'text' => '<i class="uk-icon-user"></i> Avatar removido', 'avatar' => auth()->user()->avatar()];
+            return response()->json(['status' => 'success', 'text' => '<i class="uk-icon-user"></i> Avatar removido', 'avatar' => auth()->user()->avatar()]);
         }
-
     }
 }
