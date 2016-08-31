@@ -51,7 +51,7 @@
                 <figure class="uk-thumbnail" data-uk-scrollspy="{cls:'uk-animation-fade'}">
                     <img src="{{url('img/gamefication.jpg')}}" alt="gamefication">
                 </figure>
-                <p><a href="{{ url('tcc.pdf')}}" class="action-button red"><i class="uk-icon uk-icon-download"></i> {{ trans('about.button2')}}</a></p>
+                <p><a href="{{ url('tcc-astrogame.pdf')}}" class="action-button red"><i class="uk-icon uk-icon-download"></i> {{ trans('about.button2')}}</a></p>
             </div>
         </div>
         <hr class="uk-grid-divider">
