@@ -51,7 +51,7 @@ class BlogController extends Controller
 
             return view('blog.single');
         } else {
-            return 'post não encontrado';
+            return view('blog.empty');
         }
     }
 
