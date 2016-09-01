@@ -1,7 +1,7 @@
 @if ($ajax)
   <div id="new-title" class="uk-hidden">@yield('title')</div>
   @yield('style')
-  @yield('script')
+  @yield('javascript')
   @yield('content')
 @else
 <!DOCTYPE html>
