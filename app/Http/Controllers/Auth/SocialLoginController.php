@@ -61,7 +61,9 @@ class SocialLoginController extends Controller
         $user_db->nickname = $user->getNickname();
         $user_db->provider_id = $provider_id;
         $user_db->provider_user_id = $user->getId();
-        $user_db->gender = ($user->user['gender'] == 'male') ? 1 : 2;
+        if(isset($user->user['gender'])){
+          $user_db->gender = ($user->user['gender'] == 'male') ? 1 : 2;
+        }
         $user_db->password = bcrypt('temp'.rand(1, 100000).'temp');
         $user_db->generate_nickname();
         $user_db->save();
@@ -79,12 +81,11 @@ class SocialLoginController extends Controller
         $user_1 = [
             'name' => $provider->getName(),
             'email' => $provider->getEmail(),
-            'gender' => ($provider->user['gender'] == 'male') ? 1 : 2,
           ];
+
         $user_2 = [
             'name' => $user->name,
             'email' => $user->email,
-            'gender' => $user->gender,
           ];
 
         if (!empty(array_diff($user_1, $user_2))) {
