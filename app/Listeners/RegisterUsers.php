@@ -44,7 +44,7 @@ class RegisterUsers
             ['text' => '<i class="uk-icon-user"></i> Seu nickname é <strong>'.$event->user->nickname.'</strong> ', 'status' => 'success', 'timeout'=> 0],
         ]);
 
-        if( env( 'APP_ENV', 'local' ) !== 'local' ){
+        if( env( 'APP_ENV' ) !== 'local' ){
           // confirmação
           $data = ['name' => $event->user->name, 'email' => $event->user->email, 'confirm_code' => $event->user->confirm_code];
           Mail::send('emails.verify', $data, function ($message) use ($data) {
@@ -52,6 +52,9 @@ class RegisterUsers
               $message->subject('Confirmação do Astrogame');
               $message->to($data['email']);
           });
+        } else if( env( 'APP_ENV' ) === 'local') {
+            $event->user->confirmed = true;
+            $event->user->save();
         }
     }
 }
