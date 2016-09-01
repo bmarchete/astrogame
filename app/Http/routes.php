@@ -2,12 +2,8 @@
 
 /*
 |--------------------------------------------------------------------------
-| Rotas da aplicação
+| Rotas da aplicação do Astrogame
 |--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
 |
 | @author: Eduardo Augusto Ramos
 |
@@ -15,7 +11,7 @@
 
 Route::group(['middleware' => 'web'], function () {
 	// auth
-	if(env('ASTROGAME_LOGIN')){
+	if(env('ASTROGAME_LOGIN', true)){
 		Route::auth();
 	}
 
