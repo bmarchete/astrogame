@@ -226,3 +226,15 @@ canvas, canvas * {
 	filter: grayscale(100%);
 	-webkit-filter: grayscale(1);
 }
+
+
+button.action-button {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+button.action-button:hover {
+    color: #005599;
+    text-shadow: none;
+    cursor: pointer;
+}
