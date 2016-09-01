@@ -372,39 +372,11 @@ $(document).ready(function(){
         window.location.href = url;
     });
 
-
     // quest accept
     $(".accept-quest").click(function(){
-        var quest_id = $(this).val();
-        var quest_name = $('#quest-name-' + quest_id).html();
-        var formData = new FormData();
-        formData.append('id', quest_id);
-
-        $.ajax({
-             url: '{{ url('/game/quest_accept')}}',
-             dataType: 'json',
-             type: 'POST',
-             processData: false,
-             contentType: false,
-             data: formData,
-             success: function(data){
-                if(data.accepted){
-                    UIkit.notify("<i class=\"uk-icon-exclamation\"> </i> {{ trans('game.quest-accepted') }}", {status:'success', pos: 'top-right'});
-                    quest_effect.play();
-                    $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
-                    window.location = '{{ url('/game/quest') }}' + '/' + quest_name;
-
-
-                } else {
-                    UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
-                }
-             },
-             error: function(data){
-                for (var i = 0; i < data.responseJSON.id.length; i++) {
-                    UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
-                }
-             }
-          });
+      var quest_id = $(this).val();
+      var quest_name = $('#quest-name-' + quest_id).html();
+      accept_quest(quest_id, quest_name);
     });
 
     $(".quest-avaliable").change(function() {
@@ -465,6 +437,37 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////
 
 });
+
+function accept_quest(quest_id, quest_name){
+  var formData = new FormData();
+  formData.append('id', quest_id);
+
+  $.ajax({
+       url: '{{ url('/game/quest_accept')}}',
+       dataType: 'json',
+       type: 'POST',
+       processData: false,
+       contentType: false,
+       data: formData,
+       success: function(data){
+          if(data.accepted){
+              UIkit.notify("<i class=\"uk-icon-exclamation\"> </i> {{ trans('game.quest-accepted') }}", {status:'success', pos: 'top-right'});
+              quest_effect.play();
+              $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
+              window.location = '{{ url('/game/quest') }}' + '/' + quest_name;
+
+
+          } else {
+              UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
+          }
+       },
+       error: function(data){
+          for (var i = 0; i < data.responseJSON.id.length; i++) {
+              UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
+          }
+       }
+    });
+}
 
 ///////////////////////////////////////////////////
 // sons do jogo
