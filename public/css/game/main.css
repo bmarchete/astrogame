@@ -238,3 +238,7 @@ button.action-button:hover {
     text-shadow: none;
     cursor: pointer;
 }
+
+.quest-avaliable{
+		width: 180px
+}
