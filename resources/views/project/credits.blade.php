@@ -10,7 +10,7 @@
 <div class="white">
 <div class="uk-container uk-container-center">
     <div class="uk-grid uk-margin-top" data-uk-grid>
-        <div class="uk-witdh-1-1 uk-width-large-3-4 uk-align-center">
+        <div class="uk-width-1-1 uk-width-large-3-4 uk-align-center uk-margin-top">
             <h1>Referencias bibliográficas</h1>
 
             <ul class="uk-list-space">
@@ -47,6 +47,7 @@
             <hr class="uk-grid-divider">
             <h1>Agredecimentos</h1>
             <ul class="uk-list-space">
+                <li><a href="https://www.scirra.com/forum/kenney-s-free-assets-20-000-assets_t93518">https://www.scirra.com/forum/kenney-s-free-assets-20-000-assets_t93518</a></li>
                 <!-- <li>Professor Jefferson David ... pela revisão geral do trabalho</li> -->
             </ul>
     		<hr class="uk-grid-divider">

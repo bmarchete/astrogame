@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-{{ trans('chapters.welcome.title') }} | {{ trans('project.title') }}
+{{ trans('chapters.welcome.title') }} - {{ trans('project.title') }}
 @stop
 
 @section('content')

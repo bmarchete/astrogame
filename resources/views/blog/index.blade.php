@@ -1,4 +1,5 @@
 @extends('blog.base')
+@section('title') {{ $title }} @stop
 @section('content')
 <div class="thumbnav thumbnav-blog">
     <div class="uk-container uk-container-center uk-text-center-small">

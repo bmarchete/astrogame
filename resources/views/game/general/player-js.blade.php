@@ -477,8 +477,8 @@ $(".action-button").click(function(){
 });
 
 // music background
-var music_background = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: false});
-var music_background2 = new buzz.sound('{{ url('sounds/music/bg2.mp3') }}', {preload: true, loop: false});
+var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: false});
+var music_background2 = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: false});
 
 var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
 var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
