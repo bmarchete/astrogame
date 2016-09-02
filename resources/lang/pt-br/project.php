@@ -42,7 +42,7 @@ return [
 		'text6' => 'O objetivo é suprir o déficit atual de informações acessíveis e de simples entendimento para estudantes e interessados em geral sobre astronomia.',
 
 		'text7' => 'Olá peregrino, você me conhece? Desculpe meus modos, nem me apresento, meu nome é Galileu Galiei, contribuí muito para diversos assuntos relacionados a astronomia e estou dentro do astrogame para ajudar em suas descobertas, clique no link para entrar no jogo!',
-		'text8' => 'Olá peregrino, você me conhece? Desculpe meus modos, nem me apresento, meu nome é Galileu Galiei, contribuí muito para diversos assuntos relacionados a astronomia e estou dentro do astrogame para ajudar em suas descobertas, clique no link para entrar no jogo!',
+		'text8' => 'Seja bem-vindo peregrino! Sou Carl Sagan, fui um grande astrônomo e consegui fazer com que milhares de pessoas passassem a se interessar pela Astronomia com meu programa de TV, COSMOS! Estarei te esperando dentro do Astrogame com uma missão muito especial, o que você está esperando? Jogue e divirta-se!',
 
 	],
 
