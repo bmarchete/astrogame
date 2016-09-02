@@ -31,6 +31,7 @@ class Language
 
     private function browser_lang()
     {
+        return 'pt-br'; // return pt-br até arrumar
         if (!isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             return 'en';
         }
