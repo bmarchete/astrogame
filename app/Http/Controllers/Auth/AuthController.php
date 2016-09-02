@@ -113,7 +113,7 @@ class AuthController extends Controller
             auth()->login($user);
         }
 
-        return redirect('/');
+        return redirect($this->redirectTo);
     }
 
     // @overwrite the original method

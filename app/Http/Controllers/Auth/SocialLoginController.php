@@ -61,8 +61,10 @@ class SocialLoginController extends Controller
         $user_db->nickname = $user->getNickname();
         $user_db->provider_id = $provider_id;
         $user_db->provider_user_id = $user->getId();
-        $user_db->gender = ($user->user['gender'] == 'male') ? 1 : 2;
-        $user_db->password = bcrypt('temp'.rand(1, 100000).'temp');
+        if(isset($user->user['gender'])){
+          $user_db->gender = ($user->user['gender'] == 'male') ? 1 : 2;
+        }
+        $user_db->password = bcrypt('temp' . rand(1, 100000) . env('APP_KEY') . 'temp');
         $user_db->generate_nickname();
         $user_db->save();
 
@@ -72,19 +74,21 @@ class SocialLoginController extends Controller
     }
 
     /**
-     * Função diff para checar se o usuário mudou algo no provider, se sim moda no banco de dados.
+     * Função diff para checar se o usuário mudou algo no provider,
+     * se sim moda no banco de dados.
+     * @param  Socialite $provider (facebook|google)
+     * @param  User   $user
+     * @return void
      */
     protected function check_diff($provider, User $user)
     {
         $user_1 = [
             'name' => $provider->getName(),
             'email' => $provider->getEmail(),
-            'gender' => ($provider->user['gender'] == 'male') ? 1 : 2,
           ];
         $user_2 = [
             'name' => $user->name,
             'email' => $user->email,
-            'gender' => $user->gender,
           ];
 
         if (!empty(array_diff($user_1, $user_2))) {
@@ -92,7 +96,6 @@ class SocialLoginController extends Controller
                 $user->email = $provider->getEmail();
             }
             $user->name = $provider->getName();
-            $user->gender = ($provider->user['gender'] == 'male') ? 1 : 2;
         }
 
         $user->makeAvatar($provider->getAvatar());
