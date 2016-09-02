@@ -19,6 +19,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+      session()->put('notify',
+          [
+              ['text' => '<i class="uk-icon-gamepad"></i> Atenção o jogo ainda está em desenvolvimento, bugs podem ocorrer!', 'status' => 'warning', 'timeout' => 3000],
+          ]);
         return view('project.home');
     }
 
