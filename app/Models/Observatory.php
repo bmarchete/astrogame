@@ -9,9 +9,9 @@ class Observatory extends Model
     public $planetarium =
         [
         'showstars'        => 'true',
-        'showstarlabels'   => 'true',
-        'magnitude'        => '5',
-        'constellations'   => 'true',
+        'showstarlabels'   => 'false',
+        'magnitude'        => '1',
+        'constellations'   => 'false',
         'showplanets'      => 'true',
         'showplanetlabels' => 'true',
         'cardinalpoints'   => 'true',
