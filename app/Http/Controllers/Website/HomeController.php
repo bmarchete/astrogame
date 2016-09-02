@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
       session()->put('notify',
           [
-              ['text' => '<i class="uk-icon-gamepad"></i> Atenção o jogo ainda está em desenvolvimento, bugs podem ocorrer!', 'status' => 'warning', 'timeout' => 3000],
+              ['text' => '<i class="uk-icon-gamepad"></i> Atenção o jogo ainda está em desenvolvimento, bugs podem ocorrer! Mande relatórios de erros <a href="' . url('contato') . '">aqui</a> ou dentro do jogo', 'status' => 'warning', 'timeout' => 3000],
           ]);
         return view('project.home');
     }
