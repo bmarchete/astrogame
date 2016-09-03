@@ -376,7 +376,12 @@ $(document).ready(function(){
     $(".accept-quest").click(function(){
       var quest_id = $(this).val();
       var quest_name = $('#quest-name-' + quest_id).html();
-      accept_quest(quest_id, quest_name);
+      var quest_title = $('#quest-title-' + quest_id).html();
+
+      UIkit.modal.confirm("Você deseja aceitar a missão <i class='uk-icon-exclamation'></i> <strong>"+ quest_title +"</strong> ?", function(){
+          accept_quest(quest_id, quest_name);
+      });
+
     });
 
     $(".quest-avaliable").change(function() {

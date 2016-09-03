@@ -80,6 +80,7 @@
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-space-shuttle"></i> Instrumentos óticos</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-book"></i> Livros</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-steam"></i> Insignas</a></li>
+            <div class="uk-align-right">Astrocoins: <i class="uk-icon-money"></i> <strong>{{ $user_money }}</strong></div>
         </ul>
 
         <ul id="tab-shop" class="uk-switcher uk-margin">

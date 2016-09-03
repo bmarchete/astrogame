@@ -16,12 +16,12 @@ class GameController extends Controller
         return view('game.welcome', ['completed' => $completed]);
     }
 
-    public function campaing_map()
-    {
-        return view('game.general.map');
-    }
-
-    // player public profile
+    /**
+     * Perfil público de um jogador, caso o usuário escolher privado redireciona
+     * para o index
+     * @param  Request $request
+     * @return mixed | redirect ou a página
+     */
     public function player(Request $request)
     {
         $user = null;
