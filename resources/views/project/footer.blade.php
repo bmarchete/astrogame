@@ -47,7 +47,7 @@
             </div>
 
             <div class="uk-align-right uk-margin-remove">
-                <i class="uk-icon uk-icon-hand-spock-o"></i> Version 3.0 Spock | @if (session()->get('language', 'pt-br') == 'pt-br')
+                <i class="uk-icon uk-icon-hand-spock-o" title="Life long and prosper!" data-uk-tooltip></i> Version 3.0 Spock | @if (session()->get('language', 'pt-br') == 'pt-br')
                 <a href="{{ url('lang/en') }}">Change to English</a> @else
                 <a href="{{ url('lang/pt-br') }}">Mudar para Português</a> @endif
                 <a href="#top" data-uk-smooth-scroll><i class="uk-icon-arrow-circle-up" title="Ir para o topo"></i></a>
