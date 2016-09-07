@@ -33,7 +33,7 @@
 
             <div class="uk-width-medium-3-10 uk-margin-top">
                 <div class="uk-thumbnail" style="width: 315px;">
-                  <div class="fb-page" data-href="https://www.facebook.com/cosmosexpoete" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
+                  <div class="fb-page" data-href="https://www.facebook.com/astrogame" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
                 </div>
             </div>
         </div>

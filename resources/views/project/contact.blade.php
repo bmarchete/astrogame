@@ -58,16 +58,16 @@
         <div class="uk-grid-divider uk-visible-small"></div>
         <div class="uk-width-1-1 uk-width-medium-1-2 uk-width-large-1-3 uk-text-center-small">
             <div class="uk-panel uk-panel-box uk-panel-box-secondary">
-                <h3 class="uk-panel-title">{{ trans('project.project-name') }}</h3>
+                <h2>{{ trans('project.project-name') }}</h2>
                 <p>
                     <strong><a href="http://www.pfalves.com.br/">ETEC Pedro Ferreira Alves</a></strong>
                     <br>Mogi Mirim, São Paulo
                     <br>Brasil
                 </p>
-            </div>
-
-            <div class="uk-panel uk-panel-box uk-panel-box-secondary">
-                <div class="fb-page" data-href="https://www.facebook.com/cosmosexpoete" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
+                <hr class="uk-grid-divider">
+                <ul class="uk-list-space uk-margin-top" style="list-style: none; margin-left: 0; padding-left: 0">
+                  <li><a href="{{ url('/credits') }}" class="ajax-link"><i class="uk-icon-user"></i> {{ trans('project.credits')}}</a></li>
+                </ul>
             </div>
         </div>
     </div>

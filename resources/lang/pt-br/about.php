@@ -46,6 +46,8 @@ return [
     'depoimento2' => 'Não sei dizer o que mais gostei no projeto, mas amei o simulador, foi surreal.',
     'depoimento3' => 'Ótimo projeto, com muitas pessoas dedicadas. Me fez gostar ainda mais do universo!',
     'depoimento4' => 'Foi uma oportunidade incrível trabalhar com essas pessoas, realizamos algo e estamos orgulhosos do mesmo.',
-    'depoimento5' => 'Foi incrível, o ambiente estava totalmente submersivo. Estão de parabéns!',
-
+    'depoimento_author1' => 'Pedro Cerruti, estudante da ETEC Pedro Ferreira Alves',
+    'depoimento_author2' => 'Antônio Carlos, visitante do projeto',
+    'depoimento_author3' => 'Ana Lacreta, estudante da ETEC Pedro Ferreira Alves',
+    'depoimento_author4' => 'Brenda Conttessotto, idealizadora do projeto',
 ];

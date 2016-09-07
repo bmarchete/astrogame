@@ -11,8 +11,21 @@
 <div class="uk-container uk-container-center">
     <div class="uk-grid uk-margin-top" data-uk-grid>
         <div class="uk-width-1-1 uk-width-large-3-4 uk-align-center uk-margin-top">
+            <h1>Agradecimentos</h1>
+            <p>Professores orientadores</p>
+            <ul class="uk-list-space">
+              <li>Profº Marcos Roberto Moraes</li>
+              <li>Profº Pedro Ramires</li>
+            </ul>
+            <p>Professores apoiadores</p>
+            <ul class="uk-list-space">
+              <li>Profº João Rubens Marchete Filho</li>
+              <li>Profª Maria Marli Milan Luqueta</li>
+              <li>Profª Janaina Zonzini Justino Costa</li>
+              <li>Profº Jefferson David Alves</li>
+            </ul>
+            <hr class="uk-grid-divider">
             <h1>Referencias bibliográficas</h1>
-
             <ul class="uk-list-space">
               <li>Balduino, P. Dominando JavaScript com jQuery. Casa do Código, 2012.</li>
               <li>Biografias - Galileu Galilei - Só História. Disponível em: <a href="http://www.sohistoria.com.br/biografias/galileu/">http://www.sohistoria.com.br/biografias/galileu/</a>. Acesso em: 17 ago. 2016.</li>
@@ -45,10 +58,9 @@
               <li>UIkit documentation. Disponível em: <a href="http://getuikit.com/docs/documentation_get-started.html">http://getuikit.com/docs/documentation_get-started.html</a>. Acesso em: 4 jul. 2016.</li>
             </ul>
             <hr class="uk-grid-divider">
-            <h1>Agredecimentos</h1>
+            <h1>Créditos</h1>
             <ul class="uk-list-space">
                 <li><a href="https://www.scirra.com/forum/kenney-s-free-assets-20-000-assets_t93518">https://www.scirra.com/forum/kenney-s-free-assets-20-000-assets_t93518</a></li>
-                <!-- <li>Professor Jefferson David ... pela revisão geral do trabalho</li> -->
             </ul>
     		<hr class="uk-grid-divider">
         </div>

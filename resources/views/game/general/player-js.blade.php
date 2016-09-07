@@ -501,7 +501,6 @@ var background3 = new buzz.sound('{{ url('sounds/music/a_observar_a_vastidao2.mp
 background.setVolume({{ $music_volume }});
 background2.setVolume({{ $music_volume }});
 background3.setVolume({{ $music_volume }});
-remix.setVolume({{ $music_volume }});
 sound_effect.setVolume({{ $effects_volume }});
 
 </script>
