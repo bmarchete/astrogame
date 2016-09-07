@@ -14,7 +14,7 @@ class BlogController extends Controller
           $recentPosts = new WP_Query();
           $recentPosts->query('showposts=10');
 
-          view()->composer('project.general', function ($view) {
+          view()->composer('website.general', function ($view) {
               $view->with('page', 'blog');
           });
 

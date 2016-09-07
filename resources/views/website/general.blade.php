@@ -19,7 +19,7 @@
 
     <title>@yield('title')</title>
 
-    {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/project/main.css', '/vendor/uikit/css/components/notify.gradient.css', '/vendor/loadingbar/loadingbar.css'])->withFullUrl() !!}
+    {!! Minify::stylesheet(['/vendor/uikit/css/normalize.css', '/vendor/uikit/css/uikit.gradient.css', '/css/website/main.css', '/vendor/uikit/css/components/notify.gradient.css', '/vendor/loadingbar/loadingbar.css'])->withFullUrl() !!}
     @yield('style')
     <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
@@ -71,7 +71,7 @@
     <div id="content_holder">
       @yield('content')
     </div>
-    @include('project.footer')
+    @include('website.footer')
 
     @if (env('ASTROGAME_LOGIN'))
     <div id="login" class="uk-modal">

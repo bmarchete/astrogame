@@ -1,4 +1,4 @@
-@extends('project.general') @section('title') {{ trans('project.termos') }} | {{ trans('project.title') }} @stop @section('content')
+@extends('website.general') @section('title') {{ trans('project.termos') }} | {{ trans('project.title') }} @stop @section('content')
 <div class="thumbnav">
     <div class="uk-container uk-container-center">
         <h1>{{ trans('project.termos') }}</h1>

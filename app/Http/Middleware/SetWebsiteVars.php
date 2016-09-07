@@ -30,7 +30,7 @@ class SetWebsiteVars
             $ajax = false;
         }
 
-        view()->composer('project.general', function ($view) use ($uri, $ajax) {
+        view()->composer('website.general', function ($view) use ($uri, $ajax) {
             $view->with('page', $uri)
                  ->with('ajax', $ajax);
         });

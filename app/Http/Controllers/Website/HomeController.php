@@ -23,7 +23,7 @@ class HomeController extends Controller
           [
               ['text' => '<i class="uk-icon-gamepad"></i> Atenção o jogo ainda está em desenvolvimento, bugs podem ocorrer! Mande relatórios de erros <a href="' . url('contato') . '">aqui</a> ou dentro do jogo', 'status' => 'warning', 'timeout' => 3000],
           ]);
-        return view('project.home');
+        return view('website.home');
     }
 
     /**
@@ -33,7 +33,7 @@ class HomeController extends Controller
      */
     public function sobre()
     {
-        return view('project.about');
+        return view('website.about');
     }
 
     // middleware game
@@ -47,7 +47,7 @@ class HomeController extends Controller
                       })->limit(100)->orderBy('xp', 'DESC')->get();
         });
 
-        return view('project.ranking', ['players' => $players]);
+        return view('website.ranking', ['players' => $players]);
     }
 
     /**
@@ -107,7 +107,7 @@ class HomeController extends Controller
                 ],
         ];
 
-        return view('project.team', ['team' => $team]);
+        return view('website.team', ['team' => $team]);
     }
 
     /**
@@ -117,7 +117,7 @@ class HomeController extends Controller
      */
     public function termos()
     {
-        return view('project.termos');
+        return view('website.termos');
     }
 
     /**
@@ -127,7 +127,7 @@ class HomeController extends Controller
      */
     public function politica()
     {
-        return view('project.politica');
+        return view('website.politica');
     }
 
     /**
@@ -137,7 +137,7 @@ class HomeController extends Controller
      */
     public function credits()
     {
-        return view('project.credits');
+        return view('website.credits');
     }
 
     /**

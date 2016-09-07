@@ -38,6 +38,6 @@ class ContactController extends Controller
    */
   public function index()
   {
-      return view('project.contact', ['page' => 'contato']);
+      return view('website.contact', ['page' => 'contato']);
   }
 }

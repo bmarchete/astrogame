@@ -1,4 +1,4 @@
-@extends('project.general')
+@extends('website.general')
 @section('title') {{ trans('project.team') }} | {{ trans('project.project-name') }} @stop
 @section('content')
 <div class="team">
