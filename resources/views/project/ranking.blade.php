@@ -1,4 +1,4 @@
-@extends('website.general')
+@extends('project.general')
 
 @section('title')
 Ranking Global | Astrogame

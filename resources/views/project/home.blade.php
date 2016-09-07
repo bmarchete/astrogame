@@ -1,4 +1,4 @@
-@extends('website.general')
+@extends('project.general')
 @section('title') {{ trans('project.title') }} @stop
 
 @section('style')

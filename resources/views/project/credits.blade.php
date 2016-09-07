@@ -1,4 +1,4 @@
-@extends('website.general') @section('title') Créditos | {{ trans('project.title') }} @stop
+@extends('project.general') @section('title') Créditos | {{ trans('project.title') }} @stop
 @section('content')
 <div class="thumbnav">
     <div class="uk-container uk-container-center">

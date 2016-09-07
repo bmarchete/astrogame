@@ -1,4 +1,4 @@
-@extends('website.general')
+@extends('project.general')
 @section('title') {{ trans('project.about') }} | {{ trans('project.project-name') }} @stop
 @section('style')
  {!! Minify::stylesheet(['/vendor/uikit/css/components/slideshow.gradient.css', '/vendor/uikit/css/components/dotnav.gradient.css', '/vendor/uikit/css/components/slidenav.gradient.css'])->withFullURL() !!} @stop
