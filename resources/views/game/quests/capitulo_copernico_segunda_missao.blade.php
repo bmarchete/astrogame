@@ -8,6 +8,7 @@ O Pai da Astronomia - Quizz | {{ trans('project.title') }}
 <script>
 $(document).ready(function(){
 		cr_createRuntime("c2canvas");
+		background3.play();
 });
 </script>
 @stop

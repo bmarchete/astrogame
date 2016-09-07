@@ -3,6 +3,14 @@
 {{ trans('chapters.welcome.title') }} - {{ trans('project.title') }}
 @stop
 
+@section('javascript')
+<script>
+$(document).ready(function(){
+  background.play();
+});
+</script>
+@stop
+
 @section('content')
 <div class="uk-container uk-container-center uk-margin-large-top">
     <div class="uk-grid">

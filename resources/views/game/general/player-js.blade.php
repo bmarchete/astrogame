@@ -481,10 +481,6 @@ $(".action-button").click(function(){
     map_effect.play();
 });
 
-// music background
-var music_background = new buzz.sound('{{ url('sounds/music/ambient.mp3') }}', {preload: true, loop: false});
-var music_background2 = new buzz.sound('{{ url('sounds/music/bg.mp3') }}', {preload: true, loop: false});
-
 var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
 var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
 var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false});
@@ -497,22 +493,15 @@ var sound_effect = new buzz.group([
       map_effect
 ]);
 
-var background = new buzz.group([
-    music_background, music_background2
-]);
-
-// starts the background music
-music_background.play();
-music_background.bind("ended", function(){
-    // when ended starts the second
-    music_background2.play();
-});
-
-music_background2.bind("ended", function(){
-    music_background.play();
-});
+// music background
+var background = new buzz.sound('{{ url('sounds/music/a_observar_a_vastidao3.mp3') }}', {preload: true, loop: true});
+var background2 = new buzz.sound('{{ url('sounds/music/a_observar_a_vastidao1.mp3') }}', {preload: true, loop: true});
+var background3 = new buzz.sound('{{ url('sounds/music/a_observar_a_vastidao2.mp3') }}', {preload: true, loop: true});
 
 background.setVolume({{ $music_volume }});
+background2.setVolume({{ $music_volume }});
+background3.setVolume({{ $music_volume }});
+remix.setVolume({{ $music_volume }});
 sound_effect.setVolume({{ $effects_volume }});
 
 </script>
