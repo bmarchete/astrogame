@@ -6,7 +6,9 @@ Ranking Global | Astrogame
 @section('content')
 <div class="thumbnav">
     <div class="uk-container uk-container-center">
-        <h1>Ranking Geral</h1>
+        <div class="uk-align-left">
+            <h1>Ranking Geral</h1>
+        </div>
     </div>
 </div>
 <div class="ranking">

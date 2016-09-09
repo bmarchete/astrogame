@@ -3,7 +3,7 @@
 @section('content')
 <div class="thumbnav thumbnav-blog">
     <div class="uk-container uk-container-center uk-text-center-small">
-        <h1>Nenhum post encontrado</h1>
+        <h1>{{ trans('blog.empty-title') }}</h1>
     </div>
 </div>
 
@@ -12,7 +12,7 @@
     <div class="uk-grid uk-margin-large-top" data-uk-grid-margin>
         <div class="uk-width-medium-4-6">
           <div class="uk-panel uk-panel-box">
-              <p>Nenhum post com esses termos encontrados :(</p>
+              <p>{{ trans('blog.empty-text')}}</p>
           </div>
           </div>
 

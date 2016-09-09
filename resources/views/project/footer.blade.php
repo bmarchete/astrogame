@@ -3,15 +3,15 @@
         <div class="uk-grid" data-uk-grid>
             <div class="uk-margin uk-width-medium-3-10">
                 <h2>Astrogame</h2>
-                <p>Astrogame é um jogo online onde é possível aprender astronomia através do conceito de gamification, estudando de forma lúcida e divertida com jogos no estilo plataforma, puzzle, point-and-click e outros.</p>
+                <p>{{ trans('project.footer-text') }}</p>
             </div>
 
             <div class="uk-width-1-2 uk-width-medium-1-10 uk-margin-top">
                 <ul class="uk-list-space uk-margin-top" style="list-style: none; margin-left: 0; padding-left: 0">
-                    <li><a href="{{ url('/home') }}" class="ajax-link"><i class="uk-icon-home"></i> Home</a></li>
-                    <li><a href="{{ url('/blog') }}" class="ajax-link"><i class="uk-icon-pencil"></i> Blog</a></li>
-                    <li><a href="{{ url('/equipe') }}" class="ajax-link"><i class="uk-icon-users"></i> Equipe</a></li>
-                    <li><a href="{{ url('/ranking') }}" class="ajax-link"><i class="uk-icon-cubes"></i> Ranking</a></li>
+                    <li><a href="{{ url('/home') }}" class="ajax-link"><i class="uk-icon-home"></i> {{ trans('project.navbar.home') }}</a></li>
+                    <li><a href="{{ url('/blog') }}" class="ajax-link"><i class="uk-icon-pencil"></i> {{ trans('project.navbar.blog') }}</a></li>
+                    <li><a href="{{ url('/equipe') }}" class="ajax-link"><i class="uk-icon-users"></i> {{ trans('project.navbar.equipe') }}</a></li>
+                    <li><a href="{{ url('/ranking') }}" class="ajax-link"><i class="uk-icon-cubes"></i> {{ trans('project.navbar.ranking') }}</a></li>
                 </ul>
             </div>
 

@@ -60,6 +60,7 @@ return [
 	'register' => 'Criar Conta',
 
 	// footer
+	'footer-text' => 'Astrogame é um jogo online onde é possível aprender astronomia através do conceito de gamification, estudando de forma lúcida e divertida com jogos no estilo plataforma, puzzle, point-and-click e outros.',
 	'made-by' => 'Feito com <i class="uk-icon-heart" title="Amor" data-uk-tooltip="{pos:\'top\'}"></i> e <i class="uk-icon-coffee" title="Café" data-uk-tooltip></i> pelo 3º EMIA (2016)',
 	'termos' => 'Termos de Uso',
 	'politica' => 'Política de Privacidade',

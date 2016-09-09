@@ -7,7 +7,9 @@
 @section('content')
 <div class="thumbnav">
     <div class="uk-container uk-container-center">
-        <h1>{{ trans('project.contato') }}</h1>
+        <div class="uk-align-left">
+            <h1>{{ trans('project.contato') }}</h1>
+        </div>
     </div>
 </div>
 <div class="white">

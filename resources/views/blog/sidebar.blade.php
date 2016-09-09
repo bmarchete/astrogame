@@ -18,7 +18,7 @@
     </form>
 
     <div class="uk-panel uk-margin-large-top">
-        <h3 class="uk-panel-title">Últimos posts</h3>
+        <h3 class="uk-panel-title">{{ trans('blog.last-posts')}}</h3>
         <ul class="uk-list-line" style="list-style: none; margin: 0; padding: 0">
                 <?php while ($recentPosts->have_posts()) : $recentPosts->the_post(); ?>
                 <li>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="uk-panel uk-margin-large-top">
-        <h3 class="uk-panel-title">Categorias</h3>
+        <h3 class="uk-panel-title">{{ trans('blog.categories') }}</h3>
         <ul class="uk-list-line" style="list-style: none; margin: 0; padding: 0">
             <?php $categories = get_categories(); ?>
             @foreach ($categories as $category)
@@ -41,7 +41,7 @@
     </div>
 
     <div class="uk-panel uk-margin-large-top">
-        <h3 class="uk-panel-title">Social</h3>
-        <div class="fb-page" data-href="https://www.facebook.com/cosmosexpoete" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
+        <h3 class="uk-panel-title">{{ trans('blog.social') }}</h3>
+        <div class="fb-page" data-href="https://www.facebook.com/astrogame" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cosmosexpoete" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cosmosexpoete">Astrogame</a></blockquote></div>
     </div>
 </aside>

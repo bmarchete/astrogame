@@ -9,7 +9,6 @@
         <div class="uk-align-left">
             <h1>{{ trans('about.title') }}</h1>
         </div>
-
     </div>
 </div>
 <div class="about uk-text-justify">

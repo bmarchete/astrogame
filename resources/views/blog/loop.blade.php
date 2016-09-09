@@ -1,5 +1,5 @@
 @if (!$wordpress->have_posts())
-<p>Não encontramos nenhum post relacionado :(</p>
+<p>{{ trans('blog.empty-text') }}</p>
 @else
 
 <?php if ($wordpress->have_posts()) : while ($wordpress->have_posts()) : $wordpress->the_post(); ?>

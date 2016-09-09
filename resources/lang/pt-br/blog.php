@@ -1,7 +1,6 @@
 <?php
 return [
-    // blog
-    'blog-full' => 'Blog dos Desastronautas',
+  'blog-full' => 'Blog dos Desastronautas',
 
 	'title' => 'Desastronautas',
 	'written' => 'Escrito por',
@@ -11,9 +10,12 @@ return [
 	'authors' => 'Autores',
 	'search-title' => 'Procurar por:',
 	'search' => 'procurar',
-	'astronomy' => 'Astronomia',
+	'last-posts' => 'Últimos posts',
 	'curiosity' => 'Curiosidades',
 	'development' => 'Desenvolvimento',
 	'events' => 'Eventos',
 
+
+  'empty-title' => 'Nenhum post encontrado',
+  'empty-text' => 'Nenhum post com esses termos encontrados :(',
 ];

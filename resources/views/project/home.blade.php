@@ -6,7 +6,7 @@
 @stop
 
 @section('javascript')
-<script >
+<script>
 document.addEventListener("DOMContentLoaded", function(event) {
 @if (session()->has('notify'))
     @foreach (session()->get('notify') as $notify)
