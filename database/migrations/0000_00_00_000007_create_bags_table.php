@@ -30,6 +30,6 @@ class CreateBagsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_bags');
+        Schema::drop('bags');
     }
 }

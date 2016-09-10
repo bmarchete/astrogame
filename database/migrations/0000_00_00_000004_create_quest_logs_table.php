@@ -30,6 +30,6 @@ class CreateQuestLogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users_quests');
+        Schema::drop('quest_logs');
     }
 }

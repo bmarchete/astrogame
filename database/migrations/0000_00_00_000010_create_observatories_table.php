@@ -30,6 +30,6 @@ class CreateObservatoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_observatories');
+        Schema::drop('observatories');
     }
 }

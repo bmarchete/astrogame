@@ -29,6 +29,6 @@ class CreateInsignaLogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_insignas');
+        Schema::drop('insigna_logs');
     }
 }
