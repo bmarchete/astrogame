@@ -159,7 +159,7 @@
     </div>
     @endif
 
-    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js', '/vendor/uikit/js/components/notify.min.js', 'https://raw.githubusercontent.com/HubSpot/pace/v1.0.0/pace.min.js'], ['defer' => true])->withFullUrl() !!}
+    {!! Minify::javascript(['/vendor/jquery/jquery-2.2.1.min.js', '/vendor/uikit/js/uikit.min.js', '/vendor/uikit/js/components/tooltip.js', '/vendor/buzz/buzz.min.js', '/js/home.js', '/vendor/uikit/js/components/notify.min.js', '/vendor/loadingbar/loadingbar.min.js'], ['defer' => true])->withFullUrl() !!}
     @yield('javascript')
 
     <div id="fb-root"></div>
