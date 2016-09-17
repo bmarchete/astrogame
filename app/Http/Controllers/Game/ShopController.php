@@ -9,6 +9,11 @@ use App\Http\Requests\ItemRequest;
 
 class ShopController extends GameController
 {
+    /**
+     * Função para a compra de um item
+     * @param  ItemRequest $request | (id)
+     * @return json | return mixed
+     */
     public function buy_item(ItemRequest $request)
     {
         $item_id = $request->id;
@@ -42,6 +47,7 @@ class ShopController extends GameController
 
         $item_return = ['status_or_price' => $item->price, 'msg' => $item->name.' comprado',
             'item' => $item,
+            'item_id' => $item_id,
             // checar se já tem esse item, evitar apenas mudança de quantidade
             // @TODO tranformar esse HTML em json.
             'html' => '<li onclick="remove_item('.$item->id.')" class="item-'.$item->id.'"><span class="uk-badge uk-badge-success">1</span><figure class="uk-thumbnail" data-uk-tooltip title="'.$item->name.'"><img src="'.url('/img/items').'/'.$item->img_url.'.png" alt="" data-uk-tooltip=""></figure></li>',
@@ -50,6 +56,11 @@ class ShopController extends GameController
         return response()->json($item_return);
     }
 
+    /**
+     * Request para remoção de um item da mochila
+     * @param  ItemRequest $request
+     * @return json | mixed array
+     */
     public function remove_item(ItemRequest $request)
     {
         $item_id = $request->id;
@@ -58,6 +69,12 @@ class ShopController extends GameController
         return response()->json(['status' => true, 'msg' => 'Item removido!']);
     }
 
+    /**
+     * Função para remover item da mochila
+     * @param  int $item_id | id do item exsistente no banco de dados
+     * @param  int $amount  | quantidade de itens
+     * @return json
+     */
     public function remove_item_from_bag($item_id, $amount)
     {
         $user_id = auth()->user()->id;

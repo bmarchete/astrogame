@@ -55,6 +55,10 @@ class AccountType extends Command
         $user->type = $type;
         $user->save();
 
+        if($type == 3){ // adiciona astrogame staff insigna
+            $user->gain_insigna(1);
+        }
+
         return $this->info("[INFO] Usuario alterado para : " . $types_avaliables[$type]);
     }
 }

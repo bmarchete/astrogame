@@ -54,7 +54,7 @@ class PlayerLevel extends Command
 
         foreach($user->level_xp as $array_level => $array_xp){
             if($array_level == $level + 1){
-                $xp = $array_xp;
+                $xp = $array_xp; // arrumar erro no level máximo
             }
         }
 

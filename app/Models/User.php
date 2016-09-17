@@ -227,6 +227,11 @@ class User extends Authenticatable
         return ($check_item) ? true : false;
     }
 
+    public function count_has_items(array $items_id){
+        $check_items = $this->user_bag()->select('id')->whereIn('item_id', $items_id)->get();
+        return ($check_items) ? $check_items->count() : false;
+    }
+
     public function has_item_amount($item_id)
     {
         $bag_item = $this->user_bag()->with('item')->select(DB::raw("SUM(amount) as 'amount'"))

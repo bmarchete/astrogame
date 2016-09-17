@@ -57,10 +57,10 @@
             <div class="uk-panel uk-panel-box uk-text-center">
                 <h2>Insignas</h2>
                 <ul class="uk-list insignas">
-                    @foreach($player->insignas() as $insigna)
+                    @foreach($player->insignas as $insigna)
                     <li>
-                        <figure class="uk-thumbnail uk-border-circle" style="width: 100px">
-                            <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
+                        <figure data-uk-modal="{target:'#insigna-{{ $insigna->insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
+                            <img src="{{ url('/img/insignias') }}/{{ $insigna->insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->insigna->name }}">
                         </figure>
                     </li>
                     @endforeach

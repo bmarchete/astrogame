@@ -20,11 +20,16 @@ body {
 	position: fixed;
 	bottom: 0;
 	right: 0;
-	width: 250px;
+	width: 200px;
+}
+.game-section .controls {
+	position: fixed;
+	bottom: 20px;
+	right: 210px;
 }
 .game-section .cientist-message .uk-tooltip {
 	position: fixed;
-	bottom: 162px;
+	bottom: 220px;
 	right: 83px;
 	z-index: 1;
 	max-width: 270px;

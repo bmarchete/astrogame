@@ -10,6 +10,11 @@ use App\Http\Requests\QuestRequest;
 
 class QuestController extends GameController
 {
+    /**
+     * Request para aceitar uma missão
+     * @param  QuestRequest $request
+     * @return json
+     */
     public function quest_accept(QuestRequest $request)
     {
         $quest_id = $request->id;
@@ -23,6 +28,11 @@ class QuestController extends GameController
         return response()->json(['accepted' => $status]);
     }
 
+    /**
+     * Request para cancelar uma quest
+     * @param  QuestRequest $request | quest id
+     * @return json
+     */
     public function quest_cancel(QuestRequest $request)
     {
         $quest_id = $request->id;
@@ -36,6 +46,11 @@ class QuestController extends GameController
         return response()->json(['canceled' => $status]);
     }
 
+    /**
+     * Request para completar uma missão
+     * @param  Request $request
+     * @return json
+     */
     public function quest_complete(Request $request)
     {
         $quest = Quest::select('id')->where('name', $request->name)->limit(1)->first();
@@ -69,6 +84,12 @@ class QuestController extends GameController
         }
     }
 
+    /**
+     * Função para recompensa
+     * @param  QuestLog $user_quest [description]
+     * @param  User     $user       [description]
+     * @return void               [description]
+     */
     public function reward_user(QuestLog $user_quest, User $user)
     {
         $user->gain_xp($user_quest->quest_info->xp_reward);
@@ -76,6 +97,11 @@ class QuestController extends GameController
         $user->gain_insigna($user_quest->quest_info->insigna_reward);
     }
 
+    /**
+     * Request de uma missão
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function quest(Request $request)
     {
         $quest = Quest::select('id')->where('name', $request->name)->limit(1)->first();

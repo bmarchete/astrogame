@@ -61,11 +61,11 @@ class SetGameVars
 
     public function shop_items(){
         $telescopios = Cache::rememberForever('telescopios', function(){
-            return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Luneta%')->get();
+            return Item::where('category', 2)->get();
         });
 
         $livros = Cache::rememberForever('livros', function(){
-            return Item::where('name', 'LIKE', '%Telescópio%')->orWhere('name', 'LIKE', '%Guia%')->get();
+            return Item::where('category', 3)->get();
         });
 
         return ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => []];

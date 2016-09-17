@@ -26,6 +26,10 @@ function buy_item(item){
                     $('.money').html(money_final);
 
                     $(data.html).insertBefore(".bag-items li:first").hide().fadeIn(2000);
+
+                    var event = new CustomEvent('buy_item', {'detail': data.item_id});
+                    window.dispatchEvent(event);
+
                 }
              },
              error: function(data){
