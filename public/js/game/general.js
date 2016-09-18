@@ -44,7 +44,7 @@ function fullscreen_exit() {
 //////////////////////////////////////////////////////////
 // falas
 // ///////////////////////////////////////////////////////
-window.fala = 1;
+window.fala = 0;
 window.falas = [];
 window.fala_event = new Event('troca_fala');
 window.addEventListener('troca_fala', function(){

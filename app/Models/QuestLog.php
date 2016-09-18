@@ -20,7 +20,7 @@ class QuestLog extends Model
     public function accept_quest()
     {
         if (empty($this->user_quest_exists())) {
-            return self::insert(['quest_id' => $this->quest_id, 'user_id' => $this->user_id]);
+            return $this->save();
         }
     }
 
