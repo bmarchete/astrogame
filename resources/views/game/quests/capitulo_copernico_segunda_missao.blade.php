@@ -4,11 +4,12 @@ O Pai da Astronomia - Quizz | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
+{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
 		background3.play();
 });
-var quest = 'capitulo_kepler_segunda_missao';
+var quest = 'capitulo_copernico_segunda_missao';
 var complete_quest_on_quiz_completed = true;
 
 var questions = [{
@@ -50,10 +51,12 @@ var questions = [{
 
         </div>
      </div>
+		 <div class="cientist-box">
 		 <div class="cientist-message">
          <span class="bubble cientist-text">Agora, aspirante, use o que você aprendeu para responder às perguntas!</span>
      </div>
      <img src="{{ URL('/img/char/copernico.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
+	 </div>
   </div>
   </div>
 @stop

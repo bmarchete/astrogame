@@ -303,6 +303,7 @@ button.action-button:hover {
 @media screen and ( min-width : 480px ) and (orientation: landscape ) {
 	body {
 		background-image:none;
+		overflow-y: scroll;
 	}
 }
 

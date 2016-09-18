@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Quest;
 
 class QuestsSeeder extends Seeder
 {
@@ -254,11 +255,11 @@ class QuestsSeeder extends Seeder
      */
     public function run()
     {
-        foreach ($this->quests as $quest) {
-            if (DB::table('quests')->where('name', $quest['name'])->get() == null) {
-                DB::table('quests')->insert($quest);
-                $this->command->info('Quest: '.e($quest['title']).' adicionado.');
-            }
-        }
+      Quest::getQuery()->delete();
+
+      foreach ($this->quests as $quest) {
+          Quest::insert($quest);
+          $this->command->info('Quest: '.e($quest['title']).' adicionado.');
+      }
     }
 }

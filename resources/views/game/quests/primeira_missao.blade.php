@@ -57,12 +57,7 @@ function onYouTubeIframeAPIReady() {
 	for (var key in videos) {
 			youtube_video(videos[key], key);
 	}
-
 }
-
-$('.cientist-box').click(function(){
-    $('.cientist-box').hide('slow');
-});
 </script>
 @stop
 
