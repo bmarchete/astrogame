@@ -193,7 +193,7 @@ class QuestsSeeder extends Seeder
             'type' => 1,
             'description' => 'Nessa missão você terá que assistir por completo a mensagem deixada por Carl Sagan quando a espaçonave Voayger 1 passou por Juptier e avistou um pequeno pálido ponto azul, a Terra como um grão de areia.',
             'objetivos' => 'Assistir ao video completo do pequeno pálido ponto azul',
-            'xp_reward' => 0,
+            'xp_reward' => 500,
             'money_reward' => 450,
             'min_level' => 1,
             'max_level' => 0,

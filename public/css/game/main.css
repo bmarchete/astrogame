@@ -299,3 +299,53 @@ button.action-button:hover {
     overflow-y: scroll;
     height: 400px;
 }
+
+@media screen and ( min-width : 480px ) and (orientation: landscape ) {
+	body {
+		background-image:none;
+	}
+}
+
+.menu-config-mobile {
+	top: 30px;
+	right: -165px;
+	background: #95a5a6;
+	border-color: #7f8c8d;
+	text-shadow: 0 -2px #7f8c8d;
+}
+.menu-config-mobile:hover {
+	right: -18px;
+}
+
+.menu-home-mobile {
+	top: 100px;
+	right: -85px;
+	background: #9b59b6;
+	border-color: #8e44ad;
+	text-shadow: 0 -2px #8e44ad;
+}
+.menu-home-mobile:hover {
+	right: -18px;
+}
+
+
+.menu-suggestions-mobile {
+	right: -125px;
+	top: 170px;
+	padding-right: 10px;
+	padding-left: 10px;
+	background: #2ecc71;
+	border-color: #27ae60;
+	text-shadow: 0 -2px #27ae60;
+}
+.menu-suggestions-mobile:hover {
+	right: -18px;
+}
+
+.menu-logout-mobile {
+	top: 240px;
+	right: -65px;
+}
+.menu-logout-mobile:hover {
+	right: -7px;
+}

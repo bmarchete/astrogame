@@ -7,13 +7,13 @@
     	<title>@yield('title')</title>
       {!! Minify::stylesheet([
                   '/vendor/uikit/css/uikit.gradient.css',
-                  '/css/game/main.css',
                   '/vendor/uikit/css/components/notify.gradient.css',
                   '/vendor/uikit/css/components/progress.gradient.css',
                   '/vendor/uikit/css/components/tooltip.gradient.css',
                   '/vendor/uikit/css/components/datepicker.gradient.css',
                   '/vendor/uikit/css/components/form-file.gradient.css',
                   '/vendor/introjs/introjs.min.css',
+                  '/css/game/main.css',
 
                   ])->withFullUrl() !!}
       @yield('style')

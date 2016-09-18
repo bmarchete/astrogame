@@ -46,6 +46,9 @@ function youtube_video(videoId, name){
 									}
 							}
 					},
+					onReady: function(event){
+						event.target.mute();
+					}
 			}
 	});
 }
@@ -54,10 +57,11 @@ function onYouTubeIframeAPIReady() {
 	for (var key in videos) {
 			youtube_video(videos[key], key);
 	}
+
 }
 
 $('.cientist-box').click(function(){
-    $('.cientist-box').hide();
+    $('.cientist-box').hide('slow');
 });
 </script>
 @stop
