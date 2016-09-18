@@ -26,10 +26,8 @@ $("#bodyarea").on('click', '.share_fb', function(event) {
           function(response) {
             if (response && !response.error_code) {
                 complete_quest('missao_amigo');
-                window.close();
             } else {
                 UIkit.notify({message: '<i class="uk-icon-exclamation"></i> Você precisa compartilhar o astrogame para completar a missão!', status: 'danger', pos:'top-right', timeout: 3000});
-                window.close();
             }
         });
   });

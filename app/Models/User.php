@@ -29,6 +29,7 @@ class User extends Authenticatable
         13 => 60000,
         14 => 65000,
         15 => 70000,
+        16 => 80000,
     ];
 
     /**

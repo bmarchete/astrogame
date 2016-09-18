@@ -19,6 +19,7 @@ var bulletTime = 0;
 var frameTime = 0;
 var frames;
 var prevCamX = 0;
+var camDelta = 0;
 var score = 0;
 var timer = 0;
 var fire;

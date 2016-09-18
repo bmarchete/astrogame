@@ -14,19 +14,19 @@ var complete_quest_on_quiz_completed = true;
 var questions = [{
     question: "Qual o nome da teoria que antecedeu a teoria de Copérnico?",
     choices: ["Teocentrismo", "Geocentrismo", "Antropocentrismo", "Heliocentrismo"],
-    correctAnswer: 0
+    correctAnswer: 1
 }, {
     question: "Como se chama o movimento que a Terra realiza em torno do Sol?",
     choices: ["Rotação", "Transação", "Translação", "Circular"],
-    correctAnswer: 0
+    correctAnswer: 2
 }, {
     question: "O que afirmava a Teoria do Heliocentrismo?",
     choices: ["A Terra é o centro do Universo", "O Sol é o centro do universo", "O Universo não possui centro", "A Terra gira em torno do Sol,  o qual está proximo ao centro do universo"],
-    correctAnswer: 0
+    correctAnswer: 3
 }, {
     question: "Qual é a segunda Lei de Kepler?",
     choices: ["Lei dos Períodos", "Lei das Áreas", "Lei das Elipses", "Lei dos Períodos"],
-    correctAnswer: 0
+    correctAnswer: 1
 }];
 </script>
 {!! Minify::javascript(['/js/game/quizz.js'])->withFullURL() !!}
