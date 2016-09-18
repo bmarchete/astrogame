@@ -4,12 +4,42 @@ Testando o conhecimento | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
+	  {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
-		background3.play();
+		background2.play();
 });
 var quest = 'capitulo_galileu_quarta_missao';
-var complete_quest_on_quiz_completed = true;
+var complete_quest_on_quiz_completed = false;
+
+window.falas = [
+	'Agora vamos ver como se forma uma estrela e, logo em seguida, você passará por um pequeno teste. Boa sorte!',
+	'As estrelas nascem a partir de grandes nuvens formadas por gases e poeira chamada nebulosas.',
+	'Dentro da nebulosa, esses gases e poeira se agrupam por causa da gravidade, formando assim as estrelas.',
+	'Parece estranho, mas quando olhamos para uma estrela, estamos vendo o seu passado.',
+	'Quando observamos uma estrela, estamos vendo a luz que ela emitiu para o espaço, e essa luz demora para chegar até nós, mesmo sendo muito rápida.',
+	'Se a estrela estiver bem longe, bem longe mesmo, ela pode até já não existir mais...',
+	'As constelações são agrupamentos aparentes de estrelas em que os astrônomos da antiguidade imaginaram formar figuras de pessoas, animais ou objetos...',
+	'São "aparentes" pois, na verdade, as estrelas estão muito distantes uma das outras, muitas estão tão distantes quanto a Terra e o nosso Sol...',
+	'As constelações nos ajudam a separar o céu em porções menores, mas identificá-las é em geral muito difícil.',
+	'Elas surgiram na antiguidade para ajudar a identificar as estações do ano. Por exemplo, a constelação do Escorpião é típica do inverno já que em junho ela é visível a noite toda',
+	'Agora é hora do pequeno teste!',
+];
+window.dispatchEvent(window.fala_event); // inicia a fala
+
+window.addEventListener('troca_fala', function(){
+		if(window.fala == 10){
+				$(document).find('.quizz').show();
+		}
+});
+
+window.addEventListener('quizOver', function(){
+		text_cientist('Muito bem, observador, você se mostrou capaz de passar para a próxima parte de sua jornada! Espero que você se divirta e adquira muitos conhecimentos! Uma mudança de título me parece ser justa também! Até mais, Aprendiz!');
+		$(document).find('.prev-fala').hide();
+		$(document).find('.next-fala').html('<i class="uk-icon-exclamation"></i> COMPLETAR MISSÃO').removeClass('uk-button-success').addClass('uk-button-danger').attr('onclick', 'complete_quest("'+ quest +'");');
+
+});
+
 
 var questions = [{
     question: "Do que são formadas as estrelas?",
@@ -33,9 +63,9 @@ var questions = [{
 @stop
 
 @section('content')
-  <div class="uk-container uk-container-center game-section">
+	<div class="uk-container uk-container-center game-section">
      <div class="uk-grid">
-        <div class="uk-width-1-2 uk-container-center uk-panel uk-panel-box">
+        <div class="uk-width-1-2 uk-container-center uk-panel uk-panel-box quizz" style="display: none">
            <h3 class="uk-panel-title"></h3>
            <div class="quizContainer">
               <h1 class="question"></h1>
@@ -51,7 +81,11 @@ var questions = [{
         </div>
      </div>
      <div class="cientist-message">
-         <span class="bubble cientist-text">Agora vamos testar o seu conhecimento sobre as estrelas...</span>
+         <span class="bubble cientist-text"></span>
+     </div>
+     <div class="controls">
+       <button class="prev-fala uk-button uk-button-danger"><i class="uk-icon-arrow-left"></i> Anterior</button>
+       <button class="next-fala uk-button uk-button-success">Próximo <i class="uk-icon-arrow-right"></i></button>
      </div>
      <img src="{{ URL('/img/char/galileu-01.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
   </div>
