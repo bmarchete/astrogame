@@ -15,6 +15,7 @@ var lazers;
 var player;
 var cursors;
 var fireButton;
+var voyager;
 var bulletTime = 0;
 var frameTime = 0;
 var frames;
@@ -71,6 +72,8 @@ function create () {
     lazers.physicsBodyType = Phaser.Physics.ARCADE;
 
     player = game.add.sprite(100, 300, 'player');
+    game.physics.enable(player, Phaser.Physics.ARCADE);
+    player.body.collideWorldBounds = true;
     player.anchor.x = 0.5;
     game.physics.arcade.enable(player);
 
@@ -171,6 +174,7 @@ function handleVoyager(player, voyager){
   $(document).find('.cientist-box').show();
   $(document).find('.controls').show();
   text_cientist('Wow, você achou a voayger!');
+  player.kill();
 }
 
 function update () {
