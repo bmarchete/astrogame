@@ -42,7 +42,8 @@ $(document).ready(function () {
                     $(document).find(".nextButton").text("Jogar de novo?");
                     quizOver = true;
                     if(correctAnswers == questions.length){
-                        complete_quest(quest);
+                        var event = new Event('quizOver');
+                        window.dispatchEvent(event);
                     } else {
                       $(document).find(".quizMessage").show().removeClass().addClass('uk-alert uk-alert-warning quizMessage');
 
@@ -58,6 +59,13 @@ $(document).ready(function () {
             hideScore();
         }
     });
+
+
+    if(complete_quest_on_quiz_completed){
+      window.addEventListener('quizOver', function(){
+        complete_quest(quest);
+      });
+    }
 
 });
 

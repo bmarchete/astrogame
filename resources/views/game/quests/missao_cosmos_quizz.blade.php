@@ -9,6 +9,7 @@ $(document).ready(function(){
 		background3.play();
 });
 var quest = 'missao_cosmos_quizz';
+var complete_quest_on_quiz_completed = true;
 
 var questions = [
 	{

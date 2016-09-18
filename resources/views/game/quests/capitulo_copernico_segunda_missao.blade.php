@@ -9,6 +9,7 @@ $(document).ready(function(){
 		background3.play();
 });
 var quest = 'capitulo_kepler_segunda_missao';
+var complete_quest_on_quiz_completed = true;
 
 var questions = [{
     question: "Qual o nome da teoria que antecedeu a teoria de Copérnico?",

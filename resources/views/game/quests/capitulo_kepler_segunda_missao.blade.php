@@ -9,7 +9,8 @@ $(document).ready(function(){
 		background3.play();
 });
 var quest = 'capitulo_kepler_segunda_missao';
-
+    var complete_quest_on_quiz_completed = true;
+		
 var questions = [{
     question: "O que regem as Leis de Kepler?",
     choices: ["O movimento da Terra", "O movimento do Sol", "O movimento Planetário", "O movimento Quartenário"],

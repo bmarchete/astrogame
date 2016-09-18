@@ -2,14 +2,14 @@ function text_cientist(message) {
     $(".cientist").show();
     $(".cientist-message").hide();
     $(".cientist-text").html(message);
-    $(".cientist-message").show('slow');
+    $(".cientist-message").show();
 }
 
 function cientist(message, timer) {
     setTimeout(function() {
         $(".cientist-message").hide();
         $(".cientist-text").html(message);
-        $(".cientist-message").show('slow');
+        $(".cientist-message").show();
     }, timer);
 }
 
@@ -49,12 +49,13 @@ window.falas = [];
 window.fala_event = new Event('troca_fala');
 window.addEventListener('troca_fala', function(){
     text_cientist(window.falas[window.fala]);
+
 });
 $(document).ready(function(){
   $(".next-fala").click(function(){
-      if(window.fala < window.falas.length){
-        window.dispatchEvent(window.fala_event);
+      if(window.fala <= window.falas.length){
         window.fala++;
+        window.dispatchEvent(window.fala_event);
       }
   });
 

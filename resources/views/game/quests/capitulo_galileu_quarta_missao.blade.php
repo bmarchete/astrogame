@@ -9,6 +9,7 @@ $(document).ready(function(){
 		background3.play();
 });
 var quest = 'capitulo_galileu_quarta_missao';
+var complete_quest_on_quiz_completed = true;
 
 var questions = [{
     question: "Do que são formadas as estrelas?",
