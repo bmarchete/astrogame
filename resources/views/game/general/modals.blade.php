@@ -336,8 +336,7 @@
       <p><i class="uk-icon-exclamation-circle"></i> Uma insigna cinza significa que você ainda não conquistou ela ainda!</p>
   </li>
   <li>
-    <h4>Ranking Global</h4>
-    <ul class="uk-list uk-list-striped ranking-list">
+    <ul class="uk-list uk-list-line ranking-list">
       @forelse ($ranking as $player)
       <li>
           <div class="uk-border-circle uk-hidden-small" style="width: 60px; display: inline-block">

@@ -4,16 +4,16 @@ Video Projeto Cosmos | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/missao_projeto_cosmos_video/c2runtime.js'])->withFullURL() !!}
 <script>
-$(document).ready(function(){
-		cr_createRuntime("c2canvas");
-});
+	var quest = 'missao_projeto_cosmos';
+	var videoId = 'zBx8e6eGfV4';
 </script>
+{!! Minify::javascript(['/js/game/simples-youtube.js'])->withFullURL() !!}
 @stop
 
 @section('content')
-<div id="c2canvasdiv">
-		<canvas id="c2canvas" width="1280" height="720"></canvas>
+<div class="video-container">
+    <div id="video"></div>
 </div>
+<script src="https://www.youtube.com/iframe_api"></script>
 @stop

@@ -1,19 +1,19 @@
 @extends('game.general.general')
 @section('title')
-Pequeno pálido ponto azul | {{ trans('project.title') }}
+Pequeno pálido ponto azul  | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/quest_ponto/c2runtime.js'])->withFullURL() !!}
 <script>
-$(document).ready(function(){
-		cr_createRuntime("c2canvas");
-});
+	var quest = 'missao_palido_ponto_azul';
+	var videoId = 'brLOlmnLn8c';
 </script>
+{!! Minify::javascript(['/js/game/simples-youtube.js'])->withFullURL() !!}
 @stop
 
 @section('content')
-<div id="c2canvasdiv">
-		<canvas id="c2canvas" width="1280" height="720"></canvas>
+<div class="video-container">
+    <div id="video"></div>
 </div>
+<script src="https://www.youtube.com/iframe_api"></script>
 @stop

@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-O Pai da Astronomia - Quizz | {{ trans('project.title') }}
+As três leis fundamentais | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
@@ -11,21 +11,21 @@ $(document).ready(function(){
 var quest = 'capitulo_kepler_segunda_missao';
 
 var questions = [{
-    question: "Qual o nome da teoria que antecedeu a teoria de Copérnico?",
-    choices: ["Teocentrismo", "Geocentrismo", "Antropocentrismo", "Heliocentrismo"],
-    correctAnswer: 0
+    question: "O que regem as Leis de Kepler?",
+    choices: ["O movimento da Terra", "O movimento do Sol", "O movimento Planetário", "O movimento Quartenário"],
+    correctAnswer: 2
 }, {
-    question: "Como se chama o movimento que a Terra realiza em torno do Sol?",
-    choices: ["Rotação", "Transação", "Translação", "Circular"],
-    correctAnswer: 0
+    question: "Quais as três leis de Kepler?",
+    choices: ["Leis das Órbitas, da Gravidade e do Tempo", "Leis das Órbitas, das Áreas e dos Períodos", "Lei das Áreas, dos Circulos e dos Trapézios", "Lei das Órbitas, do Espaço e da Expansão "],
+    correctAnswer: 1
 }, {
-    question: "O que afirmava a Teoria do Heliocentrismo?",
-    choices: ["A Terra é o centro do Universo", "O Sol é o centro do universo", "O Universo não possui centro", "A Terra gira em torno do Sol,  o qual está proximo ao centro do universo"],
-    correctAnswer: 0
+    question: "O que afirma a Lei das Orbitas?",
+    choices: ["Os planetas percorrem órbitas circulares", "Os planetas não percorrem órbitas", "Os planetas giram em torno de si mesmos", "Os planetas percorrem órbitas elipticas"],
+    correctAnswer: 3
 }, {
     question: "Qual é a segunda Lei de Kepler?",
     choices: ["Lei dos Períodos", "Lei das Áreas", "Lei das Elipses", "Lei dos Períodos"],
-    correctAnswer: 0
+    correctAnswer: 1
 }];
 </script>
 {!! Minify::javascript(['/js/game/quizz.js'])->withFullURL() !!}
@@ -50,9 +50,9 @@ var questions = [{
         </div>
      </div>
 		 <div class="cientist-message">
-         <span class="bubble cientist-text">Agora, aspirante, use o que você aprendeu para responder às perguntas!</span>
+         <span class="bubble cientist-text">Agora vamos testar seu conhecimento sobre as três Leis de Kepler, você está pronto?</span>
      </div>
-     <img src="{{ URL('/img/char/copernico.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
+     <img src="{{ URL('/img/char/kepler.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
   </div>
   </div>
 @stop

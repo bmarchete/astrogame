@@ -4,16 +4,19 @@ Apollo 11 | {{ trans('project.title') }}
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/construct/apollo_11/c2runtime.js'])->withFullURL() !!}
 <script>
 $(document).ready(function(){
-		cr_createRuntime("c2canvas");
+		background3.play();
 });
+var quest = 'missao_apollo_11';
+var videoId = 'GnMRJ5F8swo';
 </script>
+{!! Minify::javascript(['/js/game/simples-youtube.js'])->withFullURL() !!}
 @stop
 
 @section('content')
-<div id="c2canvasdiv">
-		<canvas id="c2canvas" width="1280" height="720"></canvas>
+<div class="video-container">
+    <div id="video"></div>
 </div>
+<script src="https://www.youtube.com/iframe_api"></script>
 @stop

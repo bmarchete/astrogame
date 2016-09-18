@@ -11,8 +11,10 @@ use App\Http\Requests\QuestRequest;
 class QuestController extends GameController
 {
     /**
-     * Request para aceitar uma missão
-     * @param  QuestRequest $request
+     * Request para aceitar uma missão.
+     *
+     * @param QuestRequest $request
+     *
      * @return json
      */
     public function quest_accept(QuestRequest $request)
@@ -29,8 +31,10 @@ class QuestController extends GameController
     }
 
     /**
-     * Request para cancelar uma quest
-     * @param  QuestRequest $request | quest id
+     * Request para cancelar uma quest.
+     *
+     * @param QuestRequest $request | quest id
+     *
      * @return json
      */
     public function quest_cancel(QuestRequest $request)
@@ -47,8 +51,10 @@ class QuestController extends GameController
     }
 
     /**
-     * Request para completar uma missão
-     * @param  Request $request
+     * Request para completar uma missão.
+     *
+     * @param Request $request
+     *
      * @return json
      */
     public function quest_complete(Request $request)
@@ -85,10 +91,10 @@ class QuestController extends GameController
     }
 
     /**
-     * Função para recompensa
-     * @param  QuestLog $user_quest [description]
-     * @param  User     $user       [description]
-     * @return void               [description]
+     * Função para recompensa.
+     *
+     * @param QuestLog $user_quest [description]
+     * @param User     $user       [description]
      */
     public function reward_user(QuestLog $user_quest, User $user)
     {
@@ -98,9 +104,11 @@ class QuestController extends GameController
     }
 
     /**
-     * Request de uma missão
-     * @param  Request $request [description]
-     * @return [type]           [description]
+     * Request de uma missão.
+     *
+     * @param Request $request [description]
+     *
+     * @return [type] [description]
      */
     public function quest(Request $request)
     {
@@ -114,15 +122,23 @@ class QuestController extends GameController
             return redirect('/game');
         }
 
-        $quest_user = QuestLog::select('id')->where('user_id', auth()->user()->id)->where('quest_id', $quest->id)->where('completed', true)->first();
-        if ($quest_user) { // usuário já completou a quest
-          session()->put('notify',
+        $quest_log = QuestLog::select('id', 'completed')->where('user_id', auth()->user()->id)->where('quest_id', $quest->id)->first();
+        if ($quest_log && $quest_log->completed) {
+            session()->put('notify',
           [
-              ['text' => '<i class="uk-icon-exclamation"></i> Você já completou essa quest', 'status' => 'danger', 'timeout' => 0],
+              ['text' => '<i class="uk-icon-exclamation"></i> Você já completou essa missão!', 'status' => 'danger', 'timeout' => 0],
           ]);
 
             return redirect('/game');
+        } elseif (!$quest_log) {
+            session()->put('notify',
+            [
+                ['text' => '<i class="uk-icon-exclamation"></i> Você ainda não aceitou essa missão!', 'status' => 'danger', 'timeout' => 0],
+            ]);
+
+            return redirect('/game');
         }
+
         $view = 'game.quests.'.$request->name;
 
         if (view()->exists($view)) {

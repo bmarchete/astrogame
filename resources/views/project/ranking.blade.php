@@ -22,7 +22,7 @@ Ranking Global | Astrogame
               <span class="uk-panel-badge uk-badge uk-badge-success">1 jogador solitário online</span>
             @endif
             </h2>
-            <ul class="uk-list uk-list-striped ranking-list">
+            <ul class="uk-list uk-list-line ranking-list">
               @forelse ($players as $player)
               <li>
                   <div class="uk-border-circle uk-hidden-small" style="width: 60px; display: inline-block">

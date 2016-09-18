@@ -219,7 +219,7 @@ class QuestsSeeder extends Seeder
             'objetivos' => 'Compartilhar o projeto nas redes sociais',
             'xp_reward' => 150,
             'money_reward' => 200,
-            'min_level' => 2,
+            'min_level' => 1,
             'max_level' => 0,
         ],
 
