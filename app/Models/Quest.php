@@ -18,7 +18,6 @@ class Quest extends Model
         })
             ->select(['quests.id', 'name', 'title', 'type', 'description', 'objetivos', 'recompensas', 'min_level', 'max_level', 'xp_reward', 'money_reward'])
             ->where('min_level', '<=', auth()->user()->level)
-            ->limit(10)
             ->get();
 
         return $quests;
