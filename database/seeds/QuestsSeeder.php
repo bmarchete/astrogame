@@ -206,7 +206,7 @@ class QuestsSeeder extends Seeder
             'type' => 1,
             'description' => 'Você passou pelo stand do Projeto Cosmos na expoete 2015? Que tal assistir mais uma vez ao video do simulador do universo?',
             'objetivos' => 'Assitir ou re-assistir o video completo do projeto cosmos',
-            'xp_reward' => 0,
+            'xp_reward' => 350,
             'money_reward' => 300,
             'min_level' => 1,
             'max_level' => 0,
@@ -230,11 +230,11 @@ class QuestsSeeder extends Seeder
             'type' => 1,
             'description' => '<p>Tripulada pelos astronautas Neil Armstrong, Edwin \'Buzz\' Aldrin e Michael Collins, Apollo 11 foi a quinta missão tripulada do programa Apollo que conseguiu cumprir a missão proposta pelo Presidente John F. Kennedy em 25 de maio de 1961 que disse que antes do final daquela década conseguiria pousar um homem na Lua e trazê-lo de volta para a Terra com segurança.</p><p>A missão de você é conseguir assistir até o final da simulação criada pelo Filipe Dias Gianotto e ao final você irá ganhar uma insigna da missão Apollo 11!</p>',
             'objetivos' => 'Assistir ao video simulação completo da Apollo 11.',
-            'xp_reward' => 0,
+            'xp_reward' => 250,
             'money_reward' => 50,
             'min_level' => 4,
             'max_level' => 0,
-            'insigna_reward' => 00, // @TODO: id apollo 11
+            'insigna_reward' => 'apollo_11',
         ],
 
         [
@@ -243,7 +243,7 @@ class QuestsSeeder extends Seeder
             'type' => 1,
             'description' => 'Você visitou o projeto cosmos durante a expoete 2015? Teste seus conhecimentos sobre os diversos assuntos abordados nos stands do projeto com o mesmo quiz do percuso do Cosmos!',
             'objetivos' => 'Responder corretamente todas as questões do quizz do projeto cosmos',
-            'xp_reward' => 0,
+            'xp_reward' => 250,
             'money_reward' => 50,
             'min_level' => 3,
             'max_level' => 0,

@@ -60,7 +60,7 @@
                     @foreach($player->insignas as $insigna)
                     <li>
                         <figure data-uk-modal="{target:'#insigna-{{ $insigna->insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-                            <img src="{{ url('/img/insignias') }}/{{ $insigna->insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->insigna->name }}">
+                            <img src="{{ url('/img/insignias') }}/{{ $insigna->insigna->key }}.png" alt="" data-uk-tooltip title="{{ $insigna->insigna->name }}">
                         </figure>
                     </li>
                     @endforeach

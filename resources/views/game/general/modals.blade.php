@@ -117,7 +117,7 @@
         <div class="uk-grid" data-uk-grid>
             <div class="uk-width-1-4">
                 <figure class="uk-thumbnail uk-border-circle">
-                    <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
+                    <img src="{{ url('/img/insignias') }}/{{ $insigna->key }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
                 </figure>
             </div>
             <div class="uk-width-3-4">
@@ -314,24 +314,27 @@
   </li>
   <li>
       <ul class="uk-list insignas" style="overflow-y: scroll; height: 400px">
-          @forelse($all_insignas as $insigna)
-          @if(auth()->user()->insignas->contains($insigna))
-          <li>
-              <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
-                  <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
-              </figure>
-          </li>
-          @else
-          <li>
-              <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle gray" style="width: 100px">
-                  <img src="{{ url('/img/insignias') }}/{{ $insigna->img_url }}.png" alt="" data-uk-tooltip title="Como eu consigo essa insigna?">
-              </figure>
-          </li>
 
-          @endif
-          @empty
-          {!! trans('game.empty-insignas') !!}
-          @endforelse
+        @forelse($all_insignas as $insigna)
+          @foreach(auth()->user()->insignas as $user_insigna)
+            @if($user_insigna->insigna == $insigna)
+              <li>
+                  <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle" style="width: 100px">
+                      <img src="{{ url('/img/insignias') }}/{{ $insigna->key }}.png" alt="" data-uk-tooltip title="{{ $insigna->name }}">
+                  </figure>
+              </li>
+            @else
+              <li>
+                  <figure data-uk-modal="{target:'#insigna-{{ $insigna->id }}'}" class="uk-thumbnail uk-border-circle gray" style="width: 100px">
+                      <img src="{{ url('/img/insignias') }}/{{ $insigna->key }}.png" alt="" data-uk-tooltip title="Como eu consigo essa insigna?">
+                  </figure>
+              </li>
+            @endif
+          @endforeach
+        @empty
+        {!! trans('game.empty-insignas') !!}
+        @endforelse
+
       </ul>
       <p><i class="uk-icon-exclamation-circle"></i> Uma insigna cinza significa que você ainda não conquistou ela ainda!</p>
   </li>

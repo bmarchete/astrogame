@@ -271,12 +271,13 @@ class User extends Authenticatable
         $bag_slot->save();
     }
 
-    public function gain_insigna($insina_id)
+    public function gain_insigna($insina_key)
     {
-        if(\App\Models\Insignas::where('id', $insina_id)->first()){
+        $insigna = \App\Models\Insignas::where('key', $insina_key)->first();
+        if($insigna){
           $insigna_slot = new \App\Models\InsignaLog();
           $insigna_slot->user_id = $this->id;
-          $insigna_slot->insigna_id = $insina_id;
+          $insigna_slot->insigna_id = $insigna->id;
           $insigna_slot->save();
         }
     }
