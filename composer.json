@@ -9,13 +9,12 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "^5.2",
         "laravel/socialite": "^2.0",
-		    "devfactory/minify": "1.0.*",
+		"devfactory/minify": "1.0.*",
         "intervention/image": "^2.3",
         "bepsvpt/laravel-security-header": "^1.1",
         "msurguy/honeypot": "dev-master",
         "greggilbert/recaptcha": "^2.1",
         "chencha/share": "^5.2",
-        "johnpbloch/wordpress": "^4.5",
         "simplesoftwareio/simple-qrcode": "^1.4",
         "s-ichikawa/laravel-sendgrid-driver": "1.0.0",
         "doctrine/dbal": "^2.5"
@@ -60,8 +59,5 @@
     },
     "config": {
         "preferred-install": "dist"
-    },
-    "extra": {
-      "wordpress-install-dir": "public/blog"
     }
 }
