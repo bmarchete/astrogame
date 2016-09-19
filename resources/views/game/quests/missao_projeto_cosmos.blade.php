@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Video Projeto Cosmos | {{ trans('project.title') }}
+Video Projeto Cosmos
 @stop
 
 @section('javascript')

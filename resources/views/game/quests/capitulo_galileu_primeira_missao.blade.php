@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Meu primeiro telescópio | {{ trans('project.title') }}
+Meu primeiro telescópio
 @stop
 
 @section('javascript')

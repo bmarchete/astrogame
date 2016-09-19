@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Mãos á obra
+Mãos a obra
 @stop
 
 @section('javascript')

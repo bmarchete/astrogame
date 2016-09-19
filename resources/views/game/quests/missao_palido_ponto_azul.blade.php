@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Pequeno pálido ponto azul  | {{ trans('project.title') }}
+Pequeno pálido ponto azul
 @stop
 
 @section('javascript')

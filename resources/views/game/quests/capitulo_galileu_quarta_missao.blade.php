@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Testando o conhecimento | {{ trans('project.title') }}
+Testando o conhecimento
 @stop
 
 @section('javascript')

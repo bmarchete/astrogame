@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Capítulo I - O Sistema Solar | {{ trans('project.title') }}
+Capítulo I - O Sistema Solar
 @stop
 
 @section('javascript')

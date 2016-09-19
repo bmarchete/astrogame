@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Apollo 11 | {{ trans('project.title') }}
+Apollo 11
 @stop
 
 @section('javascript')

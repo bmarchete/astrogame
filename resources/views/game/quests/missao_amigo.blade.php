@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Compartilhe o Astrogame | {{ trans('project.title') }}
+Compartilhe o Astrogame
 @stop
 
 @section('javascript')

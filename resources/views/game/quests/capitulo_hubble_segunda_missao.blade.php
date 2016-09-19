@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-Hubble, O astrônomo, não o telescópio | {{ trans('project.title') }}
+Hubble, O astrônomo, não o telescópio
 @stop
 
 @section('javascript')

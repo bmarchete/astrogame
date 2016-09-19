@@ -1,6 +1,6 @@
 @extends('game.general.general')
 @section('title')
-O Pai da Astronomia - Quizz | {{ trans('project.title') }}
+O Pai da Astronomia
 @stop
 
 @section('javascript')
