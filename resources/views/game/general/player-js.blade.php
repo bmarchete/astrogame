@@ -420,8 +420,10 @@ $(document).ready(function(){
               if(data){
                   $('#content').html(data);
                   var title = $("#new-title").html();
+                  var quest = $("#quest").html();
+
                   document.title = title;
-                  history.pushState( {}, document.title, '{{ url('/game/return-quest')}}' );
+                  history.pushState( {}, document.title, '{{ url('/game/quest')}}' + '/' + quest );
               } else {
                   UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
               }
@@ -511,7 +513,7 @@ function accept_quest(quest_id, quest_name){
             var title = $("#new-title").html();
             var quest = $("#quest").html();
             document.title = title;
-            history.pushState( {}, document.title, '{{ url('/game')}}' + '/' + quest );
+            history.pushState( {}, document.title, '{{ url('/game/quest')}}' + '/' + quest );
         } else {
             UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
         }
