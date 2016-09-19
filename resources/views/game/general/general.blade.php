@@ -1,3 +1,10 @@
+@if ($ajax)
+  <div id="new-title" class="uk-hidden">@yield('title')</div>
+  <div id="quest" class="uk-hidden">{{ $quest or 'soon' }}</div>
+  @yield('style')
+  @yield('javascript')
+  @yield('content')
+@else
 <!DOCTYPE html>
 <html lang="{{ \Lang::getLocale() }}">
    <head>
@@ -13,13 +20,16 @@
                   '/vendor/uikit/css/components/datepicker.gradient.css',
                   '/vendor/uikit/css/components/form-file.gradient.css',
                   '/vendor/introjs/introjs.min.css',
+                  '/vendor/loadingbar/loadingbar.css',
                   '/css/game/main.css',
 
                   ])->withFullUrl() !!}
       @yield('style')
    </head>
    <body>
-      @yield('content')
+      <div id="content">
+        @yield('content')
+      </div>
 
       @if (auth()->check())
          @include('game.general.player-bar')
@@ -33,6 +43,11 @@
                               '/vendor/uikit/js/components/datepicker.min.js',
                               '/vendor/buzz/buzz.min.js',
                               '/vendor/introjs/intro.min.js',
+                              '/vendor/loadingbar/loadingbar.min.js',
+
+
+                              '/js/game/audio.js',
+
                               ])->withFullUrl() !!}
       {!! Html::script('/vendor/virtualsky/virtualsky.js') !!}
       @yield('javascript')
@@ -47,6 +62,9 @@
         ga('create', 'UA-81244880-1', 'auto');
         ga('send', 'pageview');
 
+        background.setVolume({{ $music_volume }});
+        sound_effect.setVolume({{ $effects_volume }});
       </script>
    </body>
 </html>
+@endif

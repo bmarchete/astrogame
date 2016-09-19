@@ -26,8 +26,9 @@ class QuestController extends GameController
         $quest_user->user_id = auth()->user()->id;
 
         $status = ($quest_user->accept_quest()) ? true : false;
+        $quest = Quest::select('name')->where('id', $request->id)->limit(1)->first();
 
-        return response()->json(['accepted' => $status]);
+        return $this->display_quest($quest->name);
     }
 
     /**
@@ -139,10 +140,14 @@ class QuestController extends GameController
             return redirect('/game');
         }
 
-        $view = 'game.quests.'.$request->name;
+        return $this->display_quest($request->name);
+    }
+
+    public function display_quest($name){
+        $view = 'game.quests.'.$name;
 
         if (view()->exists($view)) {
-            return view($view);
+            return view($view, ['quest' => $name]);
         } else {
             return view('game.quests.soon');
         }

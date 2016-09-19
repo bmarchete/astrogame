@@ -247,7 +247,6 @@ $(document).ready(function(){
     $("#volume-music").change(function(){
         var volume=$(this).val();
         background.setVolume(volume);
-        UIkit.notify("<i class='uk-icon-music'></i> Alterando volume, aguarde.", {status:'warning', pos: 'top-right'});
         $.ajax({
           url: '{{ URL('/game/music') }}/' + volume,
           success: function(){
@@ -383,12 +382,14 @@ $(document).ready(function(){
       var quest_title = $('#quest-title-' + quest_id).html();
 
       UIkit.modal.confirm("Você deseja aceitar a missão <i class='uk-icon-exclamation'></i> <strong>"+ quest_title +"</strong> ?", function(){
+          $(".quest-avaliable option[value='"+ quest_id +"']").remove();
           accept_quest(quest_id, quest_name);
       });
 
     });
 
     $(".quest-avaliable").change(function() {
+
         var id = $(this).val();
 
         var quest_title = $("#quest-title-" + id).html();
@@ -405,6 +406,41 @@ $(document).ready(function(){
         $(".money-reward").html(money_reward);
         $(".return-quest").attr('href', '{{ url('/game/quest')}}' + '/' + quest_name);
         $(".accept-quest").val(id);
+    });
+
+    $(".return-quest").click(function(event){
+        event.preventDefault();
+        UIkit.modal("#quests").hide();
+        $.ajax({
+          url: $(".return-quest").attr('href'),
+          dataType: 'html',
+          async: true,
+          cache: true,
+          success: function(data){
+              if(data){
+                  $('#content').html(data);
+                  var title = $("#new-title").html();
+                  document.title = title;
+                  history.pushState( {}, document.title, '{{ url('/game/return-quest')}}' );
+              } else {
+                  UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
+              }
+
+
+          },
+          beforeSend: function() {
+            if ($("#loadingbar").length === 0) {
+              $("body").append("<div id='loadingbar'></div>")
+              $("#loadingbar").addClass("waiting").append($("<dt/><dd/>"));
+            }
+          },
+          always: function() {
+            $("#loadingbar").width("101%").delay(200).fadeOut(400, function() {
+               $(this).remove();
+             });
+           }
+          });
+
     });
 
     var planetarium = $.virtualsky({
@@ -450,61 +486,49 @@ $(document).ready(function(){
 function accept_quest(quest_id, quest_name){
   var formData = new FormData();
   formData.append('id', quest_id);
-
+  UIkit.modal("#quests").hide();
   $.ajax({
-       url: '{{ url('/game/quest_accept')}}',
-       dataType: 'json',
-       type: 'POST',
-       processData: false,
-       contentType: false,
-       data: formData,
-       success: function(data){
-          if(data.accepted){
-              UIkit.notify("<i class=\"uk-icon-exclamation\"> </i> {{ trans('game.quest-accepted') }}", {status:'success', pos: 'top-right'});
-              quest_effect.play();
-              $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
-              window.location = '{{ url('/game/quest') }}' + '/' + quest_name;
-
-
-          } else {
-              UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
-          }
-       },
-       error: function(data){
-          for (var i = 0; i < data.responseJSON.id.length; i++) {
-              UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
-          }
+    url: '{{ url('/game/quest_accept')}}',
+    dataType: 'html',
+    type: 'POST',
+    async: true,
+    cache: true,
+    processData: false,
+    contentType: false,
+    data: formData,
+    error: function(data){
+       for (var i = 0; i < data.responseJSON.id.length; i++) {
+           UIkit.notify(data.responseJSON.id[i], {status: 'danger', pos:'top-right'});
        }
+    },
+    success: function(data){
+        if(data){
+            UIkit.notify("<i class=\"uk-icon-exclamation\"> </i> {{ trans('game.quest-accepted') }}", {status:'success', pos: 'top-right'});
+            quest_effect.play();
+            $(".quest-" + quest_id).insertBefore('.aceitas tr:first').hide().fadeIn(2000);
+
+            $('#content').html(data);
+            var title = $("#new-title").html();
+            var quest = $("#quest").html();
+            document.title = title;
+            history.pushState( {}, document.title, '{{ url('/game')}}' + '/' + quest );
+        } else {
+            UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
+        }
+
+
+    },
+    beforeSend: function() {
+      if ($("#loadingbar").length === 0) {
+        $("body").append("<div id='loadingbar'></div>")
+        $("#loadingbar").addClass("waiting").append($("<dt/><dd/>"));
+      }
+    },
+    always: function() {
+      $("#loadingbar").width("101%").delay(200).fadeOut(400, function() {
+         $(this).remove();
+       });
+     }
     });
 }
-
-///////////////////////////////////////////////////
-// sons do jogo
-///////////////////////////////////////////////////
-$(".action-button").click(function(){
-    map_effect.play();
-});
-
-var coin_effect = new buzz.sound('{{ url('/sounds/effects/inventory/coin.mp3')}}', {preload: true, loop: false});
-var delete_effect = new buzz.sound('{{ url('/sounds/effects/inventory/delete_item.mp3')}}', {preload: true, loop: false});
-var quest_effect = new buzz.sound('{{ url('/sounds/effects/quest_effect.mp3') }}', {preload: true, loop: false});
-var map_effect = new buzz.sound('{{ url('/sounds/effects/map_open.mp3')}}', {preload: true, loop:false});
-
-var sound_effect = new buzz.group([
-      coin_effect,
-      delete_effect,
-      quest_effect,
-      map_effect
-]);
-
-// music background
-var background = new buzz.sound('{{ url('sounds/music/a_observar_a_vastidao3.mp3') }}', {preload: true, loop: true});
-var background2 = new buzz.sound('{{ url('sounds/music/a_observar_a_vastidao1.mp3') }}', {preload: true, loop: true});
-var background3 = new buzz.sound('{{ url('sounds/music/a_observar_a_vastidao2.mp3') }}', {preload: true, loop: true});
-
-background.setVolume({{ $music_volume }});
-background2.setVolume({{ $music_volume }});
-background3.setVolume({{ $music_volume }});
-sound_effect.setVolume({{ $effects_volume }});
-
 </script>

@@ -4,8 +4,7 @@
 @section('javascript')
 {!! Minify::javascript(['/js/game/general.js', '/vendor/phaser/phaser.min.js', '/js/game/carl_sagan_quest.js'])->withFullURL() !!}
 <script>
-var background = new buzz.sound('{{ url('sounds/music/ao_alto_avante.mp3') }}', {preload: true, loop: true});
-background.play();
+play_music('quest_carl');
 </script>
 @endsection
 

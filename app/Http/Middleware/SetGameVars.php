@@ -33,7 +33,13 @@ class SetGameVars
             $shop = $this->shop_items();
             $ranking = $this->ranking();
 
-            view()->composer('game.general.general', function ($view) use ($planet, $insignas, $shop, $ranking) {
+            if($request->ajax()){
+                $ajax = true;
+            } else {
+                $ajax = false;
+            }
+
+            view()->composer('game.general.general', function ($view) use ($planet, $insignas, $shop, $ranking, $ajax) {
                   $view->with('user_name', auth()->user()->nickname)
                        ->with('user_level', auth()->user()->level)
                        ->with('user_money', auth()->user()->money)
@@ -52,7 +58,8 @@ class SetGameVars
                        ->with('shop', $shop)
                        ->with('avaliable_quests', Quest::avaliable_quests())
                        ->with('accepted_quests', Quest::accepted_quests())
-                       ->with('planetarium', $planet->planetarium);
+                       ->with('planetarium', $planet->planetarium)
+                       ->with('ajax', $ajax);
             });
         }
 

@@ -47,6 +47,7 @@ function create () {
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.world.setBounds(0, 0, 800*10, 1000);
+    game.stage.disableVisibilityChange = true;
 
     stars = game.add.physicsGroup();
 

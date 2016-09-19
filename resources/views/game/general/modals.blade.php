@@ -452,7 +452,7 @@
                       <span><i class="uk-icon-exclamation"></i> <span class="xp-reward">{{ $accepted_quests->first()->xp_reward }}</span> XP</span>
                   </div>
                   <div class="uk-width-2-4 uk-text-right">
-                      <a href="{{ URL('/game/quest') . '/' . $accepted_quests->first()->name }}" class="uk-button uk-button-danger return-quest">Retornar a missão <i class="uk-icon-external-link"></i></a>
+                      <a href="{{ URL('/game/quest') . '/' . $accepted_quests->first()->name }}" class="ajax-link uk-button uk-button-danger return-quest">Retornar a missão <i class="uk-icon-external-link"></i></a>
                   </div>
               </div>
           </div>

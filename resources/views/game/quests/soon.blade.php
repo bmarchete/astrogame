@@ -5,10 +5,8 @@ Em breve | {{ trans('project.title') }}
 
 @section('javascript')
 <script>
-var background = new buzz.sound('{{ url('sounds/music/elevator_music.mp3') }}', {preload: true, loop: true});
-background.play();
+  play_music('bossa_nova');
 </script>
-
 @endsection
 
 @section('content')
