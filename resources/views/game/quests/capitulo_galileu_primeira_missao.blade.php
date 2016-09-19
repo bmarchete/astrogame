@@ -7,6 +7,7 @@ Meu primeiro telescópio
 {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 {!! Minify::javascript(['/vendor/phaser/phaser.min.js'])->withFullURL() !!}
 <script>
+play_music('background2');
 $(document).ready(function(){
 window.items = {{ auth()->user()->count_has_items([1, 2, 3, 4])}};
 

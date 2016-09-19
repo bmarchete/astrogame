@@ -5,9 +5,7 @@ As três leis fundamentais
 
 @section('javascript')
 <script>
-$(document).ready(function(){
-		background3.play();
-});
+play_music('background3');
 var quest = 'capitulo_kepler_segunda_missao';
     var complete_quest_on_quiz_completed = true;
 

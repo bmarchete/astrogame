@@ -5,9 +5,7 @@ Apollo 11
 
 @section('javascript')
 <script>
-$(document).ready(function(){
-		background3.play();
-});
+play_music('background3');
 var quest = 'missao_apollo_11';
 var videoId = 'GnMRJ5F8swo';
 </script>

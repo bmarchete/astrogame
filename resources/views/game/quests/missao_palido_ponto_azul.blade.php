@@ -5,8 +5,9 @@ Pequeno pálido ponto azul
 
 @section('javascript')
 <script>
-	var quest = 'missao_palido_ponto_azul';
-	var videoId = 'brLOlmnLn8c';
+stop_music();
+var quest = 'missao_palido_ponto_azul';
+var videoId = 'brLOlmnLn8c';
 </script>
 {!! Minify::javascript(['/js/game/simples-youtube.js'])->withFullURL() !!}
 @stop

@@ -35,10 +35,12 @@ var background = new buzz.group([
 principal.play().fadeIn();
 
 function play_music(music){
-    background.fadeOut(5000, function(){
-      background.stop();
-      eval(music + '.fadeIn(5000);');
-    });
+    background.stop();
+    eval(music + '.fadeIn(5000);');
+}
+
+function stop_music(){
+    background.stop();
 }
 
 $(".action-button").click(function(){

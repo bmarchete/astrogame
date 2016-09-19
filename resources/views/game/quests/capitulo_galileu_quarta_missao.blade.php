@@ -6,9 +6,7 @@ Testando o conhecimento
 @section('javascript')
 	  {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
-$(document).ready(function(){
-		background2.play();
-});
+play_music('background2');
 var quest = 'capitulo_galileu_quarta_missao';
 var complete_quest_on_quiz_completed = false;
 

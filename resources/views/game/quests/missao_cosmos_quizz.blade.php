@@ -5,9 +5,7 @@ Projeto Cosmos Quizz
 
 @section('javascript')
 <script>
-$(document).ready(function(){
-		background3.play();
-});
+play_music('background3');
 var quest = 'missao_cosmos_quizz';
 var complete_quest_on_quiz_completed = true;
 

@@ -5,8 +5,9 @@ Video Projeto Cosmos
 
 @section('javascript')
 <script>
-	var quest = 'missao_projeto_cosmos';
-	var videoId = 'zBx8e6eGfV4';
+stop_music();
+var quest = 'missao_projeto_cosmos';
+var videoId = 'zBx8e6eGfV4';
 </script>
 {!! Minify::javascript(['/js/game/simples-youtube.js'])->withFullURL() !!}
 @stop

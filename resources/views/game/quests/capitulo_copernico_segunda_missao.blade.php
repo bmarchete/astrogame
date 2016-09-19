@@ -6,9 +6,7 @@ O Pai da Astronomia
 @section('javascript')
 {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
-$(document).ready(function(){
-		background3.play();
-});
+play_music('background3');
 var quest = 'capitulo_copernico_segunda_missao';
 var complete_quest_on_quiz_completed = false;
 

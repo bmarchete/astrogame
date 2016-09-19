@@ -4,8 +4,9 @@ Hubble, O astrônomo, não o telescópio
 @stop
 
 @section('javascript')
-  {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
+{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
+play_music('background3');
 var quest = 'capitulo_hubble_segunda_missao';
 var complete_quest_on_quiz_completed = false;
 

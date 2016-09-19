@@ -7,6 +7,7 @@ Mãos a obra
   {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
   {!! Minify::javascript(['/vendor/phaser/phaser.min.js'])->withFullURL() !!}
   <script>
+  play_music('background3');
   ////////////////////////////////// montar telescópio
   var game = new Phaser.Game('100', '100', Phaser.AUTO, 'game', { preload: preload, create: create, update: update}, '#game', null, false);
   var tubo_telescopico;

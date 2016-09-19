@@ -5,8 +5,7 @@ Compartilhe o Astrogame
 
 @section('javascript')
 <script>
-var background = new buzz.sound('{{ url('sounds/music/elevator_music.mp3') }}', {preload: true, loop: true});
-background.play();
+play_music('bossa_nova');
 $("#bodyarea").on('click', '.share_fb', function(event) {
     event.preventDefault();
     var that = $(this);

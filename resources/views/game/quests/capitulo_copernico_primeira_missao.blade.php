@@ -6,6 +6,7 @@ Capítulo I - O Sistema Solar
 @section('javascript')
 {!! Minify::javascript(['/construct/capitulo_copernico_primeira_missao/c2runtime.js'])->withFullURL() !!}
 <script>
+play_music('background3');
 $(document).ready(function(){
 		cr_createRuntime("c2canvas");
 		background3.play();
