@@ -104,10 +104,12 @@ class AuthController extends Controller
             $user = User::where('confirm_code', '=', $confirm_code)->first();
             $user->confirmed = 1;
             $user->confirm_code = null;
+            $user->gain_xp(200);
             $user->save();
             session()->put('notify',
                 [
                     ['text' => '<i class="uk-icon-exclamation"></i> Email confirmado com sucesso!', 'status' => 'success', 'timeout' => 0],
+                    ['text' => '<i class="uk-icon-exclamation"></i> Você ganhou 200 XP', 'status' => 'success', 'timeout' => 0],
 
                 ]);
             auth()->login($user);
@@ -155,26 +157,14 @@ class AuthController extends Controller
     public function authenticated(Request $request, $user)
     {
         if (!$user->confirmed) {
-            auth()->logout();
-
-            return back()->withErrors(['msg' => trans('auth.confirmation')]);
+            // auth()->logout();
+            // return back()->withErrors(['msg' => trans('auth.confirmation')]);
+            session()->put('notify',
+                [
+                    ['text' => '<i class="uk-icon-exclamation"></i> Confirme seu email e ganhe 200 de XP!', 'status' => 'warning', 'timeout' => 0],
+                ]);
         }
 
         return redirect()->intended($this->redirectPath());
-    }
-
-    public function register(Request $request)
-    {
-        $validator = $this->validator($request->all());
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
-        }
-
-        $user = $this->create($request->all());
-        // send confirm email
-        auth()->logout();
-        return redirect('/login')->withErrors(['msg' => trans('auth.confirmation')]);
     }
 }
