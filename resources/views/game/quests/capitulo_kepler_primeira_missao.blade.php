@@ -4,7 +4,7 @@ As órbitas são elípticas, não redondas!
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/game/orbita.js'])->withFullURL() !!}
+{!! Minify::javascript(['js/game/general.js', '/js/game/orbita.js'])->withFullURL() !!}
 <script>
 play_music('background2');
 $(document).ready(function(){
@@ -36,9 +36,8 @@ window.addEventListener('troca_fala', function(){
 @section('content')
   <div id="game" style="display:none"></div>
   <div class="uk-container uk-container-center game-section">
-    <div class="uk-grid">
+        <div class="cientist-box">
 
-        </div>
         <div class="controls">
           <button class="prev-fala uk-button uk-button-danger"><i class="uk-icon-arrow-left"></i> Anterior</button>
           <button class="next-fala uk-button uk-button-success">Próximo <i class="uk-icon-arrow-right"></i></button>
@@ -49,5 +48,6 @@ window.addEventListener('troca_fala', function(){
         </div>
         <img src="{{ URL('/img/char/kepler.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
     </div>
+        </div>
 </div>
 @stop

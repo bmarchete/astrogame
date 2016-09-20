@@ -45,10 +45,8 @@
                               '/vendor/introjs/intro.min.js',
                               '/vendor/loadingbar/loadingbar.min.js',
 
-
                               '/js/game/audio.js',
                               '/vendor/phaser/phaser.min.js',
-                              '/js/game/general.js',
 
                               ])->withFullUrl() !!}
       {!! Html::script('/vendor/virtualsky/virtualsky.js') !!}

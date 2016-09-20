@@ -2,7 +2,7 @@
 @section('title') Para o alto e avante! @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/game/carl_sagan_quest.js'])->withFullURL() !!}
+{!! Minify::javascript(['/js/game/general.js', '/js/game/carl_sagan_quest.js'])->withFullURL() !!}
 <script>
 play_music('quest_carl');
 </script>

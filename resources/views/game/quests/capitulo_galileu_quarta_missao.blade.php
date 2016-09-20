@@ -4,6 +4,7 @@ Testando o conhecimento
 @stop
 
 @section('javascript')
+{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 play_music('background2');
 var quest = 'capitulo_galileu_quarta_missao';
@@ -77,6 +78,7 @@ var questions = [{
 
         </div>
      </div>
+		 <div class="cientist-box">
      <div class="cientist-message">
          <span class="bubble cientist-text"></span>
      </div>
@@ -86,5 +88,6 @@ var questions = [{
      </div>
      <img src="{{ URL('/img/char/galileu-01.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
   </div>
+	</div>
   </div>
 @stop

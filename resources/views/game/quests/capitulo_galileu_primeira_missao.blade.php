@@ -4,6 +4,7 @@ Meu primeiro telescópio
 @stop
 
 @section('javascript')
+{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 play_music('background2');
 $(document).ready(function(){
@@ -59,6 +60,7 @@ setInterval(function(){
     <div class="uk-grid">
 
         </div>
+        <div class="cientist-box">
         <div class="controls">
           <button class="prev-fala uk-button uk-button-danger"><i class="uk-icon-arrow-left"></i> Anterior</button>
           <button class="next-fala uk-button uk-button-success">Próximo <i class="uk-icon-arrow-right"></i></button>
@@ -68,5 +70,6 @@ setInterval(function(){
         </div>
         <img src="{{ URL('/img/char/galileu-01.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
     </div>
+      </div>
 </div>
 @stop

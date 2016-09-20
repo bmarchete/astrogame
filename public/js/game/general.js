@@ -30,7 +30,7 @@ $(document).ready(function(){
       }
   });
 
-  $('.cientist-box').click(function(){
+  $('.cientist-message').click(function(){
       $('.cientist-box').hide('slow');
   });
 });

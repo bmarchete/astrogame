@@ -4,6 +4,7 @@ Compartilhe o Astrogame
 @stop
 
 @section('javascript')
+{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 play_music('bossa_nova');
 $("#bodyarea").on('click', '.share_fb', function(event) {
@@ -42,10 +43,11 @@ $("#bodyarea").on('click', '.share_fb', function(event) {
             <button class="share_fb action-button red uk-width-1-1"><i class="uk-icon-share"></i> Compartilhar no facebook</button>
         </div>
       </div>
+      <div class="cientist-box">
       <div class="cientist-message">
           <span class="bubble cientist-text">Compartilhe o astrogame para seus amigos e ganhe XP e astrocoins!</span>
       </div>
       <img src="{{ URL('/img/char/carl-01.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="carl sagan cartoon">
   </div>
-
+  </div>
 @stop

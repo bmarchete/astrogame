@@ -4,6 +4,7 @@ O Pai da Astronomia
 @stop
 
 @section('javascript')
+{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 play_music('background3');
 var quest = 'capitulo_copernico_segunda_missao';
@@ -72,6 +73,7 @@ var questions = [{
 
         </div>
      </div>
+		 <div class="cientist-box">
      <div class="cientist-message">
          <span class="bubble cientist-text"></span>
      </div>
@@ -80,6 +82,6 @@ var questions = [{
        <button class="next-fala uk-button uk-button-success">Próximo <i class="uk-icon-arrow-right"></i></button>
      </div>
      <img src="{{ URL('/img/char/copernico.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
-  </div>
+  </div></div>
   </div>
 @stop
