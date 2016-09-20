@@ -5,7 +5,7 @@ Em breve | {{ trans('project.title') }}
 
 @section('javascript')
 <script>
-  play_music('bossa_nova');
+play_music('bossa_nova');
 </script>
 @endsection
 

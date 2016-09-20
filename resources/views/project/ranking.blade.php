@@ -39,15 +39,11 @@ Ranking Global | Astrogame
                 <p>Acho que ninguém começou a jogar ainda :(</p>
               @endforelse
             </ul>
-            <p class="uk-text-muted"><i class="uk-icon-exclamation-circle"></i> Atenção, o ranking é atualizado a cada 5 minutos!</p>
+            <p class="uk-text-muted"><i class="uk-icon-exclamation-circle"></i> {{ trans('project.ranking-attention') }}</p>
         </div>
         <div class="uk-margin-top uk-grid" data-uk-grid>
             <div class="uk-container-center">
-              @if (!auth()->check())
-                <a href="#login" class="action-button red" data-uk-modal>{{ trans('project.play')}}</a>
-              @else
-                <a href="{{ url('/game')}}" class="action-button red" data-uk-modal>{{ trans('project.play')}}</a>
-              @endif
+                <a href="{{ url('/game') }}" class="action-button red">{{ trans('project.play')}}</a>
             </div>
         </div>
     </div>

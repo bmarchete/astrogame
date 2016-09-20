@@ -167,8 +167,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 <div class="call-action uk-hidden-small">
     <div class="uk-container uk-container-center uk-text-center uk-vertical-align">
         <p>
-          <span class="text">Jogue e aprenda astronomia. É grátis!</span>
-          <a href="#login" class="action-button red uk-margin-left" data-uk-modal>Entrar e jogar!</a>
+          <span class="text">{{ trans('project.home-text.call-to-action') }}</span>
+          <a href="#login" class="action-button red uk-margin-left" data-uk-modal>{{ trans('project.home-text.call-to-action-button') }}</a>
         </p>
     </div>
 </div>

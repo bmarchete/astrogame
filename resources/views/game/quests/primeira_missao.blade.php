@@ -4,8 +4,6 @@
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
-{!! Minify::javascript(['/vendor/phaser/phaser.min.js'])->withFullURL() !!}
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
 var player;

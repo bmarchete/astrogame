@@ -35,10 +35,12 @@ return [
 		'title4' => 'About the Astrogame',
 		'text4' => 'Astrogame is a course\'s conclusion projetc (TCC) made in the year of 2016 at	ETEC Pedro Ferreira Alves for the High School\'s course informatic for Internet. It\'s about an online plataform where there is astronomy contents, in a interative way and easy learning, with the main means being an educative game.	The task is to end with the lack of easy and avaiable informations to studens and interested about astronomy.',
 
-		'galileu_speech' => 'Greetings, pilgrim, do you know me? Look at my behavior, not even introducing myself...My name is Galileu Galilei, and I am very important to Astronomy and I am in Astrogame to help you in your descovery, click in the link to get in the game!',
+		'text7	' => 'Greetings, pilgrim, do you know me? Look at my behavior, not even introducing myself...My name is Galileu Galilei, and I am very important to Astronomy and I am in Astrogame to help you in your descovery, click in the link to get in the game!',
 
 		'contact-text' => 'Critics, sugestions, questions, partnerships, whetever you want but SPAM!',
 
+		'call-to-action' => 'Play and learn astronomy. It\'s free!',
+		'call-to-action-button' => 'Play!',
 
 	],
 

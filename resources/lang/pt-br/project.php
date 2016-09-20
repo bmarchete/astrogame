@@ -44,6 +44,8 @@ return [
 		'text7' => 'Olá peregrino, você me conhece? Desculpe meus modos, nem me apresento, meu nome é Galileu Galiei, contribuí muito para diversos assuntos relacionados a astronomia e estou dentro do astrogame para ajudar em suas descobertas, clique no link para entrar no jogo!',
 		'text8' => 'Seja bem-vindo peregrino! Sou Carl Sagan, fui um grande astrônomo e consegui fazer com que milhares de pessoas passassem a se interessar pela Astronomia com meu programa de TV, COSMOS! Estarei te esperando dentro do Astrogame com uma missão muito especial, o que você está esperando? Jogue e divirta-se!',
 
+		'call-to-action' => 'Jogue e aprenda astronomia. É grátis!',
+		'call-to-action-button' => 'Entrar e jogar!',
 	],
 
 	// login
@@ -94,6 +96,9 @@ return [
 	'team-about' => 'Desastronautas',
 	'team-text' => '<p>Somos um grupo de amigos do terceiro ano do Ensino médio Integrado à Informática para Internet do Centro Paula Souza ETEC Pedro Ferreira Alves de Mogi Mirim. Humanoides, mochileiros, nerds, aspirantes dos mistérios do Cosmos, amantes da tecnologia e maratonistas – de séries. </p><p>O grupo surgiu a partir da necessidade de se formar equipes para o TCC, e decidimos, portanto, que em nosso tema - depois de várias e várias discussões - abordaríamos a Astronomia e Cosmologia pois, assim como Carl Sagan, acreditamos que somos uma parte deste Cosmo, nascidos dele, nossos destinos irremediavelmente ligado a ele. </p>',
 	'team-figcaption' => 'Desastronautas reunidos!',
+	'team-blog' => 'Confira nosso blog!',
+	'team-thanks' => 'Agrecimentos',
+	'team-thanks2' => 'Pessoas que contriburam para o projeto',
 
 	// about
 	'about' => 'Sobre',
@@ -110,6 +115,7 @@ return [
     	<p>O percurso dos visitantes será orientado por um guia começando pelo surgimento do universo – o Big Bang, passando pelas estrelas, nebulosas, planetas, constelações, buracos negros, galáxias, maquetes, entre outros astros e eventos da astronomia, até os possíveis planetas que podem ser habitáveis, de forma cronológica.</p>
     	<p>O percurso começa com pequenos stands explicando um pouco sobre cada conteúdo do COSMOS e termina num simulador, onde tudo o que foi exposto nas apresentações do percurso será reapresentado de uma forma resumida e visual, trazendo a sensação de submersão espacial dentro de um ambiente fechado e escuro. Neste simulador teremos a presença de uma pessoa que fará o papel de capitão da nave; pessoa que será responsável pelos visitantes e tudo o mais que ocorrer na sala. Não recomendado para claustrofóbicos, pessoas com medo do escuro, problemas cardíacos.</p>',
 
-
+	 // ranking
+	 'ranking-attention' => 'Atenção, o ranking é atualizado a cada 5 minutos!',
 
 ];

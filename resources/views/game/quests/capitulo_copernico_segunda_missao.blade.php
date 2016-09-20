@@ -4,7 +4,6 @@ O Pai da Astronomia
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 play_music('background3');
 var quest = 'capitulo_copernico_segunda_missao';
@@ -50,10 +49,6 @@ var questions = [{
     question: "O que afirmava a Teoria do Heliocentrismo?",
     choices: ["A Terra é o centro do Universo", "O Sol é o centro do universo", "O Universo não possui centro", "A Terra gira em torno do Sol,  o qual está proximo ao centro do universo"],
     correctAnswer: 3
-}, {
-    question: "Qual é a segunda Lei de Kepler?",
-    choices: ["Lei dos Períodos", "Lei das Áreas", "Lei das Elipses", "Lei dos Períodos"],
-    correctAnswer: 1
 }];
 </script>
 {!! Minify::javascript(['/js/game/quizz.js'])->withFullURL() !!}

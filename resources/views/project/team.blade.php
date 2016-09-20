@@ -43,7 +43,7 @@
     <div class="uk-width-1-1 uk-width-large-2-4 uk-text-justify">
         <h1>{{ trans('project.team-about') }}</h1>
         {!! trans('project.team-text') !!}
-        <p><a href="{{ url('/blog')}}" class="uk-button ">Confira nosso blog <i class="uk-icon-external-link"></i></a></p>
+        <p><a href="{{ url('/blog')}}" class="uk-button ">{{ trans('project.team-blog') }} <i class="uk-icon-external-link"></i></a></p>
     </div>
     <div class="uk-width-1-1 uk-width-large-2-4">
         <div class="uk-thumbnail uk-overlay-hover ">
@@ -60,8 +60,8 @@
 
     <div class="uk-grid" data-uk-grid-margin>
         <div class="uk-width-1-1 uk-text-center">
-            <h1 class="uk-h1">Agradecimentos</h1>
-            <h2 class="uk-h3 uk-text-muted">Pessoas que contriburam para o projeto</h2>
+            <h1 class="uk-h1">{{ trans('project.team-thanks') }}</h1>
+            <h2 class="uk-h3 uk-text-muted">{{ trans('project.team-thanks2') }}</h2>
         </div>
     </div>
 

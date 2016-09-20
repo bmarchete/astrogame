@@ -4,7 +4,6 @@ Testando o conhecimento
 @stop
 
 @section('javascript')
-	  {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 play_music('background2');
 var quest = 'capitulo_galileu_quarta_missao';

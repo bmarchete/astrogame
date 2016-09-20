@@ -4,16 +4,13 @@ Hubble, O astrônomo, não o telescópio
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 play_music('background3');
 var quest = 'capitulo_hubble_segunda_missao';
 var complete_quest_on_quiz_completed = false;
 
 $(document).ready(function(){
-		background2.play();
-
-    window.falas = [
+window.falas = [
 'Agora eu gostaria de lhe explicar um pouco mais sobre a minha própria lei e sobre a teoria do universo em expansão, preste atenção!',
 'Em minhas observações, vi que algumas galáxias emitiam luzes diferentes das outras, algumas com mais vermelhas, outras mais azuis. ',
 'Descobri que isso acontecia porque as outras galáxias não estão paradas como pensávamos, elas estão se movimentando também!',

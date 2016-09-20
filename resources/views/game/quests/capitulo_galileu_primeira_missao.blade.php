@@ -4,8 +4,6 @@ Meu primeiro telescópio
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
-{!! Minify::javascript(['/vendor/phaser/phaser.min.js'])->withFullURL() !!}
 <script>
 play_music('background2');
 $(document).ready(function(){
