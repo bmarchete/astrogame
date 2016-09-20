@@ -53,6 +53,39 @@
             </figure>
         </div>
     </div>
+
+    </div>
+
+    <hr class="uk-grid-divider">
+
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-1-1 uk-text-center">
+            <h1 class="uk-h1">Agradecimentos</h1>
+            <h2 class="uk-h3 uk-text-muted">Pessoas que contriburam para o projeto</h2>
+        </div>
+    </div>
+
+
+    <div class="uk-grid uk-container uk-container-center">
+       <div class="uk-grid">
+          <div class="uk-width-medium-1-5 uk-text-center">
+             <div class="uk-thumbnail uk-overlay-hover uk-border-circle">
+                <figure class="uk-overlay">
+                   <img class="uk-border-circle" src="img/team/guilherme.jpg" alt="Guilherme Brandão">
+                   <figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center uk-border-circle">
+                      <div>
+                         <a href="https://www.facebook.com/profile.php?id=100008526960671" class="uk-icon-button uk-icon-facebook"></a>
+                      </div>
+                   </figcaption>
+                </figure>
+             </div>
+          </div>
+          <div class="uk-width-medium-1-3">
+             <h2 class="uk-margin-top">Guilherme Brandão</h2>
+             <p class="uk-text-large">Compositor das músicas do jogo</p>
+          </div>
+       </div>
+    </div>
 </div>
 </div>
-</div>@stop
+@stop
