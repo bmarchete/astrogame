@@ -44,7 +44,7 @@ class HomeController extends Controller
             return User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'nickname')
                       ->whereHas('config', function ($q) {
                           $q->where('key', 'private')->where('content', false);
-                      })->limit(100)->orderBy('xp', 'DESC')->get();
+                      })->limit(500)->orderBy('xp', 'DESC')->get();
         });
 
         return view('project.ranking', ['players' => $players]);

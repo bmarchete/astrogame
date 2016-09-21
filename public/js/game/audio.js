@@ -32,11 +32,11 @@ var background = new buzz.group([
       quest_carl,
       bossa_nova
 ]);
-principal.play().fadeIn();
+principal.play();
 
 function play_music(music){
     background.stop();
-    eval(music + '.fadeIn(5000);');
+    eval(music + '.play();');
 }
 
 function stop_music(){

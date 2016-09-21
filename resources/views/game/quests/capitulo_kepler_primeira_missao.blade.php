@@ -4,7 +4,7 @@ As órbitas são elípticas, não redondas!
 @stop
 
 @section('javascript')
-{!! Minify::javascript(['js/game/general.js', '/js/game/orbita.js'])->withFullURL() !!}
+{!! Minify::javascript(['/js/game/general.js', '/js/game/orbita.js'])->withFullURL() !!}
 <script>
 play_music('background2');
 $(document).ready(function(){
