@@ -9,7 +9,7 @@
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-quests'}" data-uk-check-display>
             <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-exclamation"></i> Disponíveis</a></li>
             <li aria-expanded="true"><a href="#"><i class="uk-icon-exclamation-triangle"></i> Aceitas</a></li>
-            <li aria-expanded="true"><a href="#"><i class="uk-icon-exclamation-circle"></i> Completadas</a></li>
+            <!-- <li aria-expanded="true"><a href="#"><i class="uk-icon-exclamation-circle"></i> Completadas</a></li> -->
         </ul>
 
         <ul id="tab-quests" class="uk-switcher uk-margin">
