@@ -514,6 +514,9 @@ function accept_quest(quest_id, quest_name){
             var quest = $("#quest").html();
             document.title = title;
             history.pushState( {}, document.title, '{{ url('/game/quest')}}' + '/' + quest );
+
+            $('#accepted_quests').append($('<option>', {value:quest_id, text:title}));
+            $('#avaliable_quests option[value='+ quest_id +']').remove();
         } else {
             UIkit.notify('<i class=\"uk-icon-close\"> </i> {{ trans('game.quest-already-accepted') }}', {status:'warning', pos: 'top-right'})
         }

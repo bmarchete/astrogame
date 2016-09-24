@@ -31,8 +31,8 @@ class Observatory extends Model
         }
         $this->planetarium['lines'] = $this->constellations_lines();
 
-        $this->magnitude_3();
-        $this->constellations();
+        //$this->magnitude_3();
+        //$this->constellations();
     }
 
     // @return json

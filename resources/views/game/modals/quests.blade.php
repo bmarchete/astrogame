@@ -25,7 +25,7 @@
                         <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
                         <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
                         @endforeach
-                        <select class="uk-form-select quest-avaliable">
+                        <select class="uk-form-select quest-avaliable" id="avaliable_quests">
                             @foreach ($avaliable_quests as $quest)
                             <option value="{{ $quest->id }}">{{$quest->title}}</option>
                             @endforeach
@@ -65,7 +65,7 @@
                         <div class="uk-hidden" id="xp-reward-{{$quest->id}}">{{ $quest->xp_reward }}</div>
                         <div class="uk-hidden" id="money-reward-{{$quest->id}}">{{ $quest->money_reward }}</div>
                         @endforeach
-                        <select class="uk-form-select quest-avaliable">
+                        <select class="uk-form-select quest-avaliable" id="accepted_quests">
                             @foreach ($accepted_quests as $quest)
                             <option value="{{ $quest->id }}">{{$quest->title}}</option>
                             @endforeach
