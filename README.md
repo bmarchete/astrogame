@@ -17,5 +17,5 @@ O objetivo é suprir o déficit atual de informações acessíveis e de simples 
 - Gabriel Ferreira
 - Laís Vitória
 
--- 
-O projeto utiliza como em seu back-end o framework Laravel na versão 5.2, no front-end Uikit, e também nos mini jogos a plataforma de desenvolvimento Construct 2.
+--
+O projeto utiliza como em seu back-end o framework Laravel na versão 5.2, no front-end Uikit, e também nos mini jogos através da engine em javascript Phaser.
