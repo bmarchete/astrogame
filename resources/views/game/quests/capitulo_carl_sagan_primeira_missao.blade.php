@@ -14,8 +14,8 @@ window.falas = [
 'Olá peregrino, estive esperando por você! Vejo que você conseguiu chegar ao posto de capitão, ótimo! Irei precisar das suas habilidades!',
 'Meu nome é Carl Sagan, fui um astrônomo e biólogo americano e me dediquei muito à minha paixão: A busca por habitantes de outros planetas.',
 'Eu trabalhei com a NASA para lançar ao espaço uma espaçonave que contém mensagens que, talvez, possa ser entendida por possíveis seres inteligentes de outros planetas. Essa espaçonave ficou recebeu o nome de Voyager.',
-'Infelizmente, nós perdemos contato com essa espaçonave, ela deve ter caído em algum planeta. Sendo assim, vamos precisar de alguém experiente para sair em busca da Voyager, e quem melhor que você, Capitão?',
-'Vamos precisar construir uma nova espaçonave para conseguirmos chegar até o planeta desconhecido!',
+'Infelizmente, nós perdemos contato com essa espaçonave, ela deve estar vagando por aí. Sendo assim, vamos precisar de alguém experiente para sair em busca da Voyager, e quem melhor que você, Capitão?',
+'Vamos precisar construir uma nova espaçonave!',
 ];
 
 
