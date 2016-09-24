@@ -17,7 +17,8 @@ class Kernel extends ConsoleKernel
         Commands\PlayerLevel::class,
         Commands\PlayerMoney::class,
         Commands\GMList::class,
-        
+        Commands\GameReset::class,
+
     ];
 
     /**
@@ -28,6 +29,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        
+
     }
 }

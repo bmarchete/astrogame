@@ -278,7 +278,7 @@ class User extends Authenticatable
           $insigna_slot = new \App\Models\InsignaLog();
           $insigna_slot->user_id = $this->id;
           $insigna_slot->insigna_id = $insigna->id;
-          $insigna_slot->save();
+          return $insigna_slot->save();
         }
     }
 }
