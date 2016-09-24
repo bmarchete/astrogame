@@ -7,14 +7,14 @@ A Arte da Observação
 {!! Minify::javascript(['/js/game/general.js'])->withFullURL() !!}
 <script>
 UIkit.modal("#observatory").show();
-UIkit.notify("<i class='uk-icon-exclamation'></i> Observe o céu por 5 minutos", {status: 'warning', pos:'top-right'});
+UIkit.notify("<i class='uk-icon-exclamation'></i> Observe o céu por 2 minutos", {status: 'warning', pos:'top-right'});
 
 setTimeout(function(){
   $(document).find('.cientist-box').show();
   $(document).find('.controls').show();
   text_cientist('Espero que tenha gostado!');
 
-}, 300000);
+}, 120000);
 
 </script>
 @endsection
@@ -24,7 +24,7 @@ setTimeout(function(){
 <div class="uk-container uk-container-center game-section">
    <div class="cientist-box">
    <div class="cientist-message">
-       <span class="bubble cientist-text">Observe o céu por 5 minutos</span>
+       <span class="bubble cientist-text">Observe o céu por 2 minutos</span>
    </div>
    <div class="controls" style="display: none">
      <button class="uk-button uk-button-danger" onclick="complete_quest('capitulo_galileu_terceira_missao')"><i class="uk-icon-exclamation"></i> Completar Missão</button>
