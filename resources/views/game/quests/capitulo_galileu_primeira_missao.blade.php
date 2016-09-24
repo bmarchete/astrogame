@@ -55,21 +55,17 @@ setInterval(function(){
 @stop
 
 @section('content')
-  <div id="game"></div>
-  <div class="uk-container uk-container-center game-section">
-    <div class="uk-grid">
-
-        </div>
-        <div class="cientist-box">
-        <div class="controls">
+<div id="game"></div>
+<div class="uk-container uk-container-center game-section">
+  <div class="cientist-box">
+      <div class="controls">
           <button class="prev-fala uk-button uk-button-danger"><i class="uk-icon-arrow-left"></i> Anterior</button>
           <button class="next-fala uk-button uk-button-success">Próximo <i class="uk-icon-arrow-right"></i></button>
-        </div>
-        <div class="cientist-message">
-            <span class="bubble cientist-text">Ah, mais um viajante! Olá! Meu nome é Galileu Galilei, fui um astrônomo, físico e matemático Italiano, nascido em 1564...sim, já faz algum tempo haha!</span>
-        </div>
-        <img src="{{ URL('/img/char/galileu-01.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
-    </div>
       </div>
+      <div class="cientist-message">
+          <span class="bubble cientist-text">Ah, mais um viajante! Olá! Meu nome é Galileu Galilei, fui um astrônomo, físico e matemático Italiano, nascido em 1564...sim, já faz algum tempo haha!</span>
+      </div>
+      <img src="{{ URL('/img/char/galileu-01.png')}}" class="cientist uk-animation-hover uk-animation-shake" alt="">
+  </div>
 </div>
 @stop

@@ -3,14 +3,14 @@
     <div class="uk-modal-dialog">
         <a href="" class="uk-modal-close uk-close"></a>
         <div class="uk-modal-header">
-            <h3 class="uk-panel-header">{{ trans('game.shop-name') }}</h3>
+            <h3 class="uk-panel-header">{{ trans('game.shop-name') }} <i class="uk-icon-shopping-cart"></i> </h3>
         </div>
 
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-shop'}" data-uk-check-display>
-            <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-space-shuttle"></i> Instrumentos óticos</a></li>
+            <li aria-expanded="true" class="uk-active"><a href="#"><i class="uk-icon-search"></i> Instrumentos óticos</a></li>
             <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-book"></i> Livros</a></li>
-            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-steam"></i> Insignas</a></li>
-            <div class="uk-align-right">Astrocoins: <i class="uk-icon-money"></i> <strong>{{ $user_money }}</strong></div>
+            <li class="" aria-expanded="false"><a href="#"><i class="uk-icon-space-shuttle"></i> Peças</a></li>
+            <div class="uk-align-right">Astrocoins: <i class="uk-icon-money"></i> <strong class="money">{{ $user_money }}</strong></div>
         </ul>
 
         <ul id="tab-shop" class="uk-switcher uk-margin">

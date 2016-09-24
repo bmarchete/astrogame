@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\QuestLog;
 use App\Models\InsignaLog;
 use App\Models\History;
+use App\Models\Bag;
 
 class GameReset extends Command
 {
@@ -46,6 +47,7 @@ class GameReset extends Command
             QuestLog::query()->delete();
             InsignaLog::query()->delete();
             History::query()->delete();
+            Bag::query()->delete();
 
             $users = User::all();
             foreach($users as $user){

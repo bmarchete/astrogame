@@ -1,4 +1,9 @@
-var game = new Phaser.Game('100', '100', Phaser.CANVAS, 'game', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game('100', '100', Phaser.CANVAS, 'game', {
+    preload: preload,
+    create: create,
+    update: update,
+    render: render
+});
 
 var stars;
 var asteroids;
@@ -19,7 +24,7 @@ var life = 3;
 var velocity = 8;
 var velocity_text = false;
 
-function preload () {
+function preload() {
 
     game.load.image('player', '/games/ship.png');
     game.load.image('voyager', '/games/voyager.png');
@@ -36,7 +41,7 @@ function preload () {
 
 }
 
-function create () {
+function create() {
     timer = game.time.create(false);
     timer.start();
     timer.loop(5000);
@@ -46,7 +51,7 @@ function create () {
     star_effect = game.add.audio('star_effect');
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.world.setBounds(0, 0, 800*10, 1000);
+    game.world.setBounds(0, 0, 800 * 10, 1000);
     game.stage.disableVisibilityChange = true;
 
     stars = game.add.physicsGroup();
@@ -85,44 +90,41 @@ function create () {
     populate();
 }
 
-function populate(){
-  for (var i = 0; i < game.rnd.integerInRange(3, 10); i++)
-  {
-      boost.create(game.world.randomX, game.world.randomY, 'boost');
-  }
+function populate() {
+    for (var i = 0; i < game.rnd.integerInRange(3, 10); i++) {
+        boost.create(game.world.randomX, game.world.randomY, 'boost');
+    }
 
-  for (var i = 0; i < game.rnd.integerInRange(50, 128); i++)
-  {
-      asteroids.create(game.world.randomX, game.world.randomY, 'asteroid');
-  }
+    for (var i = 0; i < game.rnd.integerInRange(50, 128); i++) {
+        asteroids.create(game.world.randomX, game.world.randomY, 'asteroid');
+    }
 
-  for (var i = 0; i < game.rnd.integerInRange(128, 200); i++)
-  {
-      stars.create(game.world.randomX, game.world.randomY, 'star');
-  }
+    for (var i = 0; i < game.rnd.integerInRange(128, 200); i++) {
+        stars.create(game.world.randomX, game.world.randomY, 'star');
+    }
 
 }
 
-function processHandler (player, veg) {
+function processHandler(player, veg) {
 
     return true;
 
 }
 
-function collisionStarHandler (player, star) {
+function collisionStarHandler(player, star) {
     star.kill();
     score++;
     star_effect.play();
 }
 
-function collisionFireHandler (lazer, asteroid) {
+function collisionFireHandler(lazer, asteroid) {
     asteroid.kill();
     lazer.kill();
     explosion.play();
     score += 3;
 }
 
-function collisionPlayer(player, asteroid){
+function collisionPlayer(player, asteroid) {
     player.x = 100;
     player.y = 300;
     asteroid.kill();
@@ -134,16 +136,16 @@ function collisionPlayer(player, asteroid){
 }
 
 
-function handleDead(){
+function handleDead() {
     $(document).find('.cientist-box').show();
     text_cientist('Você perdeu, tente novamente!');
-    asteroids.forEach(function(asteroid){
+    asteroids.forEach(function(asteroid) {
         asteroid.kill();
     });
-    stars.forEach(function(star){
+    stars.forEach(function(star) {
         star.kill();
     });
-    boost.forEach(function(bost){
+    boost.forEach(function(bost) {
         bost.kill();
     });
     life = 3;
@@ -152,24 +154,24 @@ function handleDead(){
     player.y = 300;
 }
 
-function restart(){
+function restart() {
     game.state.restart();
 }
 
-function handleBoost(player, boost){
+function handleBoost(player, boost) {
     boost.kill();
 
     velocity += 4;
 }
 
-function handleVoyager(player, voyager){
-  $(document).find('.cientist-box').show();
-  $(document).find('.controls').show();
-  text_cientist('Wow, você achou a voayger!');
-  player.kill();
+function handleVoyager(player, voyager) {
+    $(document).find('.cientist-box').show();
+    $(document).find('.controls').show();
+    text_cientist('Wow, você achou a voayger!');
+    player.kill();
 }
 
-function update () {
+function update() {
     removeCarl();
 
     game.physics.arcade.collide(player, stars, collisionStarHandler, processHandler, this);
@@ -178,32 +180,25 @@ function update () {
     game.physics.arcade.overlap(player, boost, handleBoost, null, this);
     game.physics.arcade.overlap(player, voyager, handleVoyager, null, this);
 
-    if(life == 0){
+    if (life == 0) {
         handleDead();
     }
 
-    if (cursors.left.isDown)
-    {
+    if (cursors.left.isDown) {
         player.x -= velocity;
         player.scale.x = -1;
-    }
-    else if (cursors.right.isDown)
-    {
+    } else if (cursors.right.isDown) {
         player.x += velocity;
         player.scale.x = 1;
     }
 
-    if (cursors.up.isDown)
-    {
+    if (cursors.up.isDown) {
         player.y -= velocity;
-    }
-    else if (cursors.down.isDown)
-    {
+    } else if (cursors.down.isDown) {
         player.y += velocity;
     }
 
-    if (fireButton.isDown)
-    {
+    if (fireButton.isDown) {
         fireBullet();
     }
 
@@ -211,18 +206,18 @@ function update () {
     asteroids.forEachAlive(updateAsteroids, this);
     prevCamX = game.camera.x;
 
-    if(velocity_text == false && velocity > 13){
+    if (velocity_text == false && velocity > 13) {
         $(document).find('.cientist-box').show();
         text_cientist('Wow, você está quase atingindo a velocidade da luz! Tome cuidado com os asteroides');
         velocity_text = true;
     }
 }
 
-function updateAsteroids(asteroid){
+function updateAsteroids(asteroid) {
 
 }
 
-function updateBullets (lazer) {
+function updateBullets(lazer) {
 
     // if (game.time.now > frameTime)
     // {
@@ -237,42 +232,33 @@ function updateBullets (lazer) {
     var camDelta = game.camera.x - prevCamX;
     lazer.x += camDelta;
 
-        if (lazer.scale.x === 1)
-        {
-            lazer.x += 16;
+    if (lazer.scale.x === 1) {
+        lazer.x += 16;
 
-            if (lazer.x > (game.camera.view.right))
-            {
-                lazer.kill();
-            }
+        if (lazer.x > (game.camera.view.right)) {
+            lazer.kill();
         }
-        else
-        {
-            lazer.x -= 16;
+    } else {
+        lazer.x -= 16;
 
-            if (lazer.x < (game.camera.view.left))
-            {
-                lazer.kill();
-            }
+        if (lazer.x < (game.camera.view.left)) {
+            lazer.kill();
         }
+    }
 
 }
 
-function fireBullet () {
+function fireBullet() {
 
-    if (game.time.now > bulletTime)
-    {
+    if (game.time.now > bulletTime) {
         //  Grab the first bullet we can from the pool
         lazer = lazers.getFirstDead(true, player.x + 32 * player.scale.x, player.y + 28, 'lazer');
 
         lazer.scale.x = player.scale.x;
 
-        if (lazer.scale.x === 1)
-        {
+        if (lazer.scale.x === 1) {
             // lazer.anchor.x = 1;
-        }
-        else
-        {
+        } else {
             // lazer.anchor.x = 0;
         }
 
@@ -286,15 +272,15 @@ function fireBullet () {
 }
 var timer_running = true;
 
-function removeCarl(){
-    if(timer_running && timer.duration < 100){
-      $(document).find('.cientist-box').hide();
-      timer.stop();
-      timer_running = false;
+function removeCarl() {
+    if (timer_running && timer.duration < 100) {
+        $(document).find('.cientist-box').hide();
+        timer.stop();
+        timer_running = false;
     }
 }
 
-function render(){
-  game.debug.text('Pontos: ' + score, 100, 32);
+function render() {
+    game.debug.text('Pontos: ' + score, 100, 32);
     game.debug.text('Vidas: ' + life, 300, 32);
 }

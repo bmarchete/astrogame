@@ -50,6 +50,73 @@ class ItemsSeeder extends Seeder
             'img_url'     => 'tripe',
         ],
 
+        [
+            'id'          => 5,
+            'category'    => 3,
+            'name'        => 'Módulo de comando',
+            'description' => '',
+            'price'       => 400,
+            'img_url'     => 'command_module',
+        ],
+
+        [
+            'id'          => 6,
+            'category'    => 3,
+            'name'        => 'Tanque de combustível',
+            'description' => '',
+            'price'       => 310,
+            'img_url'     => 'fuel_tank',
+        ],
+
+        [
+            'id'          => 7,
+            'category'    => 3,
+            'name'        => 'Motor da nave',
+            'description' => '',
+            'price'       => 500,
+            'img_url'     => 'engine',
+        ],
+
+        [
+            'id'          => 8,
+            'category'    => 3,
+            'name'        => 'Módulo anti rotação',
+            'description' => '',
+            'price'       => 300,
+            'img_url'     => 'anti_spin',
+        ],
+
+        [
+            'id'          => 9,
+            'category'    => 3,
+            'name'        => 'Paraquedas',
+            'description' => '',
+            'price'       => 50,
+            'img_url'     => 'parachute',
+        ],
+
+        [
+            'id'          => 10,
+            'category'    => 4,
+            'name'        => 'Livro de constelações v.1',
+            'description' => '',
+            'price'       => 500,
+            'img_url'     => 'book_1',
+        ],
+
+        [
+            'id'          => 11,
+            'category'    => 4,
+            'name'        => 'Livro de constelações v.2',
+            'description' => '',
+            'price'       => 600,
+            'img_url'     => 'book_2',
+        ],
+
+
+
+
+
     ];
 
     /**

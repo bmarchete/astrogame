@@ -72,10 +72,14 @@ class SetGameVars
         });
 
         $livros = Cache::rememberForever('livros', function(){
+            return Item::where('category', 4)->get();
+        });
+
+        $nave = Cache::rememberForever('nave', function(){
             return Item::where('category', 3)->get();
         });
 
-        return ['telescopios' => $telescopios, 'livros' => $livros, 'insignas' => []];
+        return ['telescopios' => $telescopios, 'livros' => $livros, 'nave' => $nave];
     }
 
     public function ranking(){
