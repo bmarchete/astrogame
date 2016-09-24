@@ -72,7 +72,7 @@ class QuestsSeeder extends Seeder
             'title' => 'A Arte da Observação',
             'type' => 2,
             'description' => 'Agora você esté pronto para começar a observar o céu! Vamos nessa!',
-            'objetivos' => 'Identifique as constelções corretamente',
+            'objetivos' => 'Observe o céu por alguns minutos',
             'xp_reward' => 2500,
             'money_reward' => 100,
             'min_level' => 1,
