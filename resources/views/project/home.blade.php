@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         <span class="bubble">{{ trans('project.home-text.text7') }}</span>
                     </div>
                     <div class="uk-width-medium-1-1 uk-container-center">
-                        <a href="{{ url('/blog/galileu')}}">
+                        <a href="{{ url('/blog/galileu-galilei')}}">
                           <img class="galileu-img uk-animation-hover uk-animation-shake" alt="Galileu Galilei avatar" src="{{ url('/img/char/galileu.png')}}">
                         </a>
                     </div>
