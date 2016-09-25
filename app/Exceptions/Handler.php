@@ -49,7 +49,11 @@ class Handler extends ExceptionHandler
         {
             return $this->renderHttpException($e);
         } else {
-            return parent::render($request, $e);
+            if(env('APP_ENV') == 'production'){
+              return view('errors.fatal');
+            } else {
+              return parent::render($request, $e);
+            }
         }
     }
 

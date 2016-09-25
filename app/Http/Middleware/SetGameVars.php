@@ -61,11 +61,14 @@ class SetGameVars
                        ->with('planetarium', $planet->planetarium)
                        ->with('ajax', $ajax);
             });
+        } else {
+          // guest user
+          view()->composer('game.general.general', function ($view) use ($ajax) {
+                $view->with('ajax', $ajax)
+                     ->with('music_volume', 50)
+                     ->with('effects_volume', 50);
+            });
         }
-
-        view()->composer('game.general.general', function ($view) use ($ajax) {
-              $view->with('ajax', $ajax);
-        });
 
         return $next($request);
     }
