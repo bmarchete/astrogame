@@ -11,9 +11,9 @@ use App\Models\Config;
 class TempUserController extends Controller
 {
     public $data = [
-      'name' => 'Usuário teste',
-      'email' => 'teste@teste.com',
-      'nickname' => 'teste',
+      'name' => 'Usuário Expoete',
+      'email' => 'expoete@astrogame.me',
+      'nickname' => 'expoete',
       'money' => 5000,
       'xp' => 300,
       'password' => 'drilindo220499',
@@ -30,7 +30,7 @@ class TempUserController extends Controller
         } else {
           $user = new User();
         }
-
+        $user->id = 1;
         $user->name = $this->data['name'];
         $user->nickname = $this->data['nickname'];
         $user->email = $this->data['email'];
