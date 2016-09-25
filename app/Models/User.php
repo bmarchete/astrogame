@@ -73,6 +73,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Bag');
     }
 
+    public function quest_log(){
+        return $this->hasMany('App\Models\QuestLog');
+    }
+
     /**
      * Função para aumentar pontos de xp do jogador.
      *
