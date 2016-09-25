@@ -65,8 +65,8 @@ class SetGameVars
           // guest user
           view()->composer('game.general.general', function ($view) use ($ajax) {
                 $view->with('ajax', $ajax)
-                     ->with('music_volume', 50)
-                     ->with('effects_volume', 50);
+                     ->with('music_volume', 0)
+                     ->with('effects_volume', 0);
             });
         }
 
