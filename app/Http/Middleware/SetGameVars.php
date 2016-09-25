@@ -24,6 +24,12 @@ class SetGameVars
      */
     public function handle($request, Closure $next)
     {
+        if($request->ajax()){
+            $ajax = true;
+        } else {
+            $ajax = false;
+        }
+
         // game vars
         if(auth()->check()){
             $planet = new Observatory(); // melhor isso daqui
@@ -32,12 +38,6 @@ class SetGameVars
             $insignas = $this->insignas();
             $shop = $this->shop_items();
             $ranking = $this->ranking();
-
-            if($request->ajax()){
-                $ajax = true;
-            } else {
-                $ajax = false;
-            }
 
             view()->composer('game.general.general', function ($view) use ($planet, $insignas, $shop, $ranking, $ajax) {
                   $view->with('user_name', auth()->user()->nickname)
@@ -62,6 +62,10 @@ class SetGameVars
                        ->with('ajax', $ajax);
             });
         }
+
+        view()->composer('game.general.general', function ($view) use ($ajax) {
+              $view->with('ajax', $ajax);
+        });
 
         return $next($request);
     }
