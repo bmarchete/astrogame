@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function () {
 		Route::post('/contato', 'ContactController@store');
 
 		// public profile
-		Route::get('/player/{nickname}', ['middleware'=> 'game', 'uses' => 'GameController@player'])->where('nickname', '[a-zA-Z0-9_.]+');
+		Route::get('/player/{nickname}', ['middleware'=> 'game', 'uses' => 'GameController@player']);
 		Route::get('/ranking', 'HomeController@ranking');
 
 		// blog
