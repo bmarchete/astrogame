@@ -40,6 +40,13 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('/blog/author/{author}', 'BlogController@author')->where('author', '[a-zA-z-]+');
 		Route::get('/blog/tag/{tag}', 'BlogController@tag')->where('tag', '[a-zA-z-]+');
 		Route::get('/blog/search', 'BlogController@search');
+
+		// promo
+		Route::get('/promo/reedem/{code}', 'PromoController@reedem');
+
+		// expoete
+		Route::get('/expoete/reset', 'TempUserController@create_or_reset');
+		Route::get('/expoete/login', 'TempUserController@login');
 	});
 
 	// website-game

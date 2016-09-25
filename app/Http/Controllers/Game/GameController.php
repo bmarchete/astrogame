@@ -12,6 +12,24 @@ use Share;
 class GameController extends Controller
 {
     public function index(){
+        $user_insignas = auth()->user()->insignas->map(function($insigna_log){
+          return ['key' => $insigna_log->insigna->key];
+        });
+
+        if(session()->has('promo') && session('promo') == 'expoete2016' && $user_insignas->contains('key', 'expoete') == false){
+          session()->put('notify',
+          [
+              ['text' => '<i class="uk-icon-exclamation"></i> Obrigado por ter visitado nosso stand!', 'status' => 'warning', 'timeout' => 5000],
+              ['text' => '<i class="uk-icon-user-plus"></i> Você ganhou uma nova insignas!', 'status' => 'success', 'timeout' => 5000],
+              ['text' => '<i class="uk-icon-arrow-circle-up"></i> Você ganhou 500 XP!', 'status' => 'success', 'timeout' => 5000],
+              ['text' => '<i class="uk-icon-money"></i> Você ganhou 300 astrocoins!', 'status' => 'success', 'timeout' => 5000],
+          ]);
+
+          auth()->user()->gain_insigna('expoete');
+          auth()->user()->gain_xp(500);
+          auth()->user()->gain_money(300);
+        }
+
         $completed = QuestLog::is_quest_completed(1, auth()->user());
         return view('game.welcome', ['completed' => $completed]);
     }
