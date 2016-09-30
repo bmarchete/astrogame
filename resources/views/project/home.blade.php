@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 <div class="uk-container uk-container-center">
     <div class="uk-grid" data-uk-grid="">
         <div class="uk-width-medium-1-2" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/zBx8e6eGfV4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="uk-responsive-width"></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7-weAkNMedA?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="uk-responsive-width"></iframe>
         </div>
         <div class="uk-width-medium-1-2 uk-margin-top">
             <h1>{{ trans('project.home-text.title4') }}</h1>
