@@ -26,8 +26,14 @@
               <li>Profº Alex</li>
               <li>Profº Vagner Braz</li>
               <li>Profª Érica</li>
-              <li>Profº José Vicente</li>
-              <li>Profª Conceição</li>
+              <li>Profº José Vicente Gonçalves</li>
+              <li>Profª Conceição Andare</li>
+              <li>Profª Lourdes Ferreira Arcuri</li>
+            </ul>
+            <p>Apoio</p>
+            <ul class="uk-list-space">
+              <li>Felipe Pereira Jorge</li>
+              <li>Guilherme Brandão</li>
             </ul>
             <hr class="uk-grid-divider">
             <h1>Referencias bibliográficas</h1>
