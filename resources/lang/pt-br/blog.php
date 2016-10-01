@@ -14,6 +14,7 @@ return [
 	'curiosity' => 'Curiosidades',
 	'development' => 'Desenvolvimento',
 	'events' => 'Eventos',
+  'social' => 'Social',
 
 
   'empty-title' => 'Nenhum post encontrado',

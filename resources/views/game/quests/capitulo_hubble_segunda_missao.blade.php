@@ -53,7 +53,7 @@ var questions = [{
 }, {
     question: "De acordo com a Lei de Hubble, se uma galáxia está se aproximando de nós, ela emite uma cor..",
     choices: ["Azul", "Roxa", "Vermelha", "Amarela"],
-    correctAnswer: 2
+    correctAnswer: 0
 }];
 </script>
 {!! Minify::javascript(['/js/game/quizz.js'])->withFullURL() !!}
