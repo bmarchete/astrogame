@@ -31,7 +31,7 @@ class BlogController extends Controller
         $wordpress = new WP_Query(
             [
               'posts_per_page' => 10,
-              'order' => 'DESC',
+              'order' => 'ASC',
               'orderby' => 'post_title',
             ]);
 
