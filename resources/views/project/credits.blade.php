@@ -23,7 +23,7 @@
               <li>Profª Maria Marli Milan Luqueta</li>
               <li>Profª Janaina Zonzini Justino Costa</li>
               <li>Profº Jefferson David Alves</li>
-              <li>Profº Alex</li>
+              <li>Profº Alexsandro Casteliani</li>
               <li>Profº Vagner Braz</li>
               <li>Profª Érica</li>
               <li>Profº José Vicente Gonçalves</li>

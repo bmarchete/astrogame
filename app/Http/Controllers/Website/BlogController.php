@@ -12,7 +12,7 @@ class BlogController extends Controller
     {
         if(class_exists('WP_Query')){
           $recentPosts = new WP_Query();
-          $recentPosts->query('showposts=10');
+          $recentPosts->query('showposts=8');
 
           view()->composer('project.general', function ($view) {
               $view->with('page', 'blog');
@@ -30,8 +30,8 @@ class BlogController extends Controller
     {
         $wordpress = new WP_Query(
             [
-              'posts_per_page' => 20,
-              'order' => 'ASC',
+              'posts_per_page' => 10,
+              'order' => 'DESC',
               'orderby' => 'post_title',
             ]);
 
