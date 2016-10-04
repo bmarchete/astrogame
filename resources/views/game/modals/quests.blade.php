@@ -32,7 +32,7 @@
                         </select>
                     </div>
                     <div class="uk-width-medium-2-3 uk-overflow-container">
-                        <div style="height:280px; overflow-y: scroll">
+                        <div>
                             <h3 class="quest-title">{{ $avaliable_quests->first()->title }}</h3>
                             <p class="quest-description">{!! $avaliable_quests->first()->description !!}</p>
                             <h5><strong>Objetivos</strong></h5>
@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="uk-width-medium-2-3 uk-overflow-container">
-                        <div style="height: 280px; overflow-y: scroll">
+                        <div>
                             <h3 class="quest-title">{{ $accepted_quests->first()->title }}</h3>
                             <p class="quest-description">{!! $accepted_quests->first()->description !!}</p>
                             <h5><strong>Objetivos</strong></h5>
