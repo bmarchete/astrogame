@@ -72,6 +72,7 @@
             <h1>Créditos</h1>
             <ul class="uk-list-space">
                 <li><a href="https://www.scirra.com/forum/kenney-s-free-assets-20-000-assets_t93518">https://www.scirra.com/forum/kenney-s-free-assets-20-000-assets_t93518</a></li>
+                <li><a href="http://www.freepik.com">Some arts designed by Freepik</a></li>
             </ul>
     		<hr class="uk-grid-divider">
         </div>
