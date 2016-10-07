@@ -48,7 +48,7 @@
     <div class="uk-width-1-1 uk-width-large-2-4">
         <div class="uk-thumbnail uk-overlay-hover ">
             <figure class="uk-overlay">
-                <img src="img/home-section4.jpg" alt="Equipe Desastronautas">
+                <img src="img/equipe_astrogame.jpg" alt="Equipe Astrogame">
                 <figcaption class="uk-text-center uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle"> {{ trans('project.team-figcaption')}} </figcatipon>
             </figure>
         </div>
