@@ -95,7 +95,7 @@ class SetGameVars
             return User::select(DB::raw('@row:=@row+1 as row'), 'id', 'name', 'level', 'xp', 'nickname')
                       ->whereHas('config', function ($q) {
                           $q->where('key', 'private')->where('content', false);
-                      })->limit(500)->orderBy('xp', 'DESC')->get();
+                      })->where('xp', '>', 0)->limit(500)->orderBy('xp', 'DESC')->get();
         });
     }
 
