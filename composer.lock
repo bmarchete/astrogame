@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "36f7e733c72125d15a119eb2728a4d3c",
-    "content-hash": "91e96b83a4bdf9538e6f180e6eecf1de",
+    "hash": "59232f64db1b8df0af9b45bfdb72b960",
+    "content-hash": "d0274f8f8dba1c0b5ab302d6570ca412",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -811,16 +811,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.2.1",
+            "version": "6.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427"
+                "reference": "ebf29dee597f02f09f4d5bbecc68230ea9b08f60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f808fba627f2c5b69e2501217bf31af349c1427",
-                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ebf29dee597f02f09f4d5bbecc68230ea9b08f60",
+                "reference": "ebf29dee597f02f09f4d5bbecc68230ea9b08f60",
                 "shasum": ""
             },
             "require": {
@@ -869,7 +869,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-07-15 17:22:37"
+            "time": "2016-10-08 15:01:37"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1044,28 +1044,28 @@
         },
         {
             "name": "jacobbennett/laravel-http2serverpush",
-            "version": "v1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JacobBennett/laravel-HTTP2ServerPush.git",
-                "reference": "31719be563d59fd869d7fd9995a6cecf878602bc"
+                "reference": "c4efac5a4750e4808a6a840f29542fe513a55e1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JacobBennett/laravel-HTTP2ServerPush/zipball/31719be563d59fd869d7fd9995a6cecf878602bc",
-                "reference": "31719be563d59fd869d7fd9995a6cecf878602bc",
+                "url": "https://api.github.com/repos/JacobBennett/laravel-HTTP2ServerPush/zipball/c4efac5a4750e4808a6a840f29542fe513a55e1a",
+                "reference": "c4efac5a4750e4808a6a840f29542fe513a55e1a",
                 "shasum": ""
             },
             "require": {
                 "illuminate/http": "^5.1",
                 "illuminate/support": "^5.1",
-                "php": "^5.5.0|^7.0",
+                "php": "^5.5|^7.0",
                 "symfony/css-selector": "^2.7|^3.0",
                 "symfony/dom-crawler": "^2.7|^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
-                "scrutinizer/ocular": "~1.1"
+                "phpunit/phpunit": "^4.0|^5.0",
+                "scrutinizer/ocular": "^1.1"
             },
             "type": "library",
             "autoload": {
@@ -1092,7 +1092,7 @@
                 "laravel-http2serverpush",
                 "serverpush"
             ],
-            "time": "2016-07-31 02:45:32"
+            "time": "2016-08-18 01:26:37"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1479,20 +1479,20 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.27",
+            "version": "1.0.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9"
+                "reference": "1b5c4a0031697f46e779a9d1b309c2e1b24daeab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/50e2045ed70a7e75a5e30bc3662904f3b67af8a9",
-                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1b5c4a0031697f46e779a9d1b309c2e1b24daeab",
+                "reference": "1b5c4a0031697f46e779a9d1b309c2e1b24daeab",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.5.9"
             },
             "conflict": {
                 "league/flysystem-sftp": "<1.0.6"
@@ -1558,7 +1558,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-08-10 08:55:11"
+            "time": "2016-10-19 20:38:46"
         },
         {
             "name": "league/oauth1-client",
@@ -2039,22 +2039,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2068,12 +2076,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "psy/psysh",
@@ -2191,16 +2200,16 @@
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
-            "version": "1.4.3",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SimpleSoftwareIO/simple-qrcode.git",
-                "reference": "ec5268adff5a632a463ebdd1ad2b8bf9f305bd1a"
+                "reference": "49266b1c6aa94bd5ddcdaba74f7b3e6956a82c01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/ec5268adff5a632a463ebdd1ad2b8bf9f305bd1a",
-                "reference": "ec5268adff5a632a463ebdd1ad2b8bf9f305bd1a",
+                "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/49266b1c6aa94bd5ddcdaba74f7b3e6956a82c01",
+                "reference": "49266b1c6aa94bd5ddcdaba74f7b3e6956a82c01",
                 "shasum": ""
             },
             "require": {
@@ -2238,7 +2247,7 @@
                 "qrcode",
                 "wrapper"
             ],
-            "time": "2016-04-24 02:00:22"
+            "time": "2016-10-18 00:27:02"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2521,7 +2530,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.1.4",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -3547,16 +3556,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd"
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "shasum": ""
             },
             "require": {
@@ -3588,7 +3597,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-10 09:48:41"
+            "time": "2016-09-30 07:12:33"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -4444,16 +4453,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.1.4",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d"
+                "reference": "368b9738d4033c8b93454cb0dbd45d305135a6d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f291ed25eb1435bddbe8a96caaef16469c2a092d",
-                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/368b9738d4033c8b93454cb0dbd45d305135a6d3",
+                "reference": "368b9738d4033c8b93454cb0dbd45d305135a6d3",
                 "shasum": ""
             },
             "require": {
@@ -4489,7 +4498,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-02 02:12:52"
+            "time": "2016-09-25 08:27:07"
         },
         {
             "name": "webmozart/assert",
@@ -4545,7 +4554,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "msurguy/honeypot": 20
+        "msurguy/honeypot": 20,
+        "jacobbennett/laravel-http2serverpush": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

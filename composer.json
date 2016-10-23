@@ -18,7 +18,7 @@
         "simplesoftwareio/simple-qrcode": "^1.4",
         "s-ichikawa/laravel-sendgrid-driver": "1.0.0",
         "doctrine/dbal": "^2.5",
-        "jacobbennett/laravel-http2serverpush": "^1.2"
+        "jacobbennett/laravel-http2serverpush": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
