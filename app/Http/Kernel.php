@@ -19,7 +19,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\Error404Fixer::class,
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \App\Http\Middleware\Language::class,
-
+        \JacobBennett\Http2ServerPush\Middleware\AddHttp2ServerPush::class,
     ];
 
     /**
