@@ -8,14 +8,15 @@ Trata-se de uma plataforma online que disponibiliza conteúdo de astronomia, de 
 O objetivo é suprir o déficit atual de informações acessíveis e de simples entendimento para estudantes e interessados em geral sobre astronomia.
 
 - https://astrogame.me - jogo online
-- https://astrogame.me/tcc-astrogame.pdf - TCC escrito
+- https://astrogame.me/tcc-astrogame-v2.pdf - TCC escrito
+- https://www.youtube.com/watch?v=ElKzB4hrLCw - Trailer do astrogame
 
 ## Equipe Desenvolvedora
-- Adriano Faboci
-- Brenda Conttessotto
-- Eduardo Augusto Ramos
-- Gabriel Ferreira
-- Laís Vitória
+- ADRIANO LUIS FABOCI
+- BRENDA CONTTESSOTTO
+- EDUARDO AUGUSTO RAMOS
+- GABRIEL FILIPE FERREIRA
+- LAÍS VITÓRIA GRANZIERA
 
 --
-O projeto utiliza como em seu back-end o framework Laravel na versão 5.2, no front-end Uikit, e também nos mini jogos através da engine em javascript Phaser.
+O projeto utiliza como em seu back-end o framework Laravel na versão 5.2, no front-end Uikit, e também nos mini jogos um engine HTML5 javascript chamada Phaser.
