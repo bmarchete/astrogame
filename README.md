@@ -7,11 +7,12 @@ Trata-se de uma plataforma online que disponibiliza conteúdo de astronomia, de 
 
 O objetivo é suprir o déficit atual de informações acessíveis e de simples entendimento para estudantes e interessados em geral sobre astronomia.
 
-- https://astrogame.me - jogo online
-- https://astrogame.me/tcc-astrogame-v2.pdf - TCC escrito
 - https://www.youtube.com/watch?v=ElKzB4hrLCw - Trailer do astrogame
 
 Tecnologias utilizadas: PHP 7, Laravel, UiKit, jQuery, HTML5, CSS3, Phaser, MySQL
+
+## Coordenador do Projeto
+- Joao Rubens Marchete
 
 ## Equipe Desenvolvedora
 - ADRIANO LUIS FABOCI
